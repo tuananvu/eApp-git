@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.rknowsys.eapp.hrm.service.JobCategoryLocalService" class="com.rknowsys.eapp.hrm.service.impl.JobCategoryLocalServiceImpl" />
+	<bean id="com.rknowsys.eapp.hrm.service.JobCategoryService" class="com.rknowsys.eapp.hrm.service.impl.JobCategoryServiceImpl" />
+	<bean id="com.rknowsys.eapp.hrm.service.persistence.JobCategoryPersistence" class="com.rknowsys.eapp.hrm.service.persistence.JobCategoryPersistenceImpl" parent="basePersistence" />
+	<bean id="com.rknowsys.eapp.hrm.service.JobTitlesLocalService" class="com.rknowsys.eapp.hrm.service.impl.JobTitlesLocalServiceImpl" />
+	<bean id="com.rknowsys.eapp.hrm.service.JobTitlesService" class="com.rknowsys.eapp.hrm.service.impl.JobTitlesServiceImpl" />
+	<bean id="com.rknowsys.eapp.hrm.service.persistence.JobTitlesPersistence" class="com.rknowsys.eapp.hrm.service.persistence.JobTitlesPersistenceImpl" parent="basePersistence" />
+</beans>

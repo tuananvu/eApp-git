@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.rknowsys.eapp.hrm.model.JobCategory">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="jobcategory" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.JobTitles">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="title" type="String" />
+		<field name="description" type="String" />
+		<field name="notes" type="String" />
+		<field name="specification" type="String" />
+	</model>
+</model-hints>
