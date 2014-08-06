@@ -4,6 +4,67 @@
 	<author>rknowsys</author>
 	<namespace>hrm</namespace>
 
+  <entity name="Locations" table="locations" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+        <!-- PK fields -->
+
+        <column name="id" type="long" primary="true" />
+
+        <!-- Audit fields -->
+
+        <column name="companyId" type="long" />
+        <column name="groupId" type="long" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+        <column name="userId" type="long" />
+        <!-- Other fields -->
+
+        <column name="name" type="String" />
+        <column name="country" type="String" />
+        <column name="state" type="String" />
+        <column name="city" type="String" />
+        <column name="address" type="String" />
+        <column name="postalcode" type="String" />
+        <column name="phone" type="String" />
+        <column name="fax" type="String" />
+        <column name="notes" type="String" />
+       
+        <!-- Order -->
+
+       <!-- Finder methods -->
+
+        <finder name="GroupId" return-type="Collection">
+                <finder-column name="groupId" />
+        </finder>
+        <finder name="Name" return-type="Collection" >
+                <finder-column name="name"></finder-column>
+        </finder>
+        <finder name="City" return-type="Collection" >
+                    <finder-column name="city"></finder-column>
+        </finder>
+        <finder name="Country" return-type="Collection" >
+                <finder-column name="country"></finder-column>
+        </finder>
+        <finder return-type="Collection" name="nameAndCity">
+                <finder-column name="name"></finder-column>
+                <finder-column name="city"></finder-column>
+         </finder>
+         <finder return-type="Collection" name="cityAndCountry">
+             <finder-column name="city"></finder-column>
+             <finder-column name="country"></finder-column>
+         </finder>
+          <finder return-type="Collection" name="nameAndCountry">
+             <finder-column name="name"></finder-column>
+             <finder-column name="country"></finder-column>
+         </finder>
+         <finder return-type="Collection" name="nameCityandCountry">
+                 <finder-column name="name"></finder-column>
+                 <finder-column name="city"></finder-column>
+                 <finder-column name="country"></finder-column>
+         </finder>
+    </entity>
+
+
 
 <entity name="SalaryComponent" table="salary_component" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
