@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN"
-"http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
-<service-builder package-path="com.rknowsys.eapp.hrm">
-    <author>Rknowsys</author>
-    <namespace>hrm</namespace>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.rknowsys.eapp">
+	<author>rknowsys</author>
+	<namespace>hrm</namespace>
 
-<!--    <entity name="JobTitles" local-service="true" table="job_titles" remote-service="true" data-source="hrmDataSource" session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
- --> 
 
- 
- <entity name="JobTitles" local-service="true" table="job_titles" remote-service="true">
+<entity name="SalaryComponent" table="salary_component" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+        <!-- PK fields -->
+
+        <column name="id" type="long" primary="true" />
+
+        <!-- Audit fields -->
+
+        <column name="companyId" type="long" />
+        <column name="groupId" type="long" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+        <column name="userId" type="long" />
+        <!-- Other fields -->
+
+        <column name="componentName" type="String" />
+        <column name="type" type="boolean" />
+        <column name="onlyCTC" type="boolean" />
+        <column name="valueType" type="String" />
+
+        <!-- Order -->
+
+        <!-- Finder methods -->
+
+        <finder name="GroupId" return-type="Collection">
+                <finder-column name="groupId" />
+        </finder>
+    </entity>
+    
+    
+	<entity name="JobTitles" table="job_titles" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
@@ -38,7 +64,9 @@
         </finder>
     </entity>
     
-<entity name="JobCategory" local-service="true" table="job_category" remote-service="true">
+    
+    
+<entity name="JobCategory" table="job_category" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
@@ -57,13 +85,12 @@
        
         <!-- Order -->
 
-       
-        <!-- Finder methods -->
+       <!-- Finder methods -->
 
         <finder name="GroupId" return-type="Collection">
                 <finder-column name="groupId" />
         </finder>
     </entity>
-
-  
+	
+	
 </service-builder>
