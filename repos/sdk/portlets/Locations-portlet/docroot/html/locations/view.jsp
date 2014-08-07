@@ -1,10 +1,10 @@
-<%@include file="/html/locationseapp/init.jsp" %>
+<%@include file="/html/locations/init.jsp" %>
 <portlet:renderURL var="addLocation">
-	<portlet:param name="mvcPath" value="/html/locationseapp/addLocation.jsp"/>
+	<portlet:param name="mvcPath" value="/html/locations/addLocation.jsp"/>
 </portlet:renderURL>
 <portlet:resourceURL var="deleteLocations"></portlet:resourceURL>
 <portlet:renderURL var="viewJSP">
-	<portlet:param name="mvcPath" value="/html/locationseapp/view.jsp"/>
+	<portlet:param name="mvcPath" value="/html/locations/view.jsp"/>
 </portlet:renderURL>
 <portlet:actionURL name="searchLocations" var="searchLocations"></portlet:actionURL>
 <div id="searchLocations">
@@ -88,13 +88,13 @@ rowChecker="<%=new RowChecker(renderResponse) %>" >
 		  pageContext.setAttribute("total", total);
 		%>
 		</liferay-ui:search-container-results>
-				<liferay-ui:search-container-row className="com.rknowsys.eapp.hrm.model.Locations" 
+				<liferay-ui:search-container-row className="com.rknowsys.eapp.model.Locations" 
  				keyProperty="id" modelVar="id" >
 						 <liferay-ui:search-container-column-text name="name" property="name" orderable="<%=true %>" orderableProperty="name"/>
 						 <liferay-ui:search-container-column-text name="city" property="city" orderable="<%=true %>" orderableProperty="city"/>
 						 <liferay-ui:search-container-column-text name="country" property="country" orderable="<%=true %>" orderableProperty="country"/>
 						 <liferay-ui:search-container-column-text name="phone" property="phone" orderable="<%=true %>" orderableProperty="phone"/>
-						 	 <liferay-ui:search-container-column-jsp path="/html/locationseapp/edit.jsp" />
+						 	 <liferay-ui:search-container-column-jsp path="/html/locations/edit.jsp" />
  				</liferay-ui:search-container-row>
 	 <liferay-ui:search-iterator searchContainer="<%=searchContainer %>" />
 </liferay-ui:search-container>

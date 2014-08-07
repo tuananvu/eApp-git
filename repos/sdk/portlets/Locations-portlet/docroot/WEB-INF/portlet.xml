@@ -4,7 +4,7 @@
 	<portlet>
 		<portlet-name>locations</portlet-name>
 		<display-name>Locations</display-name>
-		<portlet-class>com.test.Locations</portlet-class>
+		<portlet-class>com.test.LocationsHrm</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/html/locations/view.jsp</value>

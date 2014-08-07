@@ -1,7 +1,7 @@
 package com.test;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.rknowsys.eapp.hrm.model.Locations;
+import com.rknowsys.eapp.model.Locations;
 
 public class LocationsComparator extends OrderByComparator{
 	private static final long serialVersionUID = 1L;

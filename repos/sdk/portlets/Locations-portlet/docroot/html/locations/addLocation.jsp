@@ -1,4 +1,4 @@
-<%@include file="/html/locationseapp/init.jsp" %>
+<%@include file="/html/locations/init.jsp" %>
 <portlet:actionURL name="addLocations" var="addLocation"></portlet:actionURL>
 <aui:form action="<%=addLocation %>" method="post" >
 <aui:fieldset>

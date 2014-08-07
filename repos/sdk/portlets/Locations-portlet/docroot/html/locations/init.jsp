@@ -17,8 +17,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Collections" %>
 <%@ page import="com.test.CustomComparatorUtil" %>
-<%@ page import="com.rknowsys.eapp.hrm.model.Locations" %>
-<%@ page import="com.rknowsys.eapp.hrm.service.LocationsLocalServiceUtil" %>
+<%@ page import="com.rknowsys.eapp.model.Locations" %>
+<%@ page import="com.rknowsys.eapp.service.LocationsLocalServiceUtil" %>
 <portlet:defineObjects/>
 <theme:defineObjects/>
 

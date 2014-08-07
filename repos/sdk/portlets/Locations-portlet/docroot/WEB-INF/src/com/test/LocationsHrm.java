@@ -15,21 +15,19 @@ import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.rknowsys.eapp.hrm.model.Locations;
-import com.rknowsys.eapp.hrm.service.LocationsLocalServiceUtil;
+import com.rknowsys.eapp.service.LocationsLocalServiceUtil;
+import com.rknowsys.eapp.model.Locations;
 /**
  * Portlet implementation class LocationsEapp
 /**
  * Portlet implementation class Locations
  */
-public class Locations extends MVCPortlet {
+public class LocationsHrm extends MVCPortlet {
 
-	 */
-	public class LocationsEapp extends MVCPortlet {
+	 
 		public void addLocations(ActionRequest actionRequest,ActionResponse actionResponse)throws
 		PortletException,IOException, SystemException
 		{
-			System.out.println("Add locations method");
 			String name=ParamUtil.getString(actionRequest, "name");
 			String country=ParamUtil.getString(actionRequest, "country");
 			String state=ParamUtil.getString(actionRequest, "state");
@@ -109,7 +107,7 @@ public class Locations extends MVCPortlet {
 				 }
 				 catch(NumberFormatException e)
 				 {
-					 System.out.println("thnk u");
+				e.printStackTrace();	
 				 }
 			 }
 			
@@ -125,4 +123,3 @@ public class Locations extends MVCPortlet {
 
 	}
 
-}
