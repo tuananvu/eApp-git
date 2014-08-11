@@ -1,5 +1,5 @@
-<%@page import="com.rknowsys.eapp.hrm.model.JobCategory"%>
-<%@page import="com.rknowsys.eapp.hrm.model.JobTitles"%>
+<%@page import="com.rknowsys.eapp.model.JobCategory"%>
+<%@page import="com.rknowsys.eapp.model.JobTitles"%>
 <%@page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@page import="com.liferay.portal.kernel.dao.search.ResultRow"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -21,11 +21,8 @@
 JobCategory j = (JobCategory)rslt.getObject();
 
 String prk=String.valueOf(j.getPrimaryKey());
-
 %>
-
 <liferay-ui:icon-menu>
-
 <portlet:actionURL var="editjobcategory" name="editJobcategory">
 <portlet:param name="id" value="<%=prk %>"/>
 </portlet:actionURL>
@@ -35,8 +32,5 @@ String prk=String.valueOf(j.getPrimaryKey());
 					width="18px" height="18px" alt="loading..." 
 					src="<%=request.getContextPath() %>/images/pencil.jpg"></a> 
 </liferay-ui:icon-menu>
-
-
-
 </body>
 </html>

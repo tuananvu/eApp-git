@@ -9,8 +9,8 @@
 <%@page import="com.liferay.portlet.PortalPreferences"%>
 <%@page import="com.liferay.portlet.PortletPreferencesFactoryUtil"%>
 <%@page import="com.liferay.portal.kernel.dao.search.RowChecker"%>
-<%@page import="com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil"%>
-<%@page import="com.rknowsys.eapp.hrm.model.JobTitles"%>
+<%@page import="com.rknowsys.eapp.service.JobTitlesLocalServiceUtil"%>
+<%@page import="com.rknowsys.eapp.model.JobTitles"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>

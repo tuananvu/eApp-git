@@ -1,7 +1,7 @@
 package com.rknowsys.eapp;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.rknowsys.eapp.hrm.model.JobTitles;
+import com.rknowsys.eapp.model.JobTitles;
 
 public class JobnotesComparator extends OrderByComparator {
 	

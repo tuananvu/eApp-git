@@ -19,8 +19,8 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.rknowsys.eapp.hrm.model.JobTitles;
-import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
+import com.rknowsys.eapp.model.JobTitles;
+import com.rknowsys.eapp.service.JobTitlesLocalServiceUtil;
 
 public class JobTitleAction extends MVCPortlet {
 	

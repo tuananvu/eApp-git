@@ -1,7 +1,7 @@
 package com.rknowsys.eapp;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.rknowsys.eapp.hrm.model.JobCategory;
+import com.rknowsys.eapp.model.JobCategory;
 
 public class JobCategoryComparator extends OrderByComparator {
 	
