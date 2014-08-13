@@ -15,8 +15,8 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.rknowsys.eapp.model.JobCategory;
-import com.rknowsys.eapp.service.JobCategoryLocalServiceUtil;
+import com.rknowsys.eapp.hrm.model.JobCategory;
+import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
 
 public class JobCategoryAction extends MVCPortlet {
 

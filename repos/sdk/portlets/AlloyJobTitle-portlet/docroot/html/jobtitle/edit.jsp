@@ -1,4 +1,4 @@
-<%@page import="com.rknowsys.eapp.model.JobTitles"%>
+<%@page import="com.rknowsys.eapp.hrm.model.JobTitles"%>
 <%@page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@page import="com.liferay.portal.kernel.dao.search.ResultRow"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"

@@ -13,7 +13,7 @@
 <html class=" js no-touch boxshadow textshadow cssanimations cssgradients csstransforms csstransforms3d csstransitions generatedcontent" xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-<%--  <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/preview.css"> --%>
+ <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/preview.css">
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/screen_preview.css">
 <link rel="stylesheet" type="text/css"
@@ -68,7 +68,8 @@ em {
 		<div class="span12" id="button-set">
 
 
-				<input  onclick="" class="btn btn-primary" type="submit" id="submit" value="submit"> <input  class="btn btn-default" onclick="hideForm()" data-dismiss="modal"
+				<input  onclick="" class="btn btn-primary" type="submit" id="submit" value="submit"> 
+				<input  class="btn btn-default" onclick="hideForm()" data-dismiss="modal"
 					id="cancel" type="button" value="Cancel">
 			</div>
 			
