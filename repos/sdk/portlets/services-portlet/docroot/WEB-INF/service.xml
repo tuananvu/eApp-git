@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+
 <service-builder package-path="com.rknowsys.eapp.hrm">
 	<author>rknowsys</author>
 	<namespace>hrm</namespace>
 
-<entity name="Interview" table="interview" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+<entity name="Interview" table="interview" data-source="anotherDataSource" 
+local-service="true" remote-service="false" session-factory="anotherSessionFactory" 
+tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
@@ -292,7 +295,7 @@
 
        
         <column name="empId" type="long" />
-        <column name="id" type="long" entity="WorkShift" mapping-table="work_shift" />
+        <column name="shiftId" type="long" entity="WorkShift" mapping-table="work_shift" />
         <!-- Order -->
 
         <!-- Finder methods -->
