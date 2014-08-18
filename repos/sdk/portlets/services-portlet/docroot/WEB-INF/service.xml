@@ -510,6 +510,28 @@ tx-manager="anotherTransactionManager">
                 <finder-column name="groupId" />
         </finder>
     </entity>
-	
+
+    <entity name="EmploymentStatus" local-service="true"
+    	remote-service="false" table="employment_status"
+    	data-source="anotherDataSource"
+    	session-factory="anotherSessionFactory"
+    	tx-manager="anotherTransactionManager">
+
+    	<!-- PK fields -->
+
+    	<column name="id" type="long" primary="true"></column>
+
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+        <column name="employmentstatus" type="String"></column>
+    </entity>	
 	
 </service-builder>
