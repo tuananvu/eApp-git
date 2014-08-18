@@ -433,7 +433,7 @@ tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
-        <column name="id" type="long" primary="true" />
+        <column name="workShiftUserId" type="long" primary="true" />
 
         <!-- Audit fields -->
 
@@ -446,7 +446,7 @@ tx-manager="anotherTransactionManager">
 
        
         <column name="empId" type="long" />
-        <column name="shiftId" type="long" />
+        <column name="shiftId" type="Collection" entity="WorkShift" mapping-table="work_shift" />
         <!-- Order -->
 
         <!-- Finder methods -->
@@ -460,7 +460,7 @@ tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
-        <column name="id" type="long" primary="true" />
+        <column name="shiftId" type="long" primary="true" />
 
         <!-- Audit fields -->
 
@@ -488,7 +488,7 @@ tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
-        <column name="id" type="long" primary="true" />
+        <column name="payGradeId" type="long" primary="true" />
 
         <!-- Audit fields -->
 
@@ -511,11 +511,11 @@ tx-manager="anotherTransactionManager">
         </finder>
     </entity>
     
-    <entity name="PayGradeCurrency" table="pay_grade_currency" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+     <entity name="PayGradeCurrency" table="pay_grade_currency" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 
-        <column name="id" type="long" primary="true" />
+        <column name="payGradeCurrencyId" type="long" primary="true" />
 
         <!-- Audit fields -->
 
@@ -525,7 +525,7 @@ tx-manager="anotherTransactionManager">
         <column name="modifiedDate" type="Date" />
         <column name="userId" type="long" />
         <!-- Other fields -->
-		<column name="paygradeId" type="long"  />
+		<column name="payGradeId" type="Collection" entity="PayGrade" mapping-table="pay_grade" />
         <column name="currency" type="String" />
         <column name="minSalary" type="long" />
         <column name="maxSalary" type="long" />
