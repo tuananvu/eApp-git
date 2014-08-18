@@ -346,6 +346,9 @@
         <!-- Other fields -->
 
         <column name="paygradeName" type="String" />
+        <column name="currency" type="String" />
+        <column name="minSalary" type="long" />
+        <column name="maxSalary" type="long" />
         
         <!-- Order -->
 
