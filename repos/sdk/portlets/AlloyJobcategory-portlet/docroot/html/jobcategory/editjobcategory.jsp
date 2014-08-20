@@ -94,9 +94,7 @@ AUI().use(
     node.on(
       'click',
       function() {
-      	 A.one('#editjobadddelete').show();
-         A.	one('#editJobCategoryForm').hide();
-         A.one("#editjobcategory").set("value","");
+      	 window.location='<%=listview%>';
       	
           
       }
@@ -110,7 +108,7 @@ AUI().use(
 
 </head>
 <body>
-<jsp:useBean id="editjobcategory" type="com.rknowsys.eapp.model.JobCategory" scope="request" />
+<jsp:useBean id="editjobcategory" type="com.rknowsys.eapp.hrm.model.JobCategory" scope="request" />
 <div id="editjobadddelete" class="span12">
 		<a href="#" id="add">Add</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"
 			id="delete">Delete</a>

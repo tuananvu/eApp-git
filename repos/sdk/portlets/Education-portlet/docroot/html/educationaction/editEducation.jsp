@@ -89,10 +89,8 @@ AUI().use(
     node.on(
       'click',
       function() {
-      	 A.one('#editEducationAddDelete').show();
-         A.	one('#editEducationForm').hide();
-         A.one("#editEducation").set("value","");
-      	
+      
+      	 window.location='<%=listview%>';      	
           
       }
     );																																

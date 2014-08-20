@@ -89,10 +89,7 @@ AUI().use(
     node.on(
       'click',
       function() {
-      	 A.one('#editLanguageAddDelete').show();
-         A.	one('#editLanguageForm').hide();
-         A.one("#editLanguage").set("value","");
-      	
+      	 window.location='<%=listview%>';
           
       }
     );																																

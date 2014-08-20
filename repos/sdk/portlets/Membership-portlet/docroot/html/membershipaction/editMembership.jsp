@@ -89,10 +89,7 @@ AUI().use(
     node.on(
       'click',
       function() {
-      	 A.one('#editMembershipAddDelete').show();
-         A.	one('#editMembershipForm').hide();
-         A.one("#editMembership").set("value","");
-      	
+      	  window.location='<%=listview%>';      	
           
       }
     );																																

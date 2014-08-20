@@ -97,9 +97,7 @@ AUI().use(
     node.on(
       'click',
       function() {
-      	 A.one('#editjobadddelete').show();
-         A.	one('#editEmploymentStatusForm').hide();
-         A.one("#editemploymentstatus").set("value","");
+        window.location='<%=listview%>';
       	
           
       }

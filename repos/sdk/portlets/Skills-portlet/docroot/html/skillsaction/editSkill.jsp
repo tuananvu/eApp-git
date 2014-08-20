@@ -89,9 +89,8 @@ AUI().use(
     node.on(
       'click',
       function() {
-      	 A.one('#editSkillAddDelete').show();
-         A.	one('#editSkillForm').hide();
-         A.one("#editSkill").set("value","");
+      
+      	  window.location='<%=listview%>';
       	
           
       }
