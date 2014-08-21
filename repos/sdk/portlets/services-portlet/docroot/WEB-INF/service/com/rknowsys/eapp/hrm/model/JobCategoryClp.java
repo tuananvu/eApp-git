@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  */
 public class JobCategoryClp extends BaseModelImpl<JobCategory>
 	implements JobCategory {

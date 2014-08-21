@@ -19,7 +19,7 @@ import com.liferay.portal.model.PersistedModel;
 /**
  * The extended model interface for the JobCategory service. Represents a row in the &quot;job_category&quot; database table, with each column mapped to a property of this class.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryModel
  * @see com.rknowsys.eapp.hrm.model.impl.JobCategoryImpl
  * @see com.rknowsys.eapp.hrm.model.impl.JobCategoryModelImpl

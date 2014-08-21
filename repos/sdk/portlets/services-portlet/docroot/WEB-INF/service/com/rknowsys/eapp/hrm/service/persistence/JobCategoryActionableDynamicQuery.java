@@ -21,7 +21,7 @@ import com.rknowsys.eapp.hrm.model.JobCategory;
 import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public abstract class JobCategoryActionableDynamicQuery

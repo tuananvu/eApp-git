@@ -19,7 +19,7 @@ import com.liferay.portal.model.PersistedModel;
 /**
  * The extended model interface for the JobTitles service. Represents a row in the &quot;job_titles&quot; database table, with each column mapped to a property of this class.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobTitlesModel
  * @see com.rknowsys.eapp.hrm.model.impl.JobTitlesImpl
  * @see com.rknowsys.eapp.hrm.model.impl.JobTitlesModelImpl

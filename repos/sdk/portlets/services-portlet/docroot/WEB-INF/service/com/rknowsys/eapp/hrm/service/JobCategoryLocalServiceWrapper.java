@@ -19,7 +19,7 @@ import com.liferay.portal.service.ServiceWrapper;
 /**
  * Provides a wrapper for {@link JobCategoryLocalService}.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryLocalService
  * @generated
  */

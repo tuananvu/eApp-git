@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.service;
 import com.liferay.portal.service.InvokableLocalService;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public class JobCategoryLocalServiceClp implements JobCategoryLocalService {

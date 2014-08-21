@@ -1,6 +1,55 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="com.rknowsys.eapp.hrm.model.DocCategory">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="docName" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Document">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="docTopic" type="String" />
+		<field name="docCategory" type="String" />
+		<field name="description" type="String" />
+		<field name="publishTo" type="String" />
+		<field name="publishDate" type="Date" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Education">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="eduLevel" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.EmploymentStatus">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="employmentstatus" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Interview">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="name" type="String" />
+	</model>
 	<model name="com.rknowsys.eapp.hrm.model.JobCategory">
 		<field name="id" type="long" />
 		<field name="companyId" type="long" />
@@ -21,5 +70,134 @@
 		<field name="description" type="String" />
 		<field name="notes" type="String" />
 		<field name="specification" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Language">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="languageName" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.License">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="licenseName" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Locations">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="name" type="String" />
+		<field name="country" type="String" />
+		<field name="state" type="String" />
+		<field name="city" type="String" />
+		<field name="address" type="String" />
+		<field name="postalcode" type="String" />
+		<field name="phone" type="String" />
+		<field name="fax" type="String" />
+		<field name="notes" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Membership">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="membershipName" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Nationality">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="nationalityName" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.News">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="topic" type="String" />
+		<field name="description" type="String" />
+		<field name="publishTo" type="String" />
+		<field name="publishDate" type="Date" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.PayGrade">
+		<field name="payGradeId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="paygradeName" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.PayGradeCurrency">
+		<field name="payGradeCurrencyId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="payGradeId" type="long" />
+		<field name="currency" type="String" />
+		<field name="minSalary" type="long" />
+		<field name="maxSalary" type="long" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.SalaryComponent">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="componentName" type="String" />
+		<field name="type" type="boolean" />
+		<field name="onlyCTC" type="boolean" />
+		<field name="valueType" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Skill">
+		<field name="id" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="skillName" type="String" />
+		<field name="description" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.WorkShift">
+		<field name="shiftId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="shiftName" type="String" />
+		<field name="fromWorkHrs" type="long" />
+		<field name="toWorkHrs" type="long" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.WorkShiftUser">
+		<field name="workShiftUserId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="empId" type="long" />
+		<field name="shiftId" type="long" />
 	</model>
 </model-hints>

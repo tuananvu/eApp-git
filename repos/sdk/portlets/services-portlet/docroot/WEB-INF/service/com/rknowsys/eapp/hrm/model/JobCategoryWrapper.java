@@ -26,7 +26,7 @@ import java.util.Map;
  * This class is a wrapper for {@link JobCategory}.
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategory
  * @generated
  */

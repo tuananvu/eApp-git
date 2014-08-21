@@ -30,7 +30,7 @@ import java.util.Date;
 /**
  * The cache model class for representing JobTitles in entity cache.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobTitles
  * @generated
  */

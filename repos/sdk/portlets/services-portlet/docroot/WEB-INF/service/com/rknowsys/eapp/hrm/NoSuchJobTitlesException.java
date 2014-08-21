@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm;
 import com.liferay.portal.NoSuchModelException;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  */
 public class NoSuchJobTitlesException extends NoSuchModelException {
 

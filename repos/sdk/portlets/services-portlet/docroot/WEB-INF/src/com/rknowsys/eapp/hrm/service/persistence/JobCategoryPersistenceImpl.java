@@ -58,7 +58,7 @@ import java.util.Set;
  * Caching information and settings can be found in <code>portal.properties</code>
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryPersistence
  * @see JobCategoryUtil
  * @generated

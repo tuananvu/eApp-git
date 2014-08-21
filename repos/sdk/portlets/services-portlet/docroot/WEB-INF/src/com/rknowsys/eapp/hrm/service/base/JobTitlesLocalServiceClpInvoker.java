@@ -19,7 +19,7 @@ import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
 import java.util.Arrays;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public class JobTitlesLocalServiceClpInvoker {
@@ -106,13 +106,13 @@ public class JobTitlesLocalServiceClpInvoker {
 				"com.rknowsys.eapp.hrm.model.JobTitles"
 			};
 
-		_methodName40 = "getBeanIdentifier";
+		_methodName104 = "getBeanIdentifier";
 
-		_methodParameterTypes40 = new String[] {  };
+		_methodParameterTypes104 = new String[] {  };
 
-		_methodName41 = "setBeanIdentifier";
+		_methodName105 = "setBeanIdentifier";
 
-		_methodParameterTypes41 = new String[] { "java.lang.String" };
+		_methodParameterTypes105 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -204,13 +204,13 @@ public class JobTitlesLocalServiceClpInvoker {
 			return JobTitlesLocalServiceUtil.updateJobTitles((com.rknowsys.eapp.hrm.model.JobTitles)arguments[0]);
 		}
 
-		if (_methodName40.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
+		if (_methodName104.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes104, parameterTypes)) {
 			return JobTitlesLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName41.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
+		if (_methodName105.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes105, parameterTypes)) {
 			JobTitlesLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -251,8 +251,8 @@ public class JobTitlesLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName40;
-	private String[] _methodParameterTypes40;
-	private String _methodName41;
-	private String[] _methodParameterTypes41;
+	private String _methodName104;
+	private String[] _methodParameterTypes104;
+	private String _methodName105;
+	private String[] _methodParameterTypes105;
 }

@@ -18,13 +18,28 @@ import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 
 import com.rknowsys.eapp.hrm.service.ClpSerializer;
+import com.rknowsys.eapp.hrm.service.DocCategoryLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.DocumentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EducationLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmploymentStatusLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.InterviewLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
-import com.rknowsys.eapp.hrm.service.JobCategoryServiceUtil;
 import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
-import com.rknowsys.eapp.hrm.service.JobTitlesServiceUtil;
+import com.rknowsys.eapp.hrm.service.LanguageLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.LicenseLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.LocationsLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.MembershipLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.NationalityLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.NewsLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.PayGradeLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.SkillLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.WorkShiftLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.WorkShiftUserLocalServiceUtil;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  */
 public class ClpMessageListener extends BaseMessageListener {
 	public static String getServletContextName() {
@@ -38,12 +53,43 @@ public class ClpMessageListener extends BaseMessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
+			DocCategoryLocalServiceUtil.clearService();
+
+			DocumentLocalServiceUtil.clearService();
+
+			EducationLocalServiceUtil.clearService();
+
+			EmploymentStatusLocalServiceUtil.clearService();
+
+			InterviewLocalServiceUtil.clearService();
+
 			JobCategoryLocalServiceUtil.clearService();
 
-			JobCategoryServiceUtil.clearService();
 			JobTitlesLocalServiceUtil.clearService();
 
-			JobTitlesServiceUtil.clearService();
+			LanguageLocalServiceUtil.clearService();
+
+			LicenseLocalServiceUtil.clearService();
+
+			LocationsLocalServiceUtil.clearService();
+
+			MembershipLocalServiceUtil.clearService();
+
+			NationalityLocalServiceUtil.clearService();
+
+			NewsLocalServiceUtil.clearService();
+
+			PayGradeLocalServiceUtil.clearService();
+
+			PayGradeCurrencyLocalServiceUtil.clearService();
+
+			SalaryComponentLocalServiceUtil.clearService();
+
+			SkillLocalServiceUtil.clearService();
+
+			WorkShiftLocalServiceUtil.clearService();
+
+			WorkShiftUserLocalServiceUtil.clearService();
 		}
 	}
 }

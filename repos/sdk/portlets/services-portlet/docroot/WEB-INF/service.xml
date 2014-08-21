@@ -446,7 +446,7 @@ tx-manager="anotherTransactionManager">
 
        
         <column name="empId" type="long" />
-        <column name="shiftId" type="Collection" entity="WorkShift" mapping-table="work_shift" />
+        <column name="shiftId" type="long" />
         <!-- Order -->
 
         <!-- Finder methods -->
@@ -525,7 +525,7 @@ tx-manager="anotherTransactionManager">
         <column name="modifiedDate" type="Date" />
         <column name="userId" type="long" />
         <!-- Other fields -->
-		<column name="payGradeId" type="Collection" entity="PayGrade" mapping-table="pay_grade" />
+		<column name="payGradeId" type="long" />
         <column name="currency" type="String" />
         <column name="minSalary" type="long" />
         <column name="maxSalary" type="long" />

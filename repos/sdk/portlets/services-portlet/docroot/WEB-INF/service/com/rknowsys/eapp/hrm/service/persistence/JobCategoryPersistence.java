@@ -25,7 +25,7 @@ import com.rknowsys.eapp.hrm.model.JobCategory;
  * Caching information and settings can be found in <code>portal.properties</code>
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryPersistenceImpl
  * @see JobCategoryUtil
  * @generated

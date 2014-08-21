@@ -29,7 +29,7 @@ import com.liferay.portal.service.PersistedModelLocalService;
  * credentials because this service can only be accessed from within the same
  * VM.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobTitlesLocalServiceUtil
  * @see com.rknowsys.eapp.hrm.service.base.JobTitlesLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.impl.JobTitlesLocalServiceImpl

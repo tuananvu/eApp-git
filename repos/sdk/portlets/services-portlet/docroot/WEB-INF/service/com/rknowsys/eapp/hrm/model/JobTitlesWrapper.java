@@ -26,7 +26,7 @@ import java.util.Map;
  * This class is a wrapper for {@link JobTitles}.
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobTitles
  * @generated
  */
@@ -432,7 +432,7 @@ public class JobTitlesWrapper implements JobTitles, ModelWrapper<JobTitles> {
 	}
 
 	@Override
-	public int compareTo(JobTitles jobTitles) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.JobTitles jobTitles) {
 		return _jobTitles.compareTo(jobTitles);
 	}
 
@@ -442,17 +442,17 @@ public class JobTitlesWrapper implements JobTitles, ModelWrapper<JobTitles> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<JobTitles> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.JobTitles> toCacheModel() {
 		return _jobTitles.toCacheModel();
 	}
 
 	@Override
-	public JobTitles toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.JobTitles toEscapedModel() {
 		return new JobTitlesWrapper(_jobTitles.toEscapedModel());
 	}
 
 	@Override
-	public JobTitles toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.JobTitles toUnescapedModel() {
 		return new JobTitlesWrapper(_jobTitles.toUnescapedModel());
 	}
 

@@ -21,7 +21,7 @@ package com.rknowsys.eapp.hrm.model.impl;
  * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.JobTitles} interface.
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  */
 public class JobTitlesImpl extends JobTitlesBaseImpl {
 	/*

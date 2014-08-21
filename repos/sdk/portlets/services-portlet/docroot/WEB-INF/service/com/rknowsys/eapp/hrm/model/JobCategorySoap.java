@@ -21,10 +21,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * This class is used by SOAP remote services, specifically {@link com.rknowsys.eapp.hrm.service.http.JobCategoryServiceSoap}.
+ * This class is used by SOAP remote services.
  *
- * @author Rknowsys
- * @see com.rknowsys.eapp.hrm.service.http.JobCategoryServiceSoap
+ * @author rknowsys
  * @generated
  */
 public class JobCategorySoap implements Serializable {

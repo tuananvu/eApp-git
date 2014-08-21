@@ -25,7 +25,7 @@ import com.rknowsys.eapp.hrm.model.JobTitles;
  * Caching information and settings can be found in <code>portal.properties</code>
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobTitlesPersistenceImpl
  * @see JobTitlesUtil
  * @generated

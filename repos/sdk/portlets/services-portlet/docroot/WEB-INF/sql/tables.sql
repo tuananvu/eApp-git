@@ -1,3 +1,9 @@
+create table hrm_work_shift (
+	shiftId LONG not null,
+	workShiftUserId LONG not null,
+	primary key (shiftId, workShiftUserId)
+);
+
 create table job_category (
 	id_ LONG not null primary key,
 	companyId LONG,

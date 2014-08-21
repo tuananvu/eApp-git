@@ -21,7 +21,7 @@ import com.rknowsys.eapp.hrm.model.JobTitles;
 import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public abstract class JobTitlesActionableDynamicQuery
