@@ -1,5 +1,5 @@
 
-<%@ include file="/html/membershipaction/init.jsp" %>
+<%@ include file="/html/membership/init.jsp" %>
 
 <%ResultRow rslt=(ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 

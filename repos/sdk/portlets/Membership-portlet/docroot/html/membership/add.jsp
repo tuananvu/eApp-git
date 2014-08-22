@@ -1,10 +1,10 @@
-<%@ include file="/html/membershipaction/init.jsp"%>
+<%@ include file="/html/membership/init.jsp"%>
 
 <portlet:actionURL var="saveMemberships" name="saveMembership">
 </portlet:actionURL>
 <portlet:resourceURL var="deleteMemberships" id="deleteMembership"/>
 <portlet:renderURL var="listview">
-	<portlet:param name="mvcPath" value="/html/membershipaction/addMembership.jsp" />
+	<portlet:param name="mvcPath" value="/html/membership/add.jsp" />
 </portlet:renderURL>
 <style type="text/css">
 .table-first-header {
@@ -130,7 +130,7 @@ AUI().use(
 <%
 
 PortletURL iteratorURL = renderResponse.createRenderURL();
-iteratorURL.setParameter("mvcPath", "/html/membershipaction/addMembership.jsp");
+iteratorURL.setParameter("mvcPath", "/html/membership/add.jsp");
 RowChecker rowChecker = new RowChecker(renderResponse);
 
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
@@ -183,7 +183,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 			orderableProperty="membershipName" />
 	
 		<liferay-ui:search-container-column-jsp name="Edit"
-			path="/html/membershipaction/edit.jsp" />
+			path="/html/membership/editClick.jsp" />
 
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator />

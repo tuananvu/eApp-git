@@ -9,7 +9,7 @@
 		</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/membershipaction/addMembership.jsp</value>
+			<value>/html/membership/add.jsp</value>
 		</init-param>
 		<init-param>
             <name>add-process-action-success-action</name>
