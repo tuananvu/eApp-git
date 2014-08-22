@@ -144,7 +144,7 @@ System.out.println("deleting thes licenses");
 
 		actionRequest.setAttribute("editLicense", licenses);
 		actionResponse.setRenderParameter("jspPage",
-				"/html/licensesaction/editLicense.jsp");
+				"/html/license/edit.jsp");
 	}
 
  

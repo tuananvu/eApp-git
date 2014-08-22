@@ -1,10 +1,10 @@
-<%@ include file="/html/licensesaction/init.jsp"%>
+<%@ include file="/html/license/init.jsp"%>
 
 <portlet:actionURL var="saveLicenses" name="saveLicense">
 </portlet:actionURL>
 <portlet:resourceURL var="deleteLicenses" id="deleteLicense"/>
 <portlet:renderURL var="listview">
-	<portlet:param name="mvcPath" value="/html/licensesaction/addLicense.jsp" />
+	<portlet:param name="mvcPath" value="/html/license/add.jsp" />
 </portlet:renderURL>
 <style type="text/css">
 .table-first-header {
@@ -131,7 +131,7 @@ AUI().use(
 <%
 
 PortletURL iteratorURL = renderResponse.createRenderURL();
-iteratorURL.setParameter("mvcPath", "/html/licensesaction/addLicense.jsp");
+iteratorURL.setParameter("mvcPath", "/html/license/add.jsp");
 RowChecker rowChecker = new RowChecker(renderResponse);
 
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
@@ -183,7 +183,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 			name="name" property="licenseName"
 			orderableProperty="licenseName" />
 		<liferay-ui:search-container-column-jsp name="Edit"
-			path="/html/licensesaction/edit.jsp" />
+			path="/html/license/editClick.jsp" />
 
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator />
