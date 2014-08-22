@@ -1,10 +1,10 @@
-<%@ include file="/html/skillsaction/init.jsp"%>
+<%@ include file="/html/skill/init.jsp"%>
 
 <portlet:actionURL var="saveSkills" name="saveSkill">
 </portlet:actionURL>
 <portlet:resourceURL var="deleteSkills" id="deleteSkill"/>
 <portlet:renderURL var="listview">
-	<portlet:param name="mvcPath" value="/html/skillsaction/addSkill.jsp" />
+	<portlet:param name="mvcPath" value="/html/skill/add.jsp" />
 </portlet:renderURL>
 <style type="text/css">
 .table-first-header {
@@ -139,7 +139,7 @@ AUI().use(
 <%
 
 PortletURL iteratorURL = renderResponse.createRenderURL();
-iteratorURL.setParameter("mvcPath", "/html/skillsaction/addSkill.jsp");
+iteratorURL.setParameter("mvcPath", "/html/skill/add.jsp");
 RowChecker rowChecker = new RowChecker(renderResponse);
 
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
@@ -194,7 +194,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 			name="description" property="description"
 			orderableProperty="description" />
 		<liferay-ui:search-container-column-jsp name="Edit"
-			path="/html/skillsaction/edit.jsp" />
+			path="/html/skill/editClick.jsp" />
 
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator />

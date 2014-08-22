@@ -1,5 +1,5 @@
 
-<%@ include file="/html/skillsaction/init.jsp" %>
+<%@ include file="/html/skill/init.jsp" %>
 
 <%ResultRow rslt=(ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 

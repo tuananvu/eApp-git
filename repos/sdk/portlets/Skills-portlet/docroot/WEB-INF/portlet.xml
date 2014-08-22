@@ -3,11 +3,11 @@
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
 	<portlet>
 		<portlet-name>skills-action</portlet-name>
-		<display-name>Skills</display-name>
+		<display-name>Skill</display-name>
 		<portlet-class>com.rknowsys.eapp.SkillsAction</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/skillsaction/addSkill.jsp</value>
+			<value>/html/skill/add.jsp</value>
 		</init-param>
 		<init-param>
             <name>add-process-action-success-action</name>
@@ -20,8 +20,8 @@
 		</supports>
 		<resource-bundle>content.Language</resource-bundle>
 		<portlet-info>
-			<title>Skills</title>
-			<short-title>Skills</short-title>
+			<title>Skill</title>
+			<short-title>Skill</short-title>
 			<keywords></keywords>
 		</portlet-info>
 		<security-role-ref>
