@@ -1,9 +1,9 @@
-<%@ include file="/html/languageaction/init.jsp" %>
+<%@ include file="/html/language/init.jsp" %>
 <portlet:actionURL var="updateLanguages" name="updateLanguage">
 </portlet:actionURL>
 <portlet:resourceURL var="deleteLanguages" id="deleteLanguage"/>
 <portlet:renderURL var="listview">
-	<portlet:param name="mvcPath" value="/html/languageaction/addLanguage.jsp" />
+	<portlet:param name="mvcPath" value="/html/language/add.jsp" />
 </portlet:renderURL>
 <style type="text/css">	
 .table-first-header{
@@ -125,7 +125,7 @@ AUI().use(
 </body>
 <%
 PortletURL iteratorURL = renderResponse.createRenderURL();
-iteratorURL.setParameter("mvcPath", "/html/languageaction/editLanguage.jsp");
+iteratorURL.setParameter("mvcPath", "/html/language/edit.jsp");
 RowChecker rowChecker = new RowChecker(renderResponse);
 
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
@@ -163,7 +163,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 	<liferay-ui:search-container-row className="Language" keyProperty="id" modelVar="id"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="languageName" orderableProperty="languageName"/>
 		
-		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/languageaction/edit.jsp"/>
+		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/language/editClick.jsp"/>
 		 
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator/>

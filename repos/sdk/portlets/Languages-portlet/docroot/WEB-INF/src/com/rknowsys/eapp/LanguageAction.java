@@ -144,7 +144,7 @@ public class LanguageAction extends MVCPortlet {
 
 			actionRequest.setAttribute("editLanguage", languages);
 			actionResponse.setRenderParameter("jspPage",
-					"/html/languageaction/editLanguage.jsp");
+					"/html/language/edit.jsp");
 		}
 
 	 
