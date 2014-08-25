@@ -19,19 +19,19 @@ $dockbarOpenGradientStart: #0EA6F9;
 /* ---------- common styles ---------- */
 
 .mar-right {
-	margin-right:15px !impartant;
+	margin-right:15px !important;
 }
 .mar-left {
-	margin-right:15px !impartant;
+	margin-right:15px !important;
 }
 .no-mr-bottom {
-	margin-bottom:0 !impartant;
+	margin-bottom:0 !important;
 }
 .no-mr-top {
-	margin-top:0 !impartant;
+	margin-top:0 !important;
 }
 .no-margin {
-	margin:0 !impartant;
+	margin:0 !important;
 }
 .text-left {
 	text-align:left;
