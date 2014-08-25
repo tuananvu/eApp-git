@@ -7,7 +7,7 @@
 		<portlet-class>com.rknowsys.eapp.InterviewAction</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/interview/addinterview.jsp</value>
+			<value>/html/Interview/add.jsp</value>
 		</init-param>
 		<init-param>
             <name>add-process-action-success-action</name>

@@ -1,4 +1,4 @@
-<%@ include file="/html/interview/init.jsp"%>
+<%@ include file="/html/Interview/init.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +8,7 @@
 </portlet:actionURL>
 <portlet:resourceURL var="deleteinterview" id="deleteInterview"/>
 <portlet:renderURL var="listview">
-	<portlet:param name="mvcPath" value="/html/interview/addinterview.jsp" />
+	<portlet:param name="mvcPath" value="/html/interview/add.jsp" />
 </portlet:renderURL>
 <style type="text/css">	
 .table-first-header{
@@ -30,7 +30,7 @@ AUI().use(
       'click',
       function() {
      var idArray = [];
-      A.all('input[type=checkbox]:checked').each(function(object) {
+      A.all('input[name=<portlet:namespace/>rowIds]:checked').each(function(object) {
       idArray.push(object.get("value"));
     
         });
@@ -117,11 +117,21 @@ AUI().use(
 
 </head>
 <body>
-<jsp:useBean id="editinterview" type="com.rknowsys.eapp.model.Interview" scope="request" />
-<div id="editinterviewadddelete" class="span12">
-		<a href="#" id="add">Add</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"
-			id="delete">Delete</a>
+<%
+Interview editinterview = (Interview) portletSession.getAttribute("editinterview");
+
+%>
+
+	<div class="row-fluid">
+	<div id="editinterviewadddelete" class="span12">
+		<div class="pull-right">
+		<button id="add" class="btn btn-success" type="button"><i class="icon-plus"></i> Add </button>
+		<button id="delete" class="btn btn-danger" type="button"><i class="icon-trash"></i> Delete </button> 
+		</div>
 	</div>
+	</div>
+	
+	
 	<div id="editInterviewForm">
   <aui:form name="myForm" action="<%=saveinterview.toString()%>">
 		<input name="<portlet:namespace/>interviewId" type="hidden" id="interviewId" value="<%=editinterview.getId()%>">
@@ -133,7 +143,13 @@ AUI().use(
 			 <input name="<portlet:namespace/>name" id="editinterview" class="interview" type="text" required = "required" value="<%=editinterview.getName()%>">
 						</div>
 					</div>
-	<aui:button type="submit" value="Submit"/> <aui:button  type="reset" value="Cancel" id ="editcancel"></aui:button>
+	
+	<div class="control-group">
+			<div class="controls">
+				<aui:button type="submit" value="Submit" />
+				<aui:button  type="reset" value="Cancel" id ="editcancel"/>
+			</div>
+		</div>
 	</aui:form>
 	
 	<em>*</em> Required field
@@ -143,7 +159,7 @@ AUI().use(
 </body>
 <%
 PortletURL iteratorURL = renderResponse.createRenderURL();
-iteratorURL.setParameter("mvcPath", "/html/interview/editinterview.jsp");
+iteratorURL.setParameter("mvcPath", "/html/Interview/edit.jsp");
 RowChecker rowChecker = new RowChecker(renderResponse);
 
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
@@ -189,7 +205,7 @@ System.out.println("sortByType == " +sortByType);
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row className="Interview" keyProperty="id" modelVar="Interview"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="Interview" property="name" orderableProperty="interview"/>
-		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/interview/edit.jsp"/>
+		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/Interview/editclick.jsp"/>
 		 
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator/>

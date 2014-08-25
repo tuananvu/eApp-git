@@ -1,6 +1,6 @@
 <%@page import="com.rknowsys.eapp.CustomComparatorUtil"%>
-<%@page import="com.rknowsys.eapp.service.InterviewLocalServiceUtil"%>
-<%@page import="com.rknowsys.eapp.model.Interview"%>
+<%@page import="com.rknowsys.eapp.hrm.service.InterviewLocalServiceUtil"%>
+<%@page import="com.rknowsys.eapp.hrm.model.Interview"%>
 <%@page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil"%>
 <%@page import="com.liferay.portal.kernel.dao.search.RowChecker"%>
 <%@page import="com.liferay.portal.kernel.util.ListUtil"%>

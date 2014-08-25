@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
+import javax.portlet.PortletSession;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
@@ -18,8 +19,8 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.rknowsys.eapp.model.Interview;
-import com.rknowsys.eapp.service.InterviewLocalServiceUtil;
+import com.rknowsys.eapp.hrm.model.Interview;
+import com.rknowsys.eapp.hrm.service.InterviewLocalServiceUtil;
 
 public class InterviewAction extends MVCPortlet {
 	
@@ -195,9 +196,10 @@ public class InterviewAction extends MVCPortlet {
 
 		log.info(interview.getId());
 		log.info(interview.getName());
-		actionRequest.setAttribute("editinterview", interview);
+		PortletSession portletSession = actionRequest.getPortletSession();
+		portletSession.setAttribute("editinterview", interview);
 		actionResponse.setRenderParameter("jspPage",
-				"/html/interview/editinterview.jsp");
+				"/html/Interview/edit.jsp");
 	}
 
 }
