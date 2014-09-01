@@ -1,6 +1,42 @@
 <?xml version="1.0"?>
 
 <model-hints>
+	<model name="com.rknowsys.eapp.hrm.model.Attachment">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.ContactDetails">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="addressStreet1" type="String" />
+		<field name="addressStreet2" type="String" />
+		<field name="city" type="String" />
+		<field name="state" type="String" />
+		<field name="postalCode" type="String" />
+		<field name="country" type="String" />
+		<field name="homeTelephone" type="String" />
+		<field name="mobile" type="String" />
+		<field name="workTelephone" type="String" />
+		<field name="workEmail" type="String" />
+		<field name="otherEmail" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Dependent">
+		<field name="dependentId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
 	<model name="com.rknowsys.eapp.hrm.model.DocCategory">
 		<field name="id" type="long" />
 		<field name="companyId" type="long" />
@@ -32,6 +68,32 @@
 		<field name="userId" type="long" />
 		<field name="eduLevel" type="String" />
 	</model>
+	<model name="com.rknowsys.eapp.hrm.model.EmergencyContact">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Employee">
+		<field name="employeeId" type="long" />
+		<field name="shiftId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="middleName" type="String" />
+		<field name="photograph" type="Blob" />
+		<field name="gender" type="int" />
+		<field name="maritalStatus" type="String" />
+		<field name="nationality" type="String" />
+		<field name="dateOfBirth" type="Date" />
+		<field name="otherId" type="String" />
+	</model>
 	<model name="com.rknowsys.eapp.hrm.model.EmploymentStatus">
 		<field name="id" type="long" />
 		<field name="groupId" type="long" />
@@ -40,6 +102,14 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="employmentstatus" type="String" />
+	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Immigration">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
 	</model>
 	<model name="com.rknowsys.eapp.hrm.model.Interview">
 		<field name="id" type="long" />
@@ -157,6 +227,14 @@
 		<field name="minSalary" type="long" />
 		<field name="maxSalary" type="long" />
 	</model>
+	<model name="com.rknowsys.eapp.hrm.model.Qualification">
+		<field name="id" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
 	<model name="com.rknowsys.eapp.hrm.model.SalaryComponent">
 		<field name="id" type="long" />
 		<field name="companyId" type="long" />
@@ -179,16 +257,16 @@
 		<field name="skillName" type="String" />
 		<field name="description" type="String" />
 	</model>
-	<model name="com.rknowsys.eapp.hrm.model.WorkShift">
+	<model name="com.rknowsys.eapp.hrm.model.Workshift">
 		<field name="shiftId" type="long" />
 		<field name="companyId" type="long" />
 		<field name="groupId" type="long" />
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="userId" type="long" />
-		<field name="shiftName" type="String" />
-		<field name="fromWorkHrs" type="long" />
-		<field name="toWorkHrs" type="long" />
+		<field name="workshiftName" type="String" />
+		<field name="fromWorkHours" type="Date" />
+		<field name="toWorkHours" type="Date" />
 	</model>
 	<model name="com.rknowsys.eapp.hrm.model.WorkShiftUser">
 		<field name="workShiftUserId" type="long" />

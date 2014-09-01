@@ -7,7 +7,7 @@
 
 <entity name="Interview" table="interview" data-source="anotherDataSource" 
 local-service="true" remote-service="false" session-factory="anotherSessionFactory" 
-tx-manager="anotherTransactionManager">wor
+tx-manager="anotherTransactionManager">
 
         <!-- PK fields -->
 

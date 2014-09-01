@@ -17,11 +17,17 @@ package com.rknowsys.eapp.hrm.service.messaging;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 
+import com.rknowsys.eapp.hrm.service.AttachmentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.ClpSerializer;
+import com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.DependentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.DocCategoryLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.DocumentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EducationLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmergencyContactLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmploymentStatusLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.ImmigrationLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.InterviewLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
@@ -33,10 +39,11 @@ import com.rknowsys.eapp.hrm.service.NationalityLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.NewsLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.PayGradeLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.QualificationLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.SkillLocalServiceUtil;
-import com.rknowsys.eapp.hrm.service.WorkShiftLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.WorkShiftUserLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.WorkshiftLocalServiceUtil;
 
 /**
  * @author rknowsys
@@ -53,13 +60,25 @@ public class ClpMessageListener extends BaseMessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
+			AttachmentLocalServiceUtil.clearService();
+
+			ContactDetailsLocalServiceUtil.clearService();
+
+			DependentLocalServiceUtil.clearService();
+
 			DocCategoryLocalServiceUtil.clearService();
 
 			DocumentLocalServiceUtil.clearService();
 
 			EducationLocalServiceUtil.clearService();
 
+			EmergencyContactLocalServiceUtil.clearService();
+
+			EmployeeLocalServiceUtil.clearService();
+
 			EmploymentStatusLocalServiceUtil.clearService();
+
+			ImmigrationLocalServiceUtil.clearService();
 
 			InterviewLocalServiceUtil.clearService();
 
@@ -83,11 +102,13 @@ public class ClpMessageListener extends BaseMessageListener {
 
 			PayGradeCurrencyLocalServiceUtil.clearService();
 
+			QualificationLocalServiceUtil.clearService();
+
 			SalaryComponentLocalServiceUtil.clearService();
 
 			SkillLocalServiceUtil.clearService();
 
-			WorkShiftLocalServiceUtil.clearService();
+			WorkshiftLocalServiceUtil.clearService();
 
 			WorkShiftUserLocalServiceUtil.clearService();
 		}

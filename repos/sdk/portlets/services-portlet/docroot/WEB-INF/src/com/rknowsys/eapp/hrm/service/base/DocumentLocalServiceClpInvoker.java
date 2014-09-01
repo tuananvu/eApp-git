@@ -106,13 +106,13 @@ public class DocumentLocalServiceClpInvoker {
 				"com.rknowsys.eapp.hrm.model.Document"
 			};
 
-		_methodName104 = "getBeanIdentifier";
+		_methodName132 = "getBeanIdentifier";
 
-		_methodParameterTypes104 = new String[] {  };
+		_methodParameterTypes132 = new String[] {  };
 
-		_methodName105 = "setBeanIdentifier";
+		_methodName133 = "setBeanIdentifier";
 
-		_methodParameterTypes105 = new String[] { "java.lang.String" };
+		_methodParameterTypes133 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -204,13 +204,13 @@ public class DocumentLocalServiceClpInvoker {
 			return DocumentLocalServiceUtil.updateDocument((com.rknowsys.eapp.hrm.model.Document)arguments[0]);
 		}
 
-		if (_methodName104.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes104, parameterTypes)) {
+		if (_methodName132.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes132, parameterTypes)) {
 			return DocumentLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName105.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes105, parameterTypes)) {
+		if (_methodName133.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes133, parameterTypes)) {
 			DocumentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -251,8 +251,8 @@ public class DocumentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName104;
-	private String[] _methodParameterTypes104;
-	private String _methodName105;
-	private String[] _methodParameterTypes105;
+	private String _methodName132;
+	private String[] _methodParameterTypes132;
+	private String _methodName133;
+	private String[] _methodParameterTypes133;
 }
