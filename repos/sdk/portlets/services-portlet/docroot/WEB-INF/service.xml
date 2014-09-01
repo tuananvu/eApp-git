@@ -7,7 +7,7 @@
 
 <entity name="Interview" table="interview" data-source="anotherDataSource" 
 local-service="true" remote-service="false" session-factory="anotherSessionFactory" 
-tx-manager="anotherTransactionManager">
+tx-manager="anotherTransactionManager">wor
 
         <!-- PK fields -->
 
@@ -447,34 +447,6 @@ tx-manager="anotherTransactionManager">
        
         <column name="empId" type="long" />
         <column name="shiftId" type="long" />
-        <!-- Order -->
-
-        <!-- Finder methods -->
-
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-      
-<entity name="WorkShift" table="work_shift" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
-
-        <!-- PK fields -->
-
-        <column name="shiftId" type="long" primary="true" />
-
-        <!-- Audit fields -->
-
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
-
-        <column name="shiftName" type="String" />
-        <column name="fromWorkHrs" type="long" />
-        <column name="toWorkHrs" type="long" />
-        
         <!-- Order -->
 
         <!-- Finder methods -->
