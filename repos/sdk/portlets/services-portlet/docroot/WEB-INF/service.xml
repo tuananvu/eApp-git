@@ -537,6 +537,82 @@ tx-manager="anotherTransactionManager">
         <finder name="GroupId" return-type="Collection">
                 <finder-column name="groupId" />
         </finder>
-    </entity>
-    	
+        </entity>
+        
+    	<entity name="Workshift" table="workshift" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="shiftId" type="long" primary="true" />
+
+		<!-- Relationship fields -->
+
+		<column name="employees" type="Collection" entity="Employee" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
+
+		<column name="workshiftName" type="String" />
+		<column name="fromWorkHours" type="Date" />
+		<column name="toWorkHours" type="Date" />
+
+		<!-- Order -->
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+
+	</entity>
+	<entity name="Employee" local-service="true" remote-service="false"
+		human-name="Employee" table="employee" data-source="anotherDataSource"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="employeeId" type="long" primary="true"></column>
+
+		<!-- Relationship fields -->
+
+		<column name="shiftId" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- Audit fields -->
+
+		<!-- Other fields -->
+		<column name="firstName" type="String"></column>
+		<column name="lastName" type="String"></column>
+		<column name="middleName" type="String"></column>
+		<column name="photograph" type="Blob"></column>
+		<column name="gender" type="int"></column>
+		<column name="maritalStatus" type="String"></column>
+		<column name="nationality" type="String"></column>
+		<column name="dateOfBirth" type="Date"></column>
+		<column name="otherId" type="String"></column>
+		<finder name="shiftId" return-type="Collection">
+			<finder-column name="shiftId" />
+		</finder>
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
+
 </service-builder>
