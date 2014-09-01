@@ -614,5 +614,132 @@ tx-manager="anotherTransactionManager">
 			<finder-column name="employeeId" />
 		</finder>
 	</entity>
+	
+		<entity name="ContactDetails" remote-service="false"
+		local-service="true">
+
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="addressStreet1" type="String"></column>
+		<column name="addressStreet2" type="String"></column>
+		<column name="city" type="String"></column>
+		<column name="state" type="String"></column>
+		<column name="postalCode" type="String"></column>
+		<column name="country" type="String"></column>
+		<column name="homeTelephone" type="String"></column>
+		<column name="mobile" type="String"></column>
+		<column name="workTelephone" type="String"></column>
+		<column name="workEmail" type="String"></column>
+		<column name="otherEmail" type="String"></column>
+	</entity>
+	<entity name="EmergencyContact" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="Dependent" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="dependentId" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="Immigration" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="Qualification" local-service="true"
+		remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+	<entity name="Attachment" local-service="true" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="id" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+	</entity>
+
 
 </service-builder>
