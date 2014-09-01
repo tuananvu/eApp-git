@@ -14,21 +14,58 @@
 
 package com.rknowsys.eapp.hrm.model.impl;
 
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.FieldPosition;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.Employee;
+import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
+
 /**
- * The extended model implementation for the WorkShift service. Represents a row in the &quot;work_shift&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the Workshift service. Represents a row in the &quot;work_shift&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.WorkShift} interface.
+ * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.Workshift} interface.
  * </p>
  *
  * @author rknowsys
  */
-public class WorkShiftImpl extends WorkShiftBaseImpl {
+public class WorkshiftImpl extends WorkshiftBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. All methods that expect a work shift model instance should use the {@link com.rknowsys.eapp.hrm.model.WorkShift} interface instead.
+	 * Never reference this class directly. All methods that expect a workshift model instance should use the {@link com.rknowsys.eapp.hrm.model.Workshift} interface instead.
 	 */
-	public WorkShiftImpl() {
+	public WorkshiftImpl() {
+	}
+	
+	public Date getDuration(){
+		return new Date(getToWorkHours().getTime() - getFromWorkHours().getTime());
+	}
+	
+	public String getFormattedDurationStr(){
+		return new DecimalFormat("#0.00").format(new Double(getDuration().getTime()) / (60 * 60 * 1000));
+	}
+	
+	public String getFormattedFromWorkHoursStr(){
+		return formatDate(getFromWorkHours(), "H:mm");
+	}
+
+	public String getFormattedToWorkHoursStr(){
+		return formatDate(getToWorkHours(), "H:mm");
+	}
+	
+	private String formatDate(Date date, String formatMask){
+		DateFormat df = new SimpleDateFormat(formatMask);
+		StringBuffer buf = new StringBuffer();
+		return df.format(date, buf, new FieldPosition(0)).toString();
+	}
+
+	public List<Employee> getEmployees() throws SystemException{
+	    return EmployeeLocalServiceUtil.getEmployees(0, EmployeeLocalServiceUtil.getEmployeesCount());
 	}
 }
