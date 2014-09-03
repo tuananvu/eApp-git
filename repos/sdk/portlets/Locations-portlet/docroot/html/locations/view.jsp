@@ -88,7 +88,7 @@ rowChecker="<%=new RowChecker(renderResponse) %>" >
 		  pageContext.setAttribute("total", total);
 		%>
 		</liferay-ui:search-container-results>
-				<liferay-ui:search-container-row className="com.rknowsys.eapp.model.Locations" 
+				<liferay-ui:search-container-row className="com.rknowsys.eapp.hrm.model.Locations" 
  				keyProperty="id" modelVar="id" >
 						 <liferay-ui:search-container-column-text name="name" property="name" orderable="<%=true %>" orderableProperty="name"/>
 						 <liferay-ui:search-container-column-text name="city" property="city" orderable="<%=true %>" orderableProperty="city"/>

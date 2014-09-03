@@ -31,14 +31,4 @@ public interface Workshift extends WorkshiftModel, PersistedModel {
 	 *
 	 * Never modify this interface directly. Add methods to {@link com.rknowsys.eapp.hrm.model.impl.WorkshiftImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
-	public java.util.Date getDuration();
-
-	public java.lang.String getFormattedDurationStr();
-
-	public java.lang.String getFormattedFromWorkHoursStr();
-
-	public java.lang.String getFormattedToWorkHoursStr();
-
-	public java.util.List<com.rknowsys.eapp.hrm.model.Employee> getEmployees()
-		throws com.liferay.portal.kernel.exception.SystemException;
 }

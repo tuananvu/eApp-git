@@ -446,32 +446,6 @@ public class WorkshiftWrapper implements Workshift, ModelWrapper<Workshift> {
 	}
 
 	@Override
-	public java.util.Date getDuration() {
-		return _workshift.getDuration();
-	}
-
-	@Override
-	public java.lang.String getFormattedDurationStr() {
-		return _workshift.getFormattedDurationStr();
-	}
-
-	@Override
-	public java.lang.String getFormattedFromWorkHoursStr() {
-		return _workshift.getFormattedFromWorkHoursStr();
-	}
-
-	@Override
-	public java.lang.String getFormattedToWorkHoursStr() {
-		return _workshift.getFormattedToWorkHoursStr();
-	}
-
-	@Override
-	public java.util.List<com.rknowsys.eapp.hrm.model.Employee> getEmployees()
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _workshift.getEmployees();
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

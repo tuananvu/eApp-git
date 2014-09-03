@@ -3,7 +3,7 @@ package com.rknowsys.eapp;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.rknowsys.eapp.model.Interview;
+import com.rknowsys.eapp.hrm.model.Interview;
 
 public class InterviewComparator extends OrderByComparator {
 	

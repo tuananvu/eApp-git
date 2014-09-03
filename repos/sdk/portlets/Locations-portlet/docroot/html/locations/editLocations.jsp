@@ -1,5 +1,5 @@
 <%@ include file="/html/locations/init.jsp" %>
-<jsp:useBean id="edit" type="com.rknowsys.eapp.model.Locations" scope="request" />
+<jsp:useBean id="edit" type="com.rknowsys.eapp.hrm.model.Locations" scope="request" />
 <portlet:actionURL name="updateLocation" var="editLocation"></portlet:actionURL>
 <aui:form name="eLocation" method="post" action="<%=editLocation%>">
 	<aui:fieldset>
