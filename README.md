@@ -53,5 +53,3 @@ building all the portlets.
 
 14. Commit - add a meaningful comments. You may add a reference to redmine Feature # or Bug #.
 
-15. 
-
