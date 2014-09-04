@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.rknowsys.eapp.model;
+package com.rknowsys.eapp;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -23,29 +23,28 @@ import java.util.List;
 
 import com.liferay.portal.kernel.exception.SystemException;
 import com.rknowsys.eapp.hrm.model.Employee;
-import com.rknowsys.eapp.hrm.model.impl.WorkshiftBaseImpl;
+import com.rknowsys.eapp.hrm.model.Workshift;
 import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
 
 /**
  * The extended model implementation for the Workshift service. Represents a row in the &quot;work_shift&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.Workshift} interface.
+ * Helper methods and all application logic are added in this class.
  * </p>
  *
  * @author rknowsys
  */
-public class ExtendedWorkshiftImpl extends WorkshiftBaseImpl {
-	/*
-	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a workshift model instance should use the {@link com.rknowsys.eapp.hrm.model.Workshift} interface instead.
-	 */
-	public ExtendedWorkshiftImpl() {
+public class WorkshiftExtended{
+	
+	private Workshift workshift;
+	
+	public WorkshiftExtended(Workshift workshift) {
+	    this.workshift = workshift;
 	}
 	
 	public Date getDuration(){
-		return new Date(getToWorkHours().getTime() - getFromWorkHours().getTime());
+		return new Date(workshift.getToWorkHours().getTime() - workshift.getFromWorkHours().getTime());
 	}
 	
 	public String getFormattedDurationStr(){
@@ -53,14 +52,14 @@ public class ExtendedWorkshiftImpl extends WorkshiftBaseImpl {
 	}
 	
 	public String getFormattedFromWorkHoursStr(){
-		return formatDate(getFromWorkHours(), "H:mm");
+		return formatDate(workshift.getFromWorkHours(), "H:mm");
 	}
 
 	public String getFormattedToWorkHoursStr(){
-		return formatDate(getToWorkHours(), "H:mm");
+		return formatDate(workshift.getToWorkHours(), "H:mm");
 	}
 	
-	private String formatDate(Date date, String formatMask){
+	private static String formatDate(Date date, String formatMask){
 		DateFormat df = new SimpleDateFormat(formatMask);
 		StringBuffer buf = new StringBuffer();
 		return df.format(date, buf, new FieldPosition(0)).toString();

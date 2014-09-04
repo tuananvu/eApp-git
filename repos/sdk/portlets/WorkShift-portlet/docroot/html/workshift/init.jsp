@@ -14,6 +14,7 @@
 <%@page import="com.rknowsys.eapp.hrm.model.Workshift"%>
 <%@page import="com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.model.Employee"%>
+<%@page import="com.rknowsys.eapp.WorkshiftExtended"%>
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>

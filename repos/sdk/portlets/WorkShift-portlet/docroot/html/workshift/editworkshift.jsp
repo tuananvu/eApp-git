@@ -162,14 +162,15 @@ YUI().use(
 				value="<%=editworkshift.getShiftId()%>" />
 				<aui:fieldset label="Edit Work Shift">
 					<label>Edit Work Shift</label>
+					<% WorkshiftExtended workshiftExt = new WorkshiftExtended(editworkshift) %>
 					<input name="<portlet:namespace/>workshiftName" id="workshiftName"
 					    type="text" value="<%=editworkshift.getWorkshiftName() %>">
 					<label>From</label>
 					<input name="<portlet:namespace/>fromWorkHours" id="fromWorkHours"
-						type="text" value="<%=editworkshift.getFormattedFromWorkHoursStr() %>">
+						type="text" value="<%=workshiftExt.getFormattedFromWorkHoursStr() %>">
                     <label>To</label>
 					<input name="<portlet:namespace/>toWorkHours" id="toWorkHours"
-						type="text" value="<%=editworkshift.getFormattedToWorkHoursStr() %>">
+						type="text" value="<%=workshiftExt.getFormattedToWorkHoursStr() %>">
 		<aui:button-row>
 			<aui:button type="submit" value="Submit" />
 			<aui:button type="reset" value="Cancel" id="editcancel"></aui:button>
@@ -229,18 +230,19 @@ System.out.println("sortByType == " +sortByType);
                
  %>
 	</liferay-ui:search-container-results>
-			<liferay-ui:search-container-row className="Workshift"
+<liferay-ui:search-container-row className="Workshift"
 			keyProperty="shiftId" modelVar="workshift" rowVar="curRow"
 			escapedModel="<%=true%>">
+			<% WorkshiftExtended workshiftExt = new WorkshiftExtended(workshift); %>
 			<liferay-ui:search-container-column-text orderable="<%=true%>"
 				name="Shift Name" property="workshiftName"
-				orderableProperty="workshift" />
+				orderableProperty="workshiftName" />
 			<liferay-ui:search-container-column-text orderable="<%=false%>"
-				name="From" property="formattedFromWorkHoursStr" />
+				name="From" value="<%= workshiftExt.getFormattedFromWorkHoursStr()%>" />
 			<liferay-ui:search-container-column-text orderable="<%=false%>"
-				name="To" property="formattedToWorkHoursStr" />
+				name="To" value="<%=workshiftExt.getFormattedToWorkHoursStr()%>"  />
 			<liferay-ui:search-container-column-text orderable="<%=false%>"
-				name="Duration" property="formattedDurationStr" />
+				name="Duration" value="<%=workshiftExt.getFormattedDurationStr()%>" />
 			<liferay-ui:search-container-column-jsp name="Edit"
 				path="/html/workshift/edit.jsp" />
 

@@ -312,15 +312,16 @@ YUI().use(
 		<liferay-ui:search-container-row className="Workshift"
 			keyProperty="shiftId" modelVar="workshift" rowVar="curRow"
 			escapedModel="<%=true%>">
+			<% WorkshiftExtended workshiftExt = new WorkshiftExtended(workshift); %>
 			<liferay-ui:search-container-column-text orderable="<%=true%>"
 				name="Shift Name" property="workshiftName"
 				orderableProperty="workshiftName" />
 			<liferay-ui:search-container-column-text orderable="<%=false%>"
-				name="From" property="formattedFromWorkHoursStr" />
+				name="From" value="<%= workshiftExt.getFormattedFromWorkHoursStr()%>" />
 			<liferay-ui:search-container-column-text orderable="<%=false%>"
-				name="To" property="formattedToWorkHoursStr" />
+				name="To" value="<%=workshiftExt.getFormattedToWorkHoursStr()%>"  />
 			<liferay-ui:search-container-column-text orderable="<%=false%>"
-				name="Duration" property="formattedDurationStr" />
+				name="Duration" value="<%=workshiftExt.getFormattedDurationStr()%>" />
 			<liferay-ui:search-container-column-jsp name="Edit"
 				path="/html/workshift/edit.jsp" />
 
