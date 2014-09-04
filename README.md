@@ -49,5 +49,9 @@ building all the portlets.
 
 12. When you are done, go to Synchronize workspace. 
 
+13. On conflicts, do a manual merge. On others do Merge.
 
+14. Commit - add a meaningful comments. You may add a reference to redmine Feature # or Bug #.
+
+15. 
 
