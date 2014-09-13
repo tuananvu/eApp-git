@@ -9,8 +9,8 @@
 <%@page import="com.liferay.portlet.PortalPreferences"%>
 <%@page import="com.liferay.portlet.PortletPreferencesFactoryUtil"%>
 <%@page import="com.liferay.portal.kernel.dao.search.RowChecker"%>
-<%@page import="com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil"%>
-<%@page import="com.rknowsys.eapp.hrm.model.JobTitles"%>
+<%@page import="com.rknowsys.eapp.hrm.service.JobTitleLocalServiceUtil"%>
+<%@page import="com.rknowsys.eapp.hrm.model.JobTitle"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.List"%>
@@ -223,14 +223,14 @@ System.out.println("sortByType == " +sortByType);
 
 %>
 <%!
-  com.liferay.portal.kernel.dao.search.SearchContainer<JobTitles> searchContainer;
+  com.liferay.portal.kernel.dao.search.SearchContainer<JobTitle> searchContainer;
 %>
 
  <liferay-ui:search-container orderByCol="<%=sortByCol %>" orderByType="<%=sortByType %>"  delta="5" emptyResultsMessage="No records is available for Job Title" rowChecker="<%= new RowChecker(renderResponse) %>"  deltaConfigurable="true"   iteratorURL="<%=iteratorURL%>">
 		<liferay-ui:search-container-results>
 				
 		<%
-            List<JobTitles> jobtitleList = JobTitlesLocalServiceUtil.getJobTitleses(searchContainer.getStart(), searchContainer.getEnd()); //UserLocalServiceUtil.getUser(-1,-1);
+            List<JobTitle> jobtitleList = JobTitleLocalServiceUtil.getJobTitles(searchContainer.getStart(), searchContainer.getEnd()); //UserLocalServiceUtil.getUser(-1,-1);
             System.out.println("list size == " +jobtitleList.size());
             OrderByComparator orderByComparator = CustomComparatorUtil.getJobtitleOrderByComparator(sortByCol, sortByType);         
   
@@ -241,14 +241,14 @@ System.out.println("sortByType == " +sortByType);
             System.out.println("results == " +results);
            
      
-               total = JobTitlesLocalServiceUtil.getJobTitlesesCount();
+               total = JobTitleLocalServiceUtil.getJobTitlesCount();
                System.out.println("total == " +total);
                pageContext.setAttribute("results", results);
                pageContext.setAttribute("total", total);
  %>
 		
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="JobTitles" keyProperty="id" modelVar="JobTitles"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="JobTitle" keyProperty="jobTitleId" modelVar="JobTitle"  rowVar="curRow" escapedModel="<%= true %>">
 	     
 	      <liferay-ui:search-container-column-text orderable="true" name="Job Title" property="title" orderableProperty="title"/>
 		<liferay-ui:search-container-column-text orderable="true" name="Description" property="description" orderableProperty="description"/>

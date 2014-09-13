@@ -1,7 +1,7 @@
 package com.rknowsys.eapp;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.rknowsys.eapp.hrm.model.JobTitles;
+import com.rknowsys.eapp.hrm.model.JobTitle;
 
 public class JobdescriptionComparator extends OrderByComparator {
 	
@@ -26,8 +26,8 @@ public class JobdescriptionComparator extends OrderByComparator {
 	 
 	 public int compare(Object obj1, Object obj2) {
 	   
-	   JobTitles instance1 = (JobTitles) obj1;
-	   JobTitles instance2 = (JobTitles) obj2;
+	   JobTitle instance1 = (JobTitle) obj1;
+	   JobTitle instance2 = (JobTitle) obj2;
 	   
 	   System.out.println("============");
 	   System.out.println("instance1 === " +instance1 .getDescription().toLowerCase());

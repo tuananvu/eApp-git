@@ -1,4 +1,4 @@
-<%@page import="com.rknowsys.eapp.hrm.model.JobTitles"%>
+<%@page import="com.rknowsys.eapp.hrm.model.JobTitle"%>
 <%@page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@page import="com.liferay.portal.kernel.dao.search.ResultRow"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -17,7 +17,7 @@
 
 <%ResultRow rslt=(ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 
-JobTitles j = (JobTitles)rslt.getObject();
+JobTitle j = (JobTitle)rslt.getObject();
 
 String prk=String.valueOf(j.getPrimaryKey());
 
@@ -26,7 +26,7 @@ String prk=String.valueOf(j.getPrimaryKey());
 <liferay-ui:icon-menu>
 
 
-<a class="editlink" href="<%=request.getContextPath()%>/html/jobtitle/editjobtitle.jsp?jobtitleid=<%=j.getId()%>"  data-toggle="modal" data-target="#editModal">
+<a class="editlink" href="<%=request.getContextPath()%>/html/jobtitle/editjobtitle.jsp?jobtitleid=<%=j.getJobTitleId()%>"  data-toggle="modal" data-target="#editModal">
  		<img width="18px" height="18px" alt="loading..."
 				src="<%=request.getContextPath() %>/images/pencil.jpg"></a>
 

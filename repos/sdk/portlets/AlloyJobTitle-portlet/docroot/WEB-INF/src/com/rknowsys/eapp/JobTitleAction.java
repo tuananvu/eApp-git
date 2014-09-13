@@ -19,13 +19,13 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.rknowsys.eapp.hrm.model.JobTitles;
-import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
+import com.rknowsys.eapp.hrm.model.JobTitle;
+import com.rknowsys.eapp.hrm.service.JobTitleLocalServiceUtil;
 
 public class JobTitleAction extends MVCPortlet {
 	
 	private static Logger log = Logger.getLogger(JobTitleAction.class);
-	JobTitles jobtitles;
+	JobTitle jobtitles;
 	 Date date = new Date();
 		
 		public void serveResource(ResourceRequest resourceRequest,
@@ -40,7 +40,7 @@ public class JobTitleAction extends MVCPortlet {
 				log.info("This is the first log message...!!!");
 				
 				try {
-					JobTitles jobtitles =  JobTitlesLocalServiceUtil.createJobTitles(CounterLocalServiceUtil.increment());
+					JobTitle jobtitles =  JobTitleLocalServiceUtil.createJobTitle(CounterLocalServiceUtil.increment());
 				
 				System.out.println("Name = " +ParamUtil.getString(resourceRequest,
 						"jobtitlename"));
@@ -64,7 +64,7 @@ public class JobTitleAction extends MVCPortlet {
 				jobtitles.setUserId(themeDisplay.getUserId());
 
 				
-				jobtitles = JobTitlesLocalServiceUtil.addJobTitles(jobtitles);
+				jobtitles = JobTitleLocalServiceUtil.addJobTitle(jobtitles);
 								
 				}
 				else{
@@ -72,10 +72,10 @@ public class JobTitleAction extends MVCPortlet {
 					
 				
 					long jobtitleid = Long.parseLong(id);
-					JobTitles jobtitles1 = JobTitlesLocalServiceUtil.getJobTitles(jobtitleid);
+					JobTitle jobtitles1 = JobTitleLocalServiceUtil.getJobTitle(jobtitleid);
 					
 									
-					jobtitles1.setId(ParamUtil.getLong(resourceRequest,
+					jobtitles1.setJobTitleId(ParamUtil.getLong(resourceRequest,
 							"jobtitleId"));
 					jobtitles1.setTitle(ParamUtil.getString(resourceRequest,
 							"jobtitlename"));
@@ -89,7 +89,7 @@ public class JobTitleAction extends MVCPortlet {
 					jobtitles1.setGroupId(themeDisplay.getCompanyGroupId());
 					jobtitles1.setUserId(themeDisplay.getUserId());
 									
-					jobtitles1 =  JobTitlesLocalServiceUtil.updateJobTitles(jobtitles1);
+					jobtitles1 =  JobTitleLocalServiceUtil.updateJobTitle(jobtitles1);
 					
 					
 				}} catch (SystemException e) {
@@ -130,7 +130,7 @@ public class JobTitleAction extends MVCPortlet {
        				else{
        	 			
        				try {
-						JobTitlesLocalServiceUtil.deleteJobTitles(Long.parseLong(idsArray[i]));
+						JobTitleLocalServiceUtil.deleteJobTitle(Long.parseLong(idsArray[i]));
 					} catch (NumberFormatException e) {
 						
 						e.printStackTrace();
@@ -153,11 +153,11 @@ public class JobTitleAction extends MVCPortlet {
 			
 			}
 		
-		public JobTitles editJobtitleBean(long l) throws IOException, PortletException, PortalException, SystemException {
+		public JobTitle editJobtitleBean(long l) throws IOException, PortletException, PortalException, SystemException {
 			System.out.println("inside editJobtitle...using servicebuilder");
 			
 			
-			JobTitles jobtitles =  JobTitlesLocalServiceUtil.getJobTitles(l);
+			JobTitle jobtitles =  JobTitleLocalServiceUtil.getJobTitle(l);
 			System.out.println(jobtitles.getTitle());
 			System.out.println(jobtitles.getDescription());
 			
