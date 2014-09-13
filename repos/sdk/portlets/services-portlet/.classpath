@@ -18,5 +18,6 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="con" path="com.liferay.ide.eclipse.server.plugin.container/web"/>
 	<classpathentry kind="output" path="docroot/WEB-INF/classes"/>
 </classpath>
