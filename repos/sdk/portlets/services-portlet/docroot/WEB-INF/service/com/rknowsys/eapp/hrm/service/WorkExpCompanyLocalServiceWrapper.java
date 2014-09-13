@@ -288,6 +288,14 @@ public class WorkExpCompanyLocalServiceWrapper
 			arguments);
 	}
 
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.WorkExpCompany> getEmployeeWorkExpCompanys(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _workExpCompanyLocalService.getEmployeeWorkExpCompanys(employeeId);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

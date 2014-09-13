@@ -14,6 +14,11 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.Dependent;
 import com.rknowsys.eapp.hrm.service.base.DependentLocalServiceBaseImpl;
 
 /**
@@ -36,4 +41,10 @@ public class DependentLocalServiceImpl extends DependentLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.DependentLocalServiceUtil} to access the dependent local service.
 	 */
+
+	public List<Dependent> getEmployeeDependents(long employeeId)
+	    throws PortalException, SystemException {
+
+	    return dependentPersistence.findByemployeeId(employeeId);
+	}
 }

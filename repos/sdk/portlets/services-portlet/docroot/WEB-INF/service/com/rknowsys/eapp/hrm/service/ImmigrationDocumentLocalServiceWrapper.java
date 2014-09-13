@@ -290,6 +290,14 @@ public class ImmigrationDocumentLocalServiceWrapper
 			parameterTypes, arguments);
 	}
 
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.ImmigrationDocument> getEmployeeImmigrationDocuments(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _immigrationDocumentLocalService.getEmployeeImmigrationDocuments(employeeId);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

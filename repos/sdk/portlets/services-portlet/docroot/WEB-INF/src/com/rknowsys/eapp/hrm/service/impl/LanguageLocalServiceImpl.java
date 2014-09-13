@@ -14,6 +14,11 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.Language;
 import com.rknowsys.eapp.hrm.service.base.LanguageLocalServiceBaseImpl;
 
 /**
@@ -36,4 +41,11 @@ public class LanguageLocalServiceImpl extends LanguageLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.LanguageLocalServiceUtil} to access the language local service.
 	 */
+
+public List<Language> getEmployeeLanguages(long employeeId)
+    throws PortalException, SystemException {
+
+    return languagePersistence.findByemployeeId(employeeId);
+}
+
 }

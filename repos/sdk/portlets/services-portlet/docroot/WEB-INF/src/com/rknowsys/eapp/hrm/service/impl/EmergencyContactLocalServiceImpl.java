@@ -14,6 +14,11 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.EmergencyContact;
 import com.rknowsys.eapp.hrm.service.base.EmergencyContactLocalServiceBaseImpl;
 
 /**
@@ -37,4 +42,9 @@ public class EmergencyContactLocalServiceImpl
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmergencyContactLocalServiceUtil} to access the EmergencyContact local service.
 	 */
+	public List<EmergencyContact> getEmployeeEmergencyContacts(long employeeId)
+		    throws PortalException, SystemException {
+
+		    return emergencyContactPersistence.findByemployeeId(employeeId);
+		}
 }

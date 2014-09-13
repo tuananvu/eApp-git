@@ -275,6 +275,13 @@ public class ImmigrationDocumentLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List<com.rknowsys.eapp.hrm.model.ImmigrationDocument> getEmployeeImmigrationDocuments(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().getEmployeeImmigrationDocuments(employeeId);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

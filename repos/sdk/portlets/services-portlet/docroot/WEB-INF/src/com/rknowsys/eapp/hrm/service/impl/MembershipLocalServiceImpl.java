@@ -14,7 +14,13 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.Membership;
 import com.rknowsys.eapp.hrm.service.base.MembershipLocalServiceBaseImpl;
+import com.rknowsys.eapp.hrm.service.persistence.MembershipPersistence;
 
 /**
  * The implementation of the membership local service.
@@ -36,4 +42,11 @@ public class MembershipLocalServiceImpl extends MembershipLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.MembershipLocalServiceUtil} to access the membership local service.
 	 */
+
+public List<Membership> getEmployeeMemberships(long employeeId)
+    throws PortalException, SystemException {
+
+    return membershipPersistence.findByemployeeId(employeeId);
+}
+
 }

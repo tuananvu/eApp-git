@@ -275,6 +275,13 @@ public class EmergencyContactLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> getEmployeeEmergencyContacts(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().getEmployeeEmergencyContacts(employeeId);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

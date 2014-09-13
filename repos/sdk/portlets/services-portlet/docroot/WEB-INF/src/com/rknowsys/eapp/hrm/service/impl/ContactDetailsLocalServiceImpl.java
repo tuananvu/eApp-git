@@ -37,4 +37,5 @@ public class ContactDetailsLocalServiceImpl
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil} to access the ContactDetails local service.
 	 */
+
 }

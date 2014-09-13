@@ -616,6 +616,41 @@ public class JobWrapper implements Job, ModelWrapper<Job> {
 	}
 
 	@Override
+	public com.rknowsys.eapp.hrm.model.JobTitle getJobTitle()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _job.getJobTitle();
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _job.getJobCategory();
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus getEmploymentStatus()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _job.getEmploymentStatus();
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.Location getLocation()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _job.getLocation();
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.SubUnit getSubUnit()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _job.getSubUnit();
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

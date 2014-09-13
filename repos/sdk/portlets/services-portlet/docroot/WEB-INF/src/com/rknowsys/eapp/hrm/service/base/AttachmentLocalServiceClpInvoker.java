@@ -117,6 +117,14 @@ public class AttachmentLocalServiceClpInvoker {
 		_methodName138 = "setBeanIdentifier";
 
 		_methodParameterTypes138 = new String[] { "java.lang.String" };
+
+		_methodName143 = "getEmployeeAttachments";
+
+		_methodParameterTypes143 = new String[] { "long" };
+
+		_methodName144 = "getEmployeeAttachments";
+
+		_methodParameterTypes144 = new String[] { "long", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -225,6 +233,17 @@ public class AttachmentLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName143.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes143, parameterTypes)) {
+			return AttachmentLocalServiceUtil.getEmployeeAttachments(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName144.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes144, parameterTypes)) {
+			return AttachmentLocalServiceUtil.getEmployeeAttachments(((Long)arguments[0]).longValue(),
+				((Integer)arguments[1]).intValue());
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -266,4 +285,8 @@ public class AttachmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes137;
 	private String _methodName138;
 	private String[] _methodParameterTypes138;
+	private String _methodName143;
+	private String[] _methodParameterTypes143;
+	private String _methodName144;
+	private String[] _methodParameterTypes144;
 }

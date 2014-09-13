@@ -294,6 +294,23 @@ public class AttachmentLocalServiceWrapper implements AttachmentLocalService,
 			arguments);
 	}
 
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.Attachment> getEmployeeAttachments(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _attachmentLocalService.getEmployeeAttachments(employeeId);
+	}
+
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.Attachment> getEmployeeAttachments(
+		long employeeId, int attachmentType)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _attachmentLocalService.getEmployeeAttachments(employeeId,
+			attachmentType);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

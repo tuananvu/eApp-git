@@ -281,6 +281,20 @@ public class AttachmentLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Attachment> getEmployeeAttachments(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().getEmployeeAttachments(employeeId);
+	}
+
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Attachment> getEmployeeAttachments(
+		long employeeId, int attachmentType)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().getEmployeeAttachments(employeeId, attachmentType);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

@@ -14,6 +14,11 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.ImmigrationDocument;
 import com.rknowsys.eapp.hrm.service.base.ImmigrationDocumentLocalServiceBaseImpl;
 
 /**
@@ -37,4 +42,9 @@ public class ImmigrationDocumentLocalServiceImpl
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.ImmigrationDocumentLocalServiceUtil} to access the ImmigrationDocument local service.
 	 */
+	public List<ImmigrationDocument> getEmployeeImmigrationDocuments(long employeeId)
+		    throws PortalException, SystemException {
+
+		    return immigrationDocumentPersistence.findByemployeeId(employeeId);
+		}
 }

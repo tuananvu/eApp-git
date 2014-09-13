@@ -550,6 +550,101 @@ public class JobClp extends BaseModelImpl<Job> implements Job {
 		}
 	}
 
+	@Override
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus getEmploymentStatus() {
+		try {
+			String methodName = "getEmploymentStatus";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.rknowsys.eapp.hrm.model.EmploymentStatus returnObj = (com.rknowsys.eapp.hrm.model.EmploymentStatus)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory() {
+		try {
+			String methodName = "getJobCategory";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.rknowsys.eapp.hrm.model.JobCategory returnObj = (com.rknowsys.eapp.hrm.model.JobCategory)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.SubUnit getSubUnit() {
+		try {
+			String methodName = "getSubUnit";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.rknowsys.eapp.hrm.model.SubUnit returnObj = (com.rknowsys.eapp.hrm.model.SubUnit)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.Location getLocation() {
+		try {
+			String methodName = "getLocation";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.rknowsys.eapp.hrm.model.Location returnObj = (com.rknowsys.eapp.hrm.model.Location)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.JobTitle getJobTitle() {
+		try {
+			String methodName = "getJobTitle";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.rknowsys.eapp.hrm.model.JobTitle returnObj = (com.rknowsys.eapp.hrm.model.JobTitle)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
 	public BaseModel<?> getJobRemoteModel() {
 		return _jobRemoteModel;
 	}

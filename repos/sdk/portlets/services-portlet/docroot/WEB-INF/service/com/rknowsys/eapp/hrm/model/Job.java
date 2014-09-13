@@ -31,4 +31,23 @@ public interface Job extends JobModel, PersistedModel {
 	 *
 	 * Never modify this interface directly. Add methods to {@link com.rknowsys.eapp.hrm.model.impl.JobImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+	public com.rknowsys.eapp.hrm.model.JobTitle getJobTitle()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus getEmploymentStatus()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public com.rknowsys.eapp.hrm.model.Location getLocation()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public com.rknowsys.eapp.hrm.model.SubUnit getSubUnit()
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 }

@@ -285,6 +285,14 @@ public class DependentLocalServiceWrapper implements DependentLocalService,
 			arguments);
 	}
 
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.Dependent> getEmployeeDependents(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _dependentLocalService.getEmployeeDependents(employeeId);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

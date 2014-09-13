@@ -14,6 +14,11 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.Skill;
 import com.rknowsys.eapp.hrm.service.base.SkillLocalServiceBaseImpl;
 
 /**
@@ -36,4 +41,11 @@ public class SkillLocalServiceImpl extends SkillLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.SkillLocalServiceUtil} to access the skill local service.
 	 */
+
+public List<Skill> getEmployeeSkills(long employeeId)
+    throws PortalException, SystemException {
+
+    return skillPersistence.findByemployeeId(employeeId);
+}
+
 }

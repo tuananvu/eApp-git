@@ -113,6 +113,10 @@ public class ImmigrationDocumentLocalServiceClpInvoker {
 		_methodName137 = "setBeanIdentifier";
 
 		_methodParameterTypes137 = new String[] { "java.lang.String" };
+
+		_methodName142 = "getEmployeeImmigrationDocuments";
+
+		_methodParameterTypes142 = new String[] { "long" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -216,6 +220,11 @@ public class ImmigrationDocumentLocalServiceClpInvoker {
 			return null;
 		}
 
+		if (_methodName142.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes142, parameterTypes)) {
+			return ImmigrationDocumentLocalServiceUtil.getEmployeeImmigrationDocuments(((Long)arguments[0]).longValue());
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -255,4 +264,6 @@ public class ImmigrationDocumentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes136;
 	private String _methodName137;
 	private String[] _methodParameterTypes137;
+	private String _methodName142;
+	private String[] _methodParameterTypes142;
 }

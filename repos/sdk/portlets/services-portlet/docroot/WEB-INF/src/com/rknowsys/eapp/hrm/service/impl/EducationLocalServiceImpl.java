@@ -14,6 +14,11 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.Education;
 import com.rknowsys.eapp.hrm.service.base.EducationLocalServiceBaseImpl;
 
 /**
@@ -36,4 +41,11 @@ public class EducationLocalServiceImpl extends EducationLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EducationLocalServiceUtil} to access the education local service.
 	 */
+
+public List<Education> getEmployeeEducations(long employeeId)
+    throws PortalException, SystemException {
+
+		return educationPersistence.findByemployeeId(employeeId);
+}
+
 }
