@@ -177,7 +177,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row className="License"
-		keyProperty="id" modelVar="id" rowVar="curRow"
+		keyProperty="licenseId" modelVar="licenseId" rowVar="curRow"
 		escapedModel="<%= true %>">
 		<liferay-ui:search-container-column-text orderable="<%=true %>"
 			name="name" property="licenseName"

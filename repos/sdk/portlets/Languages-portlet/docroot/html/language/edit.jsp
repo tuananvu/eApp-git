@@ -160,7 +160,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Language" keyProperty="id" modelVar="id"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="Language" keyProperty="licenseId" modelVar="licenseId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="languageName" orderableProperty="languageName"/>
 		
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/language/editClick.jsp"/>

@@ -110,7 +110,7 @@ AUI().use(
 	</div>
 	<div id="editLicenseForm">
   <aui:form name="myForm" action="<%=updateLicenses.toString()%>">
-		<aui:input name="licenseId" type="hidden" id="licenseId"  value="<%=editLicense.getId()%>"/>
+		<aui:input name="licenseId" type="hidden" id="licenseId"  value="<%=editLicense.getLicenseId()%>"/>
 			 	<div class="span12">
 			<div class="span2">
 				<label>Name</label>
@@ -161,7 +161,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="License" keyProperty="id" modelVar="id"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="License" keyProperty="licenseId" modelVar="licenseId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="licenseName" orderableProperty="licenseName"/>
 		
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/license/editClick.jsp"/>
