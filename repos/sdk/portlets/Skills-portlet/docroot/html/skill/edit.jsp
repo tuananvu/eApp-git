@@ -111,7 +111,7 @@ AUI().use(
 	</div>
 	<div id="editSkillForm">
   <aui:form name="myForm" action="<%=updateSkills.toString()%>">
-		<aui:input name="skillId" type="hidden" id="skillId"  value="<%=editSkill.getId()%>"/>
+		<aui:input name="skillId" type="hidden" id="skillId"  value="<%=editSkill.getSkillId()%>"/>
 				<div class="span12">
 			<div class="span3">
 				<label>Name</label>
@@ -172,7 +172,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Skill" keyProperty="id" modelVar="id"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="Skill" keyProperty="skillId" modelVar="skillId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="skillName" orderableProperty="skillName"/>
 			     <liferay-ui:search-container-column-text orderable="<%=true %>" name="description" property="description" orderableProperty="description"/>
 		
