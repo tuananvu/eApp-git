@@ -110,7 +110,7 @@ AUI().use(
 	</div>
 	<div id="editEducationForm">
   <aui:form name="myForm" action="<%=updateEducations.toString()%>">
-		<aui:input name="educationId" type="hidden" id="educationId"  value="<%=editEducation.getId()%>"/>
+		<aui:input name="educationId" type="hidden" id="educationId"  value="<%=editEducation.getEducationId()%>"/>
 		<div class="span12">
 			<div class="span2">
 				<label>Level</label>
@@ -161,7 +161,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Education" keyProperty="id" modelVar="id"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="Education" keyProperty="educationId" modelVar="educationId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="eduLevel" orderableProperty="eduLevel"/>
 		
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/educationaction/edit.jsp"/>
