@@ -73,7 +73,7 @@ public class JobCategoryAction extends MVCPortlet {
 				JobCategory jobcategory1 = JobCategoryLocalServiceUtil
 						.getJobCategory(jobcategoryid);
 
-				jobcategory1.setId(ParamUtil.getLong(actionRequest,
+				jobcategory1.setJobCategoryId(ParamUtil.getLong(actionRequest,
 						"jobcategoryId"));
 
 				jobcategory1.setJobcategory(ParamUtil.getString(actionRequest,
@@ -185,12 +185,12 @@ public class JobCategoryAction extends MVCPortlet {
 			PortletException, NumberFormatException, PortalException,
 			SystemException {
 		System.out.println("inside editJobCategory...");
-		String s = ParamUtil.getString(actionRequest, "id");
+		String s = ParamUtil.getString(actionRequest, "jobCategoryId");
 		System.out.println("id == " + s);
 		JobCategory job = JobCategoryLocalServiceUtil.getJobCategory(Long
 				.parseLong(s));
 
-		System.out.println(job.getId());
+		System.out.println(job.getJobCategoryId());
 		System.out.println(job.getJobcategory());
 		actionRequest.setAttribute("editjobcategory", job);
 		actionResponse.setRenderParameter("jspPage",

@@ -115,7 +115,7 @@ AUI().use(
 	</div>
 	<div id="editJobCategoryForm">
   <aui:form name="myForm" action="<%=savejobcategory.toString()%>">
-		<aui:input name="jobcategoryId" type="hidden" id="jobcategoryId"  value="<%=editjobcategory.getId()%>"/>
+		<aui:input name="jobcategoryId" type="hidden" id="jobcategoryId"  value="<%=editjobcategory.getJobCategoryId()%>"/>
 		<div class="span12">
 				<div class="span2">
 						<label>Job Category</label>
@@ -175,7 +175,7 @@ System.out.println("sortByType == " +sortByType);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="JobCategory" keyProperty="id" modelVar="JobCategory"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="JobCategory" keyProperty="jobCategoryId" modelVar="JobCategory"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="Job Category" property="jobcategory" orderableProperty="jobcategory"/>
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/jobcategory/edit.jsp"/>
 		 
