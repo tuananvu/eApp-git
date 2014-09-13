@@ -15,17 +15,17 @@ import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
-import com.rknowsys.eapp.hrm.service.LocationsLocalServiceUtil;
-import com.rknowsys.eapp.hrm.model.Locations;
+import com.rknowsys.eapp.hrm.service.LocationLocalServiceUtil;
+import com.rknowsys.eapp.hrm.model.Location;
 /**
- * Portlet implementation class LocationsEapp
+ * Portlet implementation class LocationEapp
 /**
- * Portlet implementation class Locations
+ * Portlet implementation class Location
  */
 public class LocationsHrm extends MVCPortlet {
 
 	 
-		public void addLocations(ActionRequest actionRequest,ActionResponse actionResponse)throws
+		public void addLocation(ActionRequest actionRequest,ActionResponse actionResponse)throws
 		PortletException,IOException, SystemException
 		{
 			String name=ParamUtil.getString(actionRequest, "name");
@@ -38,12 +38,12 @@ public class LocationsHrm extends MVCPortlet {
 			String fax=ParamUtil.getString(actionRequest, "fax");
 			String notes=ParamUtil.getString(actionRequest, "notes");
 			long id=CounterLocalServiceUtil.increment();
-			Locations locations=LocationsLocalServiceUtil.createLocations(id);
+			Location locations=LocationLocalServiceUtil.createLocation(id);
 			if(locations!=null)
 			{
 				try
 				{
-				locations.setId(id);
+				locations.setLocationId(id);
 				locations.setName(name);
 				locations.setCountry(country);
 				locations.setState(state);
@@ -53,7 +53,7 @@ public class LocationsHrm extends MVCPortlet {
 				locations.setFax(fax);
 				locations.setPhone(phone);
 				locations.setNotes(notes);
-				LocationsLocalServiceUtil.addLocations(locations);
+				LocationLocalServiceUtil.addLocation(locations);
 				SessionMessages.add(actionRequest.getPortletSession(), "location-added-success");
 				}
 				catch(Exception e)
@@ -66,9 +66,9 @@ public class LocationsHrm extends MVCPortlet {
 				 throws PortalException,SystemException,IOException
 			 {
 				 long id=ParamUtil.getLong(actionRequest, "id");
-				 Locations Locations=LocationsLocalServiceUtil.getLocations(id);
-				 actionRequest.setAttribute("edit", Locations);
-				 actionResponse.setRenderParameter("mvcPath", "/html/locations/editLocations.jsp" );
+				 Location Location=LocationLocalServiceUtil.getLocation(id);
+				 actionRequest.setAttribute("edit", Location);
+				 actionResponse.setRenderParameter("mvcPath", "/html/locations/editLocation.jsp" );
 			 }
 		 public void updateLocation(ActionRequest actionRequest,ActionResponse actionResponse) throws PortalException, SystemException
 			 {	
@@ -77,13 +77,13 @@ public class LocationsHrm extends MVCPortlet {
 				 String state=ParamUtil.getString(actionRequest, "state");
 				 String phone=ParamUtil.getString(actionRequest, "phone");
 				 long id=ParamUtil.getLong(actionRequest, "id");
-				 Locations locations=LocationsLocalServiceUtil.getLocations(id);
-				 locations.setId(id);
+				 Location locations=LocationLocalServiceUtil.getLocation(id);
+				 locations.setLocationId(id);
 				 locations.setName(name);
 				 locations.setCountry(country);
 				 locations.setState(state);
 				 locations.setPhone(phone);
-				 locations=LocationsLocalServiceUtil.updateLocations(locations);
+				 locations=LocationLocalServiceUtil.updateLocation(locations);
 				 actionResponse.setRenderParameter("mvcPath", "/html/locations/view.jsp");
 				 
 			 }
@@ -96,7 +96,7 @@ public class LocationsHrm extends MVCPortlet {
 				 try
 				 {
 			 try {
-				LocationsLocalServiceUtil.deleteLocations(Long.parseLong(idArray[i]));
+				LocationLocalServiceUtil.deleteLocation(Long.parseLong(idArray[i]));
 			} catch (PortalException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -112,7 +112,7 @@ public class LocationsHrm extends MVCPortlet {
 			 }
 			
 		}
-		public void searchLocations(ActionRequest actionRequest,ActionResponse actionResponse) throws SystemException
+		public void searchLocation(ActionRequest actionRequest,ActionResponse actionResponse) throws SystemException
 		 {
 			String lname=ParamUtil.getString(actionRequest, "locationName");
 			String lcountry=ParamUtil.getString(actionRequest, "country");

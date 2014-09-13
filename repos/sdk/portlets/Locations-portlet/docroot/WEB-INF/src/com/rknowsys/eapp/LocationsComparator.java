@@ -1,7 +1,7 @@
 package com.rknowsys.eapp;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.rknowsys.eapp.hrm.model.Locations;
+import com.rknowsys.eapp.hrm.model.Location;
 
 public class LocationsComparator extends OrderByComparator{
 	private static final long serialVersionUID = 1L;
@@ -23,8 +23,8 @@ _asc = asc;
 
 public int compare(Object obj1, Object obj2) {
 
-Locations instance1 = (Locations) obj1;
-Locations instance2 = (Locations) obj2;
+Location instance1 = (Location) obj1;
+Location instance2 = (Location) obj2;
 
 
 int value = instance1.getName().toLowerCase().compareTo(instance2.getName().toLowerCase());
