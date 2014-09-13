@@ -53,17 +53,17 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _emergencyContactId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setEmergencyContactId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _emergencyContactId;
 	}
 
 	@Override
@@ -75,22 +75,34 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("emergencyContactId", getEmergencyContactId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
+		attributes.put("relationship", getRelationship());
+		attributes.put("homeTelephone", getHomeTelephone());
+		attributes.put("mobile", getMobile());
+		attributes.put("workTelephone", getWorkTelephone());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long emergencyContactId = (Long)attributes.get("emergencyContactId");
 
-		if (id != null) {
-			setId(id);
+		if (emergencyContactId != null) {
+			setEmergencyContactId(emergencyContactId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -122,24 +134,78 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
+		}
+
+		String relationship = (String)attributes.get("relationship");
+
+		if (relationship != null) {
+			setRelationship(relationship);
+		}
+
+		String homeTelephone = (String)attributes.get("homeTelephone");
+
+		if (homeTelephone != null) {
+			setHomeTelephone(homeTelephone);
+		}
+
+		String mobile = (String)attributes.get("mobile");
+
+		if (mobile != null) {
+			setMobile(mobile);
+		}
+
+		String workTelephone = (String)attributes.get("workTelephone");
+
+		if (workTelephone != null) {
+			setWorkTelephone(workTelephone);
+		}
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getEmergencyContactId() {
+		return _emergencyContactId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setEmergencyContactId(long emergencyContactId) {
+		_emergencyContactId = emergencyContactId;
 
 		if (_emergencyContactRemoteModel != null) {
 			try {
 				Class<?> clazz = _emergencyContactRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setEmergencyContactId",
+						long.class);
 
-				method.invoke(_emergencyContactRemoteModel, id);
+				method.invoke(_emergencyContactRemoteModel, emergencyContactId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+
+		if (_emergencyContactRemoteModel != null) {
+			try {
+				Class<?> clazz = _emergencyContactRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeId", long.class);
+
+				method.invoke(_emergencyContactRemoteModel, employeeId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -272,6 +338,121 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 		}
 	}
 
+	@Override
+	public String getName() {
+		return _name;
+	}
+
+	@Override
+	public void setName(String name) {
+		_name = name;
+
+		if (_emergencyContactRemoteModel != null) {
+			try {
+				Class<?> clazz = _emergencyContactRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setName", String.class);
+
+				method.invoke(_emergencyContactRemoteModel, name);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getRelationship() {
+		return _relationship;
+	}
+
+	@Override
+	public void setRelationship(String relationship) {
+		_relationship = relationship;
+
+		if (_emergencyContactRemoteModel != null) {
+			try {
+				Class<?> clazz = _emergencyContactRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setRelationship", String.class);
+
+				method.invoke(_emergencyContactRemoteModel, relationship);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getHomeTelephone() {
+		return _homeTelephone;
+	}
+
+	@Override
+	public void setHomeTelephone(String homeTelephone) {
+		_homeTelephone = homeTelephone;
+
+		if (_emergencyContactRemoteModel != null) {
+			try {
+				Class<?> clazz = _emergencyContactRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setHomeTelephone", String.class);
+
+				method.invoke(_emergencyContactRemoteModel, homeTelephone);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getMobile() {
+		return _mobile;
+	}
+
+	@Override
+	public void setMobile(String mobile) {
+		_mobile = mobile;
+
+		if (_emergencyContactRemoteModel != null) {
+			try {
+				Class<?> clazz = _emergencyContactRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setMobile", String.class);
+
+				method.invoke(_emergencyContactRemoteModel, mobile);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getWorkTelephone() {
+		return _workTelephone;
+	}
+
+	@Override
+	public void setWorkTelephone(String workTelephone) {
+		_workTelephone = workTelephone;
+
+		if (_emergencyContactRemoteModel != null) {
+			try {
+				Class<?> clazz = _emergencyContactRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setWorkTelephone", String.class);
+
+				method.invoke(_emergencyContactRemoteModel, workTelephone);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
 	public BaseModel<?> getEmergencyContactRemoteModel() {
 		return _emergencyContactRemoteModel;
 	}
@@ -343,12 +524,18 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 	public Object clone() {
 		EmergencyContactClp clone = new EmergencyContactClp();
 
-		clone.setId(getId());
+		clone.setEmergencyContactId(getEmergencyContactId());
+		clone.setEmployeeId(getEmployeeId());
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setUserId(getUserId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
+		clone.setName(getName());
+		clone.setRelationship(getRelationship());
+		clone.setHomeTelephone(getHomeTelephone());
+		clone.setMobile(getMobile());
+		clone.setWorkTelephone(getWorkTelephone());
 
 		return clone;
 	}
@@ -397,10 +584,12 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(25);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{emergencyContactId=");
+		sb.append(getEmergencyContactId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -411,6 +600,16 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+		sb.append(", name=");
+		sb.append(getName());
+		sb.append(", relationship=");
+		sb.append(getRelationship());
+		sb.append(", homeTelephone=");
+		sb.append(getHomeTelephone());
+		sb.append(", mobile=");
+		sb.append(getMobile());
+		sb.append(", workTelephone=");
+		sb.append(getWorkTelephone());
 		sb.append("}");
 
 		return sb.toString();
@@ -418,15 +617,19 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(22);
+		StringBundler sb = new StringBundler(40);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.EmergencyContact");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>emergencyContactId</column-name><column-value><![CDATA[");
+		sb.append(getEmergencyContactId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -448,18 +651,44 @@ public class EmergencyContactClp extends BaseModelImpl<EmergencyContact>
 			"<column><column-name>modifiedDate</column-name><column-value><![CDATA[");
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>name</column-name><column-value><![CDATA[");
+		sb.append(getName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>relationship</column-name><column-value><![CDATA[");
+		sb.append(getRelationship());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>homeTelephone</column-name><column-value><![CDATA[");
+		sb.append(getHomeTelephone());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>mobile</column-name><column-value><![CDATA[");
+		sb.append(getMobile());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>workTelephone</column-name><column-value><![CDATA[");
+		sb.append(getWorkTelephone());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _emergencyContactId;
+	private long _employeeId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private String _userUuid;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _name;
+	private String _relationship;
+	private String _homeTelephone;
+	private String _mobile;
+	private String _workTelephone;
 	private BaseModel<?> _emergencyContactRemoteModel;
 }

@@ -65,7 +65,10 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	public static final String TABLE_NAME = "employee";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "employeeId", Types.BIGINT },
+			{ "contactDetailsId", Types.BIGINT },
+			{ "jobId", Types.BIGINT },
 			{ "shiftId", Types.BIGINT },
+			{ "licenseId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "userId", Types.BIGINT },
@@ -76,12 +79,12 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 			{ "middleName", Types.VARCHAR },
 			{ "photograph", Types.BLOB },
 			{ "gender", Types.INTEGER },
-			{ "maritalStatus", Types.VARCHAR },
+			{ "maritalStatus", Types.INTEGER },
 			{ "nationality", Types.VARCHAR },
 			{ "dateOfBirth", Types.TIMESTAMP },
 			{ "otherId", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table employee (employeeId LONG not null primary key,shiftId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,middleName VARCHAR(75) null,photograph BLOB,gender INTEGER,maritalStatus VARCHAR(75) null,nationality VARCHAR(75) null,dateOfBirth DATE null,otherId VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table employee (employeeId LONG not null primary key,contactDetailsId LONG,jobId LONG,shiftId LONG,licenseId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,middleName VARCHAR(75) null,photograph BLOB,gender INTEGER,maritalStatus INTEGER,nationality VARCHAR(75) null,dateOfBirth DATE null,otherId VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table employee";
 	public static final String ORDER_BY_JPQL = " ORDER BY employee.employeeId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY employee.employeeId ASC";
@@ -140,7 +143,10 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("employeeId", getEmployeeId());
+		attributes.put("contactDetailsId", getContactDetailsId());
+		attributes.put("jobId", getJobId());
 		attributes.put("shiftId", getShiftId());
+		attributes.put("licenseId", getLicenseId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
@@ -167,10 +173,28 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 			setEmployeeId(employeeId);
 		}
 
+		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
+
+		if (contactDetailsId != null) {
+			setContactDetailsId(contactDetailsId);
+		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
+
 		Long shiftId = (Long)attributes.get("shiftId");
 
 		if (shiftId != null) {
 			setShiftId(shiftId);
+		}
+
+		Long licenseId = (Long)attributes.get("licenseId");
+
+		if (licenseId != null) {
+			setLicenseId(licenseId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -233,7 +257,7 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 			setGender(gender);
 		}
 
-		String maritalStatus = (String)attributes.get("maritalStatus");
+		Integer maritalStatus = (Integer)attributes.get("maritalStatus");
 
 		if (maritalStatus != null) {
 			setMaritalStatus(maritalStatus);
@@ -281,6 +305,26 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	}
 
 	@Override
+	public long getContactDetailsId() {
+		return _contactDetailsId;
+	}
+
+	@Override
+	public void setContactDetailsId(long contactDetailsId) {
+		_contactDetailsId = contactDetailsId;
+	}
+
+	@Override
+	public long getJobId() {
+		return _jobId;
+	}
+
+	@Override
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+	}
+
+	@Override
 	public long getShiftId() {
 		return _shiftId;
 	}
@@ -300,6 +344,16 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 	public long getOriginalShiftId() {
 		return _originalShiftId;
+	}
+
+	@Override
+	public long getLicenseId() {
+		return _licenseId;
+	}
+
+	@Override
+	public void setLicenseId(long licenseId) {
+		_licenseId = licenseId;
 	}
 
 	@Override
@@ -448,17 +502,12 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	}
 
 	@Override
-	public String getMaritalStatus() {
-		if (_maritalStatus == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _maritalStatus;
-		}
+	public int getMaritalStatus() {
+		return _maritalStatus;
 	}
 
 	@Override
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(int maritalStatus) {
 		_maritalStatus = maritalStatus;
 	}
 
@@ -534,7 +583,10 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		EmployeeImpl employeeImpl = new EmployeeImpl();
 
 		employeeImpl.setEmployeeId(getEmployeeId());
+		employeeImpl.setContactDetailsId(getContactDetailsId());
+		employeeImpl.setJobId(getJobId());
 		employeeImpl.setShiftId(getShiftId());
+		employeeImpl.setLicenseId(getLicenseId());
 		employeeImpl.setGroupId(getGroupId());
 		employeeImpl.setCompanyId(getCompanyId());
 		employeeImpl.setUserId(getUserId());
@@ -619,7 +671,13 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 		employeeCacheModel.employeeId = getEmployeeId();
 
+		employeeCacheModel.contactDetailsId = getContactDetailsId();
+
+		employeeCacheModel.jobId = getJobId();
+
 		employeeCacheModel.shiftId = getShiftId();
+
+		employeeCacheModel.licenseId = getLicenseId();
 
 		employeeCacheModel.groupId = getGroupId();
 
@@ -673,12 +731,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 		employeeCacheModel.maritalStatus = getMaritalStatus();
 
-		String maritalStatus = employeeCacheModel.maritalStatus;
-
-		if ((maritalStatus != null) && (maritalStatus.length() == 0)) {
-			employeeCacheModel.maritalStatus = null;
-		}
-
 		employeeCacheModel.nationality = getNationality();
 
 		String nationality = employeeCacheModel.nationality;
@@ -709,12 +761,18 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(33);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{employeeId=");
 		sb.append(getEmployeeId());
+		sb.append(", contactDetailsId=");
+		sb.append(getContactDetailsId());
+		sb.append(", jobId=");
+		sb.append(getJobId());
 		sb.append(", shiftId=");
 		sb.append(getShiftId());
+		sb.append(", licenseId=");
+		sb.append(getLicenseId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -748,7 +806,7 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(52);
+		StringBundler sb = new StringBundler(61);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Employee");
@@ -759,8 +817,20 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>contactDetailsId</column-name><column-value><![CDATA[");
+		sb.append(getContactDetailsId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>jobId</column-name><column-value><![CDATA[");
+		sb.append(getJobId());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>shiftId</column-name><column-value><![CDATA[");
 		sb.append(getShiftId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>licenseId</column-name><column-value><![CDATA[");
+		sb.append(getLicenseId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -827,9 +897,12 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	private long _employeeId;
 	private long _originalEmployeeId;
 	private boolean _setOriginalEmployeeId;
+	private long _contactDetailsId;
+	private long _jobId;
 	private long _shiftId;
 	private long _originalShiftId;
 	private boolean _setOriginalShiftId;
+	private long _licenseId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
@@ -841,7 +914,7 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	private String _middleName;
 	private EmployeePhotographBlobModel _photographBlobModel;
 	private int _gender;
-	private String _maritalStatus;
+	private int _maritalStatus;
 	private String _nationality;
 	private Date _dateOfBirth;
 	private String _otherId;

@@ -30,7 +30,8 @@ public class SalaryComponentSoap implements Serializable {
 	public static SalaryComponentSoap toSoapModel(SalaryComponent model) {
 		SalaryComponentSoap soapModel = new SalaryComponentSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setSalaryComponentId(model.getSalaryComponentId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCreateDate(model.getCreateDate());
@@ -87,19 +88,27 @@ public class SalaryComponentSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _salaryComponentId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setSalaryComponentId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getSalaryComponentId() {
+		return _salaryComponentId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setSalaryComponentId(long salaryComponentId) {
+		_salaryComponentId = salaryComponentId;
+	}
+
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
 	}
 
 	public long getCompanyId() {
@@ -182,7 +191,8 @@ public class SalaryComponentSoap implements Serializable {
 		_valueType = valueType;
 	}
 
-	private long _id;
+	private long _salaryComponentId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;

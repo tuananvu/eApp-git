@@ -59,20 +59,20 @@ public interface LanguageLocalService extends BaseLocalService,
 	/**
 	* Creates a new language with the primary key. Does not add the language to the database.
 	*
-	* @param id the primary key for the new language
+	* @param languageId the primary key for the new language
 	* @return the new language
 	*/
-	public com.rknowsys.eapp.hrm.model.Language createLanguage(long id);
+	public com.rknowsys.eapp.hrm.model.Language createLanguage(long languageId);
 
 	/**
 	* Deletes the language with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the language
+	* @param languageId the primary key of the language
 	* @return the language that was removed
 	* @throws PortalException if a language with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.Language deleteLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language deleteLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,19 +165,19 @@ public interface LanguageLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Language fetchLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language fetchLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the language with the primary key.
 	*
-	* @param id the primary key of the language
+	* @param languageId the primary key of the language
 	* @return the language
 	* @throws PortalException if a language with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Language getLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language getLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

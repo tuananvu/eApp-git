@@ -61,18 +61,32 @@ public interface SalaryComponentModel extends BaseModel<SalaryComponent> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this salary component.
+	 * Returns the salary component ID of this salary component.
 	 *
-	 * @return the ID of this salary component
+	 * @return the salary component ID of this salary component
 	 */
-	public long getId();
+	public long getSalaryComponentId();
 
 	/**
-	 * Sets the ID of this salary component.
+	 * Sets the salary component ID of this salary component.
 	 *
-	 * @param id the ID of this salary component
+	 * @param salaryComponentId the salary component ID of this salary component
 	 */
-	public void setId(long id);
+	public void setSalaryComponentId(long salaryComponentId);
+
+	/**
+	 * Returns the employee ID of this salary component.
+	 *
+	 * @return the employee ID of this salary component
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this salary component.
+	 *
+	 * @param employeeId the employee ID of this salary component
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the company ID of this salary component.

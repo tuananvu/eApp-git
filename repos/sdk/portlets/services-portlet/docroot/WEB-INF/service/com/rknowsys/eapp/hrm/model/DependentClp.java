@@ -75,11 +75,15 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("dependentId", getDependentId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
+		attributes.put("relationship", getRelationship());
+		attributes.put("dateOfBirth", getDateOfBirth());
 
 		return attributes;
 	}
@@ -90,6 +94,12 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 
 		if (dependentId != null) {
 			setDependentId(dependentId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -121,6 +131,24 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
+		}
+
+		String relationship = (String)attributes.get("relationship");
+
+		if (relationship != null) {
+			setRelationship(relationship);
+		}
+
+		Date dateOfBirth = (Date)attributes.get("dateOfBirth");
+
+		if (dateOfBirth != null) {
+			setDateOfBirth(dateOfBirth);
+		}
 	}
 
 	@Override
@@ -139,6 +167,29 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 				Method method = clazz.getMethod("setDependentId", long.class);
 
 				method.invoke(_dependentRemoteModel, dependentId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+
+		if (_dependentRemoteModel != null) {
+			try {
+				Class<?> clazz = _dependentRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeId", long.class);
+
+				method.invoke(_dependentRemoteModel, employeeId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -271,6 +322,75 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 		}
 	}
 
+	@Override
+	public String getName() {
+		return _name;
+	}
+
+	@Override
+	public void setName(String name) {
+		_name = name;
+
+		if (_dependentRemoteModel != null) {
+			try {
+				Class<?> clazz = _dependentRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setName", String.class);
+
+				method.invoke(_dependentRemoteModel, name);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public String getRelationship() {
+		return _relationship;
+	}
+
+	@Override
+	public void setRelationship(String relationship) {
+		_relationship = relationship;
+
+		if (_dependentRemoteModel != null) {
+			try {
+				Class<?> clazz = _dependentRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setRelationship", String.class);
+
+				method.invoke(_dependentRemoteModel, relationship);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public Date getDateOfBirth() {
+		return _dateOfBirth;
+	}
+
+	@Override
+	public void setDateOfBirth(Date dateOfBirth) {
+		_dateOfBirth = dateOfBirth;
+
+		if (_dependentRemoteModel != null) {
+			try {
+				Class<?> clazz = _dependentRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setDateOfBirth", Date.class);
+
+				method.invoke(_dependentRemoteModel, dateOfBirth);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
 	public BaseModel<?> getDependentRemoteModel() {
 		return _dependentRemoteModel;
 	}
@@ -341,11 +461,15 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 		DependentClp clone = new DependentClp();
 
 		clone.setDependentId(getDependentId());
+		clone.setEmployeeId(getEmployeeId());
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setUserId(getUserId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
+		clone.setName(getName());
+		clone.setRelationship(getRelationship());
+		clone.setDateOfBirth(getDateOfBirth());
 
 		return clone;
 	}
@@ -394,10 +518,12 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{dependentId=");
 		sb.append(getDependentId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -408,6 +534,12 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+		sb.append(", name=");
+		sb.append(getName());
+		sb.append(", relationship=");
+		sb.append(getRelationship());
+		sb.append(", dateOfBirth=");
+		sb.append(getDateOfBirth());
 		sb.append("}");
 
 		return sb.toString();
@@ -415,7 +547,7 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(22);
+		StringBundler sb = new StringBundler(34);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Dependent");
@@ -424,6 +556,10 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 		sb.append(
 			"<column><column-name>dependentId</column-name><column-value><![CDATA[");
 		sb.append(getDependentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -445,6 +581,18 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 			"<column><column-name>modifiedDate</column-name><column-value><![CDATA[");
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>name</column-name><column-value><![CDATA[");
+		sb.append(getName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>relationship</column-name><column-value><![CDATA[");
+		sb.append(getRelationship());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>dateOfBirth</column-name><column-value><![CDATA[");
+		sb.append(getDateOfBirth());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -452,11 +600,15 @@ public class DependentClp extends BaseModelImpl<Dependent> implements Dependent 
 	}
 
 	private long _dependentId;
+	private long _employeeId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private String _userUuid;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _name;
+	private String _relationship;
+	private Date _dateOfBirth;
 	private BaseModel<?> _dependentRemoteModel;
 }

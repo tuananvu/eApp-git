@@ -38,10 +38,12 @@ public class EducationCacheModel implements CacheModel<Education>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(id);
+		sb.append("{educationId=");
+		sb.append(educationId);
+		sb.append(", employeeId=");
+		sb.append(employeeId);
 		sb.append(", companyId=");
 		sb.append(companyId);
 		sb.append(", groupId=");
@@ -63,7 +65,8 @@ public class EducationCacheModel implements CacheModel<Education>,
 	public Education toEntityModel() {
 		EducationImpl educationImpl = new EducationImpl();
 
-		educationImpl.setId(id);
+		educationImpl.setEducationId(educationId);
+		educationImpl.setEmployeeId(employeeId);
 		educationImpl.setCompanyId(companyId);
 		educationImpl.setGroupId(groupId);
 
@@ -97,7 +100,8 @@ public class EducationCacheModel implements CacheModel<Education>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
+		educationId = objectInput.readLong();
+		employeeId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		createDate = objectInput.readLong();
@@ -109,7 +113,8 @@ public class EducationCacheModel implements CacheModel<Education>,
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(id);
+		objectOutput.writeLong(educationId);
+		objectOutput.writeLong(employeeId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(createDate);
@@ -124,7 +129,8 @@ public class EducationCacheModel implements CacheModel<Education>,
 		}
 	}
 
-	public long id;
+	public long educationId;
+	public long employeeId;
 	public long companyId;
 	public long groupId;
 	public long createDate;

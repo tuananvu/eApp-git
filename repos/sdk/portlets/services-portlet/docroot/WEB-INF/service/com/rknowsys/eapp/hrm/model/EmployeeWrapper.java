@@ -52,7 +52,10 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("employeeId", getEmployeeId());
+		attributes.put("contactDetailsId", getContactDetailsId());
+		attributes.put("jobId", getJobId());
 		attributes.put("shiftId", getShiftId());
+		attributes.put("licenseId", getLicenseId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
@@ -79,10 +82,28 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 			setEmployeeId(employeeId);
 		}
 
+		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
+
+		if (contactDetailsId != null) {
+			setContactDetailsId(contactDetailsId);
+		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
+
 		Long shiftId = (Long)attributes.get("shiftId");
 
 		if (shiftId != null) {
 			setShiftId(shiftId);
+		}
+
+		Long licenseId = (Long)attributes.get("licenseId");
+
+		if (licenseId != null) {
+			setLicenseId(licenseId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -145,7 +166,7 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 			setGender(gender);
 		}
 
-		String maritalStatus = (String)attributes.get("maritalStatus");
+		Integer maritalStatus = (Integer)attributes.get("maritalStatus");
 
 		if (maritalStatus != null) {
 			setMaritalStatus(maritalStatus);
@@ -211,6 +232,46 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	}
 
 	/**
+	* Returns the contact details ID of this Employee.
+	*
+	* @return the contact details ID of this Employee
+	*/
+	@Override
+	public long getContactDetailsId() {
+		return _employee.getContactDetailsId();
+	}
+
+	/**
+	* Sets the contact details ID of this Employee.
+	*
+	* @param contactDetailsId the contact details ID of this Employee
+	*/
+	@Override
+	public void setContactDetailsId(long contactDetailsId) {
+		_employee.setContactDetailsId(contactDetailsId);
+	}
+
+	/**
+	* Returns the job ID of this Employee.
+	*
+	* @return the job ID of this Employee
+	*/
+	@Override
+	public long getJobId() {
+		return _employee.getJobId();
+	}
+
+	/**
+	* Sets the job ID of this Employee.
+	*
+	* @param jobId the job ID of this Employee
+	*/
+	@Override
+	public void setJobId(long jobId) {
+		_employee.setJobId(jobId);
+	}
+
+	/**
 	* Returns the shift ID of this Employee.
 	*
 	* @return the shift ID of this Employee
@@ -228,6 +289,26 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	@Override
 	public void setShiftId(long shiftId) {
 		_employee.setShiftId(shiftId);
+	}
+
+	/**
+	* Returns the license ID of this Employee.
+	*
+	* @return the license ID of this Employee
+	*/
+	@Override
+	public long getLicenseId() {
+		return _employee.getLicenseId();
+	}
+
+	/**
+	* Sets the license ID of this Employee.
+	*
+	* @param licenseId the license ID of this Employee
+	*/
+	@Override
+	public void setLicenseId(long licenseId) {
+		_employee.setLicenseId(licenseId);
 	}
 
 	/**
@@ -458,7 +539,7 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	* @return the marital status of this Employee
 	*/
 	@Override
-	public java.lang.String getMaritalStatus() {
+	public int getMaritalStatus() {
 		return _employee.getMaritalStatus();
 	}
 
@@ -468,7 +549,7 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	* @param maritalStatus the marital status of this Employee
 	*/
 	@Override
-	public void setMaritalStatus(java.lang.String maritalStatus) {
+	public void setMaritalStatus(int maritalStatus) {
 		_employee.setMaritalStatus(maritalStatus);
 	}
 

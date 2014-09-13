@@ -61,18 +61,32 @@ public interface MembershipModel extends BaseModel<Membership> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this membership.
+	 * Returns the membership ID of this membership.
 	 *
-	 * @return the ID of this membership
+	 * @return the membership ID of this membership
 	 */
-	public long getId();
+	public long getMembershipId();
 
 	/**
-	 * Sets the ID of this membership.
+	 * Sets the membership ID of this membership.
 	 *
-	 * @param id the ID of this membership
+	 * @param membershipId the membership ID of this membership
 	 */
-	public void setId(long id);
+	public void setMembershipId(long membershipId);
+
+	/**
+	 * Returns the employee ID of this membership.
+	 *
+	 * @return the employee ID of this membership
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this membership.
+	 *
+	 * @param employeeId the employee ID of this membership
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the company ID of this membership.

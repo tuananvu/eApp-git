@@ -111,166 +111,6 @@ public class NationalityUtil {
 	}
 
 	/**
-	* Returns all the nationalities where groupId = &#63;.
-	*
-	* @param groupId the group ID
-	* @return the matching nationalities
-	* @throws SystemException if a system exception occurred
-	*/
-	public static java.util.List<com.rknowsys.eapp.hrm.model.Nationality> findByGroupId(
-		long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByGroupId(groupId);
-	}
-
-	/**
-	* Returns a range of all the nationalities where groupId = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.NationalityModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param groupId the group ID
-	* @param start the lower bound of the range of nationalities
-	* @param end the upper bound of the range of nationalities (not inclusive)
-	* @return the range of matching nationalities
-	* @throws SystemException if a system exception occurred
-	*/
-	public static java.util.List<com.rknowsys.eapp.hrm.model.Nationality> findByGroupId(
-		long groupId, int start, int end)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().findByGroupId(groupId, start, end);
-	}
-
-	/**
-	* Returns an ordered range of all the nationalities where groupId = &#63;.
-	*
-	* <p>
-	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.NationalityModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
-	* </p>
-	*
-	* @param groupId the group ID
-	* @param start the lower bound of the range of nationalities
-	* @param end the upper bound of the range of nationalities (not inclusive)
-	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of matching nationalities
-	* @throws SystemException if a system exception occurred
-	*/
-	public static java.util.List<com.rknowsys.eapp.hrm.model.Nationality> findByGroupId(
-		long groupId, int start, int end,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence()
-				   .findByGroupId(groupId, start, end, orderByComparator);
-	}
-
-	/**
-	* Returns the first nationality in the ordered set where groupId = &#63;.
-	*
-	* @param groupId the group ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching nationality
-	* @throws com.rknowsys.eapp.hrm.NoSuchNationalityException if a matching nationality could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality findByGroupId_First(
-		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			com.rknowsys.eapp.hrm.NoSuchNationalityException {
-		return getPersistence().findByGroupId_First(groupId, orderByComparator);
-	}
-
-	/**
-	* Returns the first nationality in the ordered set where groupId = &#63;.
-	*
-	* @param groupId the group ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the first matching nationality, or <code>null</code> if a matching nationality could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality fetchByGroupId_First(
-		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByGroupId_First(groupId, orderByComparator);
-	}
-
-	/**
-	* Returns the last nationality in the ordered set where groupId = &#63;.
-	*
-	* @param groupId the group ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching nationality
-	* @throws com.rknowsys.eapp.hrm.NoSuchNationalityException if a matching nationality could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality findByGroupId_Last(
-		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			com.rknowsys.eapp.hrm.NoSuchNationalityException {
-		return getPersistence().findByGroupId_Last(groupId, orderByComparator);
-	}
-
-	/**
-	* Returns the last nationality in the ordered set where groupId = &#63;.
-	*
-	* @param groupId the group ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the last matching nationality, or <code>null</code> if a matching nationality could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality fetchByGroupId_Last(
-		long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByGroupId_Last(groupId, orderByComparator);
-	}
-
-	/**
-	* Returns the nationalities before and after the current nationality in the ordered set where groupId = &#63;.
-	*
-	* @param id the primary key of the current nationality
-	* @param groupId the group ID
-	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
-	* @return the previous, current, and next nationality
-	* @throws com.rknowsys.eapp.hrm.NoSuchNationalityException if a nationality with the primary key could not be found
-	* @throws SystemException if a system exception occurred
-	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality[] findByGroupId_PrevAndNext(
-		long id, long groupId,
-		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			com.rknowsys.eapp.hrm.NoSuchNationalityException {
-		return getPersistence()
-				   .findByGroupId_PrevAndNext(id, groupId, orderByComparator);
-	}
-
-	/**
-	* Removes all the nationalities where groupId = &#63; from the database.
-	*
-	* @param groupId the group ID
-	* @throws SystemException if a system exception occurred
-	*/
-	public static void removeByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		getPersistence().removeByGroupId(groupId);
-	}
-
-	/**
-	* Returns the number of nationalities where groupId = &#63;.
-	*
-	* @param groupId the group ID
-	* @return the number of matching nationalities
-	* @throws SystemException if a system exception occurred
-	*/
-	public static int countByGroupId(long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().countByGroupId(groupId);
-	}
-
-	/**
 	* Caches the nationality in the entity cache if it is enabled.
 	*
 	* @param nationality the nationality
@@ -293,25 +133,27 @@ public class NationalityUtil {
 	/**
 	* Creates a new nationality with the primary key. Does not add the nationality to the database.
 	*
-	* @param id the primary key for the new nationality
+	* @param nationalityId the primary key for the new nationality
 	* @return the new nationality
 	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality create(long id) {
-		return getPersistence().create(id);
+	public static com.rknowsys.eapp.hrm.model.Nationality create(
+		long nationalityId) {
+		return getPersistence().create(nationalityId);
 	}
 
 	/**
 	* Removes the nationality with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality that was removed
 	* @throws com.rknowsys.eapp.hrm.NoSuchNationalityException if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.Nationality remove(long id)
+	public static com.rknowsys.eapp.hrm.model.Nationality remove(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchNationalityException {
-		return getPersistence().remove(id);
+		return getPersistence().remove(nationalityId);
 	}
 
 	public static com.rknowsys.eapp.hrm.model.Nationality updateImpl(
@@ -323,28 +165,29 @@ public class NationalityUtil {
 	/**
 	* Returns the nationality with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchNationalityException} if it could not be found.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality
 	* @throws com.rknowsys.eapp.hrm.NoSuchNationalityException if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Nationality findByPrimaryKey(
-		long id)
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchNationalityException {
-		return getPersistence().findByPrimaryKey(id);
+		return getPersistence().findByPrimaryKey(nationalityId);
 	}
 
 	/**
 	* Returns the nationality with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality, or <code>null</code> if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Nationality fetchByPrimaryKey(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByPrimaryKey(id);
+		long nationalityId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByPrimaryKey(nationalityId);
 	}
 
 	/**

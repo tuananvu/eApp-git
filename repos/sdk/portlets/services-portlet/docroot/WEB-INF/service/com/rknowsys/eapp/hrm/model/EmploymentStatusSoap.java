@@ -30,13 +30,14 @@ public class EmploymentStatusSoap implements Serializable {
 	public static EmploymentStatusSoap toSoapModel(EmploymentStatus model) {
 		EmploymentStatusSoap soapModel = new EmploymentStatusSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setEmploymentStatusId(model.getEmploymentStatusId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setEmploymentstatus(model.getEmploymentstatus());
+		soapModel.setJobId(model.getJobId());
 
 		return soapModel;
 	}
@@ -84,19 +85,19 @@ public class EmploymentStatusSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _employmentStatusId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setEmploymentStatusId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getEmploymentStatusId() {
+		return _employmentStatusId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setEmploymentStatusId(long employmentStatusId) {
+		_employmentStatusId = employmentStatusId;
 	}
 
 	public long getGroupId() {
@@ -147,11 +148,20 @@ public class EmploymentStatusSoap implements Serializable {
 		_employmentstatus = employmentstatus;
 	}
 
-	private long _id;
+	public long getJobId() {
+		return _jobId;
+	}
+
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+	}
+
+	private long _employmentStatusId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private String _employmentstatus;
+	private long _jobId;
 }

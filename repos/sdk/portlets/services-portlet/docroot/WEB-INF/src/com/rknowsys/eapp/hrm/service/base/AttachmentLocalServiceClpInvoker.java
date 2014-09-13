@@ -106,13 +106,17 @@ public class AttachmentLocalServiceClpInvoker {
 				"com.rknowsys.eapp.hrm.model.Attachment"
 			};
 
-		_methodName132 = "getBeanIdentifier";
+		_methodName16 = "getFileBlobModel";
 
-		_methodParameterTypes132 = new String[] {  };
+		_methodParameterTypes16 = new String[] { "java.io.Serializable" };
 
-		_methodName133 = "setBeanIdentifier";
+		_methodName137 = "getBeanIdentifier";
 
-		_methodParameterTypes133 = new String[] { "java.lang.String" };
+		_methodParameterTypes137 = new String[] {  };
+
+		_methodName138 = "setBeanIdentifier";
+
+		_methodParameterTypes138 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -204,13 +208,18 @@ public class AttachmentLocalServiceClpInvoker {
 			return AttachmentLocalServiceUtil.updateAttachment((com.rknowsys.eapp.hrm.model.Attachment)arguments[0]);
 		}
 
-		if (_methodName132.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes132, parameterTypes)) {
+		if (_methodName16.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes16, parameterTypes)) {
+			return AttachmentLocalServiceUtil.getFileBlobModel((java.io.Serializable)arguments[0]);
+		}
+
+		if (_methodName137.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes137, parameterTypes)) {
 			return AttachmentLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName133.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes133, parameterTypes)) {
+		if (_methodName138.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes138, parameterTypes)) {
 			AttachmentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -251,8 +260,10 @@ public class AttachmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName132;
-	private String[] _methodParameterTypes132;
-	private String _methodName133;
-	private String[] _methodParameterTypes133;
+	private String _methodName16;
+	private String[] _methodParameterTypes16;
+	private String _methodName137;
+	private String[] _methodParameterTypes137;
+	private String _methodName138;
+	private String[] _methodParameterTypes138;
 }

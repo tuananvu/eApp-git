@@ -77,6 +77,34 @@ public interface EmployeeModel extends BaseModel<Employee> {
 	public void setEmployeeId(long employeeId);
 
 	/**
+	 * Returns the contact details ID of this Employee.
+	 *
+	 * @return the contact details ID of this Employee
+	 */
+	public long getContactDetailsId();
+
+	/**
+	 * Sets the contact details ID of this Employee.
+	 *
+	 * @param contactDetailsId the contact details ID of this Employee
+	 */
+	public void setContactDetailsId(long contactDetailsId);
+
+	/**
+	 * Returns the job ID of this Employee.
+	 *
+	 * @return the job ID of this Employee
+	 */
+	public long getJobId();
+
+	/**
+	 * Sets the job ID of this Employee.
+	 *
+	 * @param jobId the job ID of this Employee
+	 */
+	public void setJobId(long jobId);
+
+	/**
 	 * Returns the shift ID of this Employee.
 	 *
 	 * @return the shift ID of this Employee
@@ -89,6 +117,20 @@ public interface EmployeeModel extends BaseModel<Employee> {
 	 * @param shiftId the shift ID of this Employee
 	 */
 	public void setShiftId(long shiftId);
+
+	/**
+	 * Returns the license ID of this Employee.
+	 *
+	 * @return the license ID of this Employee
+	 */
+	public long getLicenseId();
+
+	/**
+	 * Sets the license ID of this Employee.
+	 *
+	 * @param licenseId the license ID of this Employee
+	 */
+	public void setLicenseId(long licenseId);
 
 	/**
 	 * Returns the group ID of this Employee.
@@ -253,15 +295,14 @@ public interface EmployeeModel extends BaseModel<Employee> {
 	 *
 	 * @return the marital status of this Employee
 	 */
-	@AutoEscape
-	public String getMaritalStatus();
+	public int getMaritalStatus();
 
 	/**
 	 * Sets the marital status of this Employee.
 	 *
 	 * @param maritalStatus the marital status of this Employee
 	 */
-	public void setMaritalStatus(String maritalStatus);
+	public void setMaritalStatus(int maritalStatus);
 
 	/**
 	 * Returns the nationality of this Employee.

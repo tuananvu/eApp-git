@@ -59,22 +59,22 @@ public interface EmploymentStatusLocalService extends BaseLocalService,
 	/**
 	* Creates a new employment status with the primary key. Does not add the employment status to the database.
 	*
-	* @param id the primary key for the new employment status
+	* @param employmentStatusId the primary key for the new employment status
 	* @return the new employment status
 	*/
 	public com.rknowsys.eapp.hrm.model.EmploymentStatus createEmploymentStatus(
-		long id);
+		long employmentStatusId);
 
 	/**
 	* Deletes the employment status with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status that was removed
 	* @throws PortalException if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.rknowsys.eapp.hrm.model.EmploymentStatus deleteEmploymentStatus(
-		long id)
+		long employmentStatusId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -168,19 +168,20 @@ public interface EmploymentStatusLocalService extends BaseLocalService,
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.rknowsys.eapp.hrm.model.EmploymentStatus fetchEmploymentStatus(
-		long id) throws com.liferay.portal.kernel.exception.SystemException;
+		long employmentStatusId)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the employment status with the primary key.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status
 	* @throws PortalException if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.rknowsys.eapp.hrm.model.EmploymentStatus getEmploymentStatus(
-		long id)
+		long employmentStatusId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

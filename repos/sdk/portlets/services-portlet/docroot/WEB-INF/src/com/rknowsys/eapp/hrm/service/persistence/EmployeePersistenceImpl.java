@@ -1197,7 +1197,10 @@ public class EmployeePersistenceImpl extends BasePersistenceImpl<Employee>
 		employeeImpl.setPrimaryKey(employee.getPrimaryKey());
 
 		employeeImpl.setEmployeeId(employee.getEmployeeId());
+		employeeImpl.setContactDetailsId(employee.getContactDetailsId());
+		employeeImpl.setJobId(employee.getJobId());
 		employeeImpl.setShiftId(employee.getShiftId());
+		employeeImpl.setLicenseId(employee.getLicenseId());
 		employeeImpl.setGroupId(employee.getGroupId());
 		employeeImpl.setCompanyId(employee.getCompanyId());
 		employeeImpl.setUserId(employee.getUserId());

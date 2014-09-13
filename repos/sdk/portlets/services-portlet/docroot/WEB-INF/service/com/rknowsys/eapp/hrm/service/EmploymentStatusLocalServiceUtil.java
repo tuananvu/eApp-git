@@ -55,27 +55,27 @@ public class EmploymentStatusLocalServiceUtil {
 	/**
 	* Creates a new employment status with the primary key. Does not add the employment status to the database.
 	*
-	* @param id the primary key for the new employment status
+	* @param employmentStatusId the primary key for the new employment status
 	* @return the new employment status
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmploymentStatus createEmploymentStatus(
-		long id) {
-		return getService().createEmploymentStatus(id);
+		long employmentStatusId) {
+		return getService().createEmploymentStatus(employmentStatusId);
 	}
 
 	/**
 	* Deletes the employment status with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status that was removed
 	* @throws PortalException if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmploymentStatus deleteEmploymentStatus(
-		long id)
+		long employmentStatusId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEmploymentStatus(id);
+		return getService().deleteEmploymentStatus(employmentStatusId);
 	}
 
 	/**
@@ -182,23 +182,24 @@ public class EmploymentStatusLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.EmploymentStatus fetchEmploymentStatus(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchEmploymentStatus(id);
+		long employmentStatusId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchEmploymentStatus(employmentStatusId);
 	}
 
 	/**
 	* Returns the employment status with the primary key.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status
 	* @throws PortalException if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmploymentStatus getEmploymentStatus(
-		long id)
+		long employmentStatusId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEmploymentStatus(id);
+		return getService().getEmploymentStatus(employmentStatusId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

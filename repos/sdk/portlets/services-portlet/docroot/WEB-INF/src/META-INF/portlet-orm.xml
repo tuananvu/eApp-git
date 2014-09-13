@@ -9,18 +9,28 @@
 	</persistence-unit-metadata>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.AttachmentModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="attachmentId" />
+			<basic name="employeeId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
+			<basic name="userName" />
 			<basic name="createDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
+			<basic name="comment">
+				<column name="COMMENT_" />
+			</basic>
+			<basic name="file" />
+			<basic name="attachmentType" />
+			<basic name="size">
+				<column name="SIZE_" />
+			</basic>
+			<basic name="fileType" />
+			<basic name="fileName" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -29,9 +39,7 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.ContactDetailsModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="contactDetailsId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
@@ -64,6 +72,7 @@
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.DependentModelImpl">
 		<attributes>
 			<id name="dependentId" />
+			<basic name="employeeId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
@@ -71,6 +80,11 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="name" />
+			<basic name="relationship" />
+			<basic name="dateOfBirth">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<transient name="modelAttributes" />
@@ -100,38 +114,10 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.DocumentModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="companyId" />
-			<basic name="groupId" />
-			<basic name="createDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="modifiedDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="userId" />
-			<basic name="docTopic" />
-			<basic name="docCategory" />
-			<basic name="description" />
-			<basic name="publishTo" />
-			<basic name="publishDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-			<transient name="userUuid" />
-		</attributes>
-	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.EducationModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="educationId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -150,9 +136,8 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="emergencyContactId" />
+			<basic name="employeeId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
@@ -162,6 +147,11 @@
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
+			<basic name="name" />
+			<basic name="relationship" />
+			<basic name="homeTelephone" />
+			<basic name="mobile" />
+			<basic name="workTelephone" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -171,7 +161,10 @@
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.EmployeeModelImpl">
 		<attributes>
 			<id name="employeeId" />
+			<basic name="contactDetailsId" />
+			<basic name="jobId" />
 			<basic name="shiftId" />
+			<basic name="licenseId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
@@ -200,9 +193,7 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.EmploymentStatusModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="employmentStatusId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
@@ -213,24 +204,31 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="employmentstatus" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.ImmigrationModelImpl">
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.ImmigrationDocumentModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="groupId" />
+			<id name="immigrationDocumentId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
-			<basic name="userId" />
+			<basic name="groupId" />
 			<basic name="createDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="userId" />
+			<basic name="docTopic" />
+			<basic name="docCategory" />
+			<basic name="description" />
+			<basic name="publishTo" />
+			<basic name="publishDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<transient name="modelAttributes" />
@@ -260,11 +258,42 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.JobModelImpl">
+		<attributes>
+			<id name="jobId" />
+			<basic name="jobTitleId" />
+			<basic name="jobCategoryId" />
+			<basic name="subUnitId" />
+			<basic name="locationId" />
+			<basic name="employmentStatusId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="joinedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="employmentContractStartDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="employmentContractEndDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="contractDetails" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.JobCategoryModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="jobCategoryId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -275,17 +304,16 @@
 			</basic>
 			<basic name="userId" />
 			<basic name="jobcategory" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.JobTitlesModelImpl">
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.JobTitleModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="jobTitleId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -295,10 +323,12 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="userId" />
+			<basic name="employeeId" />
 			<basic name="title" />
 			<basic name="description" />
 			<basic name="notes" />
 			<basic name="specification" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -307,9 +337,8 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.LanguageModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="languageId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -328,9 +357,8 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.LicenseModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="licenseId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -341,17 +369,18 @@
 			</basic>
 			<basic name="userId" />
 			<basic name="licenseName" />
+			<basic name="expiryDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.LocationsModelImpl">
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.LocationModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="locationId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -372,6 +401,7 @@
 			<basic name="phone" />
 			<basic name="fax" />
 			<basic name="notes" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -380,9 +410,8 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.MembershipModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="membershipId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -401,19 +430,17 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.NationalityModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="companyId" />
+			<id name="nationalityId" />
 			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
 			<basic name="createDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="userId" />
-			<basic name="nationalityName" />
+			<basic name="Name" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -489,31 +516,10 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.QualificationModelImpl">
-		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
-			<basic name="groupId" />
-			<basic name="companyId" />
-			<basic name="userId" />
-			<basic name="createDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="modifiedDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-			<transient name="userUuid" />
-		</attributes>
-	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.SalaryComponentModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="salaryComponentId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -537,9 +543,8 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.SkillModelImpl">
 		<attributes>
-			<id name="id">
-				<column name="ID_" />
-			</id>
+			<id name="skillId" />
+			<basic name="employeeId" />
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -551,6 +556,78 @@
 			<basic name="userId" />
 			<basic name="skillName" />
 			<basic name="description" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.SubUnitModelImpl">
+		<attributes>
+			<id name="subUnitId" />
+			<basic name="name" />
+			<basic name="description" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="jobId" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.SupervisorModelImpl">
+		<attributes>
+			<id name="supervisorId" />
+			<basic name="employeeId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="userName" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="reportingMethod" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.WorkExpCompanyModelImpl">
+		<attributes>
+			<id name="workExpCompanyId" />
+			<basic name="employeeId" />
+			<basic name="groupId" />
+			<basic name="companyId" />
+			<basic name="userId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="company" />
+			<basic name="jobTitle" />
+			<basic name="fromDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="toDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="comment">
+				<column name="COMMENT_" />
+			</basic>
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -582,33 +659,12 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.WorkShiftUserModelImpl">
-		<attributes>
-			<id name="workShiftUserId" />
-			<basic name="companyId" />
-			<basic name="groupId" />
-			<basic name="createDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="modifiedDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="userId" />
-			<basic name="empId" />
-			<basic name="shiftId" />
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-			<transient name="userUuid" />
-			<transient name="workShiftUserUuid" />
-		</attributes>
-	</mapped-superclass>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.AttachmentImpl" name="Attachment">
-		<table name="hrm_Attachment" />
+		<table name="attachment" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.ContactDetailsImpl" name="ContactDetails">
-		<table name="hrm_ContactDetails" />
+		<table name="contact_details" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.DependentImpl" name="Dependent">
@@ -619,16 +675,12 @@
 		<table name="doc_category" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.DocumentImpl" name="Document">
-		<table name="document" />
-		<attributes />
-	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.EducationImpl" name="Education">
 		<table name="education" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.EmergencyContactImpl" name="EmergencyContact">
-		<table name="hrm_EmergencyContact" />
+		<table name="emergency_contact" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.EmployeeImpl" name="Employee">
@@ -639,20 +691,24 @@
 		<table name="employment_status" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.ImmigrationImpl" name="Immigration">
-		<table name="hrm_Immigration" />
+	<entity class="com.rknowsys.eapp.hrm.model.impl.ImmigrationDocumentImpl" name="ImmigrationDocument">
+		<table name="immigration_document" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.InterviewImpl" name="Interview">
 		<table name="interview" />
 		<attributes />
 	</entity>
+	<entity class="com.rknowsys.eapp.hrm.model.impl.JobImpl" name="Job">
+		<table name="hrm_Job" />
+		<attributes />
+	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.JobCategoryImpl" name="JobCategory">
 		<table name="job_category" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.JobTitlesImpl" name="JobTitles">
-		<table name="job_titles" />
+	<entity class="com.rknowsys.eapp.hrm.model.impl.JobTitleImpl" name="JobTitle">
+		<table name="job_title" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.LanguageImpl" name="Language">
@@ -663,8 +719,8 @@
 		<table name="license" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.LocationsImpl" name="Locations">
-		<table name="locations" />
+	<entity class="com.rknowsys.eapp.hrm.model.impl.LocationImpl" name="Location">
+		<table name="location" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.MembershipImpl" name="Membership">
@@ -672,7 +728,7 @@
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.NationalityImpl" name="Nationality">
-		<table name="nationality" />
+		<table name="hrm_Nationality" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.NewsImpl" name="News">
@@ -687,10 +743,6 @@
 		<table name="pay_grade_currency" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.QualificationImpl" name="Qualification">
-		<table name="hrm_Qualification" />
-		<attributes />
-	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.SalaryComponentImpl" name="SalaryComponent">
 		<table name="salary_component" />
 		<attributes />
@@ -699,12 +751,20 @@
 		<table name="skill" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.WorkshiftImpl" name="Workshift">
-		<table name="workshift" />
+	<entity class="com.rknowsys.eapp.hrm.model.impl.SubUnitImpl" name="SubUnit">
+		<table name="sub_unit" />
 		<attributes />
 	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.WorkShiftUserImpl" name="WorkShiftUser">
-		<table name="work_shift_user" />
+	<entity class="com.rknowsys.eapp.hrm.model.impl.SupervisorImpl" name="Supervisor">
+		<table name="supervisor" />
+		<attributes />
+	</entity>
+	<entity class="com.rknowsys.eapp.hrm.model.impl.WorkExpCompanyImpl" name="WorkExpCompany">
+		<table name="work_exp_company" />
+		<attributes />
+	</entity>
+	<entity class="com.rknowsys.eapp.hrm.model.impl.WorkshiftImpl" name="Workshift">
+		<table name="workshift" />
 		<attributes />
 	</entity>
 </entity-mappings>

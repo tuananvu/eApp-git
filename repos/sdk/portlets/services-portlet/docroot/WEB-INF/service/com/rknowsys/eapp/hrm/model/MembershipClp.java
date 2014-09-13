@@ -53,17 +53,17 @@ public class MembershipClp extends BaseModelImpl<Membership>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _membershipId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setMembershipId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _membershipId;
 	}
 
 	@Override
@@ -75,7 +75,8 @@ public class MembershipClp extends BaseModelImpl<Membership>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("membershipId", getMembershipId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -88,10 +89,16 @@ public class MembershipClp extends BaseModelImpl<Membership>
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long membershipId = (Long)attributes.get("membershipId");
 
-		if (id != null) {
-			setId(id);
+		if (membershipId != null) {
+			setMembershipId(membershipId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -132,21 +139,44 @@ public class MembershipClp extends BaseModelImpl<Membership>
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getMembershipId() {
+		return _membershipId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setMembershipId(long membershipId) {
+		_membershipId = membershipId;
 
 		if (_membershipRemoteModel != null) {
 			try {
 				Class<?> clazz = _membershipRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setMembershipId", long.class);
 
-				method.invoke(_membershipRemoteModel, id);
+				method.invoke(_membershipRemoteModel, membershipId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+
+		if (_membershipRemoteModel != null) {
+			try {
+				Class<?> clazz = _membershipRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeId", long.class);
+
+				method.invoke(_membershipRemoteModel, employeeId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -372,7 +402,8 @@ public class MembershipClp extends BaseModelImpl<Membership>
 	public Object clone() {
 		MembershipClp clone = new MembershipClp();
 
-		clone.setId(getId());
+		clone.setMembershipId(getMembershipId());
+		clone.setEmployeeId(getEmployeeId());
 		clone.setCompanyId(getCompanyId());
 		clone.setGroupId(getGroupId());
 		clone.setCreateDate(getCreateDate());
@@ -427,10 +458,12 @@ public class MembershipClp extends BaseModelImpl<Membership>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{membershipId=");
+		sb.append(getMembershipId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", groupId=");
@@ -450,15 +483,19 @@ public class MembershipClp extends BaseModelImpl<Membership>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Membership");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>membershipId</column-name><column-value><![CDATA[");
+		sb.append(getMembershipId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -490,7 +527,8 @@ public class MembershipClp extends BaseModelImpl<Membership>
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _membershipId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;

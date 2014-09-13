@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.model.PersistedModel;
 
 /**
- * The extended model interface for the Attachment service. Represents a row in the &quot;hrm_Attachment&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the Attachment service. Represents a row in the &quot;attachment&quot; database table, with each column mapped to a property of this class.
  *
  * @author rknowsys
  * @see AttachmentModel

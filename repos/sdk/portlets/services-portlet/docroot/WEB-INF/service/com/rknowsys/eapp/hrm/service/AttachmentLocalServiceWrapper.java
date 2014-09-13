@@ -47,27 +47,29 @@ public class AttachmentLocalServiceWrapper implements AttachmentLocalService,
 	/**
 	* Creates a new attachment with the primary key. Does not add the attachment to the database.
 	*
-	* @param id the primary key for the new attachment
+	* @param attachmentId the primary key for the new attachment
 	* @return the new attachment
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment createAttachment(long id) {
-		return _attachmentLocalService.createAttachment(id);
+	public com.rknowsys.eapp.hrm.model.Attachment createAttachment(
+		long attachmentId) {
+		return _attachmentLocalService.createAttachment(attachmentId);
 	}
 
 	/**
 	* Deletes the attachment with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the attachment
+	* @param attachmentId the primary key of the attachment
 	* @return the attachment that was removed
 	* @throws PortalException if a attachment with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _attachmentLocalService.deleteAttachment(id);
+		return _attachmentLocalService.deleteAttachment(attachmentId);
 	}
 
 	/**
@@ -182,24 +184,26 @@ public class AttachmentLocalServiceWrapper implements AttachmentLocalService,
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _attachmentLocalService.fetchAttachment(id);
+		return _attachmentLocalService.fetchAttachment(attachmentId);
 	}
 
 	/**
 	* Returns the attachment with the primary key.
 	*
-	* @param id the primary key of the attachment
+	* @param attachmentId the primary key of the attachment
 	* @return the attachment
 	* @throws PortalException if a attachment with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment getAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment getAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _attachmentLocalService.getAttachment(id);
+		return _attachmentLocalService.getAttachment(attachmentId);
 	}
 
 	@Override
@@ -253,6 +257,13 @@ public class AttachmentLocalServiceWrapper implements AttachmentLocalService,
 		com.rknowsys.eapp.hrm.model.Attachment attachment)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _attachmentLocalService.updateAttachment(attachment);
+	}
+
+	@Override
+	public com.rknowsys.eapp.hrm.model.AttachmentFileBlobModel getFileBlobModel(
+		java.io.Serializable primaryKey)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _attachmentLocalService.getFileBlobModel(primaryKey);
 	}
 
 	/**

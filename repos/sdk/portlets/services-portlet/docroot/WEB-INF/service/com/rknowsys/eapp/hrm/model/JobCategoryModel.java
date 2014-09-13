@@ -61,18 +61,18 @@ public interface JobCategoryModel extends BaseModel<JobCategory> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this job category.
+	 * Returns the job category ID of this job category.
 	 *
-	 * @return the ID of this job category
+	 * @return the job category ID of this job category
 	 */
-	public long getId();
+	public long getJobCategoryId();
 
 	/**
-	 * Sets the ID of this job category.
+	 * Sets the job category ID of this job category.
 	 *
-	 * @param id the ID of this job category
+	 * @param jobCategoryId the job category ID of this job category
 	 */
-	public void setId(long id);
+	public void setJobCategoryId(long jobCategoryId);
 
 	/**
 	 * Returns the company ID of this job category.
@@ -173,6 +173,20 @@ public interface JobCategoryModel extends BaseModel<JobCategory> {
 	 * @param jobcategory the jobcategory of this job category
 	 */
 	public void setJobcategory(String jobcategory);
+
+	/**
+	 * Returns the job ID of this job category.
+	 *
+	 * @return the job ID of this job category
+	 */
+	public long getJobId();
+
+	/**
+	 * Sets the job ID of this job category.
+	 *
+	 * @param jobId the job ID of this job category
+	 */
+	public void setJobId(long jobId);
 
 	@Override
 	public boolean isNew();

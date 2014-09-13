@@ -49,7 +49,8 @@ public class MembershipWrapper implements Membership, ModelWrapper<Membership> {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("membershipId", getMembershipId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -62,10 +63,16 @@ public class MembershipWrapper implements Membership, ModelWrapper<Membership> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long membershipId = (Long)attributes.get("membershipId");
 
-		if (id != null) {
-			setId(id);
+		if (membershipId != null) {
+			setMembershipId(membershipId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -126,23 +133,43 @@ public class MembershipWrapper implements Membership, ModelWrapper<Membership> {
 	}
 
 	/**
-	* Returns the ID of this membership.
+	* Returns the membership ID of this membership.
 	*
-	* @return the ID of this membership
+	* @return the membership ID of this membership
 	*/
 	@Override
-	public long getId() {
-		return _membership.getId();
+	public long getMembershipId() {
+		return _membership.getMembershipId();
 	}
 
 	/**
-	* Sets the ID of this membership.
+	* Sets the membership ID of this membership.
 	*
-	* @param id the ID of this membership
+	* @param membershipId the membership ID of this membership
 	*/
 	@Override
-	public void setId(long id) {
-		_membership.setId(id);
+	public void setMembershipId(long membershipId) {
+		_membership.setMembershipId(membershipId);
+	}
+
+	/**
+	* Returns the employee ID of this membership.
+	*
+	* @return the employee ID of this membership
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _membership.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this membership.
+	*
+	* @param employeeId the employee ID of this membership
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_membership.setEmployeeId(employeeId);
 	}
 
 	/**

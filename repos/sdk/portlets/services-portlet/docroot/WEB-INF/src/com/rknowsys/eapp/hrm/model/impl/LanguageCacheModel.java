@@ -37,10 +37,12 @@ import java.util.Date;
 public class LanguageCacheModel implements CacheModel<Language>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(id);
+		sb.append("{languageId=");
+		sb.append(languageId);
+		sb.append(", employeeId=");
+		sb.append(employeeId);
 		sb.append(", companyId=");
 		sb.append(companyId);
 		sb.append(", groupId=");
@@ -62,7 +64,8 @@ public class LanguageCacheModel implements CacheModel<Language>, Externalizable 
 	public Language toEntityModel() {
 		LanguageImpl languageImpl = new LanguageImpl();
 
-		languageImpl.setId(id);
+		languageImpl.setLanguageId(languageId);
+		languageImpl.setEmployeeId(employeeId);
 		languageImpl.setCompanyId(companyId);
 		languageImpl.setGroupId(groupId);
 
@@ -96,7 +99,8 @@ public class LanguageCacheModel implements CacheModel<Language>, Externalizable 
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
+		languageId = objectInput.readLong();
+		employeeId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		createDate = objectInput.readLong();
@@ -108,7 +112,8 @@ public class LanguageCacheModel implements CacheModel<Language>, Externalizable 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(id);
+		objectOutput.writeLong(languageId);
+		objectOutput.writeLong(employeeId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(createDate);
@@ -123,7 +128,8 @@ public class LanguageCacheModel implements CacheModel<Language>, Externalizable 
 		}
 	}
 
-	public long id;
+	public long languageId;
+	public long employeeId;
 	public long companyId;
 	public long groupId;
 	public long createDate;

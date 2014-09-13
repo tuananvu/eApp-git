@@ -50,7 +50,8 @@ public class SalaryComponentWrapper implements SalaryComponent,
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("salaryComponentId", getSalaryComponentId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -66,10 +67,16 @@ public class SalaryComponentWrapper implements SalaryComponent,
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long salaryComponentId = (Long)attributes.get("salaryComponentId");
 
-		if (id != null) {
-			setId(id);
+		if (salaryComponentId != null) {
+			setSalaryComponentId(salaryComponentId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -148,23 +155,43 @@ public class SalaryComponentWrapper implements SalaryComponent,
 	}
 
 	/**
-	* Returns the ID of this salary component.
+	* Returns the salary component ID of this salary component.
 	*
-	* @return the ID of this salary component
+	* @return the salary component ID of this salary component
 	*/
 	@Override
-	public long getId() {
-		return _salaryComponent.getId();
+	public long getSalaryComponentId() {
+		return _salaryComponent.getSalaryComponentId();
 	}
 
 	/**
-	* Sets the ID of this salary component.
+	* Sets the salary component ID of this salary component.
 	*
-	* @param id the ID of this salary component
+	* @param salaryComponentId the salary component ID of this salary component
 	*/
 	@Override
-	public void setId(long id) {
-		_salaryComponent.setId(id);
+	public void setSalaryComponentId(long salaryComponentId) {
+		_salaryComponent.setSalaryComponentId(salaryComponentId);
+	}
+
+	/**
+	* Returns the employee ID of this salary component.
+	*
+	* @return the employee ID of this salary component
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _salaryComponent.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this salary component.
+	*
+	* @param employeeId the employee ID of this salary component
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_salaryComponent.setEmployeeId(employeeId);
 	}
 
 	/**

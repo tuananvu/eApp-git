@@ -5,513 +5,557 @@
 	<author>rknowsys</author>
 	<namespace>hrm</namespace>
 
-<entity name="Interview" table="interview" data-source="anotherDataSource" 
-local-service="true" remote-service="false" session-factory="anotherSessionFactory" 
-tx-manager="anotherTransactionManager">
+	<entity name="Interview" table="interview" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <!-- PK fields -->
+		<!-- PK fields -->
 
-        <column name="id" type="long" primary="true" />
+		<column name="id" type="long" primary="true" />
 
-        <!-- Audit fields -->
-
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<!-- Audit fields -->
 
-        <column name="name" type="String" />
-         
-        
-        <!-- Order -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <!-- Finder methods -->
+		<column name="name" type="String" />
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-<entity name="DocCategory" table="doc_category" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
-        <!-- PK fields -->
+		<!-- Order -->
 
-        <column name="id" type="long" primary="true" />
+		<!-- Finder methods -->
 
-        <!-- Audit fields -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+	<entity name="DocCategory" table="doc_category" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <column name="docName" type="String" />
-         
-        
-        <!-- Order -->
+		<!-- PK fields -->
 
-        <!-- Finder methods -->
+		<column name="id" type="long" primary="true" />
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-    
-    
-<entity name="Document" table="document" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Audit fields -->
 
-        <!-- PK fields -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <column name="id" type="long" primary="true" />
+		<column name="docName" type="String" />
 
-        <!-- Audit fields -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<!-- Order -->
 
-        <column name="docTopic" type="String" />
-         <column name="docCategory" type="String" />
-        <column name="description" type="String" />
-        <column name="publishTo" type="String" />
-        <column name="publishDate" type="Date" />
-        
-        <!-- Order -->
+		<!-- Finder methods -->
 
-        <!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
 
-<entity name="News" table="news" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
-        <!-- PK fields -->
+	<entity name="ImmigrationDocument" table="immigration_document"
+		data-source="anotherDataSource" local-service="true" remote-service="false"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager"
+		human-name="ImmigrationDocument">
 
-        <column name="id" type="long" primary="true" />
+		<!-- PK fields -->
 
-        <!-- Audit fields -->
+		<column name="immigrationDocumentId" type="long" primary="true" />
+		<column name="employeeId" type="long" />
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<!-- Audit fields -->
 
-        <column name="topic" type="String" />
-        <column name="description" type="String" />
-        <column name="publishTo" type="String" />
-        <column name="publishDate" type="Date" />
-        
-        <!-- Order -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
 
-        <!-- Finder methods -->
+		<!-- Other fields -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
+		<column name="docTopic" type="String" />
+		<column name="docCategory" type="String" />
+		<column name="description" type="String" />
+		<column name="publishTo" type="String" />
+		<column name="publishDate" type="Date" />
 
-<entity name="Nationality" table="nationality" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Order -->
 
-        <!-- PK fields -->
+		<!-- Finder methods -->
 
-        <column name="id" type="long" primary="true" />
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="immigrationDocumentId" return-type="Collection">
+			<finder-column name="immigrationDocumentId" />
+		</finder>
 
-        <!-- Audit fields -->
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
 
-        <column name="nationalityName" type="String" />
-        <!-- Order -->
+	<entity name="News" table="news" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <!-- Finder methods -->
+		<!-- PK fields -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-<entity name="Membership" table="membership" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<column name="id" type="long" primary="true" />
 
-        <!-- PK fields -->
+		<!-- Audit fields -->
 
-        <column name="id" type="long" primary="true" />
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <!-- Audit fields -->
+		<column name="topic" type="String" />
+		<column name="description" type="String" />
+		<column name="publishTo" type="String" />
+		<column name="publishDate" type="Date" />
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<!-- Order -->
 
-        <column name="membershipName" type="String" />
-        <!-- Order -->
+		<!-- Finder methods -->
 
-        <!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-<entity name="Language" table="language" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+	<entity name="Membership" table="membership" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <!-- PK fields -->
+		<!-- PK fields -->
 
-        <column name="id" type="long" primary="true" />
+		<column name="membershipId" type="long" primary="true" />
 
-        <!-- Audit fields -->
+		<column name="employeeId" type="long"></column>
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<!-- Audit fields -->
 
-        <column name="languageName" type="String" />
-        <!-- Order -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <!-- Finder methods -->
+		<column name="membershipName" type="String" />
+		<!-- Order -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-    
-<entity name="License" table="license" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Finder methods -->
 
-        <!-- PK fields -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="membershipId" return-type="Collection">
+			<finder-column name="membershipId" />
+		</finder>
 
-        <column name="id" type="long" primary="true" />
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
 
-        <!-- Audit fields -->
+	<entity name="Language" table="language" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<!-- PK fields -->
 
-        <column name="licenseName" type="String" />
-        <!-- Order -->
+		<column name="languageId" type="long" primary="true" />
 
-        <!-- Finder methods -->
+		<column name="employeeId" type="long"></column>
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-    
-<entity name="Education" table="education" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Audit fields -->
 
-        <!-- PK fields -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <column name="id" type="long" primary="true" />
+		<column name="languageName" type="String" />
+		<!-- Order -->
 
-        <!-- Audit fields -->
+		<!-- Finder methods -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="languageId" return-type="Collection">
+			<finder-column name="languageId" />
+		</finder>
 
-        <column name="eduLevel" type="String" />
-        <!-- Order -->
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
 
-        <!-- Finder methods -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
+	<entity name="License" table="license" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-<entity name="Skill" table="skill" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- PK fields -->
 
-        <!-- PK fields -->
+		<column name="licenseId" type="long" primary="true" />
 
-        <column name="id" type="long" primary="true" />
+		<column name="employeeId" type="long"></column>
 
-        <!-- Audit fields -->
+		<!-- Audit fields -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <column name="skillName" type="String" />
-        <column name="description" type="String" />
-        <!-- Order -->
+		<column name="licenseName" type="String" />
+		<!-- Order -->
 
-        <!-- Finder methods -->
+		<!-- Finder methods -->
+        <column name="expiryDate" type="Date"></column>
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-  
-    
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="licenseId" return-type="Collection">
+			<finder-column name="licenseId" />
+		</finder>
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
 
-    
-  <entity name="Locations" table="locations" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
-        <!-- PK fields -->
+	<entity name="Education" table="education" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <column name="id" type="long" primary="true" />
+		<!-- PK fields -->
 
-        <!-- Audit fields -->
+		<column type="long" primary="true" name="educationId" />
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<column name="employeeId" type="long"></column>
 
-        <column name="name" type="String" />
-        <column name="country" type="String" />
-        <column name="state" type="String" />
-        <column name="city" type="String" />
-        <column name="address" type="String" />
-        <column name="postalcode" type="String" />
-        <column name="phone" type="String" />
-        <column name="fax" type="String" />
-        <column name="notes" type="String" />
-       
-        <!-- Order -->
+		<!-- Audit fields -->
 
-       <!-- Finder methods -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-        
-    </entity>
+		<column name="eduLevel" type="String" />
+		<!-- Order -->
 
+		<!-- Finder methods -->
 
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="educationId" return-type="Collection">
+			<finder-column name="educationId" />
+		</finder>
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
 
-<entity name="SalaryComponent" table="salary_component" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
-        <!-- PK fields -->
+	<entity name="Skill" table="skill" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <column name="id" type="long" primary="true" />
+		<!-- PK fields -->
 
-        <!-- Audit fields -->
+		<column name="skillId" type="long" primary="true" />
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<column name="employeeId" type="long"></column>
 
-        <column name="componentName" type="String" />
-        <column name="type" type="boolean" />
-        <column name="onlyCTC" type="boolean" />
-        <column name="valueType" type="String" />
+		<!-- Audit fields -->
 
-        <!-- Order -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <!-- Finder methods -->
+		<column name="skillName" type="String" />
+		<column name="description" type="String" />
+		<!-- Order -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-    
-	<entity name="JobTitles" table="job_titles" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Finder methods -->
 
-        <!-- PK fields -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="skillId" return-type="Collection">
+			<finder-column name="skillId" />
+		</finder>
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+	</entity>
 
-        <column name="id" type="long" primary="true" />
+	<entity name="Location" table="location" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <!-- Audit fields -->
+		<!-- PK fields -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<column name="locationId" type="long" primary="true" />
 
-        <column name="title" type="String" />
-        <column name="description" type="String" />
-        <column name="notes" type="String" />
-        <column name="specification" type="String" />
+		<!-- Audit fields -->
 
-        <!-- Order -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <!-- Finder methods -->
+		<column name="name" type="String" />
+		<column name="country" type="String" />
+		<column name="state" type="String" />
+		<column name="city" type="String" />
+		<column name="address" type="String" />
+		<column name="postalcode" type="String" />
+		<column name="phone" type="String" />
+		<column name="fax" type="String" />
+		<column name="notes" type="String" />
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-    
-    
-<entity name="JobCategory" table="job_category" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Order -->
 
-        <!-- PK fields -->
+		<!-- Finder methods -->
+        <column name="jobId" type="long"></column>
 
-        <column name="id" type="long" primary="true" />
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
 
-        <!-- Audit fields -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+	<entity name="SalaryComponent" table="salary_component"
+		data-source="anotherDataSource" local-service="true" remote-service="false"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
 
-        <column name="jobcategory" type="String" />
-       
-        <!-- Order -->
+		<!-- PK fields -->
 
-       <!-- Finder methods -->
+		<column name="salaryComponentId" type="long" primary="true" />
+		<column name="employeeId" type="long"></column>
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
+		<!-- Audit fields -->
 
-    <entity name="EmploymentStatus" local-service="true"
-    	remote-service="false" table="employment_status"
-    	data-source="anotherDataSource"
-    	session-factory="anotherSessionFactory"
-    	tx-manager="anotherTransactionManager">
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-    	<!-- PK fields -->
+		<column name="componentName" type="String" />
+		<column name="type" type="boolean" />
+		<column name="onlyCTC" type="boolean" />
+		<column name="valueType" type="String" />
 
-    	<column name="id" type="long" primary="true"></column>
+		<!-- Order -->
 
-    	<!-- Group instance -->
+		<!-- Finder methods -->
 
-    	<column name="groupId" type="long"></column>
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
 
-    	<!-- Audit fields -->
+		<finder name="salaryComponentId" return-type="Collection">
+			<finder-column name="salaryComponentId" />
+		</finder>
 
-    	<column name="companyId" type="long"></column>
-    	<column name="userId" type="long"></column>
-    	<column name="createDate" type="Date"></column>
-    	<column name="modifiedDate" type="Date"></column>
-        <column name="employmentstatus" type="String"></column>
-    </entity>	
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
 
-<entity name="WorkShiftUser" table="work_shift_user" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+	</entity>
 
-        <!-- PK fields -->
 
-        <column name="workShiftUserId" type="long" primary="true" />
+	<entity name="JobTitle" table="job_title" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <!-- Audit fields -->
+		<!-- PK fields -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<column name="jobTitleId" type="long" primary="true" />
 
-       
-        <column name="empId" type="long" />
-        <column name="shiftId" type="long" />
-        <!-- Order -->
+		<!-- Audit fields -->
 
-        <!-- Finder methods -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
+		<column name="employeeId" type="long" />
 
-    <entity name="PayGrade" table="pay_grade" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- Other fields -->
+		<column name="employees" type="Collection" entity="Employee" />
+		<column name="title" type="String" />
+		<column name="description" type="String" />
+		<column name="notes" type="String" />
+		<column name="specification" type="String" />
 
-        <!-- PK fields -->
+		<!-- Order -->
 
-        <column name="payGradeId" type="long" primary="true" />
+		<!-- Finder methods -->
+        <column name="jobId" type="long"></column>
 
-        <!-- Audit fields -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+		<finder name="jobTitleId" return-type="Collection">
+			<finder-column name="jobTitleId" />
+		</finder>
+	</entity>
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
 
-        <column name="paygradeName" type="String" />
-       
-        
-        <!-- Order -->
 
-        <!-- Finder methods -->
+	<entity name="JobCategory" table="job_category" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-    </entity>
-    
-     <entity name="PayGradeCurrency" table="pay_grade_currency" data-source="anotherDataSource" local-service="true" remote-service="false" session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		<!-- PK fields -->
 
-        <!-- PK fields -->
+		<column name="jobCategoryId" type="long" primary="true" />
 
-        <column name="payGradeCurrencyId" type="long" primary="true" />
+		<!-- Audit fields -->
 
-        <!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 
-        <column name="companyId" type="long" />
-        <column name="groupId" type="long" />
-        <column name="createDate" type="Date" />
-        <column name="modifiedDate" type="Date" />
-        <column name="userId" type="long" />
-        <!-- Other fields -->
+		<column name="jobcategory" type="String" />
+
+		<!-- Order -->
+
+		<!-- Finder methods -->
+        <column name="jobId" type="long"></column>
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
+
+	<entity name="EmploymentStatus" local-service="true"
+		remote-service="false" table="employment_status" data-source="anotherDataSource"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="employmentStatusId" type="long" primary="true"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="employmentstatus" type="String"></column>
+		<column name="employees" type="Collection" entity="Employee" />
+        <column name="jobId" type="long"></column>
+	</entity>
+
+	<entity name="PayGrade" table="pay_grade" data-source="anotherDataSource"
+		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="payGradeId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
+
+		<column name="paygradeName" type="String" />
+
+
+		<!-- Order -->
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
+
+	<entity name="PayGradeCurrency" table="pay_grade_currency"
+		data-source="anotherDataSource" local-service="true" remote-service="false"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="payGradeCurrencyId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
 		<column name="payGradeId" type="long" />
-        <column name="currency" type="String" />
-        <column name="minSalary" type="long" />
-        <column name="maxSalary" type="long" />
-        
-        <!-- Order -->
+		<column name="currency" type="String" />
+		<column name="minSalary" type="long" />
+		<column name="maxSalary" type="long" />
 
-        <!-- Finder methods -->
+		<!-- Order -->
 
-        <finder name="GroupId" return-type="Collection">
-                <finder-column name="groupId" />
-        </finder>
-        </entity>
-        
-    	<entity name="Workshift" table="workshift" data-source="anotherDataSource"
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
+
+	<entity name="Workshift" table="workshift" data-source="anotherDataSource"
 		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
 		tx-manager="anotherTransactionManager">
 
@@ -553,9 +597,25 @@ tx-manager="anotherTransactionManager">
 
 		<column name="employeeId" type="long" primary="true"></column>
 
+
+		<column name="contactDetailsId" type="long"></column>
+		<column name="jobId" type="long"></column>
+
 		<!-- Relationship fields -->
 
 		<column name="shiftId" type="long" />
+
+		<column name="attachments" type="Collection" entity="Attachment" />
+		<column name="emergencyContacts" type="Collection" entity="EmergencyContact" />
+		<column name="dependents" type="Collection" entity="Dependent" />
+		<column name="immigrationDocuments" type="Collection" entity="ImmigrationDocument" />
+		<column name="salaryComponents" type="Collection" entity="SalaryComponent" />
+		<column name="workExpCompanies" type="Collection" entity="WorkExpCompany" />
+		<column name="educations" type="Collection" entity="Education" />
+		<column name="skills" type="Collection" entity="Skill" />
+		<column name="languages" type="Collection" entity="Language" />
+		<column name="licenseId" type="long" />
+		<column name="memberships" type="Collection" entity="Membership" />
 
 		<!-- Group instance -->
 
@@ -575,10 +635,12 @@ tx-manager="anotherTransactionManager">
 		<column name="middleName" type="String"></column>
 		<column name="photograph" type="Blob"></column>
 		<column name="gender" type="int"></column>
-		<column name="maritalStatus" type="String"></column>
+		<column name="maritalStatus" type="int"></column>
 		<column name="nationality" type="String"></column>
 		<column name="dateOfBirth" type="Date"></column>
 		<column name="otherId" type="String"></column>
+
+
 		<finder name="shiftId" return-type="Collection">
 			<finder-column name="shiftId" />
 		</finder>
@@ -586,14 +648,16 @@ tx-manager="anotherTransactionManager">
 			<finder-column name="employeeId" />
 		</finder>
 	</entity>
-	
-		<entity name="ContactDetails" remote-service="false"
-		local-service="true">
+
+	<entity name="ContactDetails" remote-service="false"
+		local-service="true" human-name="ContactDetails" table="contact_details"
+		data-source="anotherDataSource" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true"></column>
+		<column name="contactDetailsId" type="long" primary="true"></column>
 
 		<!-- Group instance -->
 
@@ -606,6 +670,8 @@ tx-manager="anotherTransactionManager">
 		<column name="userName" type="String"></column>
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
+
+
 		<column name="addressStreet1" type="String"></column>
 		<column name="addressStreet2" type="String"></column>
 		<column name="city" type="String"></column>
@@ -618,8 +684,11 @@ tx-manager="anotherTransactionManager">
 		<column name="workEmail" type="String"></column>
 		<column name="otherEmail" type="String"></column>
 	</entity>
+
 	<entity name="EmergencyContact" local-service="true"
-		remote-service="false">
+		remote-service="false" data-source="anotherDataSource"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager"
+		human-name="EmergencyContact" table="emergency_contact">
 
 		<!-- PK fields -->
 
@@ -630,7 +699,8 @@ tx-manager="anotherTransactionManager">
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true"></column>
+		<column name="emergencyContactId" type="long" primary="true"></column>
+		<column name="employeeId" type="long" />
 
 		<!-- Group instance -->
 
@@ -642,12 +712,29 @@ tx-manager="anotherTransactionManager">
 		<column name="userId" type="long"></column>
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
+		<column name="name" type="String"></column>
+		<column name="relationship" type="String"></column>
+		<column name="homeTelephone" type="String"></column>
+		<column name="mobile" type="String"></column>
+		<column name="workTelephone" type="String"></column>
+
+		<finder name="emergencyContactId" return-type="Collection">
+			<finder-column name="emergencyContactId" />
+		</finder>
+
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
 	</entity>
-	<entity name="Dependent" local-service="true" remote-service="false">
+
+	<entity name="Dependent" local-service="true" remote-service="false"
+		data-source="anotherDataSource" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
 
 		<!-- PK fields -->
 
 		<column name="dependentId" type="long" primary="true"></column>
+		<column name="employeeId" type="long"></column>
 
 		<!-- Group instance -->
 
@@ -659,12 +746,77 @@ tx-manager="anotherTransactionManager">
 		<column name="userId" type="long"></column>
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
+		<column name="name" type="String"></column>
+		<column name="relationship" type="String"></column>
+		<column name="dateOfBirth" type="Date"></column>
+
+		<finder name="dependentId" return-type="Collection">
+			<finder-column name="dependentId" />
+		</finder>
+
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+
 	</entity>
-	<entity name="Immigration" local-service="true" remote-service="false">
+	<entity name="Attachment" local-service="true" remote-service="false"
+		data-source="anotherDataSource" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager" human-name="attachment" table="attachment">
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true"></column>
+		<column name="attachmentId" type="long" primary="true"></column>
+		<column name="employeeId" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="comment" type="String"></column>
+		<column name="file" type="Blob"></column>
+		<column name="attachmentType" type="int"></column>
+		<column name="size" type="long"></column>
+		<column name="fileType" type="String"></column>
+		<column name="fileName" type="String"></column>
+
+		<finder name="attachmentId" return-type="Collection">
+			<finder-column name="attachmentId" />
+		</finder>
+
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+
+		<finder return-type="Collection" name="attachmentType">
+            <finder-column name="employeeId" />
+			<finder-column name="attachmentType" />
+		</finder>
+		<!-- PK fields -->
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+	</entity>
+
+	<entity name="SubUnit" human-name="SubUnit" table="sub_unit"
+		local-service="true" remote-service="false" data-source="anotherDataSource"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="subUnitId" primary="true" type="long"></column>
+
+		<column name="name" type="String"></column>
+		<column name="description" type="String"></column>
+
+		<column name="employees" type="Collection" entity="Employee" />
 
 		<!-- Group instance -->
 
@@ -676,13 +828,101 @@ tx-manager="anotherTransactionManager">
 		<column name="userId" type="long"></column>
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
+        <column name="jobId" type="long"></column>
 	</entity>
-	<entity name="Qualification" local-service="true"
+	<entity name="Job" local-service="true" remote-service="false"
+		data-source="anotherDataSource" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
+		<column name="jobId" type="long" primary="true"></column>
+		<column name="jobTitleId" type="long"></column>
+		<column name="jobCategoryId" type="long"></column>
+		<column name="subUnitId" type="long"></column>
+		<column name="locationId" type="long"></column>
+		<column name="employmentStatusId" type="long"></column>
+
+		<!-- PK fields -->
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="joinedDate" type="Date"></column>
+		<column name="employmentContractStartDate" type="Date"></column>
+		<column name="employmentContractEndDate" type="Date"></column>
+		<column name="contractDetails" type="Blob"></column>
+	</entity>
+
+	<entity name="WorkExpCompany" local-service="true"
+		remote-service="false" human-name="WorkExpCompany" table="work_exp_company"
+		data-source="anotherDataSource" session-factory="anotherSessionFactory"
+		tx-manager="anotherTransactionManager">
+
+
+		<!-- PK fields -->
+
+		<column name="workExpCompanyId" type="long" primary="true"></column>
+		<column name="employeeId" type="long"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="company" type="String"></column>
+		<column name="jobTitle" type="String"></column>
+		<column name="fromDate" type="Date"></column>
+		<column name="toDate" type="Date"></column>
+		<column name="comment" type="String"></column>
+
+		<finder name="employeeId" return-type="Collection">
+			<finder-column name="employeeId" />
+		</finder>
+		<finder name="workExpCompanyId" return-type="Collection">
+			<finder-column name="workExpCompanyId" />
+		</finder>
+
+	</entity>
+
+	<entity name="Supervisor" local-service="true" remote-service="false"
+		human-name="Supervisor" table="supervisor" data-source="anotherDataSource"
+		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="supervisorId" type="long" primary="true"></column>
+
+		<column name="employeeId" type="long"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<column name="reportingMethod" type="long"></column>
+	</entity>
+	<entity name="Nationality" local-service="true"
 		remote-service="false">
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true"></column>
+		<column name="nationalityId" type="long" primary="true"></column>
 
 		<!-- Group instance -->
 
@@ -694,23 +934,7 @@ tx-manager="anotherTransactionManager">
 		<column name="userId" type="long"></column>
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
-	</entity>
-	<entity name="Attachment" local-service="true" remote-service="false">
-
-		<!-- PK fields -->
-
-		<column name="id" type="long" primary="true"></column>
-
-		<!-- Group instance -->
-
-		<column name="groupId" type="long"></column>
-
-		<!-- Audit fields -->
-
-		<column name="companyId" type="long"></column>
-		<column name="userId" type="long"></column>
-		<column name="createDate" type="Date"></column>
-		<column name="modifiedDate" type="Date"></column>
+        <column name="Name" type="String"></column>
 	</entity>
 
 

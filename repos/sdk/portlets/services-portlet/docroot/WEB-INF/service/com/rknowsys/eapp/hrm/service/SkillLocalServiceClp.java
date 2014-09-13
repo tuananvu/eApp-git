@@ -146,12 +146,12 @@ public class SkillLocalServiceClp implements SkillLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill createSkill(long id) {
+	public com.rknowsys.eapp.hrm.model.Skill createSkill(long skillId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { skillId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -169,14 +169,14 @@ public class SkillLocalServiceClp implements SkillLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill deleteSkill(long id)
+	public com.rknowsys.eapp.hrm.model.Skill deleteSkill(long skillId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { skillId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -429,13 +429,13 @@ public class SkillLocalServiceClp implements SkillLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill fetchSkill(long id)
+	public com.rknowsys.eapp.hrm.model.Skill fetchSkill(long skillId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { skillId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -457,14 +457,14 @@ public class SkillLocalServiceClp implements SkillLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill getSkill(long id)
+	public com.rknowsys.eapp.hrm.model.Skill getSkill(long skillId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { skillId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

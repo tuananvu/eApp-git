@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.service.impl;
 import com.rknowsys.eapp.hrm.service.base.ContactDetailsLocalServiceBaseImpl;
 
 /**
- * The implementation of the contact details local service.
+ * The implementation of the ContactDetails local service.
  *
  * <p>
  * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalService} interface.
@@ -35,6 +35,6 @@ public class ContactDetailsLocalServiceImpl
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil} to access the contact details local service.
+	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil} to access the ContactDetails local service.
 	 */
 }

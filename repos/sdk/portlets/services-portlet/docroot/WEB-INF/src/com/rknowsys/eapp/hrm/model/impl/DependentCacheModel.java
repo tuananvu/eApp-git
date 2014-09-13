@@ -15,6 +15,7 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
 import com.rknowsys.eapp.hrm.model.Dependent;
@@ -37,10 +38,12 @@ public class DependentCacheModel implements CacheModel<Dependent>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{dependentId=");
 		sb.append(dependentId);
+		sb.append(", employeeId=");
+		sb.append(employeeId);
 		sb.append(", groupId=");
 		sb.append(groupId);
 		sb.append(", companyId=");
@@ -51,6 +54,12 @@ public class DependentCacheModel implements CacheModel<Dependent>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+		sb.append(", name=");
+		sb.append(name);
+		sb.append(", relationship=");
+		sb.append(relationship);
+		sb.append(", dateOfBirth=");
+		sb.append(dateOfBirth);
 		sb.append("}");
 
 		return sb.toString();
@@ -61,6 +70,7 @@ public class DependentCacheModel implements CacheModel<Dependent>,
 		DependentImpl dependentImpl = new DependentImpl();
 
 		dependentImpl.setDependentId(dependentId);
+		dependentImpl.setEmployeeId(employeeId);
 		dependentImpl.setGroupId(groupId);
 		dependentImpl.setCompanyId(companyId);
 		dependentImpl.setUserId(userId);
@@ -79,6 +89,27 @@ public class DependentCacheModel implements CacheModel<Dependent>,
 			dependentImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+		if (name == null) {
+			dependentImpl.setName(StringPool.BLANK);
+		}
+		else {
+			dependentImpl.setName(name);
+		}
+
+		if (relationship == null) {
+			dependentImpl.setRelationship(StringPool.BLANK);
+		}
+		else {
+			dependentImpl.setRelationship(relationship);
+		}
+
+		if (dateOfBirth == Long.MIN_VALUE) {
+			dependentImpl.setDateOfBirth(null);
+		}
+		else {
+			dependentImpl.setDateOfBirth(new Date(dateOfBirth));
+		}
+
 		dependentImpl.resetOriginalValues();
 
 		return dependentImpl;
@@ -87,28 +118,53 @@ public class DependentCacheModel implements CacheModel<Dependent>,
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		dependentId = objectInput.readLong();
+		employeeId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		userId = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+		name = objectInput.readUTF();
+		relationship = objectInput.readUTF();
+		dateOfBirth = objectInput.readLong();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		objectOutput.writeLong(dependentId);
+		objectOutput.writeLong(employeeId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(userId);
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
+		if (name == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(name);
+		}
+
+		if (relationship == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(relationship);
+		}
+
+		objectOutput.writeLong(dateOfBirth);
 	}
 
 	public long dependentId;
+	public long employeeId;
 	public long groupId;
 	public long companyId;
 	public long userId;
 	public long createDate;
 	public long modifiedDate;
+	public String name;
+	public String relationship;
+	public long dateOfBirth;
 }

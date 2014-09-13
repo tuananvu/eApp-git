@@ -49,7 +49,8 @@ public class SkillWrapper implements Skill, ModelWrapper<Skill> {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("skillId", getSkillId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -63,10 +64,16 @@ public class SkillWrapper implements Skill, ModelWrapper<Skill> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long skillId = (Long)attributes.get("skillId");
 
-		if (id != null) {
-			setId(id);
+		if (skillId != null) {
+			setSkillId(skillId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -133,23 +140,43 @@ public class SkillWrapper implements Skill, ModelWrapper<Skill> {
 	}
 
 	/**
-	* Returns the ID of this skill.
+	* Returns the skill ID of this skill.
 	*
-	* @return the ID of this skill
+	* @return the skill ID of this skill
 	*/
 	@Override
-	public long getId() {
-		return _skill.getId();
+	public long getSkillId() {
+		return _skill.getSkillId();
 	}
 
 	/**
-	* Sets the ID of this skill.
+	* Sets the skill ID of this skill.
 	*
-	* @param id the ID of this skill
+	* @param skillId the skill ID of this skill
 	*/
 	@Override
-	public void setId(long id) {
-		_skill.setId(id);
+	public void setSkillId(long skillId) {
+		_skill.setSkillId(skillId);
+	}
+
+	/**
+	* Returns the employee ID of this skill.
+	*
+	* @return the employee ID of this skill
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _skill.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this skill.
+	*
+	* @param employeeId the employee ID of this skill
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_skill.setEmployeeId(employeeId);
 	}
 
 	/**

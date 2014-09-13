@@ -47,27 +47,29 @@ public class MembershipLocalServiceWrapper implements MembershipLocalService,
 	/**
 	* Creates a new membership with the primary key. Does not add the membership to the database.
 	*
-	* @param id the primary key for the new membership
+	* @param membershipId the primary key for the new membership
 	* @return the new membership
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership createMembership(long id) {
-		return _membershipLocalService.createMembership(id);
+	public com.rknowsys.eapp.hrm.model.Membership createMembership(
+		long membershipId) {
+		return _membershipLocalService.createMembership(membershipId);
 	}
 
 	/**
 	* Deletes the membership with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the membership
+	* @param membershipId the primary key of the membership
 	* @return the membership that was removed
 	* @throws PortalException if a membership with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership deleteMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership deleteMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _membershipLocalService.deleteMembership(id);
+		return _membershipLocalService.deleteMembership(membershipId);
 	}
 
 	/**
@@ -182,24 +184,26 @@ public class MembershipLocalServiceWrapper implements MembershipLocalService,
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership fetchMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership fetchMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _membershipLocalService.fetchMembership(id);
+		return _membershipLocalService.fetchMembership(membershipId);
 	}
 
 	/**
 	* Returns the membership with the primary key.
 	*
-	* @param id the primary key of the membership
+	* @param membershipId the primary key of the membership
 	* @return the membership
 	* @throws PortalException if a membership with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership getMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership getMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _membershipLocalService.getMembership(id);
+		return _membershipLocalService.getMembership(membershipId);
 	}
 
 	@Override

@@ -59,20 +59,22 @@ public interface AttachmentLocalService extends BaseLocalService,
 	/**
 	* Creates a new attachment with the primary key. Does not add the attachment to the database.
 	*
-	* @param id the primary key for the new attachment
+	* @param attachmentId the primary key for the new attachment
 	* @return the new attachment
 	*/
-	public com.rknowsys.eapp.hrm.model.Attachment createAttachment(long id);
+	public com.rknowsys.eapp.hrm.model.Attachment createAttachment(
+		long attachmentId);
 
 	/**
 	* Deletes the attachment with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the attachment
+	* @param attachmentId the primary key of the attachment
 	* @return the attachment that was removed
 	* @throws PortalException if a attachment with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,19 +167,21 @@ public interface AttachmentLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the attachment with the primary key.
 	*
-	* @param id the primary key of the attachment
+	* @param attachmentId the primary key of the attachment
 	* @return the attachment
 	* @throws PortalException if a attachment with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Attachment getAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment getAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -224,6 +228,11 @@ public interface AttachmentLocalService extends BaseLocalService,
 	*/
 	public com.rknowsys.eapp.hrm.model.Attachment updateAttachment(
 		com.rknowsys.eapp.hrm.model.Attachment attachment)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public com.rknowsys.eapp.hrm.model.AttachmentFileBlobModel getFileBlobModel(
+		java.io.Serializable primaryKey)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

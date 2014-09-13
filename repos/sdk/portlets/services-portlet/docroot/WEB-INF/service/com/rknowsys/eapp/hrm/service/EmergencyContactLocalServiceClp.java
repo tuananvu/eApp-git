@@ -150,12 +150,12 @@ public class EmergencyContactLocalServiceClp
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.EmergencyContact createEmergencyContact(
-		long id) {
+		long emergencyContactId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { emergencyContactId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -174,14 +174,14 @@ public class EmergencyContactLocalServiceClp
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.EmergencyContact deleteEmergencyContact(
-		long id)
+		long emergencyContactId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { emergencyContactId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -436,12 +436,13 @@ public class EmergencyContactLocalServiceClp
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.EmergencyContact fetchEmergencyContact(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
+		long emergencyContactId)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { emergencyContactId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -464,14 +465,14 @@ public class EmergencyContactLocalServiceClp
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.EmergencyContact getEmergencyContact(
-		long id)
+		long emergencyContactId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { emergencyContactId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

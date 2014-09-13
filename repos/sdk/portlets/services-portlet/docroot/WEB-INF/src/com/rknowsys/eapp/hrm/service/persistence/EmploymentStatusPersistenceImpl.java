@@ -29,7 +29,6 @@ import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnmodifiableList;
@@ -47,7 +46,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * The persistence implementation for the employment status service.
@@ -173,15 +171,15 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 	/**
 	 * Creates a new employment status with the primary key. Does not add the employment status to the database.
 	 *
-	 * @param id the primary key for the new employment status
+	 * @param employmentStatusId the primary key for the new employment status
 	 * @return the new employment status
 	 */
 	@Override
-	public EmploymentStatus create(long id) {
+	public EmploymentStatus create(long employmentStatusId) {
 		EmploymentStatus employmentStatus = new EmploymentStatusImpl();
 
 		employmentStatus.setNew(true);
-		employmentStatus.setPrimaryKey(id);
+		employmentStatus.setPrimaryKey(employmentStatusId);
 
 		return employmentStatus;
 	}
@@ -189,15 +187,15 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 	/**
 	 * Removes the employment status with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param id the primary key of the employment status
+	 * @param employmentStatusId the primary key of the employment status
 	 * @return the employment status that was removed
 	 * @throws com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException if a employment status with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmploymentStatus remove(long id)
+	public EmploymentStatus remove(long employmentStatusId)
 		throws NoSuchEmploymentStatusException, SystemException {
-		return remove((Serializable)id);
+		return remove((Serializable)employmentStatusId);
 	}
 
 	/**
@@ -327,13 +325,14 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 		employmentStatusImpl.setNew(employmentStatus.isNew());
 		employmentStatusImpl.setPrimaryKey(employmentStatus.getPrimaryKey());
 
-		employmentStatusImpl.setId(employmentStatus.getId());
+		employmentStatusImpl.setEmploymentStatusId(employmentStatus.getEmploymentStatusId());
 		employmentStatusImpl.setGroupId(employmentStatus.getGroupId());
 		employmentStatusImpl.setCompanyId(employmentStatus.getCompanyId());
 		employmentStatusImpl.setUserId(employmentStatus.getUserId());
 		employmentStatusImpl.setCreateDate(employmentStatus.getCreateDate());
 		employmentStatusImpl.setModifiedDate(employmentStatus.getModifiedDate());
 		employmentStatusImpl.setEmploymentstatus(employmentStatus.getEmploymentstatus());
+		employmentStatusImpl.setJobId(employmentStatus.getJobId());
 
 		return employmentStatusImpl;
 	}
@@ -366,15 +365,15 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 	/**
 	 * Returns the employment status with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException} if it could not be found.
 	 *
-	 * @param id the primary key of the employment status
+	 * @param employmentStatusId the primary key of the employment status
 	 * @return the employment status
 	 * @throws com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException if a employment status with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmploymentStatus findByPrimaryKey(long id)
+	public EmploymentStatus findByPrimaryKey(long employmentStatusId)
 		throws NoSuchEmploymentStatusException, SystemException {
-		return findByPrimaryKey((Serializable)id);
+		return findByPrimaryKey((Serializable)employmentStatusId);
 	}
 
 	/**
@@ -429,14 +428,14 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 	/**
 	 * Returns the employment status with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param id the primary key of the employment status
+	 * @param employmentStatusId the primary key of the employment status
 	 * @return the employment status, or <code>null</code> if a employment status with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public EmploymentStatus fetchByPrimaryKey(long id)
+	public EmploymentStatus fetchByPrimaryKey(long employmentStatusId)
 		throws SystemException {
-		return fetchByPrimaryKey((Serializable)id);
+		return fetchByPrimaryKey((Serializable)employmentStatusId);
 	}
 
 	/**
@@ -612,11 +611,6 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 		return count.intValue();
 	}
 
-	@Override
-	protected Set<String> getBadColumnNames() {
-		return _badColumnNames;
-	}
-
 	/**
 	 * Initializes the employment status persistence.
 	 */
@@ -656,9 +650,6 @@ public class EmploymentStatusPersistenceImpl extends BasePersistenceImpl<Employm
 	private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = GetterUtil.getBoolean(PropsUtil.get(
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(EmploymentStatusPersistenceImpl.class);
-	private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
-				"id"
-			});
 	private static EmploymentStatus _nullEmploymentStatus = new EmploymentStatusImpl() {
 			@Override
 			public Object clone() {

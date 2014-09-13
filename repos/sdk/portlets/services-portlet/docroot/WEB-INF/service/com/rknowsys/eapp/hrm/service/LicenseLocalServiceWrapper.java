@@ -46,27 +46,27 @@ public class LicenseLocalServiceWrapper implements LicenseLocalService,
 	/**
 	* Creates a new license with the primary key. Does not add the license to the database.
 	*
-	* @param id the primary key for the new license
+	* @param licenseId the primary key for the new license
 	* @return the new license
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.License createLicense(long id) {
-		return _licenseLocalService.createLicense(id);
+	public com.rknowsys.eapp.hrm.model.License createLicense(long licenseId) {
+		return _licenseLocalService.createLicense(licenseId);
 	}
 
 	/**
 	* Deletes the license with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license that was removed
 	* @throws PortalException if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.License deleteLicense(long id)
+	public com.rknowsys.eapp.hrm.model.License deleteLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _licenseLocalService.deleteLicense(id);
+		return _licenseLocalService.deleteLicense(licenseId);
 	}
 
 	/**
@@ -180,24 +180,24 @@ public class LicenseLocalServiceWrapper implements LicenseLocalService,
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License fetchLicense(long id)
+	public com.rknowsys.eapp.hrm.model.License fetchLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _licenseLocalService.fetchLicense(id);
+		return _licenseLocalService.fetchLicense(licenseId);
 	}
 
 	/**
 	* Returns the license with the primary key.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license
 	* @throws PortalException if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.License getLicense(long id)
+	public com.rknowsys.eapp.hrm.model.License getLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _licenseLocalService.getLicense(id);
+		return _licenseLocalService.getLicense(licenseId);
 	}
 
 	@Override

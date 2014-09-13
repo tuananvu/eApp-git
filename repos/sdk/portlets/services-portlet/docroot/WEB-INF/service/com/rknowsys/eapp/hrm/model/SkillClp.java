@@ -52,17 +52,17 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _skillId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setSkillId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _skillId;
 	}
 
 	@Override
@@ -74,7 +74,8 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("skillId", getSkillId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -88,10 +89,16 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long skillId = (Long)attributes.get("skillId");
 
-		if (id != null) {
-			setId(id);
+		if (skillId != null) {
+			setSkillId(skillId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -138,21 +145,44 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getSkillId() {
+		return _skillId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setSkillId(long skillId) {
+		_skillId = skillId;
 
 		if (_skillRemoteModel != null) {
 			try {
 				Class<?> clazz = _skillRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setSkillId", long.class);
 
-				method.invoke(_skillRemoteModel, id);
+				method.invoke(_skillRemoteModel, skillId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+
+		if (_skillRemoteModel != null) {
+			try {
+				Class<?> clazz = _skillRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeId", long.class);
+
+				method.invoke(_skillRemoteModel, employeeId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -400,7 +430,8 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 	public Object clone() {
 		SkillClp clone = new SkillClp();
 
-		clone.setId(getId());
+		clone.setSkillId(getSkillId());
+		clone.setEmployeeId(getEmployeeId());
 		clone.setCompanyId(getCompanyId());
 		clone.setGroupId(getGroupId());
 		clone.setCreateDate(getCreateDate());
@@ -456,10 +487,12 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(19);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{skillId=");
+		sb.append(getSkillId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", groupId=");
@@ -481,15 +514,19 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Skill");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>skillId</column-name><column-value><![CDATA[");
+		sb.append(getSkillId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -525,7 +562,8 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _skillId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;

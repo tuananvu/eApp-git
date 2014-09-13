@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.service.impl;
 import com.rknowsys.eapp.hrm.service.base.EmergencyContactLocalServiceBaseImpl;
 
 /**
- * The implementation of the emergency contact local service.
+ * The implementation of the EmergencyContact local service.
  *
  * <p>
  * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.EmergencyContactLocalService} interface.
@@ -35,6 +35,6 @@ public class EmergencyContactLocalServiceImpl
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmergencyContactLocalServiceUtil} to access the emergency contact local service.
+	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmergencyContactLocalServiceUtil} to access the EmergencyContact local service.
 	 */
 }

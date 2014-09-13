@@ -147,12 +147,13 @@ public class MembershipLocalServiceClp implements MembershipLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership createMembership(long id) {
+	public com.rknowsys.eapp.hrm.model.Membership createMembership(
+		long membershipId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { membershipId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -170,14 +171,15 @@ public class MembershipLocalServiceClp implements MembershipLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership deleteMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership deleteMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { membershipId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -430,13 +432,14 @@ public class MembershipLocalServiceClp implements MembershipLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership fetchMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership fetchMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { membershipId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -458,14 +461,15 @@ public class MembershipLocalServiceClp implements MembershipLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership getMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership getMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { membershipId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

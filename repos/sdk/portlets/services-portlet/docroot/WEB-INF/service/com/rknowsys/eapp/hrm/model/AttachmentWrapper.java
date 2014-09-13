@@ -17,6 +17,8 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.model.ModelWrapper;
 
+import java.sql.Blob;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -49,22 +51,36 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("attachmentId", getAttachmentId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
+		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("comment", getComment());
+		attributes.put("file", getFile());
+		attributes.put("attachmentType", getAttachmentType());
+		attributes.put("size", getSize());
+		attributes.put("fileType", getFileType());
+		attributes.put("fileName", getFileName());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long attachmentId = (Long)attributes.get("attachmentId");
 
-		if (id != null) {
-			setId(id);
+		if (attachmentId != null) {
+			setAttachmentId(attachmentId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -85,6 +101,12 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 			setUserId(userId);
 		}
 
+		String userName = (String)attributes.get("userName");
+
+		if (userName != null) {
+			setUserName(userName);
+		}
+
 		Date createDate = (Date)attributes.get("createDate");
 
 		if (createDate != null) {
@@ -95,6 +117,42 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		String comment = (String)attributes.get("comment");
+
+		if (comment != null) {
+			setComment(comment);
+		}
+
+		Blob file = (Blob)attributes.get("file");
+
+		if (file != null) {
+			setFile(file);
+		}
+
+		Integer attachmentType = (Integer)attributes.get("attachmentType");
+
+		if (attachmentType != null) {
+			setAttachmentType(attachmentType);
+		}
+
+		Long size = (Long)attributes.get("size");
+
+		if (size != null) {
+			setSize(size);
+		}
+
+		String fileType = (String)attributes.get("fileType");
+
+		if (fileType != null) {
+			setFileType(fileType);
+		}
+
+		String fileName = (String)attributes.get("fileName");
+
+		if (fileName != null) {
+			setFileName(fileName);
 		}
 	}
 
@@ -119,23 +177,43 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 	}
 
 	/**
-	* Returns the ID of this attachment.
+	* Returns the attachment ID of this attachment.
 	*
-	* @return the ID of this attachment
+	* @return the attachment ID of this attachment
 	*/
 	@Override
-	public long getId() {
-		return _attachment.getId();
+	public long getAttachmentId() {
+		return _attachment.getAttachmentId();
 	}
 
 	/**
-	* Sets the ID of this attachment.
+	* Sets the attachment ID of this attachment.
 	*
-	* @param id the ID of this attachment
+	* @param attachmentId the attachment ID of this attachment
 	*/
 	@Override
-	public void setId(long id) {
-		_attachment.setId(id);
+	public void setAttachmentId(long attachmentId) {
+		_attachment.setAttachmentId(attachmentId);
+	}
+
+	/**
+	* Returns the employee ID of this attachment.
+	*
+	* @return the employee ID of this attachment
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _attachment.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this attachment.
+	*
+	* @param employeeId the employee ID of this attachment
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_attachment.setEmployeeId(employeeId);
 	}
 
 	/**
@@ -221,6 +299,26 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 	}
 
 	/**
+	* Returns the user name of this attachment.
+	*
+	* @return the user name of this attachment
+	*/
+	@Override
+	public java.lang.String getUserName() {
+		return _attachment.getUserName();
+	}
+
+	/**
+	* Sets the user name of this attachment.
+	*
+	* @param userName the user name of this attachment
+	*/
+	@Override
+	public void setUserName(java.lang.String userName) {
+		_attachment.setUserName(userName);
+	}
+
+	/**
 	* Returns the create date of this attachment.
 	*
 	* @return the create date of this attachment
@@ -258,6 +356,126 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 	@Override
 	public void setModifiedDate(java.util.Date modifiedDate) {
 		_attachment.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	* Returns the comment of this attachment.
+	*
+	* @return the comment of this attachment
+	*/
+	@Override
+	public java.lang.String getComment() {
+		return _attachment.getComment();
+	}
+
+	/**
+	* Sets the comment of this attachment.
+	*
+	* @param comment the comment of this attachment
+	*/
+	@Override
+	public void setComment(java.lang.String comment) {
+		_attachment.setComment(comment);
+	}
+
+	/**
+	* Returns the file of this attachment.
+	*
+	* @return the file of this attachment
+	*/
+	@Override
+	public java.sql.Blob getFile() {
+		return _attachment.getFile();
+	}
+
+	/**
+	* Sets the file of this attachment.
+	*
+	* @param file the file of this attachment
+	*/
+	@Override
+	public void setFile(java.sql.Blob file) {
+		_attachment.setFile(file);
+	}
+
+	/**
+	* Returns the attachment type of this attachment.
+	*
+	* @return the attachment type of this attachment
+	*/
+	@Override
+	public int getAttachmentType() {
+		return _attachment.getAttachmentType();
+	}
+
+	/**
+	* Sets the attachment type of this attachment.
+	*
+	* @param attachmentType the attachment type of this attachment
+	*/
+	@Override
+	public void setAttachmentType(int attachmentType) {
+		_attachment.setAttachmentType(attachmentType);
+	}
+
+	/**
+	* Returns the size of this attachment.
+	*
+	* @return the size of this attachment
+	*/
+	@Override
+	public long getSize() {
+		return _attachment.getSize();
+	}
+
+	/**
+	* Sets the size of this attachment.
+	*
+	* @param size the size of this attachment
+	*/
+	@Override
+	public void setSize(long size) {
+		_attachment.setSize(size);
+	}
+
+	/**
+	* Returns the file type of this attachment.
+	*
+	* @return the file type of this attachment
+	*/
+	@Override
+	public java.lang.String getFileType() {
+		return _attachment.getFileType();
+	}
+
+	/**
+	* Sets the file type of this attachment.
+	*
+	* @param fileType the file type of this attachment
+	*/
+	@Override
+	public void setFileType(java.lang.String fileType) {
+		_attachment.setFileType(fileType);
+	}
+
+	/**
+	* Returns the file name of this attachment.
+	*
+	* @return the file name of this attachment
+	*/
+	@Override
+	public java.lang.String getFileName() {
+		return _attachment.getFileName();
+	}
+
+	/**
+	* Sets the file name of this attachment.
+	*
+	* @param fileName the file name of this attachment
+	*/
+	@Override
+	public void setFileName(java.lang.String fileName) {
+		_attachment.setFileName(fileName);
 	}
 
 	@Override

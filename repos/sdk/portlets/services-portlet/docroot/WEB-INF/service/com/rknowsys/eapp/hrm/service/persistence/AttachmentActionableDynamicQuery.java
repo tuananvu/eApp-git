@@ -32,6 +32,6 @@ public abstract class AttachmentActionableDynamicQuery
 
 		setClassLoader(com.rknowsys.eapp.hrm.service.ClpSerializer.class.getClassLoader());
 
-		setPrimaryKeyPropertyName("id");
+		setPrimaryKeyPropertyName("attachmentId");
 	}
 }

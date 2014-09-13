@@ -50,22 +50,34 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("emergencyContactId", getEmergencyContactId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
+		attributes.put("relationship", getRelationship());
+		attributes.put("homeTelephone", getHomeTelephone());
+		attributes.put("mobile", getMobile());
+		attributes.put("workTelephone", getWorkTelephone());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long emergencyContactId = (Long)attributes.get("emergencyContactId");
 
-		if (id != null) {
-			setId(id);
+		if (emergencyContactId != null) {
+			setEmergencyContactId(emergencyContactId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -97,12 +109,42 @@ public class EmergencyContactWrapper implements EmergencyContact,
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
+		}
+
+		String relationship = (String)attributes.get("relationship");
+
+		if (relationship != null) {
+			setRelationship(relationship);
+		}
+
+		String homeTelephone = (String)attributes.get("homeTelephone");
+
+		if (homeTelephone != null) {
+			setHomeTelephone(homeTelephone);
+		}
+
+		String mobile = (String)attributes.get("mobile");
+
+		if (mobile != null) {
+			setMobile(mobile);
+		}
+
+		String workTelephone = (String)attributes.get("workTelephone");
+
+		if (workTelephone != null) {
+			setWorkTelephone(workTelephone);
+		}
 	}
 
 	/**
-	* Returns the primary key of this emergency contact.
+	* Returns the primary key of this EmergencyContact.
 	*
-	* @return the primary key of this emergency contact
+	* @return the primary key of this EmergencyContact
 	*/
 	@Override
 	public long getPrimaryKey() {
@@ -110,9 +152,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the primary key of this emergency contact.
+	* Sets the primary key of this EmergencyContact.
 	*
-	* @param primaryKey the primary key of this emergency contact
+	* @param primaryKey the primary key of this EmergencyContact
 	*/
 	@Override
 	public void setPrimaryKey(long primaryKey) {
@@ -120,29 +162,49 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Returns the ID of this emergency contact.
+	* Returns the emergency contact ID of this EmergencyContact.
 	*
-	* @return the ID of this emergency contact
+	* @return the emergency contact ID of this EmergencyContact
 	*/
 	@Override
-	public long getId() {
-		return _emergencyContact.getId();
+	public long getEmergencyContactId() {
+		return _emergencyContact.getEmergencyContactId();
 	}
 
 	/**
-	* Sets the ID of this emergency contact.
+	* Sets the emergency contact ID of this EmergencyContact.
 	*
-	* @param id the ID of this emergency contact
+	* @param emergencyContactId the emergency contact ID of this EmergencyContact
 	*/
 	@Override
-	public void setId(long id) {
-		_emergencyContact.setId(id);
+	public void setEmergencyContactId(long emergencyContactId) {
+		_emergencyContact.setEmergencyContactId(emergencyContactId);
 	}
 
 	/**
-	* Returns the group ID of this emergency contact.
+	* Returns the employee ID of this EmergencyContact.
 	*
-	* @return the group ID of this emergency contact
+	* @return the employee ID of this EmergencyContact
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _emergencyContact.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this EmergencyContact.
+	*
+	* @param employeeId the employee ID of this EmergencyContact
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_emergencyContact.setEmployeeId(employeeId);
+	}
+
+	/**
+	* Returns the group ID of this EmergencyContact.
+	*
+	* @return the group ID of this EmergencyContact
 	*/
 	@Override
 	public long getGroupId() {
@@ -150,9 +212,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the group ID of this emergency contact.
+	* Sets the group ID of this EmergencyContact.
 	*
-	* @param groupId the group ID of this emergency contact
+	* @param groupId the group ID of this EmergencyContact
 	*/
 	@Override
 	public void setGroupId(long groupId) {
@@ -160,9 +222,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Returns the company ID of this emergency contact.
+	* Returns the company ID of this EmergencyContact.
 	*
-	* @return the company ID of this emergency contact
+	* @return the company ID of this EmergencyContact
 	*/
 	@Override
 	public long getCompanyId() {
@@ -170,9 +232,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the company ID of this emergency contact.
+	* Sets the company ID of this EmergencyContact.
 	*
-	* @param companyId the company ID of this emergency contact
+	* @param companyId the company ID of this EmergencyContact
 	*/
 	@Override
 	public void setCompanyId(long companyId) {
@@ -180,9 +242,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Returns the user ID of this emergency contact.
+	* Returns the user ID of this EmergencyContact.
 	*
-	* @return the user ID of this emergency contact
+	* @return the user ID of this EmergencyContact
 	*/
 	@Override
 	public long getUserId() {
@@ -190,9 +252,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the user ID of this emergency contact.
+	* Sets the user ID of this EmergencyContact.
 	*
-	* @param userId the user ID of this emergency contact
+	* @param userId the user ID of this EmergencyContact
 	*/
 	@Override
 	public void setUserId(long userId) {
@@ -200,9 +262,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Returns the user uuid of this emergency contact.
+	* Returns the user uuid of this EmergencyContact.
 	*
-	* @return the user uuid of this emergency contact
+	* @return the user uuid of this EmergencyContact
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
@@ -212,9 +274,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the user uuid of this emergency contact.
+	* Sets the user uuid of this EmergencyContact.
 	*
-	* @param userUuid the user uuid of this emergency contact
+	* @param userUuid the user uuid of this EmergencyContact
 	*/
 	@Override
 	public void setUserUuid(java.lang.String userUuid) {
@@ -222,9 +284,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Returns the create date of this emergency contact.
+	* Returns the create date of this EmergencyContact.
 	*
-	* @return the create date of this emergency contact
+	* @return the create date of this EmergencyContact
 	*/
 	@Override
 	public java.util.Date getCreateDate() {
@@ -232,9 +294,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the create date of this emergency contact.
+	* Sets the create date of this EmergencyContact.
 	*
-	* @param createDate the create date of this emergency contact
+	* @param createDate the create date of this EmergencyContact
 	*/
 	@Override
 	public void setCreateDate(java.util.Date createDate) {
@@ -242,9 +304,9 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Returns the modified date of this emergency contact.
+	* Returns the modified date of this EmergencyContact.
 	*
-	* @return the modified date of this emergency contact
+	* @return the modified date of this EmergencyContact
 	*/
 	@Override
 	public java.util.Date getModifiedDate() {
@@ -252,13 +314,113 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	/**
-	* Sets the modified date of this emergency contact.
+	* Sets the modified date of this EmergencyContact.
 	*
-	* @param modifiedDate the modified date of this emergency contact
+	* @param modifiedDate the modified date of this EmergencyContact
 	*/
 	@Override
 	public void setModifiedDate(java.util.Date modifiedDate) {
 		_emergencyContact.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	* Returns the name of this EmergencyContact.
+	*
+	* @return the name of this EmergencyContact
+	*/
+	@Override
+	public java.lang.String getName() {
+		return _emergencyContact.getName();
+	}
+
+	/**
+	* Sets the name of this EmergencyContact.
+	*
+	* @param name the name of this EmergencyContact
+	*/
+	@Override
+	public void setName(java.lang.String name) {
+		_emergencyContact.setName(name);
+	}
+
+	/**
+	* Returns the relationship of this EmergencyContact.
+	*
+	* @return the relationship of this EmergencyContact
+	*/
+	@Override
+	public java.lang.String getRelationship() {
+		return _emergencyContact.getRelationship();
+	}
+
+	/**
+	* Sets the relationship of this EmergencyContact.
+	*
+	* @param relationship the relationship of this EmergencyContact
+	*/
+	@Override
+	public void setRelationship(java.lang.String relationship) {
+		_emergencyContact.setRelationship(relationship);
+	}
+
+	/**
+	* Returns the home telephone of this EmergencyContact.
+	*
+	* @return the home telephone of this EmergencyContact
+	*/
+	@Override
+	public java.lang.String getHomeTelephone() {
+		return _emergencyContact.getHomeTelephone();
+	}
+
+	/**
+	* Sets the home telephone of this EmergencyContact.
+	*
+	* @param homeTelephone the home telephone of this EmergencyContact
+	*/
+	@Override
+	public void setHomeTelephone(java.lang.String homeTelephone) {
+		_emergencyContact.setHomeTelephone(homeTelephone);
+	}
+
+	/**
+	* Returns the mobile of this EmergencyContact.
+	*
+	* @return the mobile of this EmergencyContact
+	*/
+	@Override
+	public java.lang.String getMobile() {
+		return _emergencyContact.getMobile();
+	}
+
+	/**
+	* Sets the mobile of this EmergencyContact.
+	*
+	* @param mobile the mobile of this EmergencyContact
+	*/
+	@Override
+	public void setMobile(java.lang.String mobile) {
+		_emergencyContact.setMobile(mobile);
+	}
+
+	/**
+	* Returns the work telephone of this EmergencyContact.
+	*
+	* @return the work telephone of this EmergencyContact
+	*/
+	@Override
+	public java.lang.String getWorkTelephone() {
+		return _emergencyContact.getWorkTelephone();
+	}
+
+	/**
+	* Sets the work telephone of this EmergencyContact.
+	*
+	* @param workTelephone the work telephone of this EmergencyContact
+	*/
+	@Override
+	public void setWorkTelephone(java.lang.String workTelephone) {
+		_emergencyContact.setWorkTelephone(workTelephone);
 	}
 
 	@Override

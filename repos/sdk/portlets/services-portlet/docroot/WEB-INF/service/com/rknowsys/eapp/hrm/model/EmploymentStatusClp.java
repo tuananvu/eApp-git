@@ -53,17 +53,17 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _employmentStatusId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setEmploymentStatusId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _employmentStatusId;
 	}
 
 	@Override
@@ -75,23 +75,24 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("employmentStatusId", getEmploymentStatusId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("employmentstatus", getEmploymentstatus());
+		attributes.put("jobId", getJobId());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long employmentStatusId = (Long)attributes.get("employmentStatusId");
 
-		if (id != null) {
-			setId(id);
+		if (employmentStatusId != null) {
+			setEmploymentStatusId(employmentStatusId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -129,24 +130,31 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 		if (employmentstatus != null) {
 			setEmploymentstatus(employmentstatus);
 		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getEmploymentStatusId() {
+		return _employmentStatusId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setEmploymentStatusId(long employmentStatusId) {
+		_employmentStatusId = employmentStatusId;
 
 		if (_employmentStatusRemoteModel != null) {
 			try {
 				Class<?> clazz = _employmentStatusRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setEmploymentStatusId",
+						long.class);
 
-				method.invoke(_employmentStatusRemoteModel, id);
+				method.invoke(_employmentStatusRemoteModel, employmentStatusId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -303,6 +311,29 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 		}
 	}
 
+	@Override
+	public long getJobId() {
+		return _jobId;
+	}
+
+	@Override
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+
+		if (_employmentStatusRemoteModel != null) {
+			try {
+				Class<?> clazz = _employmentStatusRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setJobId", long.class);
+
+				method.invoke(_employmentStatusRemoteModel, jobId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
 	public BaseModel<?> getEmploymentStatusRemoteModel() {
 		return _employmentStatusRemoteModel;
 	}
@@ -374,13 +405,14 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 	public Object clone() {
 		EmploymentStatusClp clone = new EmploymentStatusClp();
 
-		clone.setId(getId());
+		clone.setEmploymentStatusId(getEmploymentStatusId());
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setUserId(getUserId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
 		clone.setEmploymentstatus(getEmploymentstatus());
+		clone.setJobId(getJobId());
 
 		return clone;
 	}
@@ -429,10 +461,10 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{employmentStatusId=");
+		sb.append(getEmploymentStatusId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -445,6 +477,8 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 		sb.append(getModifiedDate());
 		sb.append(", employmentstatus=");
 		sb.append(getEmploymentstatus());
+		sb.append(", jobId=");
+		sb.append(getJobId());
 		sb.append("}");
 
 		return sb.toString();
@@ -452,15 +486,15 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.EmploymentStatus");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>employmentStatusId</column-name><column-value><![CDATA[");
+		sb.append(getEmploymentStatusId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -486,13 +520,17 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 			"<column><column-name>employmentstatus</column-name><column-value><![CDATA[");
 		sb.append(getEmploymentstatus());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>jobId</column-name><column-value><![CDATA[");
+		sb.append(getJobId());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _employmentStatusId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
@@ -500,5 +538,6 @@ public class EmploymentStatusClp extends BaseModelImpl<EmploymentStatus>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private String _employmentstatus;
+	private long _jobId;
 	private BaseModel<?> _employmentStatusRemoteModel;
 }

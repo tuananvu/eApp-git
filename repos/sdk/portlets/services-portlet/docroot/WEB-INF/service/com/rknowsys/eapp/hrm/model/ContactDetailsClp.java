@@ -53,17 +53,17 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _contactDetailsId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setContactDetailsId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _contactDetailsId;
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("contactDetailsId", getContactDetailsId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
@@ -99,10 +99,10 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
 
-		if (id != null) {
-			setId(id);
+		if (contactDetailsId != null) {
+			setContactDetailsId(contactDetailsId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -209,21 +209,22 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getContactDetailsId() {
+		return _contactDetailsId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setContactDetailsId(long contactDetailsId) {
+		_contactDetailsId = contactDetailsId;
 
 		if (_contactDetailsRemoteModel != null) {
 			try {
 				Class<?> clazz = _contactDetailsRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setContactDetailsId",
+						long.class);
 
-				method.invoke(_contactDetailsRemoteModel, id);
+				method.invoke(_contactDetailsRemoteModel, contactDetailsId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -705,7 +706,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 	public Object clone() {
 		ContactDetailsClp clone = new ContactDetailsClp();
 
-		clone.setId(getId());
+		clone.setContactDetailsId(getContactDetailsId());
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setUserId(getUserId());
@@ -773,8 +774,8 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 	public String toString() {
 		StringBundler sb = new StringBundler(37);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{contactDetailsId=");
+		sb.append(getContactDetailsId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -823,8 +824,8 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>contactDetailsId</column-name><column-value><![CDATA[");
+		sb.append(getContactDetailsId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -900,7 +901,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _contactDetailsId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;

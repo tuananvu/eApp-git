@@ -33,7 +33,10 @@ public class EmployeeSoap implements Serializable {
 		EmployeeSoap soapModel = new EmployeeSoap();
 
 		soapModel.setEmployeeId(model.getEmployeeId());
+		soapModel.setContactDetailsId(model.getContactDetailsId());
+		soapModel.setJobId(model.getJobId());
 		soapModel.setShiftId(model.getShiftId());
+		soapModel.setLicenseId(model.getLicenseId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
@@ -108,12 +111,36 @@ public class EmployeeSoap implements Serializable {
 		_employeeId = employeeId;
 	}
 
+	public long getContactDetailsId() {
+		return _contactDetailsId;
+	}
+
+	public void setContactDetailsId(long contactDetailsId) {
+		_contactDetailsId = contactDetailsId;
+	}
+
+	public long getJobId() {
+		return _jobId;
+	}
+
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+	}
+
 	public long getShiftId() {
 		return _shiftId;
 	}
 
 	public void setShiftId(long shiftId) {
 		_shiftId = shiftId;
+	}
+
+	public long getLicenseId() {
+		return _licenseId;
+	}
+
+	public void setLicenseId(long licenseId) {
+		_licenseId = licenseId;
 	}
 
 	public long getGroupId() {
@@ -196,11 +223,11 @@ public class EmployeeSoap implements Serializable {
 		_gender = gender;
 	}
 
-	public String getMaritalStatus() {
+	public int getMaritalStatus() {
 		return _maritalStatus;
 	}
 
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(int maritalStatus) {
 		_maritalStatus = maritalStatus;
 	}
 
@@ -229,7 +256,10 @@ public class EmployeeSoap implements Serializable {
 	}
 
 	private long _employeeId;
+	private long _contactDetailsId;
+	private long _jobId;
 	private long _shiftId;
+	private long _licenseId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
@@ -240,7 +270,7 @@ public class EmployeeSoap implements Serializable {
 	private String _middleName;
 	private Blob _photograph;
 	private int _gender;
-	private String _maritalStatus;
+	private int _maritalStatus;
 	private String _nationality;
 	private Date _dateOfBirth;
 	private String _otherId;

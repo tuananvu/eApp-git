@@ -47,27 +47,27 @@ public class LanguageLocalServiceWrapper implements LanguageLocalService,
 	/**
 	* Creates a new language with the primary key. Does not add the language to the database.
 	*
-	* @param id the primary key for the new language
+	* @param languageId the primary key for the new language
 	* @return the new language
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language createLanguage(long id) {
-		return _languageLocalService.createLanguage(id);
+	public com.rknowsys.eapp.hrm.model.Language createLanguage(long languageId) {
+		return _languageLocalService.createLanguage(languageId);
 	}
 
 	/**
 	* Deletes the language with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the language
+	* @param languageId the primary key of the language
 	* @return the language that was removed
 	* @throws PortalException if a language with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language deleteLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language deleteLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _languageLocalService.deleteLanguage(id);
+		return _languageLocalService.deleteLanguage(languageId);
 	}
 
 	/**
@@ -181,24 +181,24 @@ public class LanguageLocalServiceWrapper implements LanguageLocalService,
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language fetchLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language fetchLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _languageLocalService.fetchLanguage(id);
+		return _languageLocalService.fetchLanguage(languageId);
 	}
 
 	/**
 	* Returns the language with the primary key.
 	*
-	* @param id the primary key of the language
+	* @param languageId the primary key of the language
 	* @return the language
 	* @throws PortalException if a language with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language getLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language getLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _languageLocalService.getLanguage(id);
+		return _languageLocalService.getLanguage(languageId);
 	}
 
 	@Override

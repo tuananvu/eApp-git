@@ -49,7 +49,8 @@ public class EducationWrapper implements Education, ModelWrapper<Education> {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("educationId", getEducationId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -62,10 +63,16 @@ public class EducationWrapper implements Education, ModelWrapper<Education> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long educationId = (Long)attributes.get("educationId");
 
-		if (id != null) {
-			setId(id);
+		if (educationId != null) {
+			setEducationId(educationId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -126,23 +133,43 @@ public class EducationWrapper implements Education, ModelWrapper<Education> {
 	}
 
 	/**
-	* Returns the ID of this education.
+	* Returns the education ID of this education.
 	*
-	* @return the ID of this education
+	* @return the education ID of this education
 	*/
 	@Override
-	public long getId() {
-		return _education.getId();
+	public long getEducationId() {
+		return _education.getEducationId();
 	}
 
 	/**
-	* Sets the ID of this education.
+	* Sets the education ID of this education.
 	*
-	* @param id the ID of this education
+	* @param educationId the education ID of this education
 	*/
 	@Override
-	public void setId(long id) {
-		_education.setId(id);
+	public void setEducationId(long educationId) {
+		_education.setEducationId(educationId);
+	}
+
+	/**
+	* Returns the employee ID of this education.
+	*
+	* @return the employee ID of this education
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _education.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this education.
+	*
+	* @param employeeId the employee ID of this education
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_education.setEmployeeId(employeeId);
 	}
 
 	/**

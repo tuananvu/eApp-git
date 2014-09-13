@@ -60,7 +60,8 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	 */
 	public static final String TABLE_NAME = "skill";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "id_", Types.BIGINT },
+			{ "skillId", Types.BIGINT },
+			{ "employeeId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
@@ -69,10 +70,10 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 			{ "skillName", Types.VARCHAR },
 			{ "description", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table skill (id_ LONG not null primary key,companyId LONG,groupId LONG,createDate DATE null,modifiedDate DATE null,userId LONG,skillName VARCHAR(75) null,description VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table skill (skillId LONG not null primary key,employeeId LONG,companyId LONG,groupId LONG,createDate DATE null,modifiedDate DATE null,userId LONG,skillName VARCHAR(75) null,description VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table skill";
-	public static final String ORDER_BY_JPQL = " ORDER BY skill.id ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY skill.id_ ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY skill.skillId ASC";
+	public static final String ORDER_BY_SQL = " ORDER BY skill.skillId ASC";
 	public static final String DATA_SOURCE = "anotherDataSource";
 	public static final String SESSION_FACTORY = "anotherSessionFactory";
 	public static final String TX_MANAGER = "anotherTransactionManager";
@@ -85,8 +86,9 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.rknowsys.eapp.hrm.model.Skill"),
 			true);
-	public static long GROUPID_COLUMN_BITMASK = 1L;
-	public static long ID_COLUMN_BITMASK = 2L;
+	public static long EMPLOYEEID_COLUMN_BITMASK = 1L;
+	public static long GROUPID_COLUMN_BITMASK = 2L;
+	public static long SKILLID_COLUMN_BITMASK = 4L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.rknowsys.eapp.hrm.model.Skill"));
 
@@ -95,17 +97,17 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _skillId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setSkillId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _skillId;
 	}
 
 	@Override
@@ -127,7 +129,8 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("skillId", getSkillId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -141,10 +144,16 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long skillId = (Long)attributes.get("skillId");
 
-		if (id != null) {
-			setId(id);
+		if (skillId != null) {
+			setSkillId(skillId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -191,13 +200,47 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getSkillId() {
+		return _skillId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setSkillId(long skillId) {
+		_columnBitmask |= SKILLID_COLUMN_BITMASK;
+
+		if (!_setOriginalSkillId) {
+			_setOriginalSkillId = true;
+
+			_originalSkillId = _skillId;
+		}
+
+		_skillId = skillId;
+	}
+
+	public long getOriginalSkillId() {
+		return _originalSkillId;
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_columnBitmask |= EMPLOYEEID_COLUMN_BITMASK;
+
+		if (!_setOriginalEmployeeId) {
+			_setOriginalEmployeeId = true;
+
+			_originalEmployeeId = _employeeId;
+		}
+
+		_employeeId = employeeId;
+	}
+
+	public long getOriginalEmployeeId() {
+		return _originalEmployeeId;
 	}
 
 	@Override
@@ -333,7 +376,8 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	public Object clone() {
 		SkillImpl skillImpl = new SkillImpl();
 
-		skillImpl.setId(getId());
+		skillImpl.setSkillId(getSkillId());
+		skillImpl.setEmployeeId(getEmployeeId());
 		skillImpl.setCompanyId(getCompanyId());
 		skillImpl.setGroupId(getGroupId());
 		skillImpl.setCreateDate(getCreateDate());
@@ -393,6 +437,14 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	public void resetOriginalValues() {
 		SkillModelImpl skillModelImpl = this;
 
+		skillModelImpl._originalSkillId = skillModelImpl._skillId;
+
+		skillModelImpl._setOriginalSkillId = false;
+
+		skillModelImpl._originalEmployeeId = skillModelImpl._employeeId;
+
+		skillModelImpl._setOriginalEmployeeId = false;
+
 		skillModelImpl._originalGroupId = skillModelImpl._groupId;
 
 		skillModelImpl._setOriginalGroupId = false;
@@ -404,7 +456,9 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 	public CacheModel<Skill> toCacheModel() {
 		SkillCacheModel skillCacheModel = new SkillCacheModel();
 
-		skillCacheModel.id = getId();
+		skillCacheModel.skillId = getSkillId();
+
+		skillCacheModel.employeeId = getEmployeeId();
 
 		skillCacheModel.companyId = getCompanyId();
 
@@ -451,10 +505,12 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(17);
+		StringBundler sb = new StringBundler(19);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{skillId=");
+		sb.append(getSkillId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", groupId=");
@@ -476,15 +532,19 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(28);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Skill");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>skillId</column-name><column-value><![CDATA[");
+		sb.append(getSkillId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -522,7 +582,12 @@ public class SkillModelImpl extends BaseModelImpl<Skill> implements SkillModel {
 
 	private static ClassLoader _classLoader = Skill.class.getClassLoader();
 	private static Class<?>[] _escapedModelInterfaces = new Class[] { Skill.class };
-	private long _id;
+	private long _skillId;
+	private long _originalSkillId;
+	private boolean _setOriginalSkillId;
+	private long _employeeId;
+	private long _originalEmployeeId;
+	private boolean _setOriginalEmployeeId;
 	private long _companyId;
 	private long _groupId;
 	private long _originalGroupId;

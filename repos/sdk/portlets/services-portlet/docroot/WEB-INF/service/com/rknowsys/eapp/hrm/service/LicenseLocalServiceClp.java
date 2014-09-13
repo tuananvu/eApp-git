@@ -146,12 +146,12 @@ public class LicenseLocalServiceClp implements LicenseLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License createLicense(long id) {
+	public com.rknowsys.eapp.hrm.model.License createLicense(long licenseId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { licenseId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -169,14 +169,14 @@ public class LicenseLocalServiceClp implements LicenseLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License deleteLicense(long id)
+	public com.rknowsys.eapp.hrm.model.License deleteLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { licenseId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -429,13 +429,13 @@ public class LicenseLocalServiceClp implements LicenseLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License fetchLicense(long id)
+	public com.rknowsys.eapp.hrm.model.License fetchLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { licenseId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -457,14 +457,14 @@ public class LicenseLocalServiceClp implements LicenseLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License getLicense(long id)
+	public com.rknowsys.eapp.hrm.model.License getLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { licenseId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

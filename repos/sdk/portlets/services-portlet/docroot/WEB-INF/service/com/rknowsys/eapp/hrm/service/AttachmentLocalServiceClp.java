@@ -107,13 +107,17 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 				"com.rknowsys.eapp.hrm.model.Attachment"
 			};
 
-		_methodName16 = "getBeanIdentifier";
+		_methodName16 = "getFileBlobModel";
 
-		_methodParameterTypes16 = new String[] {  };
+		_methodParameterTypes16 = new String[] { "java.io.Serializable" };
 
-		_methodName17 = "setBeanIdentifier";
+		_methodName17 = "getBeanIdentifier";
 
-		_methodParameterTypes17 = new String[] { "java.lang.String" };
+		_methodParameterTypes17 = new String[] {  };
+
+		_methodName18 = "setBeanIdentifier";
+
+		_methodParameterTypes18 = new String[] { "java.lang.String" };
 	}
 
 	@Override
@@ -147,12 +151,13 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment createAttachment(long id) {
+	public com.rknowsys.eapp.hrm.model.Attachment createAttachment(
+		long attachmentId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { attachmentId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -170,14 +175,15 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { attachmentId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -430,13 +436,14 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { attachmentId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -458,14 +465,15 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment getAttachment(long id)
+	public com.rknowsys.eapp.hrm.model.Attachment getAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { attachmentId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -613,12 +621,42 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	}
 
 	@Override
-	public java.lang.String getBeanIdentifier() {
+	public com.rknowsys.eapp.hrm.model.AttachmentFileBlobModel getFileBlobModel(
+		java.io.Serializable primaryKey)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName16,
-					_methodParameterTypes16, new Object[] {  });
+					_methodParameterTypes16,
+					new Object[] { ClpSerializer.translateInput(primaryKey) });
+		}
+		catch (Throwable t) {
+			t = ClpSerializer.translateThrowable(t);
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (com.rknowsys.eapp.hrm.model.AttachmentFileBlobModel)ClpSerializer.translateOutput(returnObj);
+	}
+
+	@Override
+	public java.lang.String getBeanIdentifier() {
+		Object returnObj = null;
+
+		try {
+			returnObj = _invokableLocalService.invokeMethod(_methodName17,
+					_methodParameterTypes17, new Object[] {  });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -638,8 +676,8 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	@Override
 	public void setBeanIdentifier(java.lang.String beanIdentifier) {
 		try {
-			_invokableLocalService.invokeMethod(_methodName17,
-				_methodParameterTypes17,
+			_invokableLocalService.invokeMethod(_methodName18,
+				_methodParameterTypes18,
 				new Object[] { ClpSerializer.translateInput(beanIdentifier) });
 		}
 		catch (Throwable t) {
@@ -699,4 +737,6 @@ public class AttachmentLocalServiceClp implements AttachmentLocalService {
 	private String[] _methodParameterTypes16;
 	private String _methodName17;
 	private String[] _methodParameterTypes17;
+	private String _methodName18;
+	private String[] _methodParameterTypes18;
 }

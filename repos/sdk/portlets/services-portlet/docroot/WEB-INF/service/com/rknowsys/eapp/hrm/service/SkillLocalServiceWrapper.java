@@ -46,27 +46,27 @@ public class SkillLocalServiceWrapper implements SkillLocalService,
 	/**
 	* Creates a new skill with the primary key. Does not add the skill to the database.
 	*
-	* @param id the primary key for the new skill
+	* @param skillId the primary key for the new skill
 	* @return the new skill
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill createSkill(long id) {
-		return _skillLocalService.createSkill(id);
+	public com.rknowsys.eapp.hrm.model.Skill createSkill(long skillId) {
+		return _skillLocalService.createSkill(skillId);
 	}
 
 	/**
 	* Deletes the skill with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the skill
+	* @param skillId the primary key of the skill
 	* @return the skill that was removed
 	* @throws PortalException if a skill with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill deleteSkill(long id)
+	public com.rknowsys.eapp.hrm.model.Skill deleteSkill(long skillId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _skillLocalService.deleteSkill(id);
+		return _skillLocalService.deleteSkill(skillId);
 	}
 
 	/**
@@ -180,24 +180,24 @@ public class SkillLocalServiceWrapper implements SkillLocalService,
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill fetchSkill(long id)
+	public com.rknowsys.eapp.hrm.model.Skill fetchSkill(long skillId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _skillLocalService.fetchSkill(id);
+		return _skillLocalService.fetchSkill(skillId);
 	}
 
 	/**
 	* Returns the skill with the primary key.
 	*
-	* @param id the primary key of the skill
+	* @param skillId the primary key of the skill
 	* @return the skill
 	* @throws PortalException if a skill with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill getSkill(long id)
+	public com.rknowsys.eapp.hrm.model.Skill getSkill(long skillId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _skillLocalService.getSkill(id);
+		return _skillLocalService.getSkill(skillId);
 	}
 
 	@Override

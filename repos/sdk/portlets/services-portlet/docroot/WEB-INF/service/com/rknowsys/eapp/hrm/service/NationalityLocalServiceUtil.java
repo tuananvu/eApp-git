@@ -55,27 +55,27 @@ public class NationalityLocalServiceUtil {
 	/**
 	* Creates a new nationality with the primary key. Does not add the nationality to the database.
 	*
-	* @param id the primary key for the new nationality
+	* @param nationalityId the primary key for the new nationality
 	* @return the new nationality
 	*/
 	public static com.rknowsys.eapp.hrm.model.Nationality createNationality(
-		long id) {
-		return getService().createNationality(id);
+		long nationalityId) {
+		return getService().createNationality(nationalityId);
 	}
 
 	/**
 	* Deletes the nationality with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality that was removed
 	* @throws PortalException if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Nationality deleteNationality(
-		long id)
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteNationality(id);
+		return getService().deleteNationality(nationalityId);
 	}
 
 	/**
@@ -182,23 +182,24 @@ public class NationalityLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.Nationality fetchNationality(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchNationality(id);
+		long nationalityId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchNationality(nationalityId);
 	}
 
 	/**
 	* Returns the nationality with the primary key.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality
 	* @throws PortalException if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Nationality getNationality(
-		long id)
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getNationality(id);
+		return getService().getNationality(nationalityId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

@@ -50,11 +50,15 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("dependentId", getDependentId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
+		attributes.put("relationship", getRelationship());
+		attributes.put("dateOfBirth", getDateOfBirth());
 
 		return attributes;
 	}
@@ -65,6 +69,12 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 
 		if (dependentId != null) {
 			setDependentId(dependentId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -95,6 +105,24 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
+		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
+		}
+
+		String relationship = (String)attributes.get("relationship");
+
+		if (relationship != null) {
+			setRelationship(relationship);
+		}
+
+		Date dateOfBirth = (Date)attributes.get("dateOfBirth");
+
+		if (dateOfBirth != null) {
+			setDateOfBirth(dateOfBirth);
 		}
 	}
 
@@ -136,6 +164,26 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 	@Override
 	public void setDependentId(long dependentId) {
 		_dependent.setDependentId(dependentId);
+	}
+
+	/**
+	* Returns the employee ID of this dependent.
+	*
+	* @return the employee ID of this dependent
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _dependent.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this dependent.
+	*
+	* @param employeeId the employee ID of this dependent
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_dependent.setEmployeeId(employeeId);
 	}
 
 	/**
@@ -258,6 +306,66 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 	@Override
 	public void setModifiedDate(java.util.Date modifiedDate) {
 		_dependent.setModifiedDate(modifiedDate);
+	}
+
+	/**
+	* Returns the name of this dependent.
+	*
+	* @return the name of this dependent
+	*/
+	@Override
+	public java.lang.String getName() {
+		return _dependent.getName();
+	}
+
+	/**
+	* Sets the name of this dependent.
+	*
+	* @param name the name of this dependent
+	*/
+	@Override
+	public void setName(java.lang.String name) {
+		_dependent.setName(name);
+	}
+
+	/**
+	* Returns the relationship of this dependent.
+	*
+	* @return the relationship of this dependent
+	*/
+	@Override
+	public java.lang.String getRelationship() {
+		return _dependent.getRelationship();
+	}
+
+	/**
+	* Sets the relationship of this dependent.
+	*
+	* @param relationship the relationship of this dependent
+	*/
+	@Override
+	public void setRelationship(java.lang.String relationship) {
+		_dependent.setRelationship(relationship);
+	}
+
+	/**
+	* Returns the date of birth of this dependent.
+	*
+	* @return the date of birth of this dependent
+	*/
+	@Override
+	public java.util.Date getDateOfBirth() {
+		return _dependent.getDateOfBirth();
+	}
+
+	/**
+	* Sets the date of birth of this dependent.
+	*
+	* @param dateOfBirth the date of birth of this dependent
+	*/
+	@Override
+	public void setDateOfBirth(java.util.Date dateOfBirth) {
+		_dependent.setDateOfBirth(dateOfBirth);
 	}
 
 	@Override

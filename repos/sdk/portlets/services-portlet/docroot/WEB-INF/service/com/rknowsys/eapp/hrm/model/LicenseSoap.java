@@ -30,13 +30,15 @@ public class LicenseSoap implements Serializable {
 	public static LicenseSoap toSoapModel(License model) {
 		LicenseSoap soapModel = new LicenseSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setLicenseId(model.getLicenseId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setLicenseName(model.getLicenseName());
+		soapModel.setExpiryDate(model.getExpiryDate());
 
 		return soapModel;
 	}
@@ -82,19 +84,27 @@ public class LicenseSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _licenseId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setLicenseId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getLicenseId() {
+		return _licenseId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setLicenseId(long licenseId) {
+		_licenseId = licenseId;
+	}
+
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
 	}
 
 	public long getCompanyId() {
@@ -145,11 +155,21 @@ public class LicenseSoap implements Serializable {
 		_licenseName = licenseName;
 	}
 
-	private long _id;
+	public Date getExpiryDate() {
+		return _expiryDate;
+	}
+
+	public void setExpiryDate(Date expiryDate) {
+		_expiryDate = expiryDate;
+	}
+
+	private long _licenseId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _userId;
 	private String _licenseName;
+	private Date _expiryDate;
 }

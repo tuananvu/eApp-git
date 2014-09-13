@@ -15,6 +15,7 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
 import com.rknowsys.eapp.hrm.model.EmergencyContact;
@@ -37,10 +38,12 @@ public class EmergencyContactCacheModel implements CacheModel<EmergencyContact>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(25);
 
-		sb.append("{id=");
-		sb.append(id);
+		sb.append("{emergencyContactId=");
+		sb.append(emergencyContactId);
+		sb.append(", employeeId=");
+		sb.append(employeeId);
 		sb.append(", groupId=");
 		sb.append(groupId);
 		sb.append(", companyId=");
@@ -51,6 +54,16 @@ public class EmergencyContactCacheModel implements CacheModel<EmergencyContact>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+		sb.append(", name=");
+		sb.append(name);
+		sb.append(", relationship=");
+		sb.append(relationship);
+		sb.append(", homeTelephone=");
+		sb.append(homeTelephone);
+		sb.append(", mobile=");
+		sb.append(mobile);
+		sb.append(", workTelephone=");
+		sb.append(workTelephone);
 		sb.append("}");
 
 		return sb.toString();
@@ -60,7 +73,8 @@ public class EmergencyContactCacheModel implements CacheModel<EmergencyContact>,
 	public EmergencyContact toEntityModel() {
 		EmergencyContactImpl emergencyContactImpl = new EmergencyContactImpl();
 
-		emergencyContactImpl.setId(id);
+		emergencyContactImpl.setEmergencyContactId(emergencyContactId);
+		emergencyContactImpl.setEmployeeId(employeeId);
 		emergencyContactImpl.setGroupId(groupId);
 		emergencyContactImpl.setCompanyId(companyId);
 		emergencyContactImpl.setUserId(userId);
@@ -79,6 +93,41 @@ public class EmergencyContactCacheModel implements CacheModel<EmergencyContact>,
 			emergencyContactImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+		if (name == null) {
+			emergencyContactImpl.setName(StringPool.BLANK);
+		}
+		else {
+			emergencyContactImpl.setName(name);
+		}
+
+		if (relationship == null) {
+			emergencyContactImpl.setRelationship(StringPool.BLANK);
+		}
+		else {
+			emergencyContactImpl.setRelationship(relationship);
+		}
+
+		if (homeTelephone == null) {
+			emergencyContactImpl.setHomeTelephone(StringPool.BLANK);
+		}
+		else {
+			emergencyContactImpl.setHomeTelephone(homeTelephone);
+		}
+
+		if (mobile == null) {
+			emergencyContactImpl.setMobile(StringPool.BLANK);
+		}
+		else {
+			emergencyContactImpl.setMobile(mobile);
+		}
+
+		if (workTelephone == null) {
+			emergencyContactImpl.setWorkTelephone(StringPool.BLANK);
+		}
+		else {
+			emergencyContactImpl.setWorkTelephone(workTelephone);
+		}
+
 		emergencyContactImpl.resetOriginalValues();
 
 		return emergencyContactImpl;
@@ -86,29 +135,77 @@ public class EmergencyContactCacheModel implements CacheModel<EmergencyContact>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
+		emergencyContactId = objectInput.readLong();
+		employeeId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		userId = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
+		name = objectInput.readUTF();
+		relationship = objectInput.readUTF();
+		homeTelephone = objectInput.readUTF();
+		mobile = objectInput.readUTF();
+		workTelephone = objectInput.readUTF();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(id);
+		objectOutput.writeLong(emergencyContactId);
+		objectOutput.writeLong(employeeId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(userId);
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
+
+		if (name == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(name);
+		}
+
+		if (relationship == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(relationship);
+		}
+
+		if (homeTelephone == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(homeTelephone);
+		}
+
+		if (mobile == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(mobile);
+		}
+
+		if (workTelephone == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(workTelephone);
+		}
 	}
 
-	public long id;
+	public long emergencyContactId;
+	public long employeeId;
 	public long groupId;
 	public long companyId;
 	public long userId;
 	public long createDate;
 	public long modifiedDate;
+	public String name;
+	public String relationship;
+	public String homeTelephone;
+	public String mobile;
+	public String workTelephone;
 }

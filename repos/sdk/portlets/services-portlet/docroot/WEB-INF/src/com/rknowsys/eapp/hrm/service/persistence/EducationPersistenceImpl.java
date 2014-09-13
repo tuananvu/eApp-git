@@ -30,7 +30,6 @@ import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -49,7 +48,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * The persistence implementation for the education service.
@@ -360,7 +358,7 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	/**
 	 * Returns the educations before and after the current education in the ordered set where groupId = &#63;.
 	 *
-	 * @param id the primary key of the current education
+	 * @param educationId the primary key of the current education
 	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next education
@@ -368,10 +366,10 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Education[] findByGroupId_PrevAndNext(long id, long groupId,
-		OrderByComparator orderByComparator)
+	public Education[] findByGroupId_PrevAndNext(long educationId,
+		long groupId, OrderByComparator orderByComparator)
 		throws NoSuchEducationException, SystemException {
-		Education education = findByPrimaryKey(id);
+		Education education = findByPrimaryKey(educationId);
 
 		Session session = null;
 
@@ -571,6 +569,844 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	}
 
 	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "education.groupId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_EDUCATIONID =
+		new FinderPath(EducationModelImpl.ENTITY_CACHE_ENABLED,
+			EducationModelImpl.FINDER_CACHE_ENABLED, EducationImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByeducationId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EDUCATIONID =
+		new FinderPath(EducationModelImpl.ENTITY_CACHE_ENABLED,
+			EducationModelImpl.FINDER_CACHE_ENABLED, EducationImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByeducationId",
+			new String[] { Long.class.getName() },
+			EducationModelImpl.EDUCATIONID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_EDUCATIONID = new FinderPath(EducationModelImpl.ENTITY_CACHE_ENABLED,
+			EducationModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByeducationId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the educations where educationId = &#63;.
+	 *
+	 * @param educationId the education ID
+	 * @return the matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Education> findByeducationId(long educationId)
+		throws SystemException {
+		return findByeducationId(educationId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the educations where educationId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EducationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param educationId the education ID
+	 * @param start the lower bound of the range of educations
+	 * @param end the upper bound of the range of educations (not inclusive)
+	 * @return the range of matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Education> findByeducationId(long educationId, int start,
+		int end) throws SystemException {
+		return findByeducationId(educationId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the educations where educationId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EducationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param educationId the education ID
+	 * @param start the lower bound of the range of educations
+	 * @param end the upper bound of the range of educations (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Education> findByeducationId(long educationId, int start,
+		int end, OrderByComparator orderByComparator) throws SystemException {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EDUCATIONID;
+			finderArgs = new Object[] { educationId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_EDUCATIONID;
+			finderArgs = new Object[] { educationId, start, end, orderByComparator };
+		}
+
+		List<Education> list = (List<Education>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (Education education : list) {
+				if ((educationId != education.getEducationId())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_EDUCATION_WHERE);
+
+			query.append(_FINDER_COLUMN_EDUCATIONID_EDUCATIONID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(EducationModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(educationId);
+
+				if (!pagination) {
+					list = (List<Education>)QueryUtil.list(q, getDialect(),
+							start, end, false);
+
+					Collections.sort(list);
+
+					list = new UnmodifiableList<Education>(list);
+				}
+				else {
+					list = (List<Education>)QueryUtil.list(q, getDialect(),
+							start, end);
+				}
+
+				cacheResult(list);
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first education in the ordered set where educationId = &#63;.
+	 *
+	 * @param educationId the education ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching education
+	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education findByeducationId_First(long educationId,
+		OrderByComparator orderByComparator)
+		throws NoSuchEducationException, SystemException {
+		Education education = fetchByeducationId_First(educationId,
+				orderByComparator);
+
+		if (education != null) {
+			return education;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("educationId=");
+		msg.append(educationId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchEducationException(msg.toString());
+	}
+
+	/**
+	 * Returns the first education in the ordered set where educationId = &#63;.
+	 *
+	 * @param educationId the education ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching education, or <code>null</code> if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education fetchByeducationId_First(long educationId,
+		OrderByComparator orderByComparator) throws SystemException {
+		List<Education> list = findByeducationId(educationId, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last education in the ordered set where educationId = &#63;.
+	 *
+	 * @param educationId the education ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching education
+	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education findByeducationId_Last(long educationId,
+		OrderByComparator orderByComparator)
+		throws NoSuchEducationException, SystemException {
+		Education education = fetchByeducationId_Last(educationId,
+				orderByComparator);
+
+		if (education != null) {
+			return education;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("educationId=");
+		msg.append(educationId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchEducationException(msg.toString());
+	}
+
+	/**
+	 * Returns the last education in the ordered set where educationId = &#63;.
+	 *
+	 * @param educationId the education ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching education, or <code>null</code> if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education fetchByeducationId_Last(long educationId,
+		OrderByComparator orderByComparator) throws SystemException {
+		int count = countByeducationId(educationId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<Education> list = findByeducationId(educationId, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Removes all the educations where educationId = &#63; from the database.
+	 *
+	 * @param educationId the education ID
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeByeducationId(long educationId) throws SystemException {
+		for (Education education : findByeducationId(educationId,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(education);
+		}
+	}
+
+	/**
+	 * Returns the number of educations where educationId = &#63;.
+	 *
+	 * @param educationId the education ID
+	 * @return the number of matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countByeducationId(long educationId) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_EDUCATIONID;
+
+		Object[] finderArgs = new Object[] { educationId };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_EDUCATION_WHERE);
+
+			query.append(_FINDER_COLUMN_EDUCATIONID_EDUCATIONID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(educationId);
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_EDUCATIONID_EDUCATIONID_2 = "education.educationId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_EMPLOYEEID =
+		new FinderPath(EducationModelImpl.ENTITY_CACHE_ENABLED,
+			EducationModelImpl.FINDER_CACHE_ENABLED, EducationImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByemployeeId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID =
+		new FinderPath(EducationModelImpl.ENTITY_CACHE_ENABLED,
+			EducationModelImpl.FINDER_CACHE_ENABLED, EducationImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByemployeeId",
+			new String[] { Long.class.getName() },
+			EducationModelImpl.EMPLOYEEID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_EMPLOYEEID = new FinderPath(EducationModelImpl.ENTITY_CACHE_ENABLED,
+			EducationModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByemployeeId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the educations where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Education> findByemployeeId(long employeeId)
+		throws SystemException {
+		return findByemployeeId(employeeId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the educations where employeeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EducationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param employeeId the employee ID
+	 * @param start the lower bound of the range of educations
+	 * @param end the upper bound of the range of educations (not inclusive)
+	 * @return the range of matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Education> findByemployeeId(long employeeId, int start, int end)
+		throws SystemException {
+		return findByemployeeId(employeeId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the educations where employeeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EducationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param employeeId the employee ID
+	 * @param start the lower bound of the range of educations
+	 * @param end the upper bound of the range of educations (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Education> findByemployeeId(long employeeId, int start,
+		int end, OrderByComparator orderByComparator) throws SystemException {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID;
+			finderArgs = new Object[] { employeeId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_EMPLOYEEID;
+			finderArgs = new Object[] { employeeId, start, end, orderByComparator };
+		}
+
+		List<Education> list = (List<Education>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (Education education : list) {
+				if ((employeeId != education.getEmployeeId())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_EDUCATION_WHERE);
+
+			query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(EducationModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(employeeId);
+
+				if (!pagination) {
+					list = (List<Education>)QueryUtil.list(q, getDialect(),
+							start, end, false);
+
+					Collections.sort(list);
+
+					list = new UnmodifiableList<Education>(list);
+				}
+				else {
+					list = (List<Education>)QueryUtil.list(q, getDialect(),
+							start, end);
+				}
+
+				cacheResult(list);
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first education in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching education
+	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education findByemployeeId_First(long employeeId,
+		OrderByComparator orderByComparator)
+		throws NoSuchEducationException, SystemException {
+		Education education = fetchByemployeeId_First(employeeId,
+				orderByComparator);
+
+		if (education != null) {
+			return education;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("employeeId=");
+		msg.append(employeeId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchEducationException(msg.toString());
+	}
+
+	/**
+	 * Returns the first education in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching education, or <code>null</code> if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education fetchByemployeeId_First(long employeeId,
+		OrderByComparator orderByComparator) throws SystemException {
+		List<Education> list = findByemployeeId(employeeId, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last education in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching education
+	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education findByemployeeId_Last(long employeeId,
+		OrderByComparator orderByComparator)
+		throws NoSuchEducationException, SystemException {
+		Education education = fetchByemployeeId_Last(employeeId,
+				orderByComparator);
+
+		if (education != null) {
+			return education;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("employeeId=");
+		msg.append(employeeId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchEducationException(msg.toString());
+	}
+
+	/**
+	 * Returns the last education in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching education, or <code>null</code> if a matching education could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education fetchByemployeeId_Last(long employeeId,
+		OrderByComparator orderByComparator) throws SystemException {
+		int count = countByemployeeId(employeeId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<Education> list = findByemployeeId(employeeId, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the educations before and after the current education in the ordered set where employeeId = &#63;.
+	 *
+	 * @param educationId the primary key of the current education
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next education
+	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a education with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Education[] findByemployeeId_PrevAndNext(long educationId,
+		long employeeId, OrderByComparator orderByComparator)
+		throws NoSuchEducationException, SystemException {
+		Education education = findByPrimaryKey(educationId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			Education[] array = new EducationImpl[3];
+
+			array[0] = getByemployeeId_PrevAndNext(session, education,
+					employeeId, orderByComparator, true);
+
+			array[1] = education;
+
+			array[2] = getByemployeeId_PrevAndNext(session, education,
+					employeeId, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected Education getByemployeeId_PrevAndNext(Session session,
+		Education education, long employeeId,
+		OrderByComparator orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(6 +
+					(orderByComparator.getOrderByFields().length * 6));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_EDUCATION_WHERE);
+
+		query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(EducationModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(employeeId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(education);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<Education> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the educations where employeeId = &#63; from the database.
+	 *
+	 * @param employeeId the employee ID
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeByemployeeId(long employeeId) throws SystemException {
+		for (Education education : findByemployeeId(employeeId,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(education);
+		}
+	}
+
+	/**
+	 * Returns the number of educations where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the number of matching educations
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countByemployeeId(long employeeId) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_EMPLOYEEID;
+
+		Object[] finderArgs = new Object[] { employeeId };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_EDUCATION_WHERE);
+
+			query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(employeeId);
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2 = "education.employeeId = ?";
 
 	public EducationPersistenceImpl() {
 		setModelClass(Education.class);
@@ -658,15 +1494,15 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	/**
 	 * Creates a new education with the primary key. Does not add the education to the database.
 	 *
-	 * @param id the primary key for the new education
+	 * @param educationId the primary key for the new education
 	 * @return the new education
 	 */
 	@Override
-	public Education create(long id) {
+	public Education create(long educationId) {
 		Education education = new EducationImpl();
 
 		education.setNew(true);
-		education.setPrimaryKey(id);
+		education.setPrimaryKey(educationId);
 
 		return education;
 	}
@@ -674,15 +1510,15 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	/**
 	 * Removes the education with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param id the primary key of the education
+	 * @param educationId the primary key of the education
 	 * @return the education that was removed
 	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a education with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Education remove(long id)
+	public Education remove(long educationId)
 		throws NoSuchEducationException, SystemException {
-		return remove((Serializable)id);
+		return remove((Serializable)educationId);
 	}
 
 	/**
@@ -812,6 +1648,44 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
 					args);
 			}
+
+			if ((educationModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EDUCATIONID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						educationModelImpl.getOriginalEducationId()
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EDUCATIONID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EDUCATIONID,
+					args);
+
+				args = new Object[] { educationModelImpl.getEducationId() };
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EDUCATIONID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EDUCATIONID,
+					args);
+			}
+
+			if ((educationModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						educationModelImpl.getOriginalEmployeeId()
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EMPLOYEEID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID,
+					args);
+
+				args = new Object[] { educationModelImpl.getEmployeeId() };
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EMPLOYEEID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID,
+					args);
+			}
 		}
 
 		EntityCacheUtil.putResult(EducationModelImpl.ENTITY_CACHE_ENABLED,
@@ -830,7 +1704,8 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 		educationImpl.setNew(education.isNew());
 		educationImpl.setPrimaryKey(education.getPrimaryKey());
 
-		educationImpl.setId(education.getId());
+		educationImpl.setEducationId(education.getEducationId());
+		educationImpl.setEmployeeId(education.getEmployeeId());
 		educationImpl.setCompanyId(education.getCompanyId());
 		educationImpl.setGroupId(education.getGroupId());
 		educationImpl.setCreateDate(education.getCreateDate());
@@ -869,15 +1744,15 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	/**
 	 * Returns the education with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchEducationException} if it could not be found.
 	 *
-	 * @param id the primary key of the education
+	 * @param educationId the primary key of the education
 	 * @return the education
 	 * @throws com.rknowsys.eapp.hrm.NoSuchEducationException if a education with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Education findByPrimaryKey(long id)
+	public Education findByPrimaryKey(long educationId)
 		throws NoSuchEducationException, SystemException {
-		return findByPrimaryKey((Serializable)id);
+		return findByPrimaryKey((Serializable)educationId);
 	}
 
 	/**
@@ -931,13 +1806,14 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	/**
 	 * Returns the education with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param id the primary key of the education
+	 * @param educationId the primary key of the education
 	 * @return the education, or <code>null</code> if a education with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public Education fetchByPrimaryKey(long id) throws SystemException {
-		return fetchByPrimaryKey((Serializable)id);
+	public Education fetchByPrimaryKey(long educationId)
+		throws SystemException {
+		return fetchByPrimaryKey((Serializable)educationId);
 	}
 
 	/**
@@ -1113,11 +1989,6 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 		return count.intValue();
 	}
 
-	@Override
-	protected Set<String> getBadColumnNames() {
-		return _badColumnNames;
-	}
-
 	/**
 	 * Initializes the education persistence.
 	 */
@@ -1160,9 +2031,6 @@ public class EducationPersistenceImpl extends BasePersistenceImpl<Education>
 	private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = GetterUtil.getBoolean(PropsUtil.get(
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(EducationPersistenceImpl.class);
-	private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
-				"id"
-			});
 	private static Education _nullEducation = new EducationImpl() {
 			@Override
 			public Object clone() {

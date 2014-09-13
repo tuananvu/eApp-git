@@ -61,18 +61,32 @@ public interface EducationModel extends BaseModel<Education> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this education.
+	 * Returns the education ID of this education.
 	 *
-	 * @return the ID of this education
+	 * @return the education ID of this education
 	 */
-	public long getId();
+	public long getEducationId();
 
 	/**
-	 * Sets the ID of this education.
+	 * Sets the education ID of this education.
 	 *
-	 * @param id the ID of this education
+	 * @param educationId the education ID of this education
 	 */
-	public void setId(long id);
+	public void setEducationId(long educationId);
+
+	/**
+	 * Returns the employee ID of this education.
+	 *
+	 * @return the employee ID of this education
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this education.
+	 *
+	 * @param employeeId the employee ID of this education
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the company ID of this education.

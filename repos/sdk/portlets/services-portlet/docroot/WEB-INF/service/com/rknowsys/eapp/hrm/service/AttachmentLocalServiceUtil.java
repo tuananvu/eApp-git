@@ -55,27 +55,27 @@ public class AttachmentLocalServiceUtil {
 	/**
 	* Creates a new attachment with the primary key. Does not add the attachment to the database.
 	*
-	* @param id the primary key for the new attachment
+	* @param attachmentId the primary key for the new attachment
 	* @return the new attachment
 	*/
 	public static com.rknowsys.eapp.hrm.model.Attachment createAttachment(
-		long id) {
-		return getService().createAttachment(id);
+		long attachmentId) {
+		return getService().createAttachment(attachmentId);
 	}
 
 	/**
 	* Deletes the attachment with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the attachment
+	* @param attachmentId the primary key of the attachment
 	* @return the attachment that was removed
 	* @throws PortalException if a attachment with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Attachment deleteAttachment(
-		long id)
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteAttachment(id);
+		return getService().deleteAttachment(attachmentId);
 	}
 
 	/**
@@ -182,22 +182,24 @@ public class AttachmentLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.Attachment fetchAttachment(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchAttachment(id);
+		long attachmentId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchAttachment(attachmentId);
 	}
 
 	/**
 	* Returns the attachment with the primary key.
 	*
-	* @param id the primary key of the attachment
+	* @param attachmentId the primary key of the attachment
 	* @return the attachment
 	* @throws PortalException if a attachment with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.Attachment getAttachment(long id)
+	public static com.rknowsys.eapp.hrm.model.Attachment getAttachment(
+		long attachmentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getAttachment(id);
+		return getService().getAttachment(attachmentId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(
@@ -247,6 +249,12 @@ public class AttachmentLocalServiceUtil {
 		com.rknowsys.eapp.hrm.model.Attachment attachment)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return getService().updateAttachment(attachment);
+	}
+
+	public static com.rknowsys.eapp.hrm.model.AttachmentFileBlobModel getFileBlobModel(
+		java.io.Serializable primaryKey)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getFileBlobModel(primaryKey);
 	}
 
 	/**

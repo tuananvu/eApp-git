@@ -30,7 +30,6 @@ import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -49,7 +48,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 /**
  * The persistence implementation for the job category service.
@@ -361,7 +359,7 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	/**
 	 * Returns the job categories before and after the current job category in the ordered set where groupId = &#63;.
 	 *
-	 * @param id the primary key of the current job category
+	 * @param jobCategoryId the primary key of the current job category
 	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next job category
@@ -369,10 +367,10 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public JobCategory[] findByGroupId_PrevAndNext(long id, long groupId,
-		OrderByComparator orderByComparator)
+	public JobCategory[] findByGroupId_PrevAndNext(long jobCategoryId,
+		long groupId, OrderByComparator orderByComparator)
 		throws NoSuchJobCategoryException, SystemException {
-		JobCategory jobCategory = findByPrimaryKey(id);
+		JobCategory jobCategory = findByPrimaryKey(jobCategoryId);
 
 		Session session = null;
 
@@ -659,15 +657,15 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	/**
 	 * Creates a new job category with the primary key. Does not add the job category to the database.
 	 *
-	 * @param id the primary key for the new job category
+	 * @param jobCategoryId the primary key for the new job category
 	 * @return the new job category
 	 */
 	@Override
-	public JobCategory create(long id) {
+	public JobCategory create(long jobCategoryId) {
 		JobCategory jobCategory = new JobCategoryImpl();
 
 		jobCategory.setNew(true);
-		jobCategory.setPrimaryKey(id);
+		jobCategory.setPrimaryKey(jobCategoryId);
 
 		return jobCategory;
 	}
@@ -675,15 +673,15 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	/**
 	 * Removes the job category with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param id the primary key of the job category
+	 * @param jobCategoryId the primary key of the job category
 	 * @return the job category that was removed
 	 * @throws com.rknowsys.eapp.hrm.NoSuchJobCategoryException if a job category with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public JobCategory remove(long id)
+	public JobCategory remove(long jobCategoryId)
 		throws NoSuchJobCategoryException, SystemException {
-		return remove((Serializable)id);
+		return remove((Serializable)jobCategoryId);
 	}
 
 	/**
@@ -832,13 +830,14 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 		jobCategoryImpl.setNew(jobCategory.isNew());
 		jobCategoryImpl.setPrimaryKey(jobCategory.getPrimaryKey());
 
-		jobCategoryImpl.setId(jobCategory.getId());
+		jobCategoryImpl.setJobCategoryId(jobCategory.getJobCategoryId());
 		jobCategoryImpl.setCompanyId(jobCategory.getCompanyId());
 		jobCategoryImpl.setGroupId(jobCategory.getGroupId());
 		jobCategoryImpl.setCreateDate(jobCategory.getCreateDate());
 		jobCategoryImpl.setModifiedDate(jobCategory.getModifiedDate());
 		jobCategoryImpl.setUserId(jobCategory.getUserId());
 		jobCategoryImpl.setJobcategory(jobCategory.getJobcategory());
+		jobCategoryImpl.setJobId(jobCategory.getJobId());
 
 		return jobCategoryImpl;
 	}
@@ -871,15 +870,15 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	/**
 	 * Returns the job category with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchJobCategoryException} if it could not be found.
 	 *
-	 * @param id the primary key of the job category
+	 * @param jobCategoryId the primary key of the job category
 	 * @return the job category
 	 * @throws com.rknowsys.eapp.hrm.NoSuchJobCategoryException if a job category with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public JobCategory findByPrimaryKey(long id)
+	public JobCategory findByPrimaryKey(long jobCategoryId)
 		throws NoSuchJobCategoryException, SystemException {
-		return findByPrimaryKey((Serializable)id);
+		return findByPrimaryKey((Serializable)jobCategoryId);
 	}
 
 	/**
@@ -933,13 +932,14 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	/**
 	 * Returns the job category with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param id the primary key of the job category
+	 * @param jobCategoryId the primary key of the job category
 	 * @return the job category, or <code>null</code> if a job category with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public JobCategory fetchByPrimaryKey(long id) throws SystemException {
-		return fetchByPrimaryKey((Serializable)id);
+	public JobCategory fetchByPrimaryKey(long jobCategoryId)
+		throws SystemException {
+		return fetchByPrimaryKey((Serializable)jobCategoryId);
 	}
 
 	/**
@@ -1115,11 +1115,6 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 		return count.intValue();
 	}
 
-	@Override
-	protected Set<String> getBadColumnNames() {
-		return _badColumnNames;
-	}
-
 	/**
 	 * Initializes the job category persistence.
 	 */
@@ -1162,9 +1157,6 @@ public class JobCategoryPersistenceImpl extends BasePersistenceImpl<JobCategory>
 	private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = GetterUtil.getBoolean(PropsUtil.get(
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(JobCategoryPersistenceImpl.class);
-	private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
-				"id"
-			});
 	private static JobCategory _nullJobCategory = new JobCategoryImpl() {
 			@Override
 			public Object clone() {

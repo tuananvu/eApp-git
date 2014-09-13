@@ -148,12 +148,12 @@ public class ContactDetailsLocalServiceClp implements ContactDetailsLocalService
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.ContactDetails createContactDetails(
-		long id) {
+		long contactDetailsId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { contactDetailsId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -172,14 +172,14 @@ public class ContactDetailsLocalServiceClp implements ContactDetailsLocalService
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.ContactDetails deleteContactDetails(
-		long id)
+		long contactDetailsId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { contactDetailsId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -433,12 +433,13 @@ public class ContactDetailsLocalServiceClp implements ContactDetailsLocalService
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.ContactDetails fetchContactDetails(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
+		long contactDetailsId)
+		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { contactDetailsId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -460,14 +461,15 @@ public class ContactDetailsLocalServiceClp implements ContactDetailsLocalService
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.ContactDetails getContactDetails(long id)
+	public com.rknowsys.eapp.hrm.model.ContactDetails getContactDetails(
+		long contactDetailsId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { contactDetailsId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

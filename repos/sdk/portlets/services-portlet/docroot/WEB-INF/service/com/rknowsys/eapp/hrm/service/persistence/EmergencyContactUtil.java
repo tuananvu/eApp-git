@@ -26,7 +26,7 @@ import com.rknowsys.eapp.hrm.model.EmergencyContact;
 import java.util.List;
 
 /**
- * The persistence utility for the emergency contact service. This utility wraps {@link EmergencyContactPersistenceImpl} and provides direct access to the database for CRUD operations. This utility should only be used by the service layer, as it must operate within a transaction. Never access this utility in a JSP, controller, model, or other front-end class.
+ * The persistence utility for the EmergencyContact service. This utility wraps {@link EmergencyContactPersistenceImpl} and provides direct access to the database for CRUD operations. This utility should only be used by the service layer, as it must operate within a transaction. Never access this utility in a JSP, controller, model, or other front-end class.
  *
  * <p>
  * Caching information and settings can be found in <code>portal.properties</code>
@@ -111,9 +111,325 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Caches the emergency contact in the entity cache if it is enabled.
+	* Returns all the EmergencyContacts where emergencyContactId = &#63;.
 	*
-	* @param emergencyContact the emergency contact
+	* @param emergencyContactId the emergency contact ID
+	* @return the matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findByemergencyContactId(
+		long emergencyContactId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByemergencyContactId(emergencyContactId);
+	}
+
+	/**
+	* Returns a range of all the EmergencyContacts where emergencyContactId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
+	* @return the range of matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findByemergencyContactId(
+		long emergencyContactId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByemergencyContactId(emergencyContactId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the EmergencyContacts where emergencyContactId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findByemergencyContactId(
+		long emergencyContactId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByemergencyContactId(emergencyContactId, start, end,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the first EmergencyContact in the ordered set where emergencyContactId = &#63;.
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching EmergencyContact
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact findByemergencyContactId_First(
+		long emergencyContactId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
+		return getPersistence()
+				   .findByemergencyContactId_First(emergencyContactId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the first EmergencyContact in the ordered set where emergencyContactId = &#63;.
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching EmergencyContact, or <code>null</code> if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact fetchByemergencyContactId_First(
+		long emergencyContactId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemergencyContactId_First(emergencyContactId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last EmergencyContact in the ordered set where emergencyContactId = &#63;.
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching EmergencyContact
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact findByemergencyContactId_Last(
+		long emergencyContactId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
+		return getPersistence()
+				   .findByemergencyContactId_Last(emergencyContactId,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last EmergencyContact in the ordered set where emergencyContactId = &#63;.
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching EmergencyContact, or <code>null</code> if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact fetchByemergencyContactId_Last(
+		long emergencyContactId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemergencyContactId_Last(emergencyContactId,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the EmergencyContacts where emergencyContactId = &#63; from the database.
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeByemergencyContactId(long emergencyContactId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeByemergencyContactId(emergencyContactId);
+	}
+
+	/**
+	* Returns the number of EmergencyContacts where emergencyContactId = &#63;.
+	*
+	* @param emergencyContactId the emergency contact ID
+	* @return the number of matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByemergencyContactId(long emergencyContactId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByemergencyContactId(emergencyContactId);
+	}
+
+	/**
+	* Returns all the EmergencyContacts where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @return the matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findByemployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByemployeeId(employeeId);
+	}
+
+	/**
+	* Returns a range of all the EmergencyContacts where employeeId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param employeeId the employee ID
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
+	* @return the range of matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findByemployeeId(
+		long employeeId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByemployeeId(employeeId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the EmergencyContacts where employeeId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param employeeId the employee ID
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findByemployeeId(
+		long employeeId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByemployeeId(employeeId, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first EmergencyContact in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching EmergencyContact
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact findByemployeeId_First(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
+		return getPersistence()
+				   .findByemployeeId_First(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the first EmergencyContact in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching EmergencyContact, or <code>null</code> if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact fetchByemployeeId_First(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemployeeId_First(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the last EmergencyContact in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching EmergencyContact
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact findByemployeeId_Last(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
+		return getPersistence()
+				   .findByemployeeId_Last(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the last EmergencyContact in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching EmergencyContact, or <code>null</code> if a matching EmergencyContact could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact fetchByemployeeId_Last(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemployeeId_Last(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the EmergencyContacts before and after the current EmergencyContact in the ordered set where employeeId = &#63;.
+	*
+	* @param emergencyContactId the primary key of the current EmergencyContact
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next EmergencyContact
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a EmergencyContact with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact[] findByemployeeId_PrevAndNext(
+		long emergencyContactId, long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
+		return getPersistence()
+				   .findByemployeeId_PrevAndNext(emergencyContactId,
+			employeeId, orderByComparator);
+	}
+
+	/**
+	* Removes all the EmergencyContacts where employeeId = &#63; from the database.
+	*
+	* @param employeeId the employee ID
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeByemployeeId(long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeByemployeeId(employeeId);
+	}
+
+	/**
+	* Returns the number of EmergencyContacts where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @return the number of matching EmergencyContacts
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByemployeeId(long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByemployeeId(employeeId);
+	}
+
+	/**
+	* Caches the EmergencyContact in the entity cache if it is enabled.
+	*
+	* @param emergencyContact the EmergencyContact
 	*/
 	public static void cacheResult(
 		com.rknowsys.eapp.hrm.model.EmergencyContact emergencyContact) {
@@ -121,9 +437,9 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Caches the emergency contacts in the entity cache if it is enabled.
+	* Caches the EmergencyContacts in the entity cache if it is enabled.
 	*
-	* @param emergencyContacts the emergency contacts
+	* @param emergencyContacts the EmergencyContacts
 	*/
 	public static void cacheResult(
 		java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> emergencyContacts) {
@@ -131,27 +447,29 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Creates a new emergency contact with the primary key. Does not add the emergency contact to the database.
+	* Creates a new EmergencyContact with the primary key. Does not add the EmergencyContact to the database.
 	*
-	* @param id the primary key for the new emergency contact
-	* @return the new emergency contact
+	* @param emergencyContactId the primary key for the new EmergencyContact
+	* @return the new EmergencyContact
 	*/
-	public static com.rknowsys.eapp.hrm.model.EmergencyContact create(long id) {
-		return getPersistence().create(id);
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact create(
+		long emergencyContactId) {
+		return getPersistence().create(emergencyContactId);
 	}
 
 	/**
-	* Removes the emergency contact with the primary key from the database. Also notifies the appropriate model listeners.
+	* Removes the EmergencyContact with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the emergency contact
-	* @return the emergency contact that was removed
-	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a emergency contact with the primary key could not be found
+	* @param emergencyContactId the primary key of the EmergencyContact
+	* @return the EmergencyContact that was removed
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a EmergencyContact with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.EmergencyContact remove(long id)
+	public static com.rknowsys.eapp.hrm.model.EmergencyContact remove(
+		long emergencyContactId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
-		return getPersistence().remove(id);
+		return getPersistence().remove(emergencyContactId);
 	}
 
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact updateImpl(
@@ -161,36 +479,37 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Returns the emergency contact with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchEmergencyContactException} if it could not be found.
+	* Returns the EmergencyContact with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchEmergencyContactException} if it could not be found.
 	*
-	* @param id the primary key of the emergency contact
-	* @return the emergency contact
-	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a emergency contact with the primary key could not be found
+	* @param emergencyContactId the primary key of the EmergencyContact
+	* @return the EmergencyContact
+	* @throws com.rknowsys.eapp.hrm.NoSuchEmergencyContactException if a EmergencyContact with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact findByPrimaryKey(
-		long id)
+		long emergencyContactId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchEmergencyContactException {
-		return getPersistence().findByPrimaryKey(id);
+		return getPersistence().findByPrimaryKey(emergencyContactId);
 	}
 
 	/**
-	* Returns the emergency contact with the primary key or returns <code>null</code> if it could not be found.
+	* Returns the EmergencyContact with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param id the primary key of the emergency contact
-	* @return the emergency contact, or <code>null</code> if a emergency contact with the primary key could not be found
+	* @param emergencyContactId the primary key of the EmergencyContact
+	* @return the EmergencyContact, or <code>null</code> if a EmergencyContact with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact fetchByPrimaryKey(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByPrimaryKey(id);
+		long emergencyContactId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByPrimaryKey(emergencyContactId);
 	}
 
 	/**
-	* Returns all the emergency contacts.
+	* Returns all the EmergencyContacts.
 	*
-	* @return the emergency contacts
+	* @return the EmergencyContacts
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findAll()
@@ -199,15 +518,15 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Returns a range of all the emergency contacts.
+	* Returns a range of all the EmergencyContacts.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of emergency contacts
-	* @param end the upper bound of the range of emergency contacts (not inclusive)
-	* @return the range of emergency contacts
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
+	* @return the range of EmergencyContacts
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findAll(
@@ -217,16 +536,16 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Returns an ordered range of all the emergency contacts.
+	* Returns an ordered range of all the EmergencyContacts.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of emergency contacts
-	* @param end the upper bound of the range of emergency contacts (not inclusive)
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of emergency contacts
+	* @return the ordered range of EmergencyContacts
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> findAll(
@@ -237,7 +556,7 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Removes all the emergency contacts from the database.
+	* Removes all the EmergencyContacts from the database.
 	*
 	* @throws SystemException if a system exception occurred
 	*/
@@ -247,9 +566,9 @@ public class EmergencyContactUtil {
 	}
 
 	/**
-	* Returns the number of emergency contacts.
+	* Returns the number of EmergencyContacts.
 	*
-	* @return the number of emergency contacts
+	* @return the number of EmergencyContacts
 	* @throws SystemException if a system exception occurred
 	*/
 	public static int countAll()

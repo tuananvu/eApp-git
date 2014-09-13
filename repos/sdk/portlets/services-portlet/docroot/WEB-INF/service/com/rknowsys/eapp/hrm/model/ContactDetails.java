@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.model.PersistedModel;
 
 /**
- * The extended model interface for the ContactDetails service. Represents a row in the &quot;hrm_ContactDetails&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the ContactDetails service. Represents a row in the &quot;contact_details&quot; database table, with each column mapped to a property of this class.
  *
  * @author rknowsys
  * @see ContactDetailsModel

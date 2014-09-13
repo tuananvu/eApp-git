@@ -367,7 +367,7 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	/**
 	 * Returns the salary components before and after the current salary component in the ordered set where groupId = &#63;.
 	 *
-	 * @param id the primary key of the current salary component
+	 * @param salaryComponentId the primary key of the current salary component
 	 * @param groupId the group ID
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next salary component
@@ -375,10 +375,10 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public SalaryComponent[] findByGroupId_PrevAndNext(long id, long groupId,
-		OrderByComparator orderByComparator)
+	public SalaryComponent[] findByGroupId_PrevAndNext(long salaryComponentId,
+		long groupId, OrderByComparator orderByComparator)
 		throws NoSuchSalaryComponentException, SystemException {
-		SalaryComponent salaryComponent = findByPrimaryKey(id);
+		SalaryComponent salaryComponent = findByPrimaryKey(salaryComponentId);
 
 		Session session = null;
 
@@ -578,6 +578,859 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	}
 
 	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "salaryComponent.groupId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_SALARYCOMPONENTID =
+		new FinderPath(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
+			SalaryComponentModelImpl.FINDER_CACHE_ENABLED,
+			SalaryComponentImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findBysalaryComponentId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SALARYCOMPONENTID =
+		new FinderPath(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
+			SalaryComponentModelImpl.FINDER_CACHE_ENABLED,
+			SalaryComponentImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"findBysalaryComponentId", new String[] { Long.class.getName() },
+			SalaryComponentModelImpl.SALARYCOMPONENTID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_SALARYCOMPONENTID = new FinderPath(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
+			SalaryComponentModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countBysalaryComponentId", new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the salary components where salaryComponentId = &#63;.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @return the matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<SalaryComponent> findBysalaryComponentId(long salaryComponentId)
+		throws SystemException {
+		return findBysalaryComponentId(salaryComponentId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the salary components where salaryComponentId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.SalaryComponentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @param start the lower bound of the range of salary components
+	 * @param end the upper bound of the range of salary components (not inclusive)
+	 * @return the range of matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<SalaryComponent> findBysalaryComponentId(
+		long salaryComponentId, int start, int end) throws SystemException {
+		return findBysalaryComponentId(salaryComponentId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the salary components where salaryComponentId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.SalaryComponentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @param start the lower bound of the range of salary components
+	 * @param end the upper bound of the range of salary components (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<SalaryComponent> findBysalaryComponentId(
+		long salaryComponentId, int start, int end,
+		OrderByComparator orderByComparator) throws SystemException {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SALARYCOMPONENTID;
+			finderArgs = new Object[] { salaryComponentId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_SALARYCOMPONENTID;
+			finderArgs = new Object[] {
+					salaryComponentId,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<SalaryComponent> list = (List<SalaryComponent>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (SalaryComponent salaryComponent : list) {
+				if ((salaryComponentId != salaryComponent.getSalaryComponentId())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_SALARYCOMPONENT_WHERE);
+
+			query.append(_FINDER_COLUMN_SALARYCOMPONENTID_SALARYCOMPONENTID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(SalaryComponentModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(salaryComponentId);
+
+				if (!pagination) {
+					list = (List<SalaryComponent>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = new UnmodifiableList<SalaryComponent>(list);
+				}
+				else {
+					list = (List<SalaryComponent>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first salary component in the ordered set where salaryComponentId = &#63;.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching salary component
+	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent findBysalaryComponentId_First(
+		long salaryComponentId, OrderByComparator orderByComparator)
+		throws NoSuchSalaryComponentException, SystemException {
+		SalaryComponent salaryComponent = fetchBysalaryComponentId_First(salaryComponentId,
+				orderByComparator);
+
+		if (salaryComponent != null) {
+			return salaryComponent;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("salaryComponentId=");
+		msg.append(salaryComponentId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchSalaryComponentException(msg.toString());
+	}
+
+	/**
+	 * Returns the first salary component in the ordered set where salaryComponentId = &#63;.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching salary component, or <code>null</code> if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent fetchBysalaryComponentId_First(
+		long salaryComponentId, OrderByComparator orderByComparator)
+		throws SystemException {
+		List<SalaryComponent> list = findBysalaryComponentId(salaryComponentId,
+				0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last salary component in the ordered set where salaryComponentId = &#63;.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching salary component
+	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent findBysalaryComponentId_Last(
+		long salaryComponentId, OrderByComparator orderByComparator)
+		throws NoSuchSalaryComponentException, SystemException {
+		SalaryComponent salaryComponent = fetchBysalaryComponentId_Last(salaryComponentId,
+				orderByComparator);
+
+		if (salaryComponent != null) {
+			return salaryComponent;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("salaryComponentId=");
+		msg.append(salaryComponentId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchSalaryComponentException(msg.toString());
+	}
+
+	/**
+	 * Returns the last salary component in the ordered set where salaryComponentId = &#63;.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching salary component, or <code>null</code> if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent fetchBysalaryComponentId_Last(
+		long salaryComponentId, OrderByComparator orderByComparator)
+		throws SystemException {
+		int count = countBysalaryComponentId(salaryComponentId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<SalaryComponent> list = findBysalaryComponentId(salaryComponentId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Removes all the salary components where salaryComponentId = &#63; from the database.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeBysalaryComponentId(long salaryComponentId)
+		throws SystemException {
+		for (SalaryComponent salaryComponent : findBysalaryComponentId(
+				salaryComponentId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(salaryComponent);
+		}
+	}
+
+	/**
+	 * Returns the number of salary components where salaryComponentId = &#63;.
+	 *
+	 * @param salaryComponentId the salary component ID
+	 * @return the number of matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countBysalaryComponentId(long salaryComponentId)
+		throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_SALARYCOMPONENTID;
+
+		Object[] finderArgs = new Object[] { salaryComponentId };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_SALARYCOMPONENT_WHERE);
+
+			query.append(_FINDER_COLUMN_SALARYCOMPONENTID_SALARYCOMPONENTID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(salaryComponentId);
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_SALARYCOMPONENTID_SALARYCOMPONENTID_2 =
+		"salaryComponent.salaryComponentId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_EMPLOYEEID =
+		new FinderPath(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
+			SalaryComponentModelImpl.FINDER_CACHE_ENABLED,
+			SalaryComponentImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByemployeeId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID =
+		new FinderPath(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
+			SalaryComponentModelImpl.FINDER_CACHE_ENABLED,
+			SalaryComponentImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByemployeeId",
+			new String[] { Long.class.getName() },
+			SalaryComponentModelImpl.EMPLOYEEID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_EMPLOYEEID = new FinderPath(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
+			SalaryComponentModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByemployeeId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the salary components where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<SalaryComponent> findByemployeeId(long employeeId)
+		throws SystemException {
+		return findByemployeeId(employeeId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the salary components where employeeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.SalaryComponentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param employeeId the employee ID
+	 * @param start the lower bound of the range of salary components
+	 * @param end the upper bound of the range of salary components (not inclusive)
+	 * @return the range of matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<SalaryComponent> findByemployeeId(long employeeId, int start,
+		int end) throws SystemException {
+		return findByemployeeId(employeeId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the salary components where employeeId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.SalaryComponentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param employeeId the employee ID
+	 * @param start the lower bound of the range of salary components
+	 * @param end the upper bound of the range of salary components (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<SalaryComponent> findByemployeeId(long employeeId, int start,
+		int end, OrderByComparator orderByComparator) throws SystemException {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID;
+			finderArgs = new Object[] { employeeId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_EMPLOYEEID;
+			finderArgs = new Object[] { employeeId, start, end, orderByComparator };
+		}
+
+		List<SalaryComponent> list = (List<SalaryComponent>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (SalaryComponent salaryComponent : list) {
+				if ((employeeId != salaryComponent.getEmployeeId())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_SALARYCOMPONENT_WHERE);
+
+			query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(SalaryComponentModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(employeeId);
+
+				if (!pagination) {
+					list = (List<SalaryComponent>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = new UnmodifiableList<SalaryComponent>(list);
+				}
+				else {
+					list = (List<SalaryComponent>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first salary component in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching salary component
+	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent findByemployeeId_First(long employeeId,
+		OrderByComparator orderByComparator)
+		throws NoSuchSalaryComponentException, SystemException {
+		SalaryComponent salaryComponent = fetchByemployeeId_First(employeeId,
+				orderByComparator);
+
+		if (salaryComponent != null) {
+			return salaryComponent;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("employeeId=");
+		msg.append(employeeId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchSalaryComponentException(msg.toString());
+	}
+
+	/**
+	 * Returns the first salary component in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching salary component, or <code>null</code> if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent fetchByemployeeId_First(long employeeId,
+		OrderByComparator orderByComparator) throws SystemException {
+		List<SalaryComponent> list = findByemployeeId(employeeId, 0, 1,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last salary component in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching salary component
+	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent findByemployeeId_Last(long employeeId,
+		OrderByComparator orderByComparator)
+		throws NoSuchSalaryComponentException, SystemException {
+		SalaryComponent salaryComponent = fetchByemployeeId_Last(employeeId,
+				orderByComparator);
+
+		if (salaryComponent != null) {
+			return salaryComponent;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("employeeId=");
+		msg.append(employeeId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchSalaryComponentException(msg.toString());
+	}
+
+	/**
+	 * Returns the last salary component in the ordered set where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching salary component, or <code>null</code> if a matching salary component could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent fetchByemployeeId_Last(long employeeId,
+		OrderByComparator orderByComparator) throws SystemException {
+		int count = countByemployeeId(employeeId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<SalaryComponent> list = findByemployeeId(employeeId, count - 1,
+				count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the salary components before and after the current salary component in the ordered set where employeeId = &#63;.
+	 *
+	 * @param salaryComponentId the primary key of the current salary component
+	 * @param employeeId the employee ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next salary component
+	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a salary component with the primary key could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public SalaryComponent[] findByemployeeId_PrevAndNext(
+		long salaryComponentId, long employeeId,
+		OrderByComparator orderByComparator)
+		throws NoSuchSalaryComponentException, SystemException {
+		SalaryComponent salaryComponent = findByPrimaryKey(salaryComponentId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			SalaryComponent[] array = new SalaryComponentImpl[3];
+
+			array[0] = getByemployeeId_PrevAndNext(session, salaryComponent,
+					employeeId, orderByComparator, true);
+
+			array[1] = salaryComponent;
+
+			array[2] = getByemployeeId_PrevAndNext(session, salaryComponent,
+					employeeId, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected SalaryComponent getByemployeeId_PrevAndNext(Session session,
+		SalaryComponent salaryComponent, long employeeId,
+		OrderByComparator orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(6 +
+					(orderByComparator.getOrderByFields().length * 6));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_SALARYCOMPONENT_WHERE);
+
+		query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(SalaryComponentModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(employeeId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(salaryComponent);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<SalaryComponent> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the salary components where employeeId = &#63; from the database.
+	 *
+	 * @param employeeId the employee ID
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeByemployeeId(long employeeId) throws SystemException {
+		for (SalaryComponent salaryComponent : findByemployeeId(employeeId,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(salaryComponent);
+		}
+	}
+
+	/**
+	 * Returns the number of salary components where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the number of matching salary components
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countByemployeeId(long employeeId) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_EMPLOYEEID;
+
+		Object[] finderArgs = new Object[] { employeeId };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_SALARYCOMPONENT_WHERE);
+
+			query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(employeeId);
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2 = "salaryComponent.employeeId = ?";
 
 	public SalaryComponentPersistenceImpl() {
 		setModelClass(SalaryComponent.class);
@@ -667,15 +1520,15 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	/**
 	 * Creates a new salary component with the primary key. Does not add the salary component to the database.
 	 *
-	 * @param id the primary key for the new salary component
+	 * @param salaryComponentId the primary key for the new salary component
 	 * @return the new salary component
 	 */
 	@Override
-	public SalaryComponent create(long id) {
+	public SalaryComponent create(long salaryComponentId) {
 		SalaryComponent salaryComponent = new SalaryComponentImpl();
 
 		salaryComponent.setNew(true);
-		salaryComponent.setPrimaryKey(id);
+		salaryComponent.setPrimaryKey(salaryComponentId);
 
 		return salaryComponent;
 	}
@@ -683,15 +1536,15 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	/**
 	 * Removes the salary component with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param id the primary key of the salary component
+	 * @param salaryComponentId the primary key of the salary component
 	 * @return the salary component that was removed
 	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a salary component with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public SalaryComponent remove(long id)
+	public SalaryComponent remove(long salaryComponentId)
 		throws NoSuchSalaryComponentException, SystemException {
-		return remove((Serializable)id);
+		return remove((Serializable)salaryComponentId);
 	}
 
 	/**
@@ -822,6 +1675,46 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
 					args);
 			}
+
+			if ((salaryComponentModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SALARYCOMPONENTID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						salaryComponentModelImpl.getOriginalSalaryComponentId()
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_SALARYCOMPONENTID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SALARYCOMPONENTID,
+					args);
+
+				args = new Object[] {
+						salaryComponentModelImpl.getSalaryComponentId()
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_SALARYCOMPONENTID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SALARYCOMPONENTID,
+					args);
+			}
+
+			if ((salaryComponentModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						salaryComponentModelImpl.getOriginalEmployeeId()
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EMPLOYEEID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID,
+					args);
+
+				args = new Object[] { salaryComponentModelImpl.getEmployeeId() };
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EMPLOYEEID,
+					args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_EMPLOYEEID,
+					args);
+			}
 		}
 
 		EntityCacheUtil.putResult(SalaryComponentModelImpl.ENTITY_CACHE_ENABLED,
@@ -841,7 +1734,8 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 		salaryComponentImpl.setNew(salaryComponent.isNew());
 		salaryComponentImpl.setPrimaryKey(salaryComponent.getPrimaryKey());
 
-		salaryComponentImpl.setId(salaryComponent.getId());
+		salaryComponentImpl.setSalaryComponentId(salaryComponent.getSalaryComponentId());
+		salaryComponentImpl.setEmployeeId(salaryComponent.getEmployeeId());
 		salaryComponentImpl.setCompanyId(salaryComponent.getCompanyId());
 		salaryComponentImpl.setGroupId(salaryComponent.getGroupId());
 		salaryComponentImpl.setCreateDate(salaryComponent.getCreateDate());
@@ -883,15 +1777,15 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	/**
 	 * Returns the salary component with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchSalaryComponentException} if it could not be found.
 	 *
-	 * @param id the primary key of the salary component
+	 * @param salaryComponentId the primary key of the salary component
 	 * @return the salary component
 	 * @throws com.rknowsys.eapp.hrm.NoSuchSalaryComponentException if a salary component with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public SalaryComponent findByPrimaryKey(long id)
+	public SalaryComponent findByPrimaryKey(long salaryComponentId)
 		throws NoSuchSalaryComponentException, SystemException {
-		return findByPrimaryKey((Serializable)id);
+		return findByPrimaryKey((Serializable)salaryComponentId);
 	}
 
 	/**
@@ -946,13 +1840,14 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 	/**
 	 * Returns the salary component with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param id the primary key of the salary component
+	 * @param salaryComponentId the primary key of the salary component
 	 * @return the salary component, or <code>null</code> if a salary component with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public SalaryComponent fetchByPrimaryKey(long id) throws SystemException {
-		return fetchByPrimaryKey((Serializable)id);
+	public SalaryComponent fetchByPrimaryKey(long salaryComponentId)
+		throws SystemException {
+		return fetchByPrimaryKey((Serializable)salaryComponentId);
 	}
 
 	/**
@@ -1176,7 +2071,7 @@ public class SalaryComponentPersistenceImpl extends BasePersistenceImpl<SalaryCo
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(SalaryComponentPersistenceImpl.class);
 	private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
-				"id", "type"
+				"type"
 			});
 	private static SalaryComponent _nullSalaryComponent = new SalaryComponentImpl() {
 			@Override

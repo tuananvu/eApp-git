@@ -61,18 +61,32 @@ public interface LanguageModel extends BaseModel<Language> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this language.
+	 * Returns the language ID of this language.
 	 *
-	 * @return the ID of this language
+	 * @return the language ID of this language
 	 */
-	public long getId();
+	public long getLanguageId();
 
 	/**
-	 * Sets the ID of this language.
+	 * Sets the language ID of this language.
 	 *
-	 * @param id the ID of this language
+	 * @param languageId the language ID of this language
 	 */
-	public void setId(long id);
+	public void setLanguageId(long languageId);
+
+	/**
+	 * Returns the employee ID of this language.
+	 *
+	 * @return the employee ID of this language
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this language.
+	 *
+	 * @param employeeId the employee ID of this language
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the company ID of this language.

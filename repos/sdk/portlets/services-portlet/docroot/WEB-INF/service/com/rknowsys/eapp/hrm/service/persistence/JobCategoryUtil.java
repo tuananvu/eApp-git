@@ -231,7 +231,7 @@ public class JobCategoryUtil {
 	/**
 	* Returns the job categories before and after the current job category in the ordered set where groupId = &#63;.
 	*
-	* @param id the primary key of the current job category
+	* @param jobCategoryId the primary key of the current job category
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next job category
@@ -239,12 +239,13 @@ public class JobCategoryUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.JobCategory[] findByGroupId_PrevAndNext(
-		long id, long groupId,
+		long jobCategoryId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchJobCategoryException {
 		return getPersistence()
-				   .findByGroupId_PrevAndNext(id, groupId, orderByComparator);
+				   .findByGroupId_PrevAndNext(jobCategoryId, groupId,
+			orderByComparator);
 	}
 
 	/**
@@ -293,25 +294,27 @@ public class JobCategoryUtil {
 	/**
 	* Creates a new job category with the primary key. Does not add the job category to the database.
 	*
-	* @param id the primary key for the new job category
+	* @param jobCategoryId the primary key for the new job category
 	* @return the new job category
 	*/
-	public static com.rknowsys.eapp.hrm.model.JobCategory create(long id) {
-		return getPersistence().create(id);
+	public static com.rknowsys.eapp.hrm.model.JobCategory create(
+		long jobCategoryId) {
+		return getPersistence().create(jobCategoryId);
 	}
 
 	/**
 	* Removes the job category with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category that was removed
 	* @throws com.rknowsys.eapp.hrm.NoSuchJobCategoryException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.JobCategory remove(long id)
+	public static com.rknowsys.eapp.hrm.model.JobCategory remove(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchJobCategoryException {
-		return getPersistence().remove(id);
+		return getPersistence().remove(jobCategoryId);
 	}
 
 	public static com.rknowsys.eapp.hrm.model.JobCategory updateImpl(
@@ -323,28 +326,29 @@ public class JobCategoryUtil {
 	/**
 	* Returns the job category with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchJobCategoryException} if it could not be found.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category
 	* @throws com.rknowsys.eapp.hrm.NoSuchJobCategoryException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.JobCategory findByPrimaryKey(
-		long id)
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchJobCategoryException {
-		return getPersistence().findByPrimaryKey(id);
+		return getPersistence().findByPrimaryKey(jobCategoryId);
 	}
 
 	/**
 	* Returns the job category with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category, or <code>null</code> if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.JobCategory fetchByPrimaryKey(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByPrimaryKey(id);
+		long jobCategoryId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByPrimaryKey(jobCategoryId);
 	}
 
 	/**

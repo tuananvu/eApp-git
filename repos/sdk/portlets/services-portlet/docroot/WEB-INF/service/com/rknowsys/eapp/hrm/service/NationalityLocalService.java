@@ -59,20 +59,22 @@ public interface NationalityLocalService extends BaseLocalService,
 	/**
 	* Creates a new nationality with the primary key. Does not add the nationality to the database.
 	*
-	* @param id the primary key for the new nationality
+	* @param nationalityId the primary key for the new nationality
 	* @return the new nationality
 	*/
-	public com.rknowsys.eapp.hrm.model.Nationality createNationality(long id);
+	public com.rknowsys.eapp.hrm.model.Nationality createNationality(
+		long nationalityId);
 
 	/**
 	* Deletes the nationality with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality that was removed
 	* @throws PortalException if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.Nationality deleteNationality(long id)
+	public com.rknowsys.eapp.hrm.model.Nationality deleteNationality(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,19 +167,21 @@ public interface NationalityLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Nationality fetchNationality(long id)
+	public com.rknowsys.eapp.hrm.model.Nationality fetchNationality(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the nationality with the primary key.
 	*
-	* @param id the primary key of the nationality
+	* @param nationalityId the primary key of the nationality
 	* @return the nationality
 	* @throws PortalException if a nationality with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Nationality getNationality(long id)
+	public com.rknowsys.eapp.hrm.model.Nationality getNationality(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

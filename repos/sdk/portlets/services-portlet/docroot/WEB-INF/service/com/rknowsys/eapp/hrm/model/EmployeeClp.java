@@ -77,7 +77,10 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("employeeId", getEmployeeId());
+		attributes.put("contactDetailsId", getContactDetailsId());
+		attributes.put("jobId", getJobId());
 		attributes.put("shiftId", getShiftId());
+		attributes.put("licenseId", getLicenseId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
@@ -104,10 +107,28 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 			setEmployeeId(employeeId);
 		}
 
+		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
+
+		if (contactDetailsId != null) {
+			setContactDetailsId(contactDetailsId);
+		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
+
 		Long shiftId = (Long)attributes.get("shiftId");
 
 		if (shiftId != null) {
 			setShiftId(shiftId);
+		}
+
+		Long licenseId = (Long)attributes.get("licenseId");
+
+		if (licenseId != null) {
+			setLicenseId(licenseId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -170,7 +191,7 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 			setGender(gender);
 		}
 
-		String maritalStatus = (String)attributes.get("maritalStatus");
+		Integer maritalStatus = (Integer)attributes.get("maritalStatus");
 
 		if (maritalStatus != null) {
 			setMaritalStatus(maritalStatus);
@@ -219,6 +240,53 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	}
 
 	@Override
+	public long getContactDetailsId() {
+		return _contactDetailsId;
+	}
+
+	@Override
+	public void setContactDetailsId(long contactDetailsId) {
+		_contactDetailsId = contactDetailsId;
+
+		if (_employeeRemoteModel != null) {
+			try {
+				Class<?> clazz = _employeeRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setContactDetailsId",
+						long.class);
+
+				method.invoke(_employeeRemoteModel, contactDetailsId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getJobId() {
+		return _jobId;
+	}
+
+	@Override
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+
+		if (_employeeRemoteModel != null) {
+			try {
+				Class<?> clazz = _employeeRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setJobId", long.class);
+
+				method.invoke(_employeeRemoteModel, jobId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
 	public long getShiftId() {
 		return _shiftId;
 	}
@@ -234,6 +302,29 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 				Method method = clazz.getMethod("setShiftId", long.class);
 
 				method.invoke(_employeeRemoteModel, shiftId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getLicenseId() {
+		return _licenseId;
+	}
+
+	@Override
+	public void setLicenseId(long licenseId) {
+		_licenseId = licenseId;
+
+		if (_employeeRemoteModel != null) {
+			try {
+				Class<?> clazz = _employeeRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setLicenseId", long.class);
+
+				method.invoke(_employeeRemoteModel, licenseId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -482,19 +573,19 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	}
 
 	@Override
-	public String getMaritalStatus() {
+	public int getMaritalStatus() {
 		return _maritalStatus;
 	}
 
 	@Override
-	public void setMaritalStatus(String maritalStatus) {
+	public void setMaritalStatus(int maritalStatus) {
 		_maritalStatus = maritalStatus;
 
 		if (_employeeRemoteModel != null) {
 			try {
 				Class<?> clazz = _employeeRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setMaritalStatus", String.class);
+				Method method = clazz.getMethod("setMaritalStatus", int.class);
 
 				method.invoke(_employeeRemoteModel, maritalStatus);
 			}
@@ -643,7 +734,10 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		EmployeeClp clone = new EmployeeClp();
 
 		clone.setEmployeeId(getEmployeeId());
+		clone.setContactDetailsId(getContactDetailsId());
+		clone.setJobId(getJobId());
 		clone.setShiftId(getShiftId());
+		clone.setLicenseId(getLicenseId());
 		clone.setGroupId(getGroupId());
 		clone.setCompanyId(getCompanyId());
 		clone.setUserId(getUserId());
@@ -706,12 +800,18 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(33);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{employeeId=");
 		sb.append(getEmployeeId());
+		sb.append(", contactDetailsId=");
+		sb.append(getContactDetailsId());
+		sb.append(", jobId=");
+		sb.append(getJobId());
 		sb.append(", shiftId=");
 		sb.append(getShiftId());
+		sb.append(", licenseId=");
+		sb.append(getLicenseId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -747,7 +847,7 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(52);
+		StringBundler sb = new StringBundler(61);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Employee");
@@ -758,8 +858,20 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>contactDetailsId</column-name><column-value><![CDATA[");
+		sb.append(getContactDetailsId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>jobId</column-name><column-value><![CDATA[");
+		sb.append(getJobId());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>shiftId</column-name><column-value><![CDATA[");
 		sb.append(getShiftId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>licenseId</column-name><column-value><![CDATA[");
+		sb.append(getLicenseId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -824,7 +936,10 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	}
 
 	private long _employeeId;
+	private long _contactDetailsId;
+	private long _jobId;
 	private long _shiftId;
+	private long _licenseId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
@@ -836,7 +951,7 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	private String _middleName;
 	private Blob _photograph;
 	private int _gender;
-	private String _maritalStatus;
+	private int _maritalStatus;
 	private String _nationality;
 	private Date _dateOfBirth;
 	private String _otherId;

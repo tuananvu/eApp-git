@@ -55,25 +55,27 @@ public class LicenseLocalServiceUtil {
 	/**
 	* Creates a new license with the primary key. Does not add the license to the database.
 	*
-	* @param id the primary key for the new license
+	* @param licenseId the primary key for the new license
 	* @return the new license
 	*/
-	public static com.rknowsys.eapp.hrm.model.License createLicense(long id) {
-		return getService().createLicense(id);
+	public static com.rknowsys.eapp.hrm.model.License createLicense(
+		long licenseId) {
+		return getService().createLicense(licenseId);
 	}
 
 	/**
 	* Deletes the license with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license that was removed
 	* @throws PortalException if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.License deleteLicense(long id)
+	public static com.rknowsys.eapp.hrm.model.License deleteLicense(
+		long licenseId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteLicense(id);
+		return getService().deleteLicense(licenseId);
 	}
 
 	/**
@@ -179,23 +181,24 @@ public class LicenseLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static com.rknowsys.eapp.hrm.model.License fetchLicense(long id)
+	public static com.rknowsys.eapp.hrm.model.License fetchLicense(
+		long licenseId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchLicense(id);
+		return getService().fetchLicense(licenseId);
 	}
 
 	/**
 	* Returns the license with the primary key.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license
 	* @throws PortalException if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.License getLicense(long id)
+	public static com.rknowsys.eapp.hrm.model.License getLicense(long licenseId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getLicense(id);
+		return getService().getLicense(licenseId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

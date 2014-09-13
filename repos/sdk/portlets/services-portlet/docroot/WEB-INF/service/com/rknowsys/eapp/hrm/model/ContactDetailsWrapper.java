@@ -50,7 +50,7 @@ public class ContactDetailsWrapper implements ContactDetails,
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("contactDetailsId", getContactDetailsId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
@@ -74,10 +74,10 @@ public class ContactDetailsWrapper implements ContactDetails,
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
 
-		if (id != null) {
-			setId(id);
+		if (contactDetailsId != null) {
+			setContactDetailsId(contactDetailsId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -184,9 +184,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the primary key of this contact details.
+	* Returns the primary key of this ContactDetails.
 	*
-	* @return the primary key of this contact details
+	* @return the primary key of this ContactDetails
 	*/
 	@Override
 	public long getPrimaryKey() {
@@ -194,9 +194,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the primary key of this contact details.
+	* Sets the primary key of this ContactDetails.
 	*
-	* @param primaryKey the primary key of this contact details
+	* @param primaryKey the primary key of this ContactDetails
 	*/
 	@Override
 	public void setPrimaryKey(long primaryKey) {
@@ -204,29 +204,29 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the ID of this contact details.
+	* Returns the contact details ID of this ContactDetails.
 	*
-	* @return the ID of this contact details
+	* @return the contact details ID of this ContactDetails
 	*/
 	@Override
-	public long getId() {
-		return _contactDetails.getId();
+	public long getContactDetailsId() {
+		return _contactDetails.getContactDetailsId();
 	}
 
 	/**
-	* Sets the ID of this contact details.
+	* Sets the contact details ID of this ContactDetails.
 	*
-	* @param id the ID of this contact details
+	* @param contactDetailsId the contact details ID of this ContactDetails
 	*/
 	@Override
-	public void setId(long id) {
-		_contactDetails.setId(id);
+	public void setContactDetailsId(long contactDetailsId) {
+		_contactDetails.setContactDetailsId(contactDetailsId);
 	}
 
 	/**
-	* Returns the group ID of this contact details.
+	* Returns the group ID of this ContactDetails.
 	*
-	* @return the group ID of this contact details
+	* @return the group ID of this ContactDetails
 	*/
 	@Override
 	public long getGroupId() {
@@ -234,9 +234,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the group ID of this contact details.
+	* Sets the group ID of this ContactDetails.
 	*
-	* @param groupId the group ID of this contact details
+	* @param groupId the group ID of this ContactDetails
 	*/
 	@Override
 	public void setGroupId(long groupId) {
@@ -244,9 +244,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the company ID of this contact details.
+	* Returns the company ID of this ContactDetails.
 	*
-	* @return the company ID of this contact details
+	* @return the company ID of this ContactDetails
 	*/
 	@Override
 	public long getCompanyId() {
@@ -254,9 +254,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the company ID of this contact details.
+	* Sets the company ID of this ContactDetails.
 	*
-	* @param companyId the company ID of this contact details
+	* @param companyId the company ID of this ContactDetails
 	*/
 	@Override
 	public void setCompanyId(long companyId) {
@@ -264,9 +264,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the user ID of this contact details.
+	* Returns the user ID of this ContactDetails.
 	*
-	* @return the user ID of this contact details
+	* @return the user ID of this ContactDetails
 	*/
 	@Override
 	public long getUserId() {
@@ -274,9 +274,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the user ID of this contact details.
+	* Sets the user ID of this ContactDetails.
 	*
-	* @param userId the user ID of this contact details
+	* @param userId the user ID of this ContactDetails
 	*/
 	@Override
 	public void setUserId(long userId) {
@@ -284,9 +284,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the user uuid of this contact details.
+	* Returns the user uuid of this ContactDetails.
 	*
-	* @return the user uuid of this contact details
+	* @return the user uuid of this ContactDetails
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
@@ -296,9 +296,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the user uuid of this contact details.
+	* Sets the user uuid of this ContactDetails.
 	*
-	* @param userUuid the user uuid of this contact details
+	* @param userUuid the user uuid of this ContactDetails
 	*/
 	@Override
 	public void setUserUuid(java.lang.String userUuid) {
@@ -306,9 +306,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the user name of this contact details.
+	* Returns the user name of this ContactDetails.
 	*
-	* @return the user name of this contact details
+	* @return the user name of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getUserName() {
@@ -316,9 +316,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the user name of this contact details.
+	* Sets the user name of this ContactDetails.
 	*
-	* @param userName the user name of this contact details
+	* @param userName the user name of this ContactDetails
 	*/
 	@Override
 	public void setUserName(java.lang.String userName) {
@@ -326,9 +326,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the create date of this contact details.
+	* Returns the create date of this ContactDetails.
 	*
-	* @return the create date of this contact details
+	* @return the create date of this ContactDetails
 	*/
 	@Override
 	public java.util.Date getCreateDate() {
@@ -336,9 +336,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the create date of this contact details.
+	* Sets the create date of this ContactDetails.
 	*
-	* @param createDate the create date of this contact details
+	* @param createDate the create date of this ContactDetails
 	*/
 	@Override
 	public void setCreateDate(java.util.Date createDate) {
@@ -346,9 +346,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the modified date of this contact details.
+	* Returns the modified date of this ContactDetails.
 	*
-	* @return the modified date of this contact details
+	* @return the modified date of this ContactDetails
 	*/
 	@Override
 	public java.util.Date getModifiedDate() {
@@ -356,9 +356,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the modified date of this contact details.
+	* Sets the modified date of this ContactDetails.
 	*
-	* @param modifiedDate the modified date of this contact details
+	* @param modifiedDate the modified date of this ContactDetails
 	*/
 	@Override
 	public void setModifiedDate(java.util.Date modifiedDate) {
@@ -366,9 +366,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the address street1 of this contact details.
+	* Returns the address street1 of this ContactDetails.
 	*
-	* @return the address street1 of this contact details
+	* @return the address street1 of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getAddressStreet1() {
@@ -376,9 +376,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the address street1 of this contact details.
+	* Sets the address street1 of this ContactDetails.
 	*
-	* @param addressStreet1 the address street1 of this contact details
+	* @param addressStreet1 the address street1 of this ContactDetails
 	*/
 	@Override
 	public void setAddressStreet1(java.lang.String addressStreet1) {
@@ -386,9 +386,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the address street2 of this contact details.
+	* Returns the address street2 of this ContactDetails.
 	*
-	* @return the address street2 of this contact details
+	* @return the address street2 of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getAddressStreet2() {
@@ -396,9 +396,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the address street2 of this contact details.
+	* Sets the address street2 of this ContactDetails.
 	*
-	* @param addressStreet2 the address street2 of this contact details
+	* @param addressStreet2 the address street2 of this ContactDetails
 	*/
 	@Override
 	public void setAddressStreet2(java.lang.String addressStreet2) {
@@ -406,9 +406,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the city of this contact details.
+	* Returns the city of this ContactDetails.
 	*
-	* @return the city of this contact details
+	* @return the city of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getCity() {
@@ -416,9 +416,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the city of this contact details.
+	* Sets the city of this ContactDetails.
 	*
-	* @param city the city of this contact details
+	* @param city the city of this ContactDetails
 	*/
 	@Override
 	public void setCity(java.lang.String city) {
@@ -426,9 +426,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the state of this contact details.
+	* Returns the state of this ContactDetails.
 	*
-	* @return the state of this contact details
+	* @return the state of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getState() {
@@ -436,9 +436,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the state of this contact details.
+	* Sets the state of this ContactDetails.
 	*
-	* @param state the state of this contact details
+	* @param state the state of this ContactDetails
 	*/
 	@Override
 	public void setState(java.lang.String state) {
@@ -446,9 +446,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the postal code of this contact details.
+	* Returns the postal code of this ContactDetails.
 	*
-	* @return the postal code of this contact details
+	* @return the postal code of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getPostalCode() {
@@ -456,9 +456,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the postal code of this contact details.
+	* Sets the postal code of this ContactDetails.
 	*
-	* @param postalCode the postal code of this contact details
+	* @param postalCode the postal code of this ContactDetails
 	*/
 	@Override
 	public void setPostalCode(java.lang.String postalCode) {
@@ -466,9 +466,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the country of this contact details.
+	* Returns the country of this ContactDetails.
 	*
-	* @return the country of this contact details
+	* @return the country of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getCountry() {
@@ -476,9 +476,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the country of this contact details.
+	* Sets the country of this ContactDetails.
 	*
-	* @param country the country of this contact details
+	* @param country the country of this ContactDetails
 	*/
 	@Override
 	public void setCountry(java.lang.String country) {
@@ -486,9 +486,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the home telephone of this contact details.
+	* Returns the home telephone of this ContactDetails.
 	*
-	* @return the home telephone of this contact details
+	* @return the home telephone of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getHomeTelephone() {
@@ -496,9 +496,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the home telephone of this contact details.
+	* Sets the home telephone of this ContactDetails.
 	*
-	* @param homeTelephone the home telephone of this contact details
+	* @param homeTelephone the home telephone of this ContactDetails
 	*/
 	@Override
 	public void setHomeTelephone(java.lang.String homeTelephone) {
@@ -506,9 +506,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the mobile of this contact details.
+	* Returns the mobile of this ContactDetails.
 	*
-	* @return the mobile of this contact details
+	* @return the mobile of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getMobile() {
@@ -516,9 +516,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the mobile of this contact details.
+	* Sets the mobile of this ContactDetails.
 	*
-	* @param mobile the mobile of this contact details
+	* @param mobile the mobile of this ContactDetails
 	*/
 	@Override
 	public void setMobile(java.lang.String mobile) {
@@ -526,9 +526,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the work telephone of this contact details.
+	* Returns the work telephone of this ContactDetails.
 	*
-	* @return the work telephone of this contact details
+	* @return the work telephone of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getWorkTelephone() {
@@ -536,9 +536,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the work telephone of this contact details.
+	* Sets the work telephone of this ContactDetails.
 	*
-	* @param workTelephone the work telephone of this contact details
+	* @param workTelephone the work telephone of this ContactDetails
 	*/
 	@Override
 	public void setWorkTelephone(java.lang.String workTelephone) {
@@ -546,9 +546,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the work email of this contact details.
+	* Returns the work email of this ContactDetails.
 	*
-	* @return the work email of this contact details
+	* @return the work email of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getWorkEmail() {
@@ -556,9 +556,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the work email of this contact details.
+	* Sets the work email of this ContactDetails.
 	*
-	* @param workEmail the work email of this contact details
+	* @param workEmail the work email of this ContactDetails
 	*/
 	@Override
 	public void setWorkEmail(java.lang.String workEmail) {
@@ -566,9 +566,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Returns the other email of this contact details.
+	* Returns the other email of this ContactDetails.
 	*
-	* @return the other email of this contact details
+	* @return the other email of this ContactDetails
 	*/
 	@Override
 	public java.lang.String getOtherEmail() {
@@ -576,9 +576,9 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	/**
-	* Sets the other email of this contact details.
+	* Sets the other email of this ContactDetails.
 	*
-	* @param otherEmail the other email of this contact details
+	* @param otherEmail the other email of this ContactDetails
 	*/
 	@Override
 	public void setOtherEmail(java.lang.String otherEmail) {

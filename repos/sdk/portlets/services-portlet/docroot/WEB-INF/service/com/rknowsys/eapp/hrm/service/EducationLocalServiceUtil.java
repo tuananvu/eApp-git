@@ -55,25 +55,27 @@ public class EducationLocalServiceUtil {
 	/**
 	* Creates a new education with the primary key. Does not add the education to the database.
 	*
-	* @param id the primary key for the new education
+	* @param educationId the primary key for the new education
 	* @return the new education
 	*/
-	public static com.rknowsys.eapp.hrm.model.Education createEducation(long id) {
-		return getService().createEducation(id);
+	public static com.rknowsys.eapp.hrm.model.Education createEducation(
+		long educationId) {
+		return getService().createEducation(educationId);
 	}
 
 	/**
 	* Deletes the education with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the education
+	* @param educationId the primary key of the education
 	* @return the education that was removed
 	* @throws PortalException if a education with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.Education deleteEducation(long id)
+	public static com.rknowsys.eapp.hrm.model.Education deleteEducation(
+		long educationId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEducation(id);
+		return getService().deleteEducation(educationId);
 	}
 
 	/**
@@ -179,23 +181,25 @@ public class EducationLocalServiceUtil {
 		return getService().dynamicQueryCount(dynamicQuery, projection);
 	}
 
-	public static com.rknowsys.eapp.hrm.model.Education fetchEducation(long id)
+	public static com.rknowsys.eapp.hrm.model.Education fetchEducation(
+		long educationId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchEducation(id);
+		return getService().fetchEducation(educationId);
 	}
 
 	/**
 	* Returns the education with the primary key.
 	*
-	* @param id the primary key of the education
+	* @param educationId the primary key of the education
 	* @return the education
 	* @throws PortalException if a education with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.Education getEducation(long id)
+	public static com.rknowsys.eapp.hrm.model.Education getEducation(
+		long educationId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEducation(id);
+		return getService().getEducation(educationId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

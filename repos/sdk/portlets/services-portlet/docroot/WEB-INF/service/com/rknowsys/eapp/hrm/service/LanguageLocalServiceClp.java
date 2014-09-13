@@ -146,12 +146,12 @@ public class LanguageLocalServiceClp implements LanguageLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language createLanguage(long id) {
+	public com.rknowsys.eapp.hrm.model.Language createLanguage(long languageId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { languageId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -169,14 +169,14 @@ public class LanguageLocalServiceClp implements LanguageLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language deleteLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language deleteLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { languageId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -429,13 +429,13 @@ public class LanguageLocalServiceClp implements LanguageLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language fetchLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language fetchLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { languageId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -457,14 +457,14 @@ public class LanguageLocalServiceClp implements LanguageLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Language getLanguage(long id)
+	public com.rknowsys.eapp.hrm.model.Language getLanguage(long languageId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { languageId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

@@ -30,7 +30,8 @@ public class EducationSoap implements Serializable {
 	public static EducationSoap toSoapModel(Education model) {
 		EducationSoap soapModel = new EducationSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setEducationId(model.getEducationId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCreateDate(model.getCreateDate());
@@ -82,19 +83,27 @@ public class EducationSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _educationId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setEducationId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getEducationId() {
+		return _educationId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setEducationId(long educationId) {
+		_educationId = educationId;
+	}
+
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
 	}
 
 	public long getCompanyId() {
@@ -145,7 +154,8 @@ public class EducationSoap implements Serializable {
 		_eduLevel = eduLevel;
 	}
 
-	private long _id;
+	private long _educationId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;

@@ -38,10 +38,10 @@ public class EmploymentStatusCacheModel implements CacheModel<EmploymentStatus>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(id);
+		sb.append("{employmentStatusId=");
+		sb.append(employmentStatusId);
 		sb.append(", groupId=");
 		sb.append(groupId);
 		sb.append(", companyId=");
@@ -54,6 +54,8 @@ public class EmploymentStatusCacheModel implements CacheModel<EmploymentStatus>,
 		sb.append(modifiedDate);
 		sb.append(", employmentstatus=");
 		sb.append(employmentstatus);
+		sb.append(", jobId=");
+		sb.append(jobId);
 		sb.append("}");
 
 		return sb.toString();
@@ -63,7 +65,7 @@ public class EmploymentStatusCacheModel implements CacheModel<EmploymentStatus>,
 	public EmploymentStatus toEntityModel() {
 		EmploymentStatusImpl employmentStatusImpl = new EmploymentStatusImpl();
 
-		employmentStatusImpl.setId(id);
+		employmentStatusImpl.setEmploymentStatusId(employmentStatusId);
 		employmentStatusImpl.setGroupId(groupId);
 		employmentStatusImpl.setCompanyId(companyId);
 		employmentStatusImpl.setUserId(userId);
@@ -89,6 +91,8 @@ public class EmploymentStatusCacheModel implements CacheModel<EmploymentStatus>,
 			employmentStatusImpl.setEmploymentstatus(employmentstatus);
 		}
 
+		employmentStatusImpl.setJobId(jobId);
+
 		employmentStatusImpl.resetOriginalValues();
 
 		return employmentStatusImpl;
@@ -96,19 +100,20 @@ public class EmploymentStatusCacheModel implements CacheModel<EmploymentStatus>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
+		employmentStatusId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		userId = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 		employmentstatus = objectInput.readUTF();
+		jobId = objectInput.readLong();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(id);
+		objectOutput.writeLong(employmentStatusId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(userId);
@@ -121,13 +126,16 @@ public class EmploymentStatusCacheModel implements CacheModel<EmploymentStatus>,
 		else {
 			objectOutput.writeUTF(employmentstatus);
 		}
+
+		objectOutput.writeLong(jobId);
 	}
 
-	public long id;
+	public long employmentStatusId;
 	public long groupId;
 	public long companyId;
 	public long userId;
 	public long createDate;
 	public long modifiedDate;
 	public String employmentstatus;
+	public long jobId;
 }

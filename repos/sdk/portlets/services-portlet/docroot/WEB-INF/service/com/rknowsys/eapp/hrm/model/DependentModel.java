@@ -14,6 +14,7 @@
 
 package com.rknowsys.eapp.hrm.model;
 
+import com.liferay.portal.kernel.bean.AutoEscape;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.CacheModel;
@@ -72,6 +73,20 @@ public interface DependentModel extends BaseModel<Dependent> {
 	 * @param dependentId the dependent ID of this dependent
 	 */
 	public void setDependentId(long dependentId);
+
+	/**
+	 * Returns the employee ID of this dependent.
+	 *
+	 * @return the employee ID of this dependent
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this dependent.
+	 *
+	 * @param employeeId the employee ID of this dependent
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the group ID of this dependent.
@@ -157,6 +172,50 @@ public interface DependentModel extends BaseModel<Dependent> {
 	 * @param modifiedDate the modified date of this dependent
 	 */
 	public void setModifiedDate(Date modifiedDate);
+
+	/**
+	 * Returns the name of this dependent.
+	 *
+	 * @return the name of this dependent
+	 */
+	@AutoEscape
+	public String getName();
+
+	/**
+	 * Sets the name of this dependent.
+	 *
+	 * @param name the name of this dependent
+	 */
+	public void setName(String name);
+
+	/**
+	 * Returns the relationship of this dependent.
+	 *
+	 * @return the relationship of this dependent
+	 */
+	@AutoEscape
+	public String getRelationship();
+
+	/**
+	 * Sets the relationship of this dependent.
+	 *
+	 * @param relationship the relationship of this dependent
+	 */
+	public void setRelationship(String relationship);
+
+	/**
+	 * Returns the date of birth of this dependent.
+	 *
+	 * @return the date of birth of this dependent
+	 */
+	public Date getDateOfBirth();
+
+	/**
+	 * Sets the date of birth of this dependent.
+	 *
+	 * @param dateOfBirth the date of birth of this dependent
+	 */
+	public void setDateOfBirth(Date dateOfBirth);
 
 	@Override
 	public boolean isNew();

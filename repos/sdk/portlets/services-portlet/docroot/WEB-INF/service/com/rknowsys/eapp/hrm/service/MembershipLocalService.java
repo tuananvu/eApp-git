@@ -59,20 +59,22 @@ public interface MembershipLocalService extends BaseLocalService,
 	/**
 	* Creates a new membership with the primary key. Does not add the membership to the database.
 	*
-	* @param id the primary key for the new membership
+	* @param membershipId the primary key for the new membership
 	* @return the new membership
 	*/
-	public com.rknowsys.eapp.hrm.model.Membership createMembership(long id);
+	public com.rknowsys.eapp.hrm.model.Membership createMembership(
+		long membershipId);
 
 	/**
 	* Deletes the membership with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the membership
+	* @param membershipId the primary key of the membership
 	* @return the membership that was removed
 	* @throws PortalException if a membership with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.Membership deleteMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership deleteMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,19 +167,21 @@ public interface MembershipLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Membership fetchMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership fetchMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the membership with the primary key.
 	*
-	* @param id the primary key of the membership
+	* @param membershipId the primary key of the membership
 	* @return the membership
 	* @throws PortalException if a membership with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Membership getMembership(long id)
+	public com.rknowsys.eapp.hrm.model.Membership getMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

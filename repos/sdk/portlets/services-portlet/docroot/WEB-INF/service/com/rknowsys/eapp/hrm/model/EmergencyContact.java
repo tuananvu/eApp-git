@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.model.PersistedModel;
 
 /**
- * The extended model interface for the EmergencyContact service. Represents a row in the &quot;hrm_EmergencyContact&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the EmergencyContact service. Represents a row in the &quot;emergency_contact&quot; database table, with each column mapped to a property of this class.
  *
  * @author rknowsys
  * @see EmergencyContactModel

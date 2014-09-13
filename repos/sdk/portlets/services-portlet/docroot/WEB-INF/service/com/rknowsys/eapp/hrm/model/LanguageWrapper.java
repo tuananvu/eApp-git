@@ -49,7 +49,8 @@ public class LanguageWrapper implements Language, ModelWrapper<Language> {
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("languageId", getLanguageId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -62,10 +63,16 @@ public class LanguageWrapper implements Language, ModelWrapper<Language> {
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long languageId = (Long)attributes.get("languageId");
 
-		if (id != null) {
-			setId(id);
+		if (languageId != null) {
+			setLanguageId(languageId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -126,23 +133,43 @@ public class LanguageWrapper implements Language, ModelWrapper<Language> {
 	}
 
 	/**
-	* Returns the ID of this language.
+	* Returns the language ID of this language.
 	*
-	* @return the ID of this language
+	* @return the language ID of this language
 	*/
 	@Override
-	public long getId() {
-		return _language.getId();
+	public long getLanguageId() {
+		return _language.getLanguageId();
 	}
 
 	/**
-	* Sets the ID of this language.
+	* Sets the language ID of this language.
 	*
-	* @param id the ID of this language
+	* @param languageId the language ID of this language
 	*/
 	@Override
-	public void setId(long id) {
-		_language.setId(id);
+	public void setLanguageId(long languageId) {
+		_language.setLanguageId(languageId);
+	}
+
+	/**
+	* Returns the employee ID of this language.
+	*
+	* @return the employee ID of this language
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _language.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this language.
+	*
+	* @param employeeId the employee ID of this language
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_language.setEmployeeId(employeeId);
 	}
 
 	/**

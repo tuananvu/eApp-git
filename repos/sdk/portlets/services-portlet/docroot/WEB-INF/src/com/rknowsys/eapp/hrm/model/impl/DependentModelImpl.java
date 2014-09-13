@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.service.ServiceContext;
@@ -61,26 +62,34 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 	public static final String TABLE_NAME = "hrm_Dependent";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "dependentId", Types.BIGINT },
+			{ "employeeId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "userId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
-			{ "modifiedDate", Types.TIMESTAMP }
+			{ "modifiedDate", Types.TIMESTAMP },
+			{ "name", Types.VARCHAR },
+			{ "relationship", Types.VARCHAR },
+			{ "dateOfBirth", Types.TIMESTAMP }
 		};
-	public static final String TABLE_SQL_CREATE = "create table hrm_Dependent (dependentId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table hrm_Dependent (dependentId LONG not null primary key,employeeId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,name VARCHAR(75) null,relationship VARCHAR(75) null,dateOfBirth DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table hrm_Dependent";
 	public static final String ORDER_BY_JPQL = " ORDER BY dependent.dependentId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY hrm_Dependent.dependentId ASC";
-	public static final String DATA_SOURCE = "liferayDataSource";
-	public static final String SESSION_FACTORY = "liferaySessionFactory";
-	public static final String TX_MANAGER = "liferayTransactionManager";
+	public static final String DATA_SOURCE = "anotherDataSource";
+	public static final String SESSION_FACTORY = "anotherSessionFactory";
+	public static final String TX_MANAGER = "anotherTransactionManager";
 	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.entity.cache.enabled.com.rknowsys.eapp.hrm.model.Dependent"),
 			true);
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.rknowsys.eapp.hrm.model.Dependent"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.rknowsys.eapp.hrm.model.Dependent"),
+			true);
+	public static long DEPENDENTID_COLUMN_BITMASK = 1L;
+	public static long EMPLOYEEID_COLUMN_BITMASK = 2L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.rknowsys.eapp.hrm.model.Dependent"));
 
@@ -122,11 +131,15 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("dependentId", getDependentId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+		attributes.put("name", getName());
+		attributes.put("relationship", getRelationship());
+		attributes.put("dateOfBirth", getDateOfBirth());
 
 		return attributes;
 	}
@@ -137,6 +150,12 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 
 		if (dependentId != null) {
 			setDependentId(dependentId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -168,6 +187,24 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 		if (modifiedDate != null) {
 			setModifiedDate(modifiedDate);
 		}
+
+		String name = (String)attributes.get("name");
+
+		if (name != null) {
+			setName(name);
+		}
+
+		String relationship = (String)attributes.get("relationship");
+
+		if (relationship != null) {
+			setRelationship(relationship);
+		}
+
+		Date dateOfBirth = (Date)attributes.get("dateOfBirth");
+
+		if (dateOfBirth != null) {
+			setDateOfBirth(dateOfBirth);
+		}
 	}
 
 	@Override
@@ -177,7 +214,41 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 
 	@Override
 	public void setDependentId(long dependentId) {
+		_columnBitmask |= DEPENDENTID_COLUMN_BITMASK;
+
+		if (!_setOriginalDependentId) {
+			_setOriginalDependentId = true;
+
+			_originalDependentId = _dependentId;
+		}
+
 		_dependentId = dependentId;
+	}
+
+	public long getOriginalDependentId() {
+		return _originalDependentId;
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_columnBitmask |= EMPLOYEEID_COLUMN_BITMASK;
+
+		if (!_setOriginalEmployeeId) {
+			_setOriginalEmployeeId = true;
+
+			_originalEmployeeId = _employeeId;
+		}
+
+		_employeeId = employeeId;
+	}
+
+	public long getOriginalEmployeeId() {
+		return _originalEmployeeId;
 	}
 
 	@Override
@@ -241,6 +312,50 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 	}
 
 	@Override
+	public String getName() {
+		if (_name == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _name;
+		}
+	}
+
+	@Override
+	public void setName(String name) {
+		_name = name;
+	}
+
+	@Override
+	public String getRelationship() {
+		if (_relationship == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _relationship;
+		}
+	}
+
+	@Override
+	public void setRelationship(String relationship) {
+		_relationship = relationship;
+	}
+
+	@Override
+	public Date getDateOfBirth() {
+		return _dateOfBirth;
+	}
+
+	@Override
+	public void setDateOfBirth(Date dateOfBirth) {
+		_dateOfBirth = dateOfBirth;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
+	}
+
+	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
 			Dependent.class.getName(), getPrimaryKey());
@@ -268,11 +383,15 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 		DependentImpl dependentImpl = new DependentImpl();
 
 		dependentImpl.setDependentId(getDependentId());
+		dependentImpl.setEmployeeId(getEmployeeId());
 		dependentImpl.setGroupId(getGroupId());
 		dependentImpl.setCompanyId(getCompanyId());
 		dependentImpl.setUserId(getUserId());
 		dependentImpl.setCreateDate(getCreateDate());
 		dependentImpl.setModifiedDate(getModifiedDate());
+		dependentImpl.setName(getName());
+		dependentImpl.setRelationship(getRelationship());
+		dependentImpl.setDateOfBirth(getDateOfBirth());
 
 		dependentImpl.resetOriginalValues();
 
@@ -323,6 +442,17 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 
 	@Override
 	public void resetOriginalValues() {
+		DependentModelImpl dependentModelImpl = this;
+
+		dependentModelImpl._originalDependentId = dependentModelImpl._dependentId;
+
+		dependentModelImpl._setOriginalDependentId = false;
+
+		dependentModelImpl._originalEmployeeId = dependentModelImpl._employeeId;
+
+		dependentModelImpl._setOriginalEmployeeId = false;
+
+		dependentModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -330,6 +460,8 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 		DependentCacheModel dependentCacheModel = new DependentCacheModel();
 
 		dependentCacheModel.dependentId = getDependentId();
+
+		dependentCacheModel.employeeId = getEmployeeId();
 
 		dependentCacheModel.groupId = getGroupId();
 
@@ -355,15 +487,42 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 			dependentCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
+		dependentCacheModel.name = getName();
+
+		String name = dependentCacheModel.name;
+
+		if ((name != null) && (name.length() == 0)) {
+			dependentCacheModel.name = null;
+		}
+
+		dependentCacheModel.relationship = getRelationship();
+
+		String relationship = dependentCacheModel.relationship;
+
+		if ((relationship != null) && (relationship.length() == 0)) {
+			dependentCacheModel.relationship = null;
+		}
+
+		Date dateOfBirth = getDateOfBirth();
+
+		if (dateOfBirth != null) {
+			dependentCacheModel.dateOfBirth = dateOfBirth.getTime();
+		}
+		else {
+			dependentCacheModel.dateOfBirth = Long.MIN_VALUE;
+		}
+
 		return dependentCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(13);
+		StringBundler sb = new StringBundler(21);
 
 		sb.append("{dependentId=");
 		sb.append(getDependentId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -374,6 +533,12 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+		sb.append(", name=");
+		sb.append(getName());
+		sb.append(", relationship=");
+		sb.append(getRelationship());
+		sb.append(", dateOfBirth=");
+		sb.append(getDateOfBirth());
 		sb.append("}");
 
 		return sb.toString();
@@ -381,7 +546,7 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(22);
+		StringBundler sb = new StringBundler(34);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Dependent");
@@ -390,6 +555,10 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 		sb.append(
 			"<column><column-name>dependentId</column-name><column-value><![CDATA[");
 		sb.append(getDependentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -411,6 +580,18 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 			"<column><column-name>modifiedDate</column-name><column-value><![CDATA[");
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>name</column-name><column-value><![CDATA[");
+		sb.append(getName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>relationship</column-name><column-value><![CDATA[");
+		sb.append(getRelationship());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>dateOfBirth</column-name><column-value><![CDATA[");
+		sb.append(getDateOfBirth());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -422,11 +603,20 @@ public class DependentModelImpl extends BaseModelImpl<Dependent>
 			Dependent.class
 		};
 	private long _dependentId;
+	private long _originalDependentId;
+	private boolean _setOriginalDependentId;
+	private long _employeeId;
+	private long _originalEmployeeId;
+	private boolean _setOriginalEmployeeId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private String _userUuid;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _name;
+	private String _relationship;
+	private Date _dateOfBirth;
+	private long _columnBitmask;
 	private Dependent _escapedModel;
 }

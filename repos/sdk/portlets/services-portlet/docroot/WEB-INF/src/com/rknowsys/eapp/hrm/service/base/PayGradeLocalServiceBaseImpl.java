@@ -37,27 +37,28 @@ import com.rknowsys.eapp.hrm.service.persistence.AttachmentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.ContactDetailsPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.DependentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.DocCategoryPersistence;
-import com.rknowsys.eapp.hrm.service.persistence.DocumentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EducationPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmergencyContactPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmployeePersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmploymentStatusPersistence;
-import com.rknowsys.eapp.hrm.service.persistence.ImmigrationPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.ImmigrationDocumentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.InterviewPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.JobCategoryPersistence;
-import com.rknowsys.eapp.hrm.service.persistence.JobTitlesPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.JobPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.JobTitlePersistence;
 import com.rknowsys.eapp.hrm.service.persistence.LanguagePersistence;
 import com.rknowsys.eapp.hrm.service.persistence.LicensePersistence;
-import com.rknowsys.eapp.hrm.service.persistence.LocationsPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.LocationPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.MembershipPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.NationalityPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.NewsPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.PayGradeCurrencyPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.PayGradePersistence;
-import com.rknowsys.eapp.hrm.service.persistence.QualificationPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.SalaryComponentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.SkillPersistence;
-import com.rknowsys.eapp.hrm.service.persistence.WorkShiftUserPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.SubUnitPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.SupervisorPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.WorkExpCompanyPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.WorkshiftPersistence;
 
 import java.io.Serializable;
@@ -338,18 +339,18 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the contact details local service.
+	 * Returns the ContactDetails local service.
 	 *
-	 * @return the contact details local service
+	 * @return the ContactDetails local service
 	 */
 	public com.rknowsys.eapp.hrm.service.ContactDetailsLocalService getContactDetailsLocalService() {
 		return contactDetailsLocalService;
 	}
 
 	/**
-	 * Sets the contact details local service.
+	 * Sets the ContactDetails local service.
 	 *
-	 * @param contactDetailsLocalService the contact details local service
+	 * @param contactDetailsLocalService the ContactDetails local service
 	 */
 	public void setContactDetailsLocalService(
 		com.rknowsys.eapp.hrm.service.ContactDetailsLocalService contactDetailsLocalService) {
@@ -357,18 +358,18 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the contact details persistence.
+	 * Returns the ContactDetails persistence.
 	 *
-	 * @return the contact details persistence
+	 * @return the ContactDetails persistence
 	 */
 	public ContactDetailsPersistence getContactDetailsPersistence() {
 		return contactDetailsPersistence;
 	}
 
 	/**
-	 * Sets the contact details persistence.
+	 * Sets the ContactDetails persistence.
 	 *
-	 * @param contactDetailsPersistence the contact details persistence
+	 * @param contactDetailsPersistence the ContactDetails persistence
 	 */
 	public void setContactDetailsPersistence(
 		ContactDetailsPersistence contactDetailsPersistence) {
@@ -452,43 +453,6 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the document local service.
-	 *
-	 * @return the document local service
-	 */
-	public com.rknowsys.eapp.hrm.service.DocumentLocalService getDocumentLocalService() {
-		return documentLocalService;
-	}
-
-	/**
-	 * Sets the document local service.
-	 *
-	 * @param documentLocalService the document local service
-	 */
-	public void setDocumentLocalService(
-		com.rknowsys.eapp.hrm.service.DocumentLocalService documentLocalService) {
-		this.documentLocalService = documentLocalService;
-	}
-
-	/**
-	 * Returns the document persistence.
-	 *
-	 * @return the document persistence
-	 */
-	public DocumentPersistence getDocumentPersistence() {
-		return documentPersistence;
-	}
-
-	/**
-	 * Sets the document persistence.
-	 *
-	 * @param documentPersistence the document persistence
-	 */
-	public void setDocumentPersistence(DocumentPersistence documentPersistence) {
-		this.documentPersistence = documentPersistence;
-	}
-
-	/**
 	 * Returns the education local service.
 	 *
 	 * @return the education local service
@@ -527,18 +491,18 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the emergency contact local service.
+	 * Returns the EmergencyContact local service.
 	 *
-	 * @return the emergency contact local service
+	 * @return the EmergencyContact local service
 	 */
 	public com.rknowsys.eapp.hrm.service.EmergencyContactLocalService getEmergencyContactLocalService() {
 		return emergencyContactLocalService;
 	}
 
 	/**
-	 * Sets the emergency contact local service.
+	 * Sets the EmergencyContact local service.
 	 *
-	 * @param emergencyContactLocalService the emergency contact local service
+	 * @param emergencyContactLocalService the EmergencyContact local service
 	 */
 	public void setEmergencyContactLocalService(
 		com.rknowsys.eapp.hrm.service.EmergencyContactLocalService emergencyContactLocalService) {
@@ -546,18 +510,18 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the emergency contact persistence.
+	 * Returns the EmergencyContact persistence.
 	 *
-	 * @return the emergency contact persistence
+	 * @return the EmergencyContact persistence
 	 */
 	public EmergencyContactPersistence getEmergencyContactPersistence() {
 		return emergencyContactPersistence;
 	}
 
 	/**
-	 * Sets the emergency contact persistence.
+	 * Sets the EmergencyContact persistence.
 	 *
-	 * @param emergencyContactPersistence the emergency contact persistence
+	 * @param emergencyContactPersistence the EmergencyContact persistence
 	 */
 	public void setEmergencyContactPersistence(
 		EmergencyContactPersistence emergencyContactPersistence) {
@@ -640,41 +604,41 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the immigration local service.
+	 * Returns the ImmigrationDocument local service.
 	 *
-	 * @return the immigration local service
+	 * @return the ImmigrationDocument local service
 	 */
-	public com.rknowsys.eapp.hrm.service.ImmigrationLocalService getImmigrationLocalService() {
-		return immigrationLocalService;
+	public com.rknowsys.eapp.hrm.service.ImmigrationDocumentLocalService getImmigrationDocumentLocalService() {
+		return immigrationDocumentLocalService;
 	}
 
 	/**
-	 * Sets the immigration local service.
+	 * Sets the ImmigrationDocument local service.
 	 *
-	 * @param immigrationLocalService the immigration local service
+	 * @param immigrationDocumentLocalService the ImmigrationDocument local service
 	 */
-	public void setImmigrationLocalService(
-		com.rknowsys.eapp.hrm.service.ImmigrationLocalService immigrationLocalService) {
-		this.immigrationLocalService = immigrationLocalService;
+	public void setImmigrationDocumentLocalService(
+		com.rknowsys.eapp.hrm.service.ImmigrationDocumentLocalService immigrationDocumentLocalService) {
+		this.immigrationDocumentLocalService = immigrationDocumentLocalService;
 	}
 
 	/**
-	 * Returns the immigration persistence.
+	 * Returns the ImmigrationDocument persistence.
 	 *
-	 * @return the immigration persistence
+	 * @return the ImmigrationDocument persistence
 	 */
-	public ImmigrationPersistence getImmigrationPersistence() {
-		return immigrationPersistence;
+	public ImmigrationDocumentPersistence getImmigrationDocumentPersistence() {
+		return immigrationDocumentPersistence;
 	}
 
 	/**
-	 * Sets the immigration persistence.
+	 * Sets the ImmigrationDocument persistence.
 	 *
-	 * @param immigrationPersistence the immigration persistence
+	 * @param immigrationDocumentPersistence the ImmigrationDocument persistence
 	 */
-	public void setImmigrationPersistence(
-		ImmigrationPersistence immigrationPersistence) {
-		this.immigrationPersistence = immigrationPersistence;
+	public void setImmigrationDocumentPersistence(
+		ImmigrationDocumentPersistence immigrationDocumentPersistence) {
+		this.immigrationDocumentPersistence = immigrationDocumentPersistence;
 	}
 
 	/**
@@ -716,6 +680,43 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * Returns the job local service.
+	 *
+	 * @return the job local service
+	 */
+	public com.rknowsys.eapp.hrm.service.JobLocalService getJobLocalService() {
+		return jobLocalService;
+	}
+
+	/**
+	 * Sets the job local service.
+	 *
+	 * @param jobLocalService the job local service
+	 */
+	public void setJobLocalService(
+		com.rknowsys.eapp.hrm.service.JobLocalService jobLocalService) {
+		this.jobLocalService = jobLocalService;
+	}
+
+	/**
+	 * Returns the job persistence.
+	 *
+	 * @return the job persistence
+	 */
+	public JobPersistence getJobPersistence() {
+		return jobPersistence;
+	}
+
+	/**
+	 * Sets the job persistence.
+	 *
+	 * @param jobPersistence the job persistence
+	 */
+	public void setJobPersistence(JobPersistence jobPersistence) {
+		this.jobPersistence = jobPersistence;
+	}
+
+	/**
 	 * Returns the job category local service.
 	 *
 	 * @return the job category local service
@@ -754,41 +755,40 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the job titles local service.
+	 * Returns the job title local service.
 	 *
-	 * @return the job titles local service
+	 * @return the job title local service
 	 */
-	public com.rknowsys.eapp.hrm.service.JobTitlesLocalService getJobTitlesLocalService() {
-		return jobTitlesLocalService;
+	public com.rknowsys.eapp.hrm.service.JobTitleLocalService getJobTitleLocalService() {
+		return jobTitleLocalService;
 	}
 
 	/**
-	 * Sets the job titles local service.
+	 * Sets the job title local service.
 	 *
-	 * @param jobTitlesLocalService the job titles local service
+	 * @param jobTitleLocalService the job title local service
 	 */
-	public void setJobTitlesLocalService(
-		com.rknowsys.eapp.hrm.service.JobTitlesLocalService jobTitlesLocalService) {
-		this.jobTitlesLocalService = jobTitlesLocalService;
+	public void setJobTitleLocalService(
+		com.rknowsys.eapp.hrm.service.JobTitleLocalService jobTitleLocalService) {
+		this.jobTitleLocalService = jobTitleLocalService;
 	}
 
 	/**
-	 * Returns the job titles persistence.
+	 * Returns the job title persistence.
 	 *
-	 * @return the job titles persistence
+	 * @return the job title persistence
 	 */
-	public JobTitlesPersistence getJobTitlesPersistence() {
-		return jobTitlesPersistence;
+	public JobTitlePersistence getJobTitlePersistence() {
+		return jobTitlePersistence;
 	}
 
 	/**
-	 * Sets the job titles persistence.
+	 * Sets the job title persistence.
 	 *
-	 * @param jobTitlesPersistence the job titles persistence
+	 * @param jobTitlePersistence the job title persistence
 	 */
-	public void setJobTitlesPersistence(
-		JobTitlesPersistence jobTitlesPersistence) {
-		this.jobTitlesPersistence = jobTitlesPersistence;
+	public void setJobTitlePersistence(JobTitlePersistence jobTitlePersistence) {
+		this.jobTitlePersistence = jobTitlePersistence;
 	}
 
 	/**
@@ -866,41 +866,40 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the locations local service.
+	 * Returns the location local service.
 	 *
-	 * @return the locations local service
+	 * @return the location local service
 	 */
-	public com.rknowsys.eapp.hrm.service.LocationsLocalService getLocationsLocalService() {
-		return locationsLocalService;
+	public com.rknowsys.eapp.hrm.service.LocationLocalService getLocationLocalService() {
+		return locationLocalService;
 	}
 
 	/**
-	 * Sets the locations local service.
+	 * Sets the location local service.
 	 *
-	 * @param locationsLocalService the locations local service
+	 * @param locationLocalService the location local service
 	 */
-	public void setLocationsLocalService(
-		com.rknowsys.eapp.hrm.service.LocationsLocalService locationsLocalService) {
-		this.locationsLocalService = locationsLocalService;
+	public void setLocationLocalService(
+		com.rknowsys.eapp.hrm.service.LocationLocalService locationLocalService) {
+		this.locationLocalService = locationLocalService;
 	}
 
 	/**
-	 * Returns the locations persistence.
+	 * Returns the location persistence.
 	 *
-	 * @return the locations persistence
+	 * @return the location persistence
 	 */
-	public LocationsPersistence getLocationsPersistence() {
-		return locationsPersistence;
+	public LocationPersistence getLocationPersistence() {
+		return locationPersistence;
 	}
 
 	/**
-	 * Sets the locations persistence.
+	 * Sets the location persistence.
 	 *
-	 * @param locationsPersistence the locations persistence
+	 * @param locationPersistence the location persistence
 	 */
-	public void setLocationsPersistence(
-		LocationsPersistence locationsPersistence) {
-		this.locationsPersistence = locationsPersistence;
+	public void setLocationPersistence(LocationPersistence locationPersistence) {
+		this.locationPersistence = locationPersistence;
 	}
 
 	/**
@@ -1092,44 +1091,6 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
-	 * Returns the qualification local service.
-	 *
-	 * @return the qualification local service
-	 */
-	public com.rknowsys.eapp.hrm.service.QualificationLocalService getQualificationLocalService() {
-		return qualificationLocalService;
-	}
-
-	/**
-	 * Sets the qualification local service.
-	 *
-	 * @param qualificationLocalService the qualification local service
-	 */
-	public void setQualificationLocalService(
-		com.rknowsys.eapp.hrm.service.QualificationLocalService qualificationLocalService) {
-		this.qualificationLocalService = qualificationLocalService;
-	}
-
-	/**
-	 * Returns the qualification persistence.
-	 *
-	 * @return the qualification persistence
-	 */
-	public QualificationPersistence getQualificationPersistence() {
-		return qualificationPersistence;
-	}
-
-	/**
-	 * Sets the qualification persistence.
-	 *
-	 * @param qualificationPersistence the qualification persistence
-	 */
-	public void setQualificationPersistence(
-		QualificationPersistence qualificationPersistence) {
-		this.qualificationPersistence = qualificationPersistence;
-	}
-
-	/**
 	 * Returns the salary component local service.
 	 *
 	 * @return the salary component local service
@@ -1205,6 +1166,119 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * Returns the SubUnit local service.
+	 *
+	 * @return the SubUnit local service
+	 */
+	public com.rknowsys.eapp.hrm.service.SubUnitLocalService getSubUnitLocalService() {
+		return subUnitLocalService;
+	}
+
+	/**
+	 * Sets the SubUnit local service.
+	 *
+	 * @param subUnitLocalService the SubUnit local service
+	 */
+	public void setSubUnitLocalService(
+		com.rknowsys.eapp.hrm.service.SubUnitLocalService subUnitLocalService) {
+		this.subUnitLocalService = subUnitLocalService;
+	}
+
+	/**
+	 * Returns the SubUnit persistence.
+	 *
+	 * @return the SubUnit persistence
+	 */
+	public SubUnitPersistence getSubUnitPersistence() {
+		return subUnitPersistence;
+	}
+
+	/**
+	 * Sets the SubUnit persistence.
+	 *
+	 * @param subUnitPersistence the SubUnit persistence
+	 */
+	public void setSubUnitPersistence(SubUnitPersistence subUnitPersistence) {
+		this.subUnitPersistence = subUnitPersistence;
+	}
+
+	/**
+	 * Returns the Supervisor local service.
+	 *
+	 * @return the Supervisor local service
+	 */
+	public com.rknowsys.eapp.hrm.service.SupervisorLocalService getSupervisorLocalService() {
+		return supervisorLocalService;
+	}
+
+	/**
+	 * Sets the Supervisor local service.
+	 *
+	 * @param supervisorLocalService the Supervisor local service
+	 */
+	public void setSupervisorLocalService(
+		com.rknowsys.eapp.hrm.service.SupervisorLocalService supervisorLocalService) {
+		this.supervisorLocalService = supervisorLocalService;
+	}
+
+	/**
+	 * Returns the Supervisor persistence.
+	 *
+	 * @return the Supervisor persistence
+	 */
+	public SupervisorPersistence getSupervisorPersistence() {
+		return supervisorPersistence;
+	}
+
+	/**
+	 * Sets the Supervisor persistence.
+	 *
+	 * @param supervisorPersistence the Supervisor persistence
+	 */
+	public void setSupervisorPersistence(
+		SupervisorPersistence supervisorPersistence) {
+		this.supervisorPersistence = supervisorPersistence;
+	}
+
+	/**
+	 * Returns the WorkExpCompany local service.
+	 *
+	 * @return the WorkExpCompany local service
+	 */
+	public com.rknowsys.eapp.hrm.service.WorkExpCompanyLocalService getWorkExpCompanyLocalService() {
+		return workExpCompanyLocalService;
+	}
+
+	/**
+	 * Sets the WorkExpCompany local service.
+	 *
+	 * @param workExpCompanyLocalService the WorkExpCompany local service
+	 */
+	public void setWorkExpCompanyLocalService(
+		com.rknowsys.eapp.hrm.service.WorkExpCompanyLocalService workExpCompanyLocalService) {
+		this.workExpCompanyLocalService = workExpCompanyLocalService;
+	}
+
+	/**
+	 * Returns the WorkExpCompany persistence.
+	 *
+	 * @return the WorkExpCompany persistence
+	 */
+	public WorkExpCompanyPersistence getWorkExpCompanyPersistence() {
+		return workExpCompanyPersistence;
+	}
+
+	/**
+	 * Sets the WorkExpCompany persistence.
+	 *
+	 * @param workExpCompanyPersistence the WorkExpCompany persistence
+	 */
+	public void setWorkExpCompanyPersistence(
+		WorkExpCompanyPersistence workExpCompanyPersistence) {
+		this.workExpCompanyPersistence = workExpCompanyPersistence;
+	}
+
+	/**
 	 * Returns the workshift local service.
 	 *
 	 * @return the workshift local service
@@ -1240,44 +1314,6 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	public void setWorkshiftPersistence(
 		WorkshiftPersistence workshiftPersistence) {
 		this.workshiftPersistence = workshiftPersistence;
-	}
-
-	/**
-	 * Returns the work shift user local service.
-	 *
-	 * @return the work shift user local service
-	 */
-	public com.rknowsys.eapp.hrm.service.WorkShiftUserLocalService getWorkShiftUserLocalService() {
-		return workShiftUserLocalService;
-	}
-
-	/**
-	 * Sets the work shift user local service.
-	 *
-	 * @param workShiftUserLocalService the work shift user local service
-	 */
-	public void setWorkShiftUserLocalService(
-		com.rknowsys.eapp.hrm.service.WorkShiftUserLocalService workShiftUserLocalService) {
-		this.workShiftUserLocalService = workShiftUserLocalService;
-	}
-
-	/**
-	 * Returns the work shift user persistence.
-	 *
-	 * @return the work shift user persistence
-	 */
-	public WorkShiftUserPersistence getWorkShiftUserPersistence() {
-		return workShiftUserPersistence;
-	}
-
-	/**
-	 * Sets the work shift user persistence.
-	 *
-	 * @param workShiftUserPersistence the work shift user persistence
-	 */
-	public void setWorkShiftUserPersistence(
-		WorkShiftUserPersistence workShiftUserPersistence) {
-		this.workShiftUserPersistence = workShiftUserPersistence;
 	}
 
 	/**
@@ -1472,10 +1508,6 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.DocCategoryLocalService docCategoryLocalService;
 	@BeanReference(type = DocCategoryPersistence.class)
 	protected DocCategoryPersistence docCategoryPersistence;
-	@BeanReference(type = com.rknowsys.eapp.hrm.service.DocumentLocalService.class)
-	protected com.rknowsys.eapp.hrm.service.DocumentLocalService documentLocalService;
-	@BeanReference(type = DocumentPersistence.class)
-	protected DocumentPersistence documentPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.EducationLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.EducationLocalService educationLocalService;
 	@BeanReference(type = EducationPersistence.class)
@@ -1492,22 +1524,26 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.EmploymentStatusLocalService employmentStatusLocalService;
 	@BeanReference(type = EmploymentStatusPersistence.class)
 	protected EmploymentStatusPersistence employmentStatusPersistence;
-	@BeanReference(type = com.rknowsys.eapp.hrm.service.ImmigrationLocalService.class)
-	protected com.rknowsys.eapp.hrm.service.ImmigrationLocalService immigrationLocalService;
-	@BeanReference(type = ImmigrationPersistence.class)
-	protected ImmigrationPersistence immigrationPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.ImmigrationDocumentLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.ImmigrationDocumentLocalService immigrationDocumentLocalService;
+	@BeanReference(type = ImmigrationDocumentPersistence.class)
+	protected ImmigrationDocumentPersistence immigrationDocumentPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.InterviewLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.InterviewLocalService interviewLocalService;
 	@BeanReference(type = InterviewPersistence.class)
 	protected InterviewPersistence interviewPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.JobLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.JobLocalService jobLocalService;
+	@BeanReference(type = JobPersistence.class)
+	protected JobPersistence jobPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.JobCategoryLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.JobCategoryLocalService jobCategoryLocalService;
 	@BeanReference(type = JobCategoryPersistence.class)
 	protected JobCategoryPersistence jobCategoryPersistence;
-	@BeanReference(type = com.rknowsys.eapp.hrm.service.JobTitlesLocalService.class)
-	protected com.rknowsys.eapp.hrm.service.JobTitlesLocalService jobTitlesLocalService;
-	@BeanReference(type = JobTitlesPersistence.class)
-	protected JobTitlesPersistence jobTitlesPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.JobTitleLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.JobTitleLocalService jobTitleLocalService;
+	@BeanReference(type = JobTitlePersistence.class)
+	protected JobTitlePersistence jobTitlePersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.LanguageLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.LanguageLocalService languageLocalService;
 	@BeanReference(type = LanguagePersistence.class)
@@ -1516,10 +1552,10 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.LicenseLocalService licenseLocalService;
 	@BeanReference(type = LicensePersistence.class)
 	protected LicensePersistence licensePersistence;
-	@BeanReference(type = com.rknowsys.eapp.hrm.service.LocationsLocalService.class)
-	protected com.rknowsys.eapp.hrm.service.LocationsLocalService locationsLocalService;
-	@BeanReference(type = LocationsPersistence.class)
-	protected LocationsPersistence locationsPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.LocationLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.LocationLocalService locationLocalService;
+	@BeanReference(type = LocationPersistence.class)
+	protected LocationPersistence locationPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.MembershipLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.MembershipLocalService membershipLocalService;
 	@BeanReference(type = MembershipPersistence.class)
@@ -1540,10 +1576,6 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalService payGradeCurrencyLocalService;
 	@BeanReference(type = PayGradeCurrencyPersistence.class)
 	protected PayGradeCurrencyPersistence payGradeCurrencyPersistence;
-	@BeanReference(type = com.rknowsys.eapp.hrm.service.QualificationLocalService.class)
-	protected com.rknowsys.eapp.hrm.service.QualificationLocalService qualificationLocalService;
-	@BeanReference(type = QualificationPersistence.class)
-	protected QualificationPersistence qualificationPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.SalaryComponentLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.SalaryComponentLocalService salaryComponentLocalService;
 	@BeanReference(type = SalaryComponentPersistence.class)
@@ -1552,14 +1584,22 @@ public abstract class PayGradeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.SkillLocalService skillLocalService;
 	@BeanReference(type = SkillPersistence.class)
 	protected SkillPersistence skillPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.SubUnitLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.SubUnitLocalService subUnitLocalService;
+	@BeanReference(type = SubUnitPersistence.class)
+	protected SubUnitPersistence subUnitPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.SupervisorLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.SupervisorLocalService supervisorLocalService;
+	@BeanReference(type = SupervisorPersistence.class)
+	protected SupervisorPersistence supervisorPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.WorkExpCompanyLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.WorkExpCompanyLocalService workExpCompanyLocalService;
+	@BeanReference(type = WorkExpCompanyPersistence.class)
+	protected WorkExpCompanyPersistence workExpCompanyPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.WorkshiftLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.WorkshiftLocalService workshiftLocalService;
 	@BeanReference(type = WorkshiftPersistence.class)
 	protected WorkshiftPersistence workshiftPersistence;
-	@BeanReference(type = com.rknowsys.eapp.hrm.service.WorkShiftUserLocalService.class)
-	protected com.rknowsys.eapp.hrm.service.WorkShiftUserLocalService workShiftUserLocalService;
-	@BeanReference(type = WorkShiftUserPersistence.class)
-	protected WorkShiftUserPersistence workShiftUserPersistence;
 	@BeanReference(type = com.liferay.counter.service.CounterLocalService.class)
 	protected com.liferay.counter.service.CounterLocalService counterLocalService;
 	@BeanReference(type = com.liferay.portal.service.ResourceLocalService.class)

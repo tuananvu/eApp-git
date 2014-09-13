@@ -15,7 +15,7 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 /**
- * The extended model implementation for the EmergencyContact service. Represents a row in the &quot;hrm_EmergencyContact&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the EmergencyContact service. Represents a row in the &quot;emergency_contact&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
  * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.EmergencyContact} interface.
@@ -27,7 +27,7 @@ public class EmergencyContactImpl extends EmergencyContactBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. All methods that expect a emergency contact model instance should use the {@link com.rknowsys.eapp.hrm.model.EmergencyContact} interface instead.
+	 * Never reference this class directly. All methods that expect a EmergencyContact model instance should use the {@link com.rknowsys.eapp.hrm.model.EmergencyContact} interface instead.
 	 */
 	public EmergencyContactImpl() {
 	}

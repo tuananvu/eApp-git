@@ -147,12 +147,13 @@ public class NationalityLocalServiceClp implements NationalityLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Nationality createNationality(long id) {
+	public com.rknowsys.eapp.hrm.model.Nationality createNationality(
+		long nationalityId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { nationalityId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -170,14 +171,15 @@ public class NationalityLocalServiceClp implements NationalityLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Nationality deleteNationality(long id)
+	public com.rknowsys.eapp.hrm.model.Nationality deleteNationality(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { nationalityId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -430,13 +432,14 @@ public class NationalityLocalServiceClp implements NationalityLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Nationality fetchNationality(long id)
+	public com.rknowsys.eapp.hrm.model.Nationality fetchNationality(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { nationalityId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -458,14 +461,15 @@ public class NationalityLocalServiceClp implements NationalityLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Nationality getNationality(long id)
+	public com.rknowsys.eapp.hrm.model.Nationality getNationality(
+		long nationalityId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { nationalityId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

@@ -55,27 +55,27 @@ public class MembershipLocalServiceUtil {
 	/**
 	* Creates a new membership with the primary key. Does not add the membership to the database.
 	*
-	* @param id the primary key for the new membership
+	* @param membershipId the primary key for the new membership
 	* @return the new membership
 	*/
 	public static com.rknowsys.eapp.hrm.model.Membership createMembership(
-		long id) {
-		return getService().createMembership(id);
+		long membershipId) {
+		return getService().createMembership(membershipId);
 	}
 
 	/**
 	* Deletes the membership with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the membership
+	* @param membershipId the primary key of the membership
 	* @return the membership that was removed
 	* @throws PortalException if a membership with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Membership deleteMembership(
-		long id)
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteMembership(id);
+		return getService().deleteMembership(membershipId);
 	}
 
 	/**
@@ -182,22 +182,24 @@ public class MembershipLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.Membership fetchMembership(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchMembership(id);
+		long membershipId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchMembership(membershipId);
 	}
 
 	/**
 	* Returns the membership with the primary key.
 	*
-	* @param id the primary key of the membership
+	* @param membershipId the primary key of the membership
 	* @return the membership
 	* @throws PortalException if a membership with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.Membership getMembership(long id)
+	public static com.rknowsys.eapp.hrm.model.Membership getMembership(
+		long membershipId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getMembership(id);
+		return getService().getMembership(membershipId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

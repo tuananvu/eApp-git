@@ -37,12 +37,18 @@ import java.util.Date;
 public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("{employeeId=");
 		sb.append(employeeId);
+		sb.append(", contactDetailsId=");
+		sb.append(contactDetailsId);
+		sb.append(", jobId=");
+		sb.append(jobId);
 		sb.append(", shiftId=");
 		sb.append(shiftId);
+		sb.append(", licenseId=");
+		sb.append(licenseId);
 		sb.append(", groupId=");
 		sb.append(groupId);
 		sb.append(", companyId=");
@@ -79,7 +85,10 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 		EmployeeImpl employeeImpl = new EmployeeImpl();
 
 		employeeImpl.setEmployeeId(employeeId);
+		employeeImpl.setContactDetailsId(contactDetailsId);
+		employeeImpl.setJobId(jobId);
 		employeeImpl.setShiftId(shiftId);
+		employeeImpl.setLicenseId(licenseId);
 		employeeImpl.setGroupId(groupId);
 		employeeImpl.setCompanyId(companyId);
 		employeeImpl.setUserId(userId);
@@ -120,13 +129,7 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 		}
 
 		employeeImpl.setGender(gender);
-
-		if (maritalStatus == null) {
-			employeeImpl.setMaritalStatus(StringPool.BLANK);
-		}
-		else {
-			employeeImpl.setMaritalStatus(maritalStatus);
-		}
+		employeeImpl.setMaritalStatus(maritalStatus);
 
 		if (nationality == null) {
 			employeeImpl.setNationality(StringPool.BLANK);
@@ -157,7 +160,10 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
 		employeeId = objectInput.readLong();
+		contactDetailsId = objectInput.readLong();
+		jobId = objectInput.readLong();
 		shiftId = objectInput.readLong();
+		licenseId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		userId = objectInput.readLong();
@@ -167,7 +173,7 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 		lastName = objectInput.readUTF();
 		middleName = objectInput.readUTF();
 		gender = objectInput.readInt();
-		maritalStatus = objectInput.readUTF();
+		maritalStatus = objectInput.readInt();
 		nationality = objectInput.readUTF();
 		dateOfBirth = objectInput.readLong();
 		otherId = objectInput.readUTF();
@@ -177,7 +183,10 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		objectOutput.writeLong(employeeId);
+		objectOutput.writeLong(contactDetailsId);
+		objectOutput.writeLong(jobId);
 		objectOutput.writeLong(shiftId);
+		objectOutput.writeLong(licenseId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(userId);
@@ -206,13 +215,7 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 		}
 
 		objectOutput.writeInt(gender);
-
-		if (maritalStatus == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(maritalStatus);
-		}
+		objectOutput.writeInt(maritalStatus);
 
 		if (nationality == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -232,7 +235,10 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 	}
 
 	public long employeeId;
+	public long contactDetailsId;
+	public long jobId;
 	public long shiftId;
+	public long licenseId;
 	public long groupId;
 	public long companyId;
 	public long userId;
@@ -242,7 +248,7 @@ public class EmployeeCacheModel implements CacheModel<Employee>, Externalizable 
 	public String lastName;
 	public String middleName;
 	public int gender;
-	public String maritalStatus;
+	public int maritalStatus;
 	public String nationality;
 	public long dateOfBirth;
 	public String otherId;

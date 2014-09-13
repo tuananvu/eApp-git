@@ -53,17 +53,17 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _nationalityId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setNationalityId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _nationalityId;
 	}
 
 	@Override
@@ -75,23 +75,29 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
-		attributes.put("companyId", getCompanyId());
+		attributes.put("nationalityId", getNationalityId());
 		attributes.put("groupId", getGroupId());
+		attributes.put("companyId", getCompanyId());
+		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
-		attributes.put("userId", getUserId());
-		attributes.put("nationalityName", getNationalityName());
+		attributes.put("Name", getName());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long nationalityId = (Long)attributes.get("nationalityId");
 
-		if (id != null) {
-			setId(id);
+		if (nationalityId != null) {
+			setNationalityId(nationalityId);
+		}
+
+		Long groupId = (Long)attributes.get("groupId");
+
+		if (groupId != null) {
+			setGroupId(groupId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -100,10 +106,10 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 			setCompanyId(companyId);
 		}
 
-		Long groupId = (Long)attributes.get("groupId");
+		Long userId = (Long)attributes.get("userId");
 
-		if (groupId != null) {
-			setGroupId(groupId);
+		if (userId != null) {
+			setUserId(userId);
 		}
 
 		Date createDate = (Date)attributes.get("createDate");
@@ -118,35 +124,52 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 			setModifiedDate(modifiedDate);
 		}
 
-		Long userId = (Long)attributes.get("userId");
+		String Name = (String)attributes.get("Name");
 
-		if (userId != null) {
-			setUserId(userId);
-		}
-
-		String nationalityName = (String)attributes.get("nationalityName");
-
-		if (nationalityName != null) {
-			setNationalityName(nationalityName);
+		if (Name != null) {
+			setName(Name);
 		}
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getNationalityId() {
+		return _nationalityId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setNationalityId(long nationalityId) {
+		_nationalityId = nationalityId;
 
 		if (_nationalityRemoteModel != null) {
 			try {
 				Class<?> clazz = _nationalityRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setNationalityId", long.class);
 
-				method.invoke(_nationalityRemoteModel, id);
+				method.invoke(_nationalityRemoteModel, nationalityId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getGroupId() {
+		return _groupId;
+	}
+
+	@Override
+	public void setGroupId(long groupId) {
+		_groupId = groupId;
+
+		if (_nationalityRemoteModel != null) {
+			try {
+				Class<?> clazz = _nationalityRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setGroupId", long.class);
+
+				method.invoke(_nationalityRemoteModel, groupId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -178,26 +201,36 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 	}
 
 	@Override
-	public long getGroupId() {
-		return _groupId;
+	public long getUserId() {
+		return _userId;
 	}
 
 	@Override
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
+	public void setUserId(long userId) {
+		_userId = userId;
 
 		if (_nationalityRemoteModel != null) {
 			try {
 				Class<?> clazz = _nationalityRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setGroupId", long.class);
+				Method method = clazz.getMethod("setUserId", long.class);
 
-				method.invoke(_nationalityRemoteModel, groupId);
+				method.invoke(_nationalityRemoteModel, userId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
 			}
 		}
+	}
+
+	@Override
+	public String getUserUuid() throws SystemException {
+		return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
+	}
+
+	@Override
+	public void setUserUuid(String userUuid) {
+		_userUuid = userUuid;
 	}
 
 	@Override
@@ -247,55 +280,21 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 	}
 
 	@Override
-	public long getUserId() {
-		return _userId;
+	public String getName() {
+		return _Name;
 	}
 
 	@Override
-	public void setUserId(long userId) {
-		_userId = userId;
+	public void setName(String Name) {
+		_Name = Name;
 
 		if (_nationalityRemoteModel != null) {
 			try {
 				Class<?> clazz = _nationalityRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setUserId", long.class);
+				Method method = clazz.getMethod("setName", String.class);
 
-				method.invoke(_nationalityRemoteModel, userId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public String getUserUuid() throws SystemException {
-		return PortalUtil.getUserValue(getUserId(), "uuid", _userUuid);
-	}
-
-	@Override
-	public void setUserUuid(String userUuid) {
-		_userUuid = userUuid;
-	}
-
-	@Override
-	public String getNationalityName() {
-		return _nationalityName;
-	}
-
-	@Override
-	public void setNationalityName(String nationalityName) {
-		_nationalityName = nationalityName;
-
-		if (_nationalityRemoteModel != null) {
-			try {
-				Class<?> clazz = _nationalityRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setNationalityName",
-						String.class);
-
-				method.invoke(_nationalityRemoteModel, nationalityName);
+				method.invoke(_nationalityRemoteModel, Name);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -372,13 +371,13 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 	public Object clone() {
 		NationalityClp clone = new NationalityClp();
 
-		clone.setId(getId());
-		clone.setCompanyId(getCompanyId());
+		clone.setNationalityId(getNationalityId());
 		clone.setGroupId(getGroupId());
+		clone.setCompanyId(getCompanyId());
+		clone.setUserId(getUserId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
-		clone.setUserId(getUserId());
-		clone.setNationalityName(getNationalityName());
+		clone.setName(getName());
 
 		return clone;
 	}
@@ -429,20 +428,20 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 	public String toString() {
 		StringBundler sb = new StringBundler(15);
 
-		sb.append("{id=");
-		sb.append(getId());
-		sb.append(", companyId=");
-		sb.append(getCompanyId());
+		sb.append("{nationalityId=");
+		sb.append(getNationalityId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
+		sb.append(", companyId=");
+		sb.append(getCompanyId());
+		sb.append(", userId=");
+		sb.append(getUserId());
 		sb.append(", createDate=");
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
-		sb.append(", userId=");
-		sb.append(getUserId());
-		sb.append(", nationalityName=");
-		sb.append(getNationalityName());
+		sb.append(", Name=");
+		sb.append(getName());
 		sb.append("}");
 
 		return sb.toString();
@@ -457,16 +456,20 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>nationalityId</column-name><column-value><![CDATA[");
+		sb.append(getNationalityId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>groupId</column-name><column-value><![CDATA[");
+		sb.append(getGroupId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
 		sb.append(getCompanyId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>groupId</column-name><column-value><![CDATA[");
-		sb.append(getGroupId());
+			"<column><column-name>userId</column-name><column-value><![CDATA[");
+		sb.append(getUserId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>createDate</column-name><column-value><![CDATA[");
@@ -477,12 +480,8 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>userId</column-name><column-value><![CDATA[");
-		sb.append(getUserId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>nationalityName</column-name><column-value><![CDATA[");
-		sb.append(getNationalityName());
+			"<column><column-name>Name</column-name><column-value><![CDATA[");
+		sb.append(getName());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -490,13 +489,13 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 		return sb.toString();
 	}
 
-	private long _id;
-	private long _companyId;
+	private long _nationalityId;
 	private long _groupId;
-	private Date _createDate;
-	private Date _modifiedDate;
+	private long _companyId;
 	private long _userId;
 	private String _userUuid;
-	private String _nationalityName;
+	private Date _createDate;
+	private Date _modifiedDate;
+	private String _Name;
 	private BaseModel<?> _nationalityRemoteModel;
 }

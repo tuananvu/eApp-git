@@ -30,12 +30,18 @@ public class EmergencyContactSoap implements Serializable {
 	public static EmergencyContactSoap toSoapModel(EmergencyContact model) {
 		EmergencyContactSoap soapModel = new EmergencyContactSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setEmergencyContactId(model.getEmergencyContactId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
+		soapModel.setName(model.getName());
+		soapModel.setRelationship(model.getRelationship());
+		soapModel.setHomeTelephone(model.getHomeTelephone());
+		soapModel.setMobile(model.getMobile());
+		soapModel.setWorkTelephone(model.getWorkTelephone());
 
 		return soapModel;
 	}
@@ -83,19 +89,27 @@ public class EmergencyContactSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _emergencyContactId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setEmergencyContactId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getEmergencyContactId() {
+		return _emergencyContactId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setEmergencyContactId(long emergencyContactId) {
+		_emergencyContactId = emergencyContactId;
+	}
+
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
 	}
 
 	public long getGroupId() {
@@ -138,10 +152,56 @@ public class EmergencyContactSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
-	private long _id;
+	public String getName() {
+		return _name;
+	}
+
+	public void setName(String name) {
+		_name = name;
+	}
+
+	public String getRelationship() {
+		return _relationship;
+	}
+
+	public void setRelationship(String relationship) {
+		_relationship = relationship;
+	}
+
+	public String getHomeTelephone() {
+		return _homeTelephone;
+	}
+
+	public void setHomeTelephone(String homeTelephone) {
+		_homeTelephone = homeTelephone;
+	}
+
+	public String getMobile() {
+		return _mobile;
+	}
+
+	public void setMobile(String mobile) {
+		_mobile = mobile;
+	}
+
+	public String getWorkTelephone() {
+		return _workTelephone;
+	}
+
+	public void setWorkTelephone(String workTelephone) {
+		_workTelephone = workTelephone;
+	}
+
+	private long _emergencyContactId;
+	private long _employeeId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _name;
+	private String _relationship;
+	private String _homeTelephone;
+	private String _mobile;
+	private String _workTelephone;
 }

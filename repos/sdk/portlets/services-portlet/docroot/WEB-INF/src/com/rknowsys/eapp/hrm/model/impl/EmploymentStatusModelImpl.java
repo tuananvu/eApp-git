@@ -61,18 +61,19 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	 */
 	public static final String TABLE_NAME = "employment_status";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "id_", Types.BIGINT },
+			{ "employmentStatusId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "userId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
-			{ "employmentstatus", Types.VARCHAR }
+			{ "employmentstatus", Types.VARCHAR },
+			{ "jobId", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table employment_status (id_ LONG not null primary key,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,employmentstatus VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table employment_status (employmentStatusId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,employmentstatus VARCHAR(75) null,jobId LONG)";
 	public static final String TABLE_SQL_DROP = "drop table employment_status";
-	public static final String ORDER_BY_JPQL = " ORDER BY employmentStatus.id ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY employment_status.id_ ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY employmentStatus.employmentStatusId ASC";
+	public static final String ORDER_BY_SQL = " ORDER BY employment_status.employmentStatusId ASC";
 	public static final String DATA_SOURCE = "anotherDataSource";
 	public static final String SESSION_FACTORY = "anotherSessionFactory";
 	public static final String TX_MANAGER = "anotherTransactionManager";
@@ -91,17 +92,17 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _employmentStatusId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setEmploymentStatusId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _employmentStatusId;
 	}
 
 	@Override
@@ -123,23 +124,24 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("employmentStatusId", getEmploymentStatusId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("employmentstatus", getEmploymentstatus());
+		attributes.put("jobId", getJobId());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long employmentStatusId = (Long)attributes.get("employmentStatusId");
 
-		if (id != null) {
-			setId(id);
+		if (employmentStatusId != null) {
+			setEmploymentStatusId(employmentStatusId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -177,16 +179,22 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 		if (employmentstatus != null) {
 			setEmploymentstatus(employmentstatus);
 		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getEmploymentStatusId() {
+		return _employmentStatusId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setEmploymentStatusId(long employmentStatusId) {
+		_employmentStatusId = employmentStatusId;
 	}
 
 	@Override
@@ -265,6 +273,16 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	}
 
 	@Override
+	public long getJobId() {
+		return _jobId;
+	}
+
+	@Override
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+	}
+
+	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
 			EmploymentStatus.class.getName(), getPrimaryKey());
@@ -291,13 +309,14 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	public Object clone() {
 		EmploymentStatusImpl employmentStatusImpl = new EmploymentStatusImpl();
 
-		employmentStatusImpl.setId(getId());
+		employmentStatusImpl.setEmploymentStatusId(getEmploymentStatusId());
 		employmentStatusImpl.setGroupId(getGroupId());
 		employmentStatusImpl.setCompanyId(getCompanyId());
 		employmentStatusImpl.setUserId(getUserId());
 		employmentStatusImpl.setCreateDate(getCreateDate());
 		employmentStatusImpl.setModifiedDate(getModifiedDate());
 		employmentStatusImpl.setEmploymentstatus(getEmploymentstatus());
+		employmentStatusImpl.setJobId(getJobId());
 
 		employmentStatusImpl.resetOriginalValues();
 
@@ -354,7 +373,7 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	public CacheModel<EmploymentStatus> toCacheModel() {
 		EmploymentStatusCacheModel employmentStatusCacheModel = new EmploymentStatusCacheModel();
 
-		employmentStatusCacheModel.id = getId();
+		employmentStatusCacheModel.employmentStatusId = getEmploymentStatusId();
 
 		employmentStatusCacheModel.groupId = getGroupId();
 
@@ -388,15 +407,17 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 			employmentStatusCacheModel.employmentstatus = null;
 		}
 
+		employmentStatusCacheModel.jobId = getJobId();
+
 		return employmentStatusCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{employmentStatusId=");
+		sb.append(getEmploymentStatusId());
 		sb.append(", groupId=");
 		sb.append(getGroupId());
 		sb.append(", companyId=");
@@ -409,6 +430,8 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 		sb.append(getModifiedDate());
 		sb.append(", employmentstatus=");
 		sb.append(getEmploymentstatus());
+		sb.append(", jobId=");
+		sb.append(getJobId());
 		sb.append("}");
 
 		return sb.toString();
@@ -416,15 +439,15 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.EmploymentStatus");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>employmentStatusId</column-name><column-value><![CDATA[");
+		sb.append(getEmploymentStatusId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>groupId</column-name><column-value><![CDATA[");
@@ -450,6 +473,10 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 			"<column><column-name>employmentstatus</column-name><column-value><![CDATA[");
 		sb.append(getEmploymentstatus());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>jobId</column-name><column-value><![CDATA[");
+		sb.append(getJobId());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -460,7 +487,7 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	private static Class<?>[] _escapedModelInterfaces = new Class[] {
 			EmploymentStatus.class
 		};
-	private long _id;
+	private long _employmentStatusId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
@@ -468,5 +495,6 @@ public class EmploymentStatusModelImpl extends BaseModelImpl<EmploymentStatus>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private String _employmentstatus;
+	private long _jobId;
 	private EmploymentStatus _escapedModel;
 }

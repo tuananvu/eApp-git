@@ -30,7 +30,7 @@ public class ContactDetailsSoap implements Serializable {
 	public static ContactDetailsSoap toSoapModel(ContactDetails model) {
 		ContactDetailsSoap soapModel = new ContactDetailsSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setContactDetailsId(model.getContactDetailsId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
@@ -93,19 +93,19 @@ public class ContactDetailsSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _contactDetailsId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setContactDetailsId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getContactDetailsId() {
+		return _contactDetailsId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setContactDetailsId(long contactDetailsId) {
+		_contactDetailsId = contactDetailsId;
 	}
 
 	public long getGroupId() {
@@ -244,7 +244,7 @@ public class ContactDetailsSoap implements Serializable {
 		_otherEmail = otherEmail;
 	}
 
-	private long _id;
+	private long _contactDetailsId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;

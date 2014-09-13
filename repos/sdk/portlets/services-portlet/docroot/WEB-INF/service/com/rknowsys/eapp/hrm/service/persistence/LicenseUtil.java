@@ -230,7 +230,7 @@ public class LicenseUtil {
 	/**
 	* Returns the licenses before and after the current license in the ordered set where groupId = &#63;.
 	*
-	* @param id the primary key of the current license
+	* @param licenseId the primary key of the current license
 	* @param groupId the group ID
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next license
@@ -238,12 +238,13 @@ public class LicenseUtil {
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.License[] findByGroupId_PrevAndNext(
-		long id, long groupId,
+		long licenseId, long groupId,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchLicenseException {
 		return getPersistence()
-				   .findByGroupId_PrevAndNext(id, groupId, orderByComparator);
+				   .findByGroupId_PrevAndNext(licenseId, groupId,
+			orderByComparator);
 	}
 
 	/**
@@ -270,6 +271,316 @@ public class LicenseUtil {
 	}
 
 	/**
+	* Returns all the licenses where licenseId = &#63;.
+	*
+	* @param licenseId the license ID
+	* @return the matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.License> findBylicenseId(
+		long licenseId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBylicenseId(licenseId);
+	}
+
+	/**
+	* Returns a range of all the licenses where licenseId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LicenseModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param licenseId the license ID
+	* @param start the lower bound of the range of licenses
+	* @param end the upper bound of the range of licenses (not inclusive)
+	* @return the range of matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.License> findBylicenseId(
+		long licenseId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findBylicenseId(licenseId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the licenses where licenseId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LicenseModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param licenseId the license ID
+	* @param start the lower bound of the range of licenses
+	* @param end the upper bound of the range of licenses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.License> findBylicenseId(
+		long licenseId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findBylicenseId(licenseId, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first license in the ordered set where licenseId = &#63;.
+	*
+	* @param licenseId the license ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching license
+	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License findBylicenseId_First(
+		long licenseId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchLicenseException {
+		return getPersistence()
+				   .findBylicenseId_First(licenseId, orderByComparator);
+	}
+
+	/**
+	* Returns the first license in the ordered set where licenseId = &#63;.
+	*
+	* @param licenseId the license ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching license, or <code>null</code> if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License fetchBylicenseId_First(
+		long licenseId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchBylicenseId_First(licenseId, orderByComparator);
+	}
+
+	/**
+	* Returns the last license in the ordered set where licenseId = &#63;.
+	*
+	* @param licenseId the license ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching license
+	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License findBylicenseId_Last(
+		long licenseId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchLicenseException {
+		return getPersistence()
+				   .findBylicenseId_Last(licenseId, orderByComparator);
+	}
+
+	/**
+	* Returns the last license in the ordered set where licenseId = &#63;.
+	*
+	* @param licenseId the license ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching license, or <code>null</code> if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License fetchBylicenseId_Last(
+		long licenseId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchBylicenseId_Last(licenseId, orderByComparator);
+	}
+
+	/**
+	* Removes all the licenses where licenseId = &#63; from the database.
+	*
+	* @param licenseId the license ID
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeBylicenseId(long licenseId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeBylicenseId(licenseId);
+	}
+
+	/**
+	* Returns the number of licenses where licenseId = &#63;.
+	*
+	* @param licenseId the license ID
+	* @return the number of matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countBylicenseId(long licenseId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countBylicenseId(licenseId);
+	}
+
+	/**
+	* Returns all the licenses where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @return the matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.License> findByemployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByemployeeId(employeeId);
+	}
+
+	/**
+	* Returns a range of all the licenses where employeeId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LicenseModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param employeeId the employee ID
+	* @param start the lower bound of the range of licenses
+	* @param end the upper bound of the range of licenses (not inclusive)
+	* @return the range of matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.License> findByemployeeId(
+		long employeeId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByemployeeId(employeeId, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the licenses where employeeId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LicenseModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param employeeId the employee ID
+	* @param start the lower bound of the range of licenses
+	* @param end the upper bound of the range of licenses (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.License> findByemployeeId(
+		long employeeId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByemployeeId(employeeId, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the first license in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching license
+	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License findByemployeeId_First(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchLicenseException {
+		return getPersistence()
+				   .findByemployeeId_First(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the first license in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching license, or <code>null</code> if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License fetchByemployeeId_First(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemployeeId_First(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the last license in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching license
+	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License findByemployeeId_Last(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchLicenseException {
+		return getPersistence()
+				   .findByemployeeId_Last(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the last license in the ordered set where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching license, or <code>null</code> if a matching license could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License fetchByemployeeId_Last(
+		long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .fetchByemployeeId_Last(employeeId, orderByComparator);
+	}
+
+	/**
+	* Returns the licenses before and after the current license in the ordered set where employeeId = &#63;.
+	*
+	* @param licenseId the primary key of the current license
+	* @param employeeId the employee ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next license
+	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a license with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.License[] findByemployeeId_PrevAndNext(
+		long licenseId, long employeeId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchLicenseException {
+		return getPersistence()
+				   .findByemployeeId_PrevAndNext(licenseId, employeeId,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the licenses where employeeId = &#63; from the database.
+	*
+	* @param employeeId the employee ID
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeByemployeeId(long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeByemployeeId(employeeId);
+	}
+
+	/**
+	* Returns the number of licenses where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @return the number of matching licenses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByemployeeId(long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByemployeeId(employeeId);
+	}
+
+	/**
 	* Caches the license in the entity cache if it is enabled.
 	*
 	* @param license the license
@@ -291,25 +602,25 @@ public class LicenseUtil {
 	/**
 	* Creates a new license with the primary key. Does not add the license to the database.
 	*
-	* @param id the primary key for the new license
+	* @param licenseId the primary key for the new license
 	* @return the new license
 	*/
-	public static com.rknowsys.eapp.hrm.model.License create(long id) {
-		return getPersistence().create(id);
+	public static com.rknowsys.eapp.hrm.model.License create(long licenseId) {
+		return getPersistence().create(licenseId);
 	}
 
 	/**
 	* Removes the license with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license that was removed
 	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.License remove(long id)
+	public static com.rknowsys.eapp.hrm.model.License remove(long licenseId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchLicenseException {
-		return getPersistence().remove(id);
+		return getPersistence().remove(licenseId);
 	}
 
 	public static com.rknowsys.eapp.hrm.model.License updateImpl(
@@ -321,27 +632,29 @@ public class LicenseUtil {
 	/**
 	* Returns the license with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchLicenseException} if it could not be found.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license
 	* @throws com.rknowsys.eapp.hrm.NoSuchLicenseException if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.License findByPrimaryKey(long id)
+	public static com.rknowsys.eapp.hrm.model.License findByPrimaryKey(
+		long licenseId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchLicenseException {
-		return getPersistence().findByPrimaryKey(id);
+		return getPersistence().findByPrimaryKey(licenseId);
 	}
 
 	/**
 	* Returns the license with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param id the primary key of the license
+	* @param licenseId the primary key of the license
 	* @return the license, or <code>null</code> if a license with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static com.rknowsys.eapp.hrm.model.License fetchByPrimaryKey(long id)
+	public static com.rknowsys.eapp.hrm.model.License fetchByPrimaryKey(
+		long licenseId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getPersistence().fetchByPrimaryKey(id);
+		return getPersistence().fetchByPrimaryKey(licenseId);
 	}
 
 	/**

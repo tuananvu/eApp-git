@@ -48,29 +48,29 @@ public class SalaryComponentLocalServiceWrapper
 	/**
 	* Creates a new salary component with the primary key. Does not add the salary component to the database.
 	*
-	* @param id the primary key for the new salary component
+	* @param salaryComponentId the primary key for the new salary component
 	* @return the new salary component
 	*/
 	@Override
 	public com.rknowsys.eapp.hrm.model.SalaryComponent createSalaryComponent(
-		long id) {
-		return _salaryComponentLocalService.createSalaryComponent(id);
+		long salaryComponentId) {
+		return _salaryComponentLocalService.createSalaryComponent(salaryComponentId);
 	}
 
 	/**
 	* Deletes the salary component with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the salary component
+	* @param salaryComponentId the primary key of the salary component
 	* @return the salary component that was removed
 	* @throws PortalException if a salary component with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public com.rknowsys.eapp.hrm.model.SalaryComponent deleteSalaryComponent(
-		long id)
+		long salaryComponentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _salaryComponentLocalService.deleteSalaryComponent(id);
+		return _salaryComponentLocalService.deleteSalaryComponent(salaryComponentId);
 	}
 
 	/**
@@ -187,24 +187,25 @@ public class SalaryComponentLocalServiceWrapper
 
 	@Override
 	public com.rknowsys.eapp.hrm.model.SalaryComponent fetchSalaryComponent(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return _salaryComponentLocalService.fetchSalaryComponent(id);
+		long salaryComponentId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _salaryComponentLocalService.fetchSalaryComponent(salaryComponentId);
 	}
 
 	/**
 	* Returns the salary component with the primary key.
 	*
-	* @param id the primary key of the salary component
+	* @param salaryComponentId the primary key of the salary component
 	* @return the salary component
 	* @throws PortalException if a salary component with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
 	public com.rknowsys.eapp.hrm.model.SalaryComponent getSalaryComponent(
-		long id)
+		long salaryComponentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _salaryComponentLocalService.getSalaryComponent(id);
+		return _salaryComponentLocalService.getSalaryComponent(salaryComponentId);
 	}
 
 	@Override

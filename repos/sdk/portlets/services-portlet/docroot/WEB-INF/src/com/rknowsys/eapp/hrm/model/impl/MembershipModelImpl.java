@@ -61,7 +61,8 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	 */
 	public static final String TABLE_NAME = "membership";
 	public static final Object[][] TABLE_COLUMNS = {
-			{ "id_", Types.BIGINT },
+			{ "membershipId", Types.BIGINT },
+			{ "employeeId", Types.BIGINT },
 			{ "companyId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
 			{ "createDate", Types.TIMESTAMP },
@@ -69,10 +70,10 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 			{ "userId", Types.BIGINT },
 			{ "membershipName", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table membership (id_ LONG not null primary key,companyId LONG,groupId LONG,createDate DATE null,modifiedDate DATE null,userId LONG,membershipName VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table membership (membershipId LONG not null primary key,employeeId LONG,companyId LONG,groupId LONG,createDate DATE null,modifiedDate DATE null,userId LONG,membershipName VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table membership";
-	public static final String ORDER_BY_JPQL = " ORDER BY membership.id ASC";
-	public static final String ORDER_BY_SQL = " ORDER BY membership.id_ ASC";
+	public static final String ORDER_BY_JPQL = " ORDER BY membership.membershipId ASC";
+	public static final String ORDER_BY_SQL = " ORDER BY membership.membershipId ASC";
 	public static final String DATA_SOURCE = "anotherDataSource";
 	public static final String SESSION_FACTORY = "anotherSessionFactory";
 	public static final String TX_MANAGER = "anotherTransactionManager";
@@ -85,8 +86,9 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.column.bitmask.enabled.com.rknowsys.eapp.hrm.model.Membership"),
 			true);
-	public static long GROUPID_COLUMN_BITMASK = 1L;
-	public static long ID_COLUMN_BITMASK = 2L;
+	public static long EMPLOYEEID_COLUMN_BITMASK = 1L;
+	public static long GROUPID_COLUMN_BITMASK = 2L;
+	public static long MEMBERSHIPID_COLUMN_BITMASK = 4L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.rknowsys.eapp.hrm.model.Membership"));
 
@@ -95,17 +97,17 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _membershipId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setMembershipId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _membershipId;
 	}
 
 	@Override
@@ -127,7 +129,8 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("membershipId", getMembershipId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -140,10 +143,16 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long membershipId = (Long)attributes.get("membershipId");
 
-		if (id != null) {
-			setId(id);
+		if (membershipId != null) {
+			setMembershipId(membershipId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -184,13 +193,47 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getMembershipId() {
+		return _membershipId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setMembershipId(long membershipId) {
+		_columnBitmask |= MEMBERSHIPID_COLUMN_BITMASK;
+
+		if (!_setOriginalMembershipId) {
+			_setOriginalMembershipId = true;
+
+			_originalMembershipId = _membershipId;
+		}
+
+		_membershipId = membershipId;
+	}
+
+	public long getOriginalMembershipId() {
+		return _originalMembershipId;
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_columnBitmask |= EMPLOYEEID_COLUMN_BITMASK;
+
+		if (!_setOriginalEmployeeId) {
+			_setOriginalEmployeeId = true;
+
+			_originalEmployeeId = _employeeId;
+		}
+
+		_employeeId = employeeId;
+	}
+
+	public long getOriginalEmployeeId() {
+		return _originalEmployeeId;
 	}
 
 	@Override
@@ -311,7 +354,8 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	public Object clone() {
 		MembershipImpl membershipImpl = new MembershipImpl();
 
-		membershipImpl.setId(getId());
+		membershipImpl.setMembershipId(getMembershipId());
+		membershipImpl.setEmployeeId(getEmployeeId());
 		membershipImpl.setCompanyId(getCompanyId());
 		membershipImpl.setGroupId(getGroupId());
 		membershipImpl.setCreateDate(getCreateDate());
@@ -370,6 +414,14 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	public void resetOriginalValues() {
 		MembershipModelImpl membershipModelImpl = this;
 
+		membershipModelImpl._originalMembershipId = membershipModelImpl._membershipId;
+
+		membershipModelImpl._setOriginalMembershipId = false;
+
+		membershipModelImpl._originalEmployeeId = membershipModelImpl._employeeId;
+
+		membershipModelImpl._setOriginalEmployeeId = false;
+
 		membershipModelImpl._originalGroupId = membershipModelImpl._groupId;
 
 		membershipModelImpl._setOriginalGroupId = false;
@@ -381,7 +433,9 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	public CacheModel<Membership> toCacheModel() {
 		MembershipCacheModel membershipCacheModel = new MembershipCacheModel();
 
-		membershipCacheModel.id = getId();
+		membershipCacheModel.membershipId = getMembershipId();
+
+		membershipCacheModel.employeeId = getEmployeeId();
 
 		membershipCacheModel.companyId = getCompanyId();
 
@@ -420,10 +474,12 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{membershipId=");
+		sb.append(getMembershipId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", groupId=");
@@ -443,15 +499,19 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Membership");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>membershipId</column-name><column-value><![CDATA[");
+		sb.append(getMembershipId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -487,7 +547,12 @@ public class MembershipModelImpl extends BaseModelImpl<Membership>
 	private static Class<?>[] _escapedModelInterfaces = new Class[] {
 			Membership.class
 		};
-	private long _id;
+	private long _membershipId;
+	private long _originalMembershipId;
+	private boolean _setOriginalMembershipId;
+	private long _employeeId;
+	private long _originalEmployeeId;
+	private boolean _setOriginalEmployeeId;
 	private long _companyId;
 	private long _groupId;
 	private long _originalGroupId;

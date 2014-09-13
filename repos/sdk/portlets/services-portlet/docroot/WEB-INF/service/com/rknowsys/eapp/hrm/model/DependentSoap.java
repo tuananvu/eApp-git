@@ -31,11 +31,15 @@ public class DependentSoap implements Serializable {
 		DependentSoap soapModel = new DependentSoap();
 
 		soapModel.setDependentId(model.getDependentId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
+		soapModel.setName(model.getName());
+		soapModel.setRelationship(model.getRelationship());
+		soapModel.setDateOfBirth(model.getDateOfBirth());
 
 		return soapModel;
 	}
@@ -96,6 +100,14 @@ public class DependentSoap implements Serializable {
 		_dependentId = dependentId;
 	}
 
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+	}
+
 	public long getGroupId() {
 		return _groupId;
 	}
@@ -136,10 +148,38 @@ public class DependentSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
+	public String getName() {
+		return _name;
+	}
+
+	public void setName(String name) {
+		_name = name;
+	}
+
+	public String getRelationship() {
+		return _relationship;
+	}
+
+	public void setRelationship(String relationship) {
+		_relationship = relationship;
+	}
+
+	public Date getDateOfBirth() {
+		return _dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		_dateOfBirth = dateOfBirth;
+	}
+
 	private long _dependentId;
+	private long _employeeId;
 	private long _groupId;
 	private long _companyId;
 	private long _userId;
 	private Date _createDate;
 	private Date _modifiedDate;
+	private String _name;
+	private String _relationship;
+	private Date _dateOfBirth;
 }

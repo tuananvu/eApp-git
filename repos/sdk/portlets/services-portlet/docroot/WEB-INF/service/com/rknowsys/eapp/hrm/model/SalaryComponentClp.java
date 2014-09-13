@@ -53,17 +53,17 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _salaryComponentId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setSalaryComponentId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _salaryComponentId;
 	}
 
 	@Override
@@ -75,7 +75,8 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("salaryComponentId", getSalaryComponentId());
+		attributes.put("employeeId", getEmployeeId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
@@ -91,10 +92,16 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long salaryComponentId = (Long)attributes.get("salaryComponentId");
 
-		if (id != null) {
-			setId(id);
+		if (salaryComponentId != null) {
+			setSalaryComponentId(salaryComponentId);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -153,21 +160,45 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getSalaryComponentId() {
+		return _salaryComponentId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setSalaryComponentId(long salaryComponentId) {
+		_salaryComponentId = salaryComponentId;
 
 		if (_salaryComponentRemoteModel != null) {
 			try {
 				Class<?> clazz = _salaryComponentRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setSalaryComponentId",
+						long.class);
 
-				method.invoke(_salaryComponentRemoteModel, id);
+				method.invoke(_salaryComponentRemoteModel, salaryComponentId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+
+		if (_salaryComponentRemoteModel != null) {
+			try {
+				Class<?> clazz = _salaryComponentRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeId", long.class);
+
+				method.invoke(_salaryComponentRemoteModel, employeeId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -473,7 +504,8 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 	public Object clone() {
 		SalaryComponentClp clone = new SalaryComponentClp();
 
-		clone.setId(getId());
+		clone.setSalaryComponentId(getSalaryComponentId());
+		clone.setEmployeeId(getEmployeeId());
 		clone.setCompanyId(getCompanyId());
 		clone.setGroupId(getGroupId());
 		clone.setCreateDate(getCreateDate());
@@ -531,10 +563,12 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(23);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{salaryComponentId=");
+		sb.append(getSalaryComponentId());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", groupId=");
@@ -560,15 +594,19 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(34);
+		StringBundler sb = new StringBundler(37);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.SalaryComponent");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>salaryComponentId</column-name><column-value><![CDATA[");
+		sb.append(getSalaryComponentId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -612,7 +650,8 @@ public class SalaryComponentClp extends BaseModelImpl<SalaryComponent>
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _salaryComponentId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;

@@ -40,10 +40,10 @@ public class ContactDetailsLocalServiceUtil {
 	 */
 
 	/**
-	* Adds the contact details to the database. Also notifies the appropriate model listeners.
+	* Adds the ContactDetails to the database. Also notifies the appropriate model listeners.
 	*
-	* @param contactDetails the contact details
-	* @return the contact details that was added
+	* @param contactDetails the ContactDetails
+	* @return the ContactDetails that was added
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.ContactDetails addContactDetails(
@@ -53,36 +53,36 @@ public class ContactDetailsLocalServiceUtil {
 	}
 
 	/**
-	* Creates a new contact details with the primary key. Does not add the contact details to the database.
+	* Creates a new ContactDetails with the primary key. Does not add the ContactDetails to the database.
 	*
-	* @param id the primary key for the new contact details
-	* @return the new contact details
+	* @param contactDetailsId the primary key for the new ContactDetails
+	* @return the new ContactDetails
 	*/
 	public static com.rknowsys.eapp.hrm.model.ContactDetails createContactDetails(
-		long id) {
-		return getService().createContactDetails(id);
+		long contactDetailsId) {
+		return getService().createContactDetails(contactDetailsId);
 	}
 
 	/**
-	* Deletes the contact details with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the ContactDetails with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the contact details
-	* @return the contact details that was removed
-	* @throws PortalException if a contact details with the primary key could not be found
+	* @param contactDetailsId the primary key of the ContactDetails
+	* @return the ContactDetails that was removed
+	* @throws PortalException if a ContactDetails with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.ContactDetails deleteContactDetails(
-		long id)
+		long contactDetailsId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteContactDetails(id);
+		return getService().deleteContactDetails(contactDetailsId);
 	}
 
 	/**
-	* Deletes the contact details from the database. Also notifies the appropriate model listeners.
+	* Deletes the ContactDetails from the database. Also notifies the appropriate model listeners.
 	*
-	* @param contactDetails the contact details
-	* @return the contact details that was removed
+	* @param contactDetails the ContactDetails
+	* @return the ContactDetails that was removed
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.ContactDetails deleteContactDetails(
@@ -182,23 +182,24 @@ public class ContactDetailsLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.ContactDetails fetchContactDetails(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchContactDetails(id);
+		long contactDetailsId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchContactDetails(contactDetailsId);
 	}
 
 	/**
-	* Returns the contact details with the primary key.
+	* Returns the ContactDetails with the primary key.
 	*
-	* @param id the primary key of the contact details
-	* @return the contact details
-	* @throws PortalException if a contact details with the primary key could not be found
+	* @param contactDetailsId the primary key of the ContactDetails
+	* @return the ContactDetails
+	* @throws PortalException if a ContactDetails with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.ContactDetails getContactDetails(
-		long id)
+		long contactDetailsId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getContactDetails(id);
+		return getService().getContactDetails(contactDetailsId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(
@@ -209,15 +210,15 @@ public class ContactDetailsLocalServiceUtil {
 	}
 
 	/**
-	* Returns a range of all the contact detailses.
+	* Returns a range of all the ContactDetailses.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.ContactDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of contact detailses
-	* @param end the upper bound of the range of contact detailses (not inclusive)
-	* @return the range of contact detailses
+	* @param start the lower bound of the range of ContactDetailses
+	* @param end the upper bound of the range of ContactDetailses (not inclusive)
+	* @return the range of ContactDetailses
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.ContactDetails> getContactDetailses(
@@ -227,9 +228,9 @@ public class ContactDetailsLocalServiceUtil {
 	}
 
 	/**
-	* Returns the number of contact detailses.
+	* Returns the number of ContactDetailses.
 	*
-	* @return the number of contact detailses
+	* @return the number of ContactDetailses
 	* @throws SystemException if a system exception occurred
 	*/
 	public static int getContactDetailsesCount()
@@ -238,10 +239,10 @@ public class ContactDetailsLocalServiceUtil {
 	}
 
 	/**
-	* Updates the contact details in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the ContactDetails in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param contactDetails the contact details
-	* @return the contact details that was updated
+	* @param contactDetails the ContactDetails
+	* @return the ContactDetails that was updated
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.ContactDetails updateContactDetails(

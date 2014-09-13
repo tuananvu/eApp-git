@@ -40,10 +40,10 @@ public class EmergencyContactLocalServiceUtil {
 	 */
 
 	/**
-	* Adds the emergency contact to the database. Also notifies the appropriate model listeners.
+	* Adds the EmergencyContact to the database. Also notifies the appropriate model listeners.
 	*
-	* @param emergencyContact the emergency contact
-	* @return the emergency contact that was added
+	* @param emergencyContact the EmergencyContact
+	* @return the EmergencyContact that was added
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact addEmergencyContact(
@@ -53,36 +53,36 @@ public class EmergencyContactLocalServiceUtil {
 	}
 
 	/**
-	* Creates a new emergency contact with the primary key. Does not add the emergency contact to the database.
+	* Creates a new EmergencyContact with the primary key. Does not add the EmergencyContact to the database.
 	*
-	* @param id the primary key for the new emergency contact
-	* @return the new emergency contact
+	* @param emergencyContactId the primary key for the new EmergencyContact
+	* @return the new EmergencyContact
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact createEmergencyContact(
-		long id) {
-		return getService().createEmergencyContact(id);
+		long emergencyContactId) {
+		return getService().createEmergencyContact(emergencyContactId);
 	}
 
 	/**
-	* Deletes the emergency contact with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the EmergencyContact with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the emergency contact
-	* @return the emergency contact that was removed
-	* @throws PortalException if a emergency contact with the primary key could not be found
+	* @param emergencyContactId the primary key of the EmergencyContact
+	* @return the EmergencyContact that was removed
+	* @throws PortalException if a EmergencyContact with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact deleteEmergencyContact(
-		long id)
+		long emergencyContactId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteEmergencyContact(id);
+		return getService().deleteEmergencyContact(emergencyContactId);
 	}
 
 	/**
-	* Deletes the emergency contact from the database. Also notifies the appropriate model listeners.
+	* Deletes the EmergencyContact from the database. Also notifies the appropriate model listeners.
 	*
-	* @param emergencyContact the emergency contact
-	* @return the emergency contact that was removed
+	* @param emergencyContact the EmergencyContact
+	* @return the EmergencyContact that was removed
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact deleteEmergencyContact(
@@ -182,23 +182,24 @@ public class EmergencyContactLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact fetchEmergencyContact(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchEmergencyContact(id);
+		long emergencyContactId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchEmergencyContact(emergencyContactId);
 	}
 
 	/**
-	* Returns the emergency contact with the primary key.
+	* Returns the EmergencyContact with the primary key.
 	*
-	* @param id the primary key of the emergency contact
-	* @return the emergency contact
-	* @throws PortalException if a emergency contact with the primary key could not be found
+	* @param emergencyContactId the primary key of the EmergencyContact
+	* @return the EmergencyContact
+	* @throws PortalException if a EmergencyContact with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact getEmergencyContact(
-		long id)
+		long emergencyContactId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getEmergencyContact(id);
+		return getService().getEmergencyContact(emergencyContactId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(
@@ -209,15 +210,15 @@ public class EmergencyContactLocalServiceUtil {
 	}
 
 	/**
-	* Returns a range of all the emergency contacts.
+	* Returns a range of all the EmergencyContacts.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.EmergencyContactModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of emergency contacts
-	* @param end the upper bound of the range of emergency contacts (not inclusive)
-	* @return the range of emergency contacts
+	* @param start the lower bound of the range of EmergencyContacts
+	* @param end the upper bound of the range of EmergencyContacts (not inclusive)
+	* @return the range of EmergencyContacts
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmergencyContact> getEmergencyContacts(
@@ -227,9 +228,9 @@ public class EmergencyContactLocalServiceUtil {
 	}
 
 	/**
-	* Returns the number of emergency contacts.
+	* Returns the number of EmergencyContacts.
 	*
-	* @return the number of emergency contacts
+	* @return the number of EmergencyContacts
 	* @throws SystemException if a system exception occurred
 	*/
 	public static int getEmergencyContactsCount()
@@ -238,10 +239,10 @@ public class EmergencyContactLocalServiceUtil {
 	}
 
 	/**
-	* Updates the emergency contact in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the EmergencyContact in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param emergencyContact the emergency contact
-	* @return the emergency contact that was updated
+	* @param emergencyContact the EmergencyContact
+	* @return the EmergencyContact that was updated
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmergencyContact updateEmergencyContact(

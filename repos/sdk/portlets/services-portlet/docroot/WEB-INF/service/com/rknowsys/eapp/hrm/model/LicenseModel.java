@@ -61,18 +61,32 @@ public interface LicenseModel extends BaseModel<License> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this license.
+	 * Returns the license ID of this license.
 	 *
-	 * @return the ID of this license
+	 * @return the license ID of this license
 	 */
-	public long getId();
+	public long getLicenseId();
 
 	/**
-	 * Sets the ID of this license.
+	 * Sets the license ID of this license.
 	 *
-	 * @param id the ID of this license
+	 * @param licenseId the license ID of this license
 	 */
-	public void setId(long id);
+	public void setLicenseId(long licenseId);
+
+	/**
+	 * Returns the employee ID of this license.
+	 *
+	 * @return the employee ID of this license
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this license.
+	 *
+	 * @param employeeId the employee ID of this license
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the company ID of this license.
@@ -173,6 +187,20 @@ public interface LicenseModel extends BaseModel<License> {
 	 * @param licenseName the license name of this license
 	 */
 	public void setLicenseName(String licenseName);
+
+	/**
+	 * Returns the expiry date of this license.
+	 *
+	 * @return the expiry date of this license
+	 */
+	public Date getExpiryDate();
+
+	/**
+	 * Sets the expiry date of this license.
+	 *
+	 * @param expiryDate the expiry date of this license
+	 */
+	public void setExpiryDate(Date expiryDate);
 
 	@Override
 	public boolean isNew();

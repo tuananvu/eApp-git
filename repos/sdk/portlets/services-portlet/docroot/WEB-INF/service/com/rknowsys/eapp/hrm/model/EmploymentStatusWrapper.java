@@ -50,23 +50,24 @@ public class EmploymentStatusWrapper implements EmploymentStatus,
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("employmentStatusId", getEmploymentStatusId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("employmentstatus", getEmploymentstatus());
+		attributes.put("jobId", getJobId());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long employmentStatusId = (Long)attributes.get("employmentStatusId");
 
-		if (id != null) {
-			setId(id);
+		if (employmentStatusId != null) {
+			setEmploymentStatusId(employmentStatusId);
 		}
 
 		Long groupId = (Long)attributes.get("groupId");
@@ -104,6 +105,12 @@ public class EmploymentStatusWrapper implements EmploymentStatus,
 		if (employmentstatus != null) {
 			setEmploymentstatus(employmentstatus);
 		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
 	}
 
 	/**
@@ -127,23 +134,23 @@ public class EmploymentStatusWrapper implements EmploymentStatus,
 	}
 
 	/**
-	* Returns the ID of this employment status.
+	* Returns the employment status ID of this employment status.
 	*
-	* @return the ID of this employment status
+	* @return the employment status ID of this employment status
 	*/
 	@Override
-	public long getId() {
-		return _employmentStatus.getId();
+	public long getEmploymentStatusId() {
+		return _employmentStatus.getEmploymentStatusId();
 	}
 
 	/**
-	* Sets the ID of this employment status.
+	* Sets the employment status ID of this employment status.
 	*
-	* @param id the ID of this employment status
+	* @param employmentStatusId the employment status ID of this employment status
 	*/
 	@Override
-	public void setId(long id) {
-		_employmentStatus.setId(id);
+	public void setEmploymentStatusId(long employmentStatusId) {
+		_employmentStatus.setEmploymentStatusId(employmentStatusId);
 	}
 
 	/**
@@ -286,6 +293,26 @@ public class EmploymentStatusWrapper implements EmploymentStatus,
 	@Override
 	public void setEmploymentstatus(java.lang.String employmentstatus) {
 		_employmentStatus.setEmploymentstatus(employmentstatus);
+	}
+
+	/**
+	* Returns the job ID of this employment status.
+	*
+	* @return the job ID of this employment status
+	*/
+	@Override
+	public long getJobId() {
+		return _employmentStatus.getJobId();
+	}
+
+	/**
+	* Sets the job ID of this employment status.
+	*
+	* @param jobId the job ID of this employment status
+	*/
+	@Override
+	public void setJobId(long jobId) {
+		_employmentStatus.setJobId(jobId);
 	}
 
 	@Override

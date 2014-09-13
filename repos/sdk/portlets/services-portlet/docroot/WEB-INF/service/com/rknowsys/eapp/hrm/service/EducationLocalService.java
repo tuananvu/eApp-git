@@ -59,20 +59,22 @@ public interface EducationLocalService extends BaseLocalService,
 	/**
 	* Creates a new education with the primary key. Does not add the education to the database.
 	*
-	* @param id the primary key for the new education
+	* @param educationId the primary key for the new education
 	* @return the new education
 	*/
-	public com.rknowsys.eapp.hrm.model.Education createEducation(long id);
+	public com.rknowsys.eapp.hrm.model.Education createEducation(
+		long educationId);
 
 	/**
 	* Deletes the education with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the education
+	* @param educationId the primary key of the education
 	* @return the education that was removed
 	* @throws PortalException if a education with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.Education deleteEducation(long id)
+	public com.rknowsys.eapp.hrm.model.Education deleteEducation(
+		long educationId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,19 +167,20 @@ public interface EducationLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Education fetchEducation(long id)
+	public com.rknowsys.eapp.hrm.model.Education fetchEducation(
+		long educationId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the education with the primary key.
 	*
-	* @param id the primary key of the education
+	* @param educationId the primary key of the education
 	* @return the education
 	* @throws PortalException if a education with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.Education getEducation(long id)
+	public com.rknowsys.eapp.hrm.model.Education getEducation(long educationId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

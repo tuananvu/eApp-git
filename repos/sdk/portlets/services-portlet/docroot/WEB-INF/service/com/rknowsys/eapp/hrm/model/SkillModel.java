@@ -61,18 +61,32 @@ public interface SkillModel extends BaseModel<Skill> {
 	public void setPrimaryKey(long primaryKey);
 
 	/**
-	 * Returns the ID of this skill.
+	 * Returns the skill ID of this skill.
 	 *
-	 * @return the ID of this skill
+	 * @return the skill ID of this skill
 	 */
-	public long getId();
+	public long getSkillId();
 
 	/**
-	 * Sets the ID of this skill.
+	 * Sets the skill ID of this skill.
 	 *
-	 * @param id the ID of this skill
+	 * @param skillId the skill ID of this skill
 	 */
-	public void setId(long id);
+	public void setSkillId(long skillId);
+
+	/**
+	 * Returns the employee ID of this skill.
+	 *
+	 * @return the employee ID of this skill
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this skill.
+	 *
+	 * @param employeeId the employee ID of this skill
+	 */
+	public void setEmployeeId(long employeeId);
 
 	/**
 	 * Returns the company ID of this skill.

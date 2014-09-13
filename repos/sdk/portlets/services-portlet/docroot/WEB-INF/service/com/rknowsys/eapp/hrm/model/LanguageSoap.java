@@ -30,7 +30,8 @@ public class LanguageSoap implements Serializable {
 	public static LanguageSoap toSoapModel(Language model) {
 		LanguageSoap soapModel = new LanguageSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setLanguageId(model.getLanguageId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCreateDate(model.getCreateDate());
@@ -82,19 +83,27 @@ public class LanguageSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _languageId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setLanguageId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getLanguageId() {
+		return _languageId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setLanguageId(long languageId) {
+		_languageId = languageId;
+	}
+
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
 	}
 
 	public long getCompanyId() {
@@ -145,7 +154,8 @@ public class LanguageSoap implements Serializable {
 		_languageName = languageName;
 	}
 
-	private long _id;
+	private long _languageId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;

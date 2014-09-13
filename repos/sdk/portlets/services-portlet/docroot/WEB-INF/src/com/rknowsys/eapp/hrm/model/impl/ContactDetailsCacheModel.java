@@ -40,8 +40,8 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 	public String toString() {
 		StringBundler sb = new StringBundler(37);
 
-		sb.append("{id=");
-		sb.append(id);
+		sb.append("{contactDetailsId=");
+		sb.append(contactDetailsId);
 		sb.append(", groupId=");
 		sb.append(groupId);
 		sb.append(", companyId=");
@@ -85,7 +85,7 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 	public ContactDetails toEntityModel() {
 		ContactDetailsImpl contactDetailsImpl = new ContactDetailsImpl();
 
-		contactDetailsImpl.setId(id);
+		contactDetailsImpl.setContactDetailsId(contactDetailsId);
 		contactDetailsImpl.setGroupId(groupId);
 		contactDetailsImpl.setCompanyId(companyId);
 		contactDetailsImpl.setUserId(userId);
@@ -195,7 +195,7 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
+		contactDetailsId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		userId = objectInput.readLong();
@@ -218,7 +218,7 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(id);
+		objectOutput.writeLong(contactDetailsId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(userId);
@@ -311,7 +311,7 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 		}
 	}
 
-	public long id;
+	public long contactDetailsId;
 	public long groupId;
 	public long companyId;
 	public long userId;

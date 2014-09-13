@@ -110,13 +110,13 @@ public class EmployeeLocalServiceClpInvoker {
 
 		_methodParameterTypes16 = new String[] { "java.io.Serializable" };
 
-		_methodName133 = "getBeanIdentifier";
+		_methodName137 = "getBeanIdentifier";
 
-		_methodParameterTypes133 = new String[] {  };
+		_methodParameterTypes137 = new String[] {  };
 
-		_methodName134 = "setBeanIdentifier";
+		_methodName138 = "setBeanIdentifier";
 
-		_methodParameterTypes134 = new String[] { "java.lang.String" };
+		_methodParameterTypes138 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -213,13 +213,13 @@ public class EmployeeLocalServiceClpInvoker {
 			return EmployeeLocalServiceUtil.getPhotographBlobModel((java.io.Serializable)arguments[0]);
 		}
 
-		if (_methodName133.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes133, parameterTypes)) {
+		if (_methodName137.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes137, parameterTypes)) {
 			return EmployeeLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName134.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes134, parameterTypes)) {
+		if (_methodName138.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes138, parameterTypes)) {
 			EmployeeLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -262,8 +262,8 @@ public class EmployeeLocalServiceClpInvoker {
 	private String[] _methodParameterTypes15;
 	private String _methodName16;
 	private String[] _methodParameterTypes16;
-	private String _methodName133;
-	private String[] _methodParameterTypes133;
-	private String _methodName134;
-	private String[] _methodParameterTypes134;
+	private String _methodName137;
+	private String[] _methodParameterTypes137;
+	private String _methodName138;
+	private String[] _methodParameterTypes138;
 }

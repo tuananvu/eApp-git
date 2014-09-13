@@ -50,7 +50,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The persistence implementation for the contact details service.
+ * The persistence implementation for the ContactDetails service.
  *
  * <p>
  * Caching information and settings can be found in <code>portal.properties</code>
@@ -66,7 +66,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this class directly. Always use {@link ContactDetailsUtil} to access the contact details persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this class.
+	 * Never modify or reference this class directly. Always use {@link ContactDetailsUtil} to access the ContactDetails persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this class.
 	 */
 	public static final String FINDER_CLASS_NAME_ENTITY = ContactDetailsImpl.class.getName();
 	public static final String FINDER_CLASS_NAME_LIST_WITH_PAGINATION = FINDER_CLASS_NAME_ENTITY +
@@ -90,9 +90,9 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Caches the contact details in the entity cache if it is enabled.
+	 * Caches the ContactDetails in the entity cache if it is enabled.
 	 *
-	 * @param contactDetails the contact details
+	 * @param contactDetails the ContactDetails
 	 */
 	@Override
 	public void cacheResult(ContactDetails contactDetails) {
@@ -104,9 +104,9 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Caches the contact detailses in the entity cache if it is enabled.
+	 * Caches the ContactDetailses in the entity cache if it is enabled.
 	 *
-	 * @param contactDetailses the contact detailses
+	 * @param contactDetailses the ContactDetailses
 	 */
 	@Override
 	public void cacheResult(List<ContactDetails> contactDetailses) {
@@ -123,7 +123,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Clears the cache for all contact detailses.
+	 * Clears the cache for all ContactDetailses.
 	 *
 	 * <p>
 	 * The {@link com.liferay.portal.kernel.dao.orm.EntityCache} and {@link com.liferay.portal.kernel.dao.orm.FinderCache} are both cleared by this method.
@@ -143,7 +143,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Clears the cache for the contact details.
+	 * Clears the cache for the ContactDetails.
 	 *
 	 * <p>
 	 * The {@link com.liferay.portal.kernel.dao.orm.EntityCache} and {@link com.liferay.portal.kernel.dao.orm.FinderCache} are both cleared by this method.
@@ -170,41 +170,41 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Creates a new contact details with the primary key. Does not add the contact details to the database.
+	 * Creates a new ContactDetails with the primary key. Does not add the ContactDetails to the database.
 	 *
-	 * @param id the primary key for the new contact details
-	 * @return the new contact details
+	 * @param contactDetailsId the primary key for the new ContactDetails
+	 * @return the new ContactDetails
 	 */
 	@Override
-	public ContactDetails create(long id) {
+	public ContactDetails create(long contactDetailsId) {
 		ContactDetails contactDetails = new ContactDetailsImpl();
 
 		contactDetails.setNew(true);
-		contactDetails.setPrimaryKey(id);
+		contactDetails.setPrimaryKey(contactDetailsId);
 
 		return contactDetails;
 	}
 
 	/**
-	 * Removes the contact details with the primary key from the database. Also notifies the appropriate model listeners.
+	 * Removes the ContactDetails with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param id the primary key of the contact details
-	 * @return the contact details that was removed
-	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a contact details with the primary key could not be found
+	 * @param contactDetailsId the primary key of the ContactDetails
+	 * @return the ContactDetails that was removed
+	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a ContactDetails with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public ContactDetails remove(long id)
+	public ContactDetails remove(long contactDetailsId)
 		throws NoSuchContactDetailsException, SystemException {
-		return remove((Serializable)id);
+		return remove((Serializable)contactDetailsId);
 	}
 
 	/**
-	 * Removes the contact details with the primary key from the database. Also notifies the appropriate model listeners.
+	 * Removes the ContactDetails with the primary key from the database. Also notifies the appropriate model listeners.
 	 *
-	 * @param primaryKey the primary key of the contact details
-	 * @return the contact details that was removed
-	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a contact details with the primary key could not be found
+	 * @param primaryKey the primary key of the ContactDetails
+	 * @return the ContactDetails that was removed
+	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a ContactDetails with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -325,7 +325,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 		contactDetailsImpl.setNew(contactDetails.isNew());
 		contactDetailsImpl.setPrimaryKey(contactDetails.getPrimaryKey());
 
-		contactDetailsImpl.setId(contactDetails.getId());
+		contactDetailsImpl.setContactDetailsId(contactDetails.getContactDetailsId());
 		contactDetailsImpl.setGroupId(contactDetails.getGroupId());
 		contactDetailsImpl.setCompanyId(contactDetails.getCompanyId());
 		contactDetailsImpl.setUserId(contactDetails.getUserId());
@@ -348,11 +348,11 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Returns the contact details with the primary key or throws a {@link com.liferay.portal.NoSuchModelException} if it could not be found.
+	 * Returns the ContactDetails with the primary key or throws a {@link com.liferay.portal.NoSuchModelException} if it could not be found.
 	 *
-	 * @param primaryKey the primary key of the contact details
-	 * @return the contact details
-	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a contact details with the primary key could not be found
+	 * @param primaryKey the primary key of the ContactDetails
+	 * @return the ContactDetails
+	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a ContactDetails with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -373,24 +373,24 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Returns the contact details with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchContactDetailsException} if it could not be found.
+	 * Returns the ContactDetails with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchContactDetailsException} if it could not be found.
 	 *
-	 * @param id the primary key of the contact details
-	 * @return the contact details
-	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a contact details with the primary key could not be found
+	 * @param contactDetailsId the primary key of the ContactDetails
+	 * @return the ContactDetails
+	 * @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a ContactDetails with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public ContactDetails findByPrimaryKey(long id)
+	public ContactDetails findByPrimaryKey(long contactDetailsId)
 		throws NoSuchContactDetailsException, SystemException {
-		return findByPrimaryKey((Serializable)id);
+		return findByPrimaryKey((Serializable)contactDetailsId);
 	}
 
 	/**
-	 * Returns the contact details with the primary key or returns <code>null</code> if it could not be found.
+	 * Returns the ContactDetails with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param primaryKey the primary key of the contact details
-	 * @return the contact details, or <code>null</code> if a contact details with the primary key could not be found
+	 * @param primaryKey the primary key of the ContactDetails
+	 * @return the ContactDetails, or <code>null</code> if a ContactDetails with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -436,21 +436,22 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Returns the contact details with the primary key or returns <code>null</code> if it could not be found.
+	 * Returns the ContactDetails with the primary key or returns <code>null</code> if it could not be found.
 	 *
-	 * @param id the primary key of the contact details
-	 * @return the contact details, or <code>null</code> if a contact details with the primary key could not be found
+	 * @param contactDetailsId the primary key of the ContactDetails
+	 * @return the ContactDetails, or <code>null</code> if a ContactDetails with the primary key could not be found
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
-	public ContactDetails fetchByPrimaryKey(long id) throws SystemException {
-		return fetchByPrimaryKey((Serializable)id);
+	public ContactDetails fetchByPrimaryKey(long contactDetailsId)
+		throws SystemException {
+		return fetchByPrimaryKey((Serializable)contactDetailsId);
 	}
 
 	/**
-	 * Returns all the contact detailses.
+	 * Returns all the ContactDetailses.
 	 *
-	 * @return the contact detailses
+	 * @return the ContactDetailses
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -459,15 +460,15 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Returns a range of all the contact detailses.
+	 * Returns a range of all the ContactDetailses.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.ContactDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param start the lower bound of the range of contact detailses
-	 * @param end the upper bound of the range of contact detailses (not inclusive)
-	 * @return the range of contact detailses
+	 * @param start the lower bound of the range of ContactDetailses
+	 * @param end the upper bound of the range of ContactDetailses (not inclusive)
+	 * @return the range of ContactDetailses
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -477,16 +478,16 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Returns an ordered range of all the contact detailses.
+	 * Returns an ordered range of all the ContactDetailses.
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.ContactDetailsModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
-	 * @param start the lower bound of the range of contact detailses
-	 * @param end the upper bound of the range of contact detailses (not inclusive)
+	 * @param start the lower bound of the range of ContactDetailses
+	 * @param end the upper bound of the range of ContactDetailses (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	 * @return the ordered range of contact detailses
+	 * @return the ordered range of ContactDetailses
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -571,7 +572,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Removes all the contact detailses from the database.
+	 * Removes all the ContactDetailses from the database.
 	 *
 	 * @throws SystemException if a system exception occurred
 	 */
@@ -583,9 +584,9 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Returns the number of contact detailses.
+	 * Returns the number of ContactDetailses.
 	 *
-	 * @return the number of contact detailses
+	 * @return the number of ContactDetailses
 	 * @throws SystemException if a system exception occurred
 	 */
 	@Override
@@ -626,7 +627,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 	}
 
 	/**
-	 * Initializes the contact details persistence.
+	 * Initializes the ContactDetails persistence.
 	 */
 	public void afterPropertiesSet() {
 		String[] listenerClassNames = StringUtil.split(GetterUtil.getString(
@@ -665,7 +666,7 @@ public class ContactDetailsPersistenceImpl extends BasePersistenceImpl<ContactDe
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(ContactDetailsPersistenceImpl.class);
 	private static Set<String> _badColumnNames = SetUtil.fromArray(new String[] {
-				"id", "state"
+				"state"
 			});
 	private static ContactDetails _nullContactDetails = new ContactDetailsImpl() {
 			@Override

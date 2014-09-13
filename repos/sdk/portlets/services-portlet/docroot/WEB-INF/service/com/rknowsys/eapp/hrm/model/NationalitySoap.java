@@ -30,13 +30,13 @@ public class NationalitySoap implements Serializable {
 	public static NationalitySoap toSoapModel(Nationality model) {
 		NationalitySoap soapModel = new NationalitySoap();
 
-		soapModel.setId(model.getId());
-		soapModel.setCompanyId(model.getCompanyId());
+		soapModel.setNationalityId(model.getNationalityId());
 		soapModel.setGroupId(model.getGroupId());
+		soapModel.setCompanyId(model.getCompanyId());
+		soapModel.setUserId(model.getUserId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
-		soapModel.setUserId(model.getUserId());
-		soapModel.setNationalityName(model.getNationalityName());
+		soapModel.setName(model.getName());
 
 		return soapModel;
 	}
@@ -82,19 +82,27 @@ public class NationalitySoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _nationalityId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setNationalityId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getNationalityId() {
+		return _nationalityId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setNationalityId(long nationalityId) {
+		_nationalityId = nationalityId;
+	}
+
+	public long getGroupId() {
+		return _groupId;
+	}
+
+	public void setGroupId(long groupId) {
+		_groupId = groupId;
 	}
 
 	public long getCompanyId() {
@@ -105,12 +113,12 @@ public class NationalitySoap implements Serializable {
 		_companyId = companyId;
 	}
 
-	public long getGroupId() {
-		return _groupId;
+	public long getUserId() {
+		return _userId;
 	}
 
-	public void setGroupId(long groupId) {
-		_groupId = groupId;
+	public void setUserId(long userId) {
+		_userId = userId;
 	}
 
 	public Date getCreateDate() {
@@ -129,27 +137,19 @@ public class NationalitySoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
-	public long getUserId() {
-		return _userId;
+	public String getName() {
+		return _Name;
 	}
 
-	public void setUserId(long userId) {
-		_userId = userId;
+	public void setName(String Name) {
+		_Name = Name;
 	}
 
-	public String getNationalityName() {
-		return _nationalityName;
-	}
-
-	public void setNationalityName(String nationalityName) {
-		_nationalityName = nationalityName;
-	}
-
-	private long _id;
-	private long _companyId;
+	private long _nationalityId;
 	private long _groupId;
+	private long _companyId;
+	private long _userId;
 	private Date _createDate;
 	private Date _modifiedDate;
-	private long _userId;
-	private String _nationalityName;
+	private String _Name;
 }

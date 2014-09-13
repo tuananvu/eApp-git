@@ -40,20 +40,20 @@ public class NationalityCacheModel implements CacheModel<Nationality>,
 	public String toString() {
 		StringBundler sb = new StringBundler(15);
 
-		sb.append("{id=");
-		sb.append(id);
-		sb.append(", companyId=");
-		sb.append(companyId);
+		sb.append("{nationalityId=");
+		sb.append(nationalityId);
 		sb.append(", groupId=");
 		sb.append(groupId);
+		sb.append(", companyId=");
+		sb.append(companyId);
+		sb.append(", userId=");
+		sb.append(userId);
 		sb.append(", createDate=");
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
-		sb.append(", userId=");
-		sb.append(userId);
-		sb.append(", nationalityName=");
-		sb.append(nationalityName);
+		sb.append(", Name=");
+		sb.append(Name);
 		sb.append("}");
 
 		return sb.toString();
@@ -63,9 +63,10 @@ public class NationalityCacheModel implements CacheModel<Nationality>,
 	public Nationality toEntityModel() {
 		NationalityImpl nationalityImpl = new NationalityImpl();
 
-		nationalityImpl.setId(id);
-		nationalityImpl.setCompanyId(companyId);
+		nationalityImpl.setNationalityId(nationalityId);
 		nationalityImpl.setGroupId(groupId);
+		nationalityImpl.setCompanyId(companyId);
+		nationalityImpl.setUserId(userId);
 
 		if (createDate == Long.MIN_VALUE) {
 			nationalityImpl.setCreateDate(null);
@@ -81,13 +82,11 @@ public class NationalityCacheModel implements CacheModel<Nationality>,
 			nationalityImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		nationalityImpl.setUserId(userId);
-
-		if (nationalityName == null) {
-			nationalityImpl.setNationalityName(StringPool.BLANK);
+		if (Name == null) {
+			nationalityImpl.setName(StringPool.BLANK);
 		}
 		else {
-			nationalityImpl.setNationalityName(nationalityName);
+			nationalityImpl.setName(Name);
 		}
 
 		nationalityImpl.resetOriginalValues();
@@ -97,38 +96,38 @@ public class NationalityCacheModel implements CacheModel<Nationality>,
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		id = objectInput.readLong();
-		companyId = objectInput.readLong();
+		nationalityId = objectInput.readLong();
 		groupId = objectInput.readLong();
+		companyId = objectInput.readLong();
+		userId = objectInput.readLong();
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
-		userId = objectInput.readLong();
-		nationalityName = objectInput.readUTF();
+		Name = objectInput.readUTF();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(id);
-		objectOutput.writeLong(companyId);
+		objectOutput.writeLong(nationalityId);
 		objectOutput.writeLong(groupId);
+		objectOutput.writeLong(companyId);
+		objectOutput.writeLong(userId);
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
-		objectOutput.writeLong(userId);
 
-		if (nationalityName == null) {
+		if (Name == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
 		}
 		else {
-			objectOutput.writeUTF(nationalityName);
+			objectOutput.writeUTF(Name);
 		}
 	}
 
-	public long id;
-	public long companyId;
+	public long nationalityId;
 	public long groupId;
+	public long companyId;
+	public long userId;
 	public long createDate;
 	public long modifiedDate;
-	public long userId;
-	public String nationalityName;
+	public String Name;
 }

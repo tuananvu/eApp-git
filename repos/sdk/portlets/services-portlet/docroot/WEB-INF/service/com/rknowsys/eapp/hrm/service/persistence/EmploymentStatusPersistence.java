@@ -56,20 +56,22 @@ public interface EmploymentStatusPersistence extends BasePersistence<EmploymentS
 	/**
 	* Creates a new employment status with the primary key. Does not add the employment status to the database.
 	*
-	* @param id the primary key for the new employment status
+	* @param employmentStatusId the primary key for the new employment status
 	* @return the new employment status
 	*/
-	public com.rknowsys.eapp.hrm.model.EmploymentStatus create(long id);
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus create(
+		long employmentStatusId);
 
 	/**
 	* Removes the employment status with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status that was removed
 	* @throws com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.EmploymentStatus remove(long id)
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus remove(
+		long employmentStatusId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException;
 
@@ -80,25 +82,26 @@ public interface EmploymentStatusPersistence extends BasePersistence<EmploymentS
 	/**
 	* Returns the employment status with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException} if it could not be found.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status
 	* @throws com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.rknowsys.eapp.hrm.model.EmploymentStatus findByPrimaryKey(
-		long id)
+		long employmentStatusId)
 		throws com.liferay.portal.kernel.exception.SystemException,
 			com.rknowsys.eapp.hrm.NoSuchEmploymentStatusException;
 
 	/**
 	* Returns the employment status with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param id the primary key of the employment status
+	* @param employmentStatusId the primary key of the employment status
 	* @return the employment status, or <code>null</code> if a employment status with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.rknowsys.eapp.hrm.model.EmploymentStatus fetchByPrimaryKey(
-		long id) throws com.liferay.portal.kernel.exception.SystemException;
+		long employmentStatusId)
+		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns all the employment statuses.

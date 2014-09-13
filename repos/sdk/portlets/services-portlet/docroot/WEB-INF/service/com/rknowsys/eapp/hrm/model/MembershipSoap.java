@@ -30,7 +30,8 @@ public class MembershipSoap implements Serializable {
 	public static MembershipSoap toSoapModel(Membership model) {
 		MembershipSoap soapModel = new MembershipSoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setMembershipId(model.getMembershipId());
+		soapModel.setEmployeeId(model.getEmployeeId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCreateDate(model.getCreateDate());
@@ -82,19 +83,27 @@ public class MembershipSoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _membershipId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setMembershipId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getMembershipId() {
+		return _membershipId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setMembershipId(long membershipId) {
+		_membershipId = membershipId;
+	}
+
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
 	}
 
 	public long getCompanyId() {
@@ -145,7 +154,8 @@ public class MembershipSoap implements Serializable {
 		_membershipName = membershipName;
 	}
 
-	private long _id;
+	private long _membershipId;
+	private long _employeeId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;
