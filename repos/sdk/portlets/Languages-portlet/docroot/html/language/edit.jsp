@@ -109,7 +109,7 @@ AUI().use(
 	</div>
 	<div id="editLanguageForm">
   <aui:form name="myForm" action="<%=updateLanguages.toString()%>">
-		<aui:input name="languageId" type="hidden" id="languageId"  value="<%=editLanguage.getId()%>"/>
+		<aui:input name="languageId" type="hidden" id="languageId"  value="<%=editLanguage.getLanguageId()%>"/>
 			 	<div class="span12">
 			<div class="span2">
 				<label>Name</label>
