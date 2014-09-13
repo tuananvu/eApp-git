@@ -109,7 +109,7 @@ AUI().use(
 	</div>
 	<div id="editMembershipForm">
   <aui:form name="myForm" action="<%=updateMemberships.toString()%>">
-  <aui:input name="membershipId" type="hidden" id="membershipId"  value="<%=editMembership.getId()%>"/>
+  <aui:input name="membershipId" type="hidden" id="membershipId"  value="<%=editMembership.getMembershipId()%>"/>
 		<div class="span12">
 			<div class="span2">
 				<label>Membership Name</label>
@@ -160,7 +160,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Membership" keyProperty="id" modelVar="id"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="Membership" keyProperty="membershipId" modelVar="membershipId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="membershipName" orderableProperty="membershipName"/>
 		
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/membership/editClick.jsp"/>
