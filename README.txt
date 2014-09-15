@@ -25,7 +25,8 @@ Click Next.
 
 6. 'Import Projects' page will list all the portlets projects available in the remote branch. Check all. Click Finish.
 
-7. Open LIferay perspective.
+7. Open LIferay perspective. If you don't have the Liferay perspective and then follow this link to get one http://www.opensourceforlife.com/2012/07/installing-setup-liferay-ide-as-eclipse.html
+
 
 8. Add a liferay server (in left bottom portion) to point to the directory where liferay 6.2 CE Server (Tomcat 7) is available. In my machine this location is D:\eApp\liferay-portal-6.2-ce-ga2\tomcat-7.0.42.
 
