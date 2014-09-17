@@ -25,17 +25,16 @@ Click Next.
 
 6. 'Import Projects' page will list all the portlets projects available in the remote branch. Check all. Click Finish.
 
-7. Open LIferay perspective. If you don't have the Liferay perspective then follow this link to get one http://www.opensourceforlife.com/2012/07/installing-setup-liferay-ide-as-eclipse.html
-
+7. Open Liferay perspective. If you don't have the Liferay perspective then follow this link to get one http://www.liferay.com/community/wiki/-/wiki/Main/Liferay+IDE+Installation+Guide
 
 8. Add a liferay server (in left bottom portion) to point to the directory where liferay 6.2 CE Server (Tomcat 7) is available. In my machine this location is D:\eApp\liferay-portal-6.2-ce-ga2\tomcat-7.0.42.
 
 9. In sdk project, rename the build.sample.properties to build.<YOUR_USERNAME>.properties. The user I log onto my machine is 'lenovo'. So I renamed to build.lenovo.properties. Modify the contents in this file 
 to reflect the paths on your system(Use \\ instead of \).
 
-10. Run "build-service" target in the ant build.xml available in services-portlet project. This will generate all services related code in service-portlet-service.jar.
+10. Run "build-service" target in the ant build.xml(Right click on build.xml->Liferay->SDK->build-service) available in services-portlet project. This will generate all services related code in service-portlet-service.jar.
 
-11. Run the default target "all" in the ant build.xml file in sdk project. This will start building all the portlets.
+11. Run the default target "all"(Right click on build.xml->Liferay->SDK->all) in the ant build.xml file in sdk project. This will start building all the portlets.
 
 12. Do all changes in you need to in your workspace. 
 
