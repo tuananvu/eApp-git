@@ -32,9 +32,9 @@ Click Next.
 9. In sdk project, rename the build.sample.properties to build.<YOUR_USERNAME>.properties. The user I log onto my machine is 'lenovo'. So I renamed to build.lenovo.properties. Modify the contents in this file 
 to reflect the paths on your system(Use \\ instead of \).
 
-10. Run "build-service" target in the ant build.xml(Right click on build.xml->Liferay->SDK->build-service) available in services-portlet project. This will generate all services related code in service-portlet-service.jar.
+10. Right clicking on build.xml in services-portlet gives a context menu and then Liferay->Build-Services. This will generate all services related classes in service-portlet-service.jar.
 
-11. Run the default target "all"(Right click on build.xml->Liferay->SDK->all) in the ant build.xml file in sdk project. This will start building all the portlets.
+11. In sdk project right click on build.xml. Liferay-> SDK-> all. Run "build-service" target in the ant build.xml(Right click on build.xml->Liferay->SDK->build-service) available in services-portlet project. This will generate all services related code in service-portlet-service.jar. This will start building all the portlets.
 
 12. Do all changes in you need to in your workspace. 
 
