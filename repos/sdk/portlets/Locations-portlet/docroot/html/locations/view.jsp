@@ -2,13 +2,13 @@
 <portlet:renderURL var="addLocation">
 	<portlet:param name="mvcPath" value="/html/locations/addLocation.jsp"/>
 </portlet:renderURL>
-<portlet:resourceURL var="deleteLocations"></portlet:resourceURL>
+<portlet:resourceURL var="deleteLocation"></portlet:resourceURL>
 <portlet:renderURL var="viewJSP">
 	<portlet:param name="mvcPath" value="/html/locations/view.jsp"/>
 </portlet:renderURL>
-<portlet:actionURL name="searchLocations" var="searchLocations"></portlet:actionURL>
-<div id="searchLocations">
-	<aui:form name="locationSearch" action="<%=searchLocations %>" inlineLabel="right" >
+<portlet:actionURL name="searchLocation" var="searchLocation"></portlet:actionURL>
+<div id="searchLocation">
+	<aui:form name="locationSearch" action="<%=searchLocation %>" inlineLabel="right" >
 		<aui:field-wrapper inlineLabel="true">
 		<aui:input name="locationName" label="Location Name" inlineLabel="true" ></aui:input>
 		<aui:select name="country" label="Country" inlineLabel="true">
@@ -41,7 +41,7 @@ A.one('#<portlet:namespace />delete').on('click',function(event)
 			alert(locationIdArray.length);
 			if(confirm("Are you sure you want to delete?"))
 			{
-	var url="<%=deleteLocations%>"
+	var url="<%=deleteLocation%>"
 	A.io.request(url,
 		{
 		data:{<portlet:namespace />id9:locationIdArray},
@@ -68,9 +68,9 @@ sortByType = portalPrefs.getValue("NAME_SPACE", "sort-by-type ", "asc");
 }
 %>
 <%!
-  com.liferay.portal.kernel.dao.search.SearchContainer<Locations> searchContainer;
+  com.liferay.portal.kernel.dao.search.SearchContainer<Location> searchContainer;
 %>
-<div id="displayLocations">
+<div id="displayLocation">
 <liferay-ui:search-container emptyResultsMessage="norecordsfound" 
 headerNames="name,city,country,phone,numberofemployees"
 iteratorURL="<%=iteratorURL %>"
@@ -79,17 +79,17 @@ deltaConfigurable="true"
 orderByCol="<%=sortByCol %>"   orderByType="<%=sortByType %>"
 rowChecker="<%=new RowChecker(renderResponse) %>" > 
 		<liferay-ui:search-container-results>
-		<%List<Locations> jt=LocationsLocalServiceUtil.getLocationses(-1, -1);
-		  OrderByComparator orderByComparator=CustomComparatorUtil.getLocationsOrderByComparator(sortByCol, sortByType);
+		<%List<Location> jt=LocationLocalServiceUtil.getLocations(-1, -1);
+		  OrderByComparator orderByComparator=CustomComparatorUtil.getLocationOrderByComparator(sortByCol, sortByType);
 		  Collections.sort(jt,orderByComparator);
 		  results=ListUtil.subList(jt, searchContainer.getStart(), searchContainer.getEnd());
-		  total=LocationsLocalServiceUtil.getLocationsesCount();
+		  total=LocationLocalServiceUtil.getLocationesCount();
 		  pageContext.setAttribute("results", results);
 		  pageContext.setAttribute("total", total);
 		%>
 		</liferay-ui:search-container-results>
-				<liferay-ui:search-container-row className="com.rknowsys.eapp.model.Locations" 
- 				keyProperty="id" modelVar="id" >
+				<liferay-ui:search-container-row className="com.rknowsys.eapp.hrm.model.Location" 
+ 				keyProperty="locationId" modelVar="locationId" >
 						 <liferay-ui:search-container-column-text name="name" property="name" orderable="<%=true %>" orderableProperty="name"/>
 						 <liferay-ui:search-container-column-text name="city" property="city" orderable="<%=true %>" orderableProperty="city"/>
 						 <liferay-ui:search-container-column-text name="country" property="country" orderable="<%=true %>" orderableProperty="country"/>

@@ -1,4 +1,4 @@
-<%@page import="com.rknowsys.eapp.hrm.model.JobTitles"%>
+<%@page import="com.rknowsys.eapp.hrm.model.JobTitle"%>
 <%@page import="com.rknowsys.eapp.JobTitleAction"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -42,9 +42,9 @@ em {
  JobTitleAction jobtitleaction = new JobTitleAction();
 String s = request.getParameter("jobtitleid");
 long jobtitleid = Long.parseLong(s);
-JobTitles jobtitle = jobtitleaction.editJobtitleBean(jobtitleid);
+JobTitle jobtitle = jobtitleaction.editJobtitleBean(jobtitleid);
 
-System.out.println("From edit editjobtitle.jsp id === ....." +jobtitle.getId()+ " title = " +jobtitle.getTitle());
+System.out.println("From edit editjobtitle.jsp id === ....." +jobtitle.getJobTitleId()+ " title = " +jobtitle.getTitle());
 
 %> 
 
@@ -54,7 +54,7 @@ System.out.println("From edit editjobtitle.jsp id === ....." +jobtitle.getId()+ 
 	
 		<form onsubmit="savejobtitle()">
 
-			<input class="jobtitleId" type="hidden" id="jobtitleId"	name='<portlet:namespace/>jobtitleId' value="<%=jobtitle.getId() %>">
+			<input class="jobtitleId" type="hidden" id="jobtitleId"	name='<portlet:namespace/>jobtitleId' value="<%=jobtitle.getJobTitleId() %>">
 
 			<label for="jobTitle_jobTitle">Job Title <em>*</em></label>&nbsp;&nbsp;
 				<input type="text" name="<portlet:namespace/>name" maxlength="100"

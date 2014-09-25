@@ -26,7 +26,7 @@ import java.util.Map;
  * This class is a wrapper for {@link JobCategory}.
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategory
  * @generated
  */
@@ -50,23 +50,24 @@ public class JobCategoryWrapper implements JobCategory,
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("jobCategoryId", getJobCategoryId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("userId", getUserId());
 		attributes.put("jobcategory", getJobcategory());
+		attributes.put("jobId", getJobId());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long jobCategoryId = (Long)attributes.get("jobCategoryId");
 
-		if (id != null) {
-			setId(id);
+		if (jobCategoryId != null) {
+			setJobCategoryId(jobCategoryId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -104,6 +105,12 @@ public class JobCategoryWrapper implements JobCategory,
 		if (jobcategory != null) {
 			setJobcategory(jobcategory);
 		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
 	}
 
 	/**
@@ -127,23 +134,23 @@ public class JobCategoryWrapper implements JobCategory,
 	}
 
 	/**
-	* Returns the ID of this job category.
+	* Returns the job category ID of this job category.
 	*
-	* @return the ID of this job category
+	* @return the job category ID of this job category
 	*/
 	@Override
-	public long getId() {
-		return _jobCategory.getId();
+	public long getJobCategoryId() {
+		return _jobCategory.getJobCategoryId();
 	}
 
 	/**
-	* Sets the ID of this job category.
+	* Sets the job category ID of this job category.
 	*
-	* @param id the ID of this job category
+	* @param jobCategoryId the job category ID of this job category
 	*/
 	@Override
-	public void setId(long id) {
-		_jobCategory.setId(id);
+	public void setJobCategoryId(long jobCategoryId) {
+		_jobCategory.setJobCategoryId(jobCategoryId);
 	}
 
 	/**
@@ -286,6 +293,26 @@ public class JobCategoryWrapper implements JobCategory,
 	@Override
 	public void setJobcategory(java.lang.String jobcategory) {
 		_jobCategory.setJobcategory(jobcategory);
+	}
+
+	/**
+	* Returns the job ID of this job category.
+	*
+	* @return the job ID of this job category
+	*/
+	@Override
+	public long getJobId() {
+		return _jobCategory.getJobId();
+	}
+
+	/**
+	* Sets the job ID of this job category.
+	*
+	* @param jobId the job ID of this job category
+	*/
+	@Override
+	public void setJobId(long jobId) {
+		_jobCategory.setJobId(jobId);
 	}
 
 	@Override

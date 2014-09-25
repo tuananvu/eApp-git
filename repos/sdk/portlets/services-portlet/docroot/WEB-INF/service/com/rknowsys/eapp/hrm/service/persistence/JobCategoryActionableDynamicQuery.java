@@ -21,7 +21,7 @@ import com.rknowsys.eapp.hrm.model.JobCategory;
 import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public abstract class JobCategoryActionableDynamicQuery
@@ -32,6 +32,6 @@ public abstract class JobCategoryActionableDynamicQuery
 
 		setClassLoader(com.rknowsys.eapp.hrm.service.ClpSerializer.class.getClassLoader());
 
-		setPrimaryKeyPropertyName("id");
+		setPrimaryKeyPropertyName("jobCategoryId");
 	}
 }

@@ -26,7 +26,7 @@ import com.liferay.portal.service.InvokableLocalService;
  * based on the propagated JAAS credentials because this service can only be
  * accessed from within the same VM.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryLocalService
  * @see com.rknowsys.eapp.hrm.service.base.JobCategoryLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.impl.JobCategoryLocalServiceImpl
@@ -55,27 +55,27 @@ public class JobCategoryLocalServiceUtil {
 	/**
 	* Creates a new job category with the primary key. Does not add the job category to the database.
 	*
-	* @param id the primary key for the new job category
+	* @param jobCategoryId the primary key for the new job category
 	* @return the new job category
 	*/
 	public static com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(
-		long id) {
-		return getService().createJobCategory(id);
+		long jobCategoryId) {
+		return getService().createJobCategory(jobCategoryId);
 	}
 
 	/**
 	* Deletes the job category with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category that was removed
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(
-		long id)
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().deleteJobCategory(id);
+		return getService().deleteJobCategory(jobCategoryId);
 	}
 
 	/**
@@ -182,23 +182,24 @@ public class JobCategoryLocalServiceUtil {
 	}
 
 	public static com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(
-		long id) throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().fetchJobCategory(id);
+		long jobCategoryId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().fetchJobCategory(jobCategoryId);
 	}
 
 	/**
 	* Returns the job category with the primary key.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(
-		long id)
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getJobCategory(id);
+		return getService().getJobCategory(jobCategoryId);
 	}
 
 	public static com.liferay.portal.model.PersistedModel getPersistedModel(

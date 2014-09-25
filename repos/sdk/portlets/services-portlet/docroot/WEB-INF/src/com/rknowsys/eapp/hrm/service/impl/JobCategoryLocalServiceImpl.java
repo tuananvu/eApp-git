@@ -26,7 +26,7 @@ import com.rknowsys.eapp.hrm.service.base.JobCategoryLocalServiceBaseImpl;
  * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
  * </p>
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.JobCategoryLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil
  */

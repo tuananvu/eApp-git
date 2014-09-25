@@ -1,13 +1,13 @@
 <%@ include file="/html/locations/init.jsp" %>
 <% ResultRow row=(ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
-	Locations Locations=(Locations)row.getObject();
-	long id=Locations.getId();
+	Location Location=(Location)row.getObject();
+	long id=Location.getId();
 	String redirect=PortalUtil.getCurrentURL(renderRequest);
 %>
 <liferay-ui:icon-menu>
-	<portlet:actionURL name="editLocation" var="editLocations">
+	<portlet:actionURL name="editLocation" var="editLocation">
 		<portlet:param name="id"
-			value="<%=Long.toString(Locations.getId()) %>" />
+			value="<%=Long.toString(Location.getLocationId()) %>" />
 	</portlet:actionURL>
-	<liferay-ui:icon image="edit" url="<%= editLocations.toString() %>" />
+	<liferay-ui:icon image="edit" url="<%= editLocation.toString() %>" />
  </liferay-ui:icon-menu>

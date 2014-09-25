@@ -34,7 +34,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  */
 public class JobCategoryClp extends BaseModelImpl<JobCategory>
 	implements JobCategory {
@@ -53,17 +53,17 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 
 	@Override
 	public long getPrimaryKey() {
-		return _id;
+		return _jobCategoryId;
 	}
 
 	@Override
 	public void setPrimaryKey(long primaryKey) {
-		setId(primaryKey);
+		setJobCategoryId(primaryKey);
 	}
 
 	@Override
 	public Serializable getPrimaryKeyObj() {
-		return _id;
+		return _jobCategoryId;
 	}
 
 	@Override
@@ -75,23 +75,24 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 	public Map<String, Object> getModelAttributes() {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
-		attributes.put("id", getId());
+		attributes.put("jobCategoryId", getJobCategoryId());
 		attributes.put("companyId", getCompanyId());
 		attributes.put("groupId", getGroupId());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("userId", getUserId());
 		attributes.put("jobcategory", getJobcategory());
+		attributes.put("jobId", getJobId());
 
 		return attributes;
 	}
 
 	@Override
 	public void setModelAttributes(Map<String, Object> attributes) {
-		Long id = (Long)attributes.get("id");
+		Long jobCategoryId = (Long)attributes.get("jobCategoryId");
 
-		if (id != null) {
-			setId(id);
+		if (jobCategoryId != null) {
+			setJobCategoryId(jobCategoryId);
 		}
 
 		Long companyId = (Long)attributes.get("companyId");
@@ -129,24 +130,30 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 		if (jobcategory != null) {
 			setJobcategory(jobcategory);
 		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
+		}
 	}
 
 	@Override
-	public long getId() {
-		return _id;
+	public long getJobCategoryId() {
+		return _jobCategoryId;
 	}
 
 	@Override
-	public void setId(long id) {
-		_id = id;
+	public void setJobCategoryId(long jobCategoryId) {
+		_jobCategoryId = jobCategoryId;
 
 		if (_jobCategoryRemoteModel != null) {
 			try {
 				Class<?> clazz = _jobCategoryRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setId", long.class);
+				Method method = clazz.getMethod("setJobCategoryId", long.class);
 
-				method.invoke(_jobCategoryRemoteModel, id);
+				method.invoke(_jobCategoryRemoteModel, jobCategoryId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -302,6 +309,29 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 		}
 	}
 
+	@Override
+	public long getJobId() {
+		return _jobId;
+	}
+
+	@Override
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+
+		if (_jobCategoryRemoteModel != null) {
+			try {
+				Class<?> clazz = _jobCategoryRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setJobId", long.class);
+
+				method.invoke(_jobCategoryRemoteModel, jobId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
 	public BaseModel<?> getJobCategoryRemoteModel() {
 		return _jobCategoryRemoteModel;
 	}
@@ -371,13 +401,14 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 	public Object clone() {
 		JobCategoryClp clone = new JobCategoryClp();
 
-		clone.setId(getId());
+		clone.setJobCategoryId(getJobCategoryId());
 		clone.setCompanyId(getCompanyId());
 		clone.setGroupId(getGroupId());
 		clone.setCreateDate(getCreateDate());
 		clone.setModifiedDate(getModifiedDate());
 		clone.setUserId(getUserId());
 		clone.setJobcategory(getJobcategory());
+		clone.setJobId(getJobId());
 
 		return clone;
 	}
@@ -426,10 +457,10 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(15);
+		StringBundler sb = new StringBundler(17);
 
-		sb.append("{id=");
-		sb.append(getId());
+		sb.append("{jobCategoryId=");
+		sb.append(getJobCategoryId());
 		sb.append(", companyId=");
 		sb.append(getCompanyId());
 		sb.append(", groupId=");
@@ -442,6 +473,8 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 		sb.append(getUserId());
 		sb.append(", jobcategory=");
 		sb.append(getJobcategory());
+		sb.append(", jobId=");
+		sb.append(getJobId());
 		sb.append("}");
 
 		return sb.toString();
@@ -449,15 +482,15 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(28);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.JobCategory");
 		sb.append("</model-name>");
 
 		sb.append(
-			"<column><column-name>id</column-name><column-value><![CDATA[");
-		sb.append(getId());
+			"<column><column-name>jobCategoryId</column-name><column-value><![CDATA[");
+		sb.append(getJobCategoryId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>companyId</column-name><column-value><![CDATA[");
@@ -483,13 +516,17 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 			"<column><column-name>jobcategory</column-name><column-value><![CDATA[");
 		sb.append(getJobcategory());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>jobId</column-name><column-value><![CDATA[");
+		sb.append(getJobId());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
 		return sb.toString();
 	}
 
-	private long _id;
+	private long _jobCategoryId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;
@@ -497,5 +534,6 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 	private long _userId;
 	private String _userUuid;
 	private String _jobcategory;
+	private long _jobId;
 	private BaseModel<?> _jobCategoryRemoteModel;
 }

@@ -190,7 +190,7 @@ System.out.println("sortByType == " +sortByType);
 
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row className="JobCategory"
-		keyProperty="id" modelVar="JobCategory" rowVar="curRow"
+		keyProperty="jobCategoryId" modelVar="JobCategory" rowVar="curRow"
 		escapedModel="<%= true %>">
 		<liferay-ui:search-container-column-text orderable="<%=true %>"
 			name="Job Category" property="jobcategory"

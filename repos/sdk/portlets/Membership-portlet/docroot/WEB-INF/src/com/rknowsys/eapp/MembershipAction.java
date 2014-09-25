@@ -143,7 +143,7 @@ System.out.println("deleting thes membership");
 
 		actionRequest.setAttribute("editMembership", membership);
 		actionResponse.setRenderParameter("jspPage",
-				"/html/membershipaction/editMembership.jsp");
+				"/html/membership/edit.jsp");
 	}
 
  

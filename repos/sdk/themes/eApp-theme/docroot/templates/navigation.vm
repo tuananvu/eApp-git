@@ -1,6 +1,15 @@
-			<ul aria-label="#language ("site-pages")" class="nav nav-tabs nav-stacked span3" role="menubar">
+<nav class="$nav_css_class navbar site-navigation" id="navigation" role="navigation">
+	<div class="navbar-inner">
+		<div class="search-area">
+		    <div class="input-append">
+				<input class="span9" id="appendedInputButtons" type="text">
+				<button class="btn" type="button">Search</button>
+			</div>
+		</div>
+		<div class="collapse nav-collapse">
+			<ul aria-label="#language ("site-pages")" class="nav nav-collapse custom-nav" role="menubar">
 				#foreach ($nav_item in $nav_items)
-						#set ($nav_item_attr_selected="'<b class="icon-caret-down"></b>'")
+						#set ($nav_item_attr_selected="")
 						#set ($nav_item_attr_has_popup="")
 						#set ($nav_item_caret="")
 						#set ($nav_item_css_class="lfr-nav-item")
@@ -13,7 +22,7 @@
 
 					#if ($nav_item.hasChildren())
 						#set ($nav_item_attr_has_popup="aria-haspopup='true'")
-						#set ($nav_item_caret='<b class="icon-caret-down"></b>')
+						#set ($nav_item_caret='<b class="icon-caret-down menu-icon"></b>')
 						#set ($nav_item_css_class="$nav_item_css_class dropdown")
 						#set ($nav_item_link_css_class="dropdown-toggle")
 					#end
@@ -37,12 +46,15 @@
 									<li class="$nav_child_css_class" id="layout_$nav_child.getLayoutId()" $nav_child_attr_selected role="presentation">
 										<a aria-labelledby="layout_$nav_child.getLayoutId()" href="$nav_child.getURL()" $nav_child.getTarget() role="menuitem">$nav_child.getName()</a>
 									</li>
-								#end
+							#end
 							</ul>
 						#end
 					</li>
 				#end
 			</ul>
+		</div>
+	</div>
+</nav>
 
 <script>
 	Liferay.Data.NAV_LIST_SELECTOR = '.navbar-inner .nav-collapse > ul';

@@ -149,7 +149,7 @@ System.out.println("deleting thes skills");
 
 		actionRequest.setAttribute("editSkill", skills);
 		actionResponse.setRenderParameter("jspPage",
-				"/html/skillsaction/editSkill.jsp");
+				"/html/skill/edit.jsp");
 	}
 
  

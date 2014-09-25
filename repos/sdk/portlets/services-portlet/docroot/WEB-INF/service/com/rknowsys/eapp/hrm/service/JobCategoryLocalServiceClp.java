@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.service;
 import com.liferay.portal.service.InvokableLocalService;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public class JobCategoryLocalServiceClp implements JobCategoryLocalService {
@@ -147,12 +147,13 @@ public class JobCategoryLocalServiceClp implements JobCategoryLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(long id) {
+	public com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(
+		long jobCategoryId) {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName1,
-					_methodParameterTypes1, new Object[] { id });
+					_methodParameterTypes1, new Object[] { jobCategoryId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -170,14 +171,15 @@ public class JobCategoryLocalServiceClp implements JobCategoryLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName2,
-					_methodParameterTypes2, new Object[] { id });
+					_methodParameterTypes2, new Object[] { jobCategoryId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -430,13 +432,14 @@ public class JobCategoryLocalServiceClp implements JobCategoryLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName10,
-					_methodParameterTypes10, new Object[] { id });
+					_methodParameterTypes10, new Object[] { jobCategoryId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);
@@ -458,14 +461,15 @@ public class JobCategoryLocalServiceClp implements JobCategoryLocalService {
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		try {
 			returnObj = _invokableLocalService.invokeMethod(_methodName11,
-					_methodParameterTypes11, new Object[] { id });
+					_methodParameterTypes11, new Object[] { jobCategoryId });
 		}
 		catch (Throwable t) {
 			t = ClpSerializer.translateThrowable(t);

@@ -19,7 +19,7 @@ import com.liferay.portal.service.ServiceWrapper;
 /**
  * Provides a wrapper for {@link JobCategoryLocalService}.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryLocalService
  * @generated
  */
@@ -47,27 +47,29 @@ public class JobCategoryLocalServiceWrapper implements JobCategoryLocalService,
 	/**
 	* Creates a new job category with the primary key. Does not add the job category to the database.
 	*
-	* @param id the primary key for the new job category
+	* @param jobCategoryId the primary key for the new job category
 	* @return the new job category
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(long id) {
-		return _jobCategoryLocalService.createJobCategory(id);
+	public com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(
+		long jobCategoryId) {
+		return _jobCategoryLocalService.createJobCategory(jobCategoryId);
 	}
 
 	/**
 	* Deletes the job category with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category that was removed
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _jobCategoryLocalService.deleteJobCategory(id);
+		return _jobCategoryLocalService.deleteJobCategory(jobCategoryId);
 	}
 
 	/**
@@ -182,24 +184,26 @@ public class JobCategoryLocalServiceWrapper implements JobCategoryLocalService,
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _jobCategoryLocalService.fetchJobCategory(id);
+		return _jobCategoryLocalService.fetchJobCategory(jobCategoryId);
 	}
 
 	/**
 	* Returns the job category with the primary key.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _jobCategoryLocalService.getJobCategory(id);
+		return _jobCategoryLocalService.getJobCategory(jobCategoryId);
 	}
 
 	@Override

@@ -55,7 +55,7 @@
 		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
 		<property name="targetDataSource">
 			<bean class="com.liferay.portal.dao.jdbc.util.DataSourceFactoryBean">
-				<property name="propertyPrefix" value="jdbc.test." />
+				<property name="propertyPrefix" value="jdbc.hrm." />
 			</bean>
 		</property>
 	</bean>

@@ -21,23 +21,23 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * This class is used by SOAP remote services, specifically {@link com.rknowsys.eapp.hrm.service.http.JobCategoryServiceSoap}.
+ * This class is used by SOAP remote services.
  *
- * @author Rknowsys
- * @see com.rknowsys.eapp.hrm.service.http.JobCategoryServiceSoap
+ * @author rknowsys
  * @generated
  */
 public class JobCategorySoap implements Serializable {
 	public static JobCategorySoap toSoapModel(JobCategory model) {
 		JobCategorySoap soapModel = new JobCategorySoap();
 
-		soapModel.setId(model.getId());
+		soapModel.setJobCategoryId(model.getJobCategoryId());
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setGroupId(model.getGroupId());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setJobcategory(model.getJobcategory());
+		soapModel.setJobId(model.getJobId());
 
 		return soapModel;
 	}
@@ -83,19 +83,19 @@ public class JobCategorySoap implements Serializable {
 	}
 
 	public long getPrimaryKey() {
-		return _id;
+		return _jobCategoryId;
 	}
 
 	public void setPrimaryKey(long pk) {
-		setId(pk);
+		setJobCategoryId(pk);
 	}
 
-	public long getId() {
-		return _id;
+	public long getJobCategoryId() {
+		return _jobCategoryId;
 	}
 
-	public void setId(long id) {
-		_id = id;
+	public void setJobCategoryId(long jobCategoryId) {
+		_jobCategoryId = jobCategoryId;
 	}
 
 	public long getCompanyId() {
@@ -146,11 +146,20 @@ public class JobCategorySoap implements Serializable {
 		_jobcategory = jobcategory;
 	}
 
-	private long _id;
+	public long getJobId() {
+		return _jobId;
+	}
+
+	public void setJobId(long jobId) {
+		_jobId = jobId;
+	}
+
+	private long _jobCategoryId;
 	private long _companyId;
 	private long _groupId;
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _userId;
 	private String _jobcategory;
+	private long _jobId;
 }

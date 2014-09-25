@@ -17,14 +17,37 @@ package com.rknowsys.eapp.hrm.service.messaging;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
 
+import com.rknowsys.eapp.hrm.service.AttachmentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.ClpSerializer;
+import com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.DependentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.DocCategoryLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EducationLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmergencyContactLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmploymentStatusLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.ImmigrationDocumentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.InterviewLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
-import com.rknowsys.eapp.hrm.service.JobCategoryServiceUtil;
-import com.rknowsys.eapp.hrm.service.JobTitlesLocalServiceUtil;
-import com.rknowsys.eapp.hrm.service.JobTitlesServiceUtil;
+import com.rknowsys.eapp.hrm.service.JobLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.JobTitleLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.LanguageLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.LicenseLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.LocationLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.MembershipLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.NationalityLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.NewsLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.PayGradeLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.SkillLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.SubUnitLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.SupervisorLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.WorkExpCompanyLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.WorkshiftLocalServiceUtil;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  */
 public class ClpMessageListener extends BaseMessageListener {
 	public static String getServletContextName() {
@@ -38,12 +61,59 @@ public class ClpMessageListener extends BaseMessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(getServletContextName())) {
+			AttachmentLocalServiceUtil.clearService();
+
+			ContactDetailsLocalServiceUtil.clearService();
+
+			DependentLocalServiceUtil.clearService();
+
+			DocCategoryLocalServiceUtil.clearService();
+
+			EducationLocalServiceUtil.clearService();
+
+			EmergencyContactLocalServiceUtil.clearService();
+
+			EmployeeLocalServiceUtil.clearService();
+
+			EmploymentStatusLocalServiceUtil.clearService();
+
+			ImmigrationDocumentLocalServiceUtil.clearService();
+
+			InterviewLocalServiceUtil.clearService();
+
+			JobLocalServiceUtil.clearService();
+
 			JobCategoryLocalServiceUtil.clearService();
 
-			JobCategoryServiceUtil.clearService();
-			JobTitlesLocalServiceUtil.clearService();
+			JobTitleLocalServiceUtil.clearService();
 
-			JobTitlesServiceUtil.clearService();
+			LanguageLocalServiceUtil.clearService();
+
+			LicenseLocalServiceUtil.clearService();
+
+			LocationLocalServiceUtil.clearService();
+
+			MembershipLocalServiceUtil.clearService();
+
+			NationalityLocalServiceUtil.clearService();
+
+			NewsLocalServiceUtil.clearService();
+
+			PayGradeLocalServiceUtil.clearService();
+
+			PayGradeCurrencyLocalServiceUtil.clearService();
+
+			SalaryComponentLocalServiceUtil.clearService();
+
+			SkillLocalServiceUtil.clearService();
+
+			SubUnitLocalServiceUtil.clearService();
+
+			SupervisorLocalServiceUtil.clearService();
+
+			WorkExpCompanyLocalServiceUtil.clearService();
+
+			WorkshiftLocalServiceUtil.clearService();
 		}
 	}
 }

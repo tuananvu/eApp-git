@@ -29,7 +29,7 @@ import com.liferay.portal.service.PersistedModelLocalService;
  * credentials because this service can only be accessed from within the same
  * VM.
  *
- * @author Rknowsys
+ * @author rknowsys
  * @see JobCategoryLocalServiceUtil
  * @see com.rknowsys.eapp.hrm.service.base.JobCategoryLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.impl.JobCategoryLocalServiceImpl
@@ -59,20 +59,22 @@ public interface JobCategoryLocalService extends BaseLocalService,
 	/**
 	* Creates a new job category with the primary key. Does not add the job category to the database.
 	*
-	* @param id the primary key for the new job category
+	* @param jobCategoryId the primary key for the new job category
 	* @return the new job category
 	*/
-	public com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(long id);
+	public com.rknowsys.eapp.hrm.model.JobCategory createJobCategory(
+		long jobCategoryId);
 
 	/**
 	* Deletes the job category with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category that was removed
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
@@ -165,19 +167,21 @@ public interface JobCategoryLocalService extends BaseLocalService,
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory fetchJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
 	* Returns the job category with the primary key.
 	*
-	* @param id the primary key of the job category
+	* @param jobCategoryId the primary key of the job category
 	* @return the job category
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(long id)
+	public com.rknowsys.eapp.hrm.model.JobCategory getJobCategory(
+		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

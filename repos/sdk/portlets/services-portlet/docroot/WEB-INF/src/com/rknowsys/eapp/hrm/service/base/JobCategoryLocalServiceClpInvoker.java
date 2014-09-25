@@ -19,7 +19,7 @@ import com.rknowsys.eapp.hrm.service.JobCategoryLocalServiceUtil;
 import java.util.Arrays;
 
 /**
- * @author Rknowsys
+ * @author rknowsys
  * @generated
  */
 public class JobCategoryLocalServiceClpInvoker {
@@ -106,13 +106,13 @@ public class JobCategoryLocalServiceClpInvoker {
 				"com.rknowsys.eapp.hrm.model.JobCategory"
 			};
 
-		_methodName40 = "getBeanIdentifier";
+		_methodName136 = "getBeanIdentifier";
 
-		_methodParameterTypes40 = new String[] {  };
+		_methodParameterTypes136 = new String[] {  };
 
-		_methodName41 = "setBeanIdentifier";
+		_methodName137 = "setBeanIdentifier";
 
-		_methodParameterTypes41 = new String[] { "java.lang.String" };
+		_methodParameterTypes137 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -204,13 +204,13 @@ public class JobCategoryLocalServiceClpInvoker {
 			return JobCategoryLocalServiceUtil.updateJobCategory((com.rknowsys.eapp.hrm.model.JobCategory)arguments[0]);
 		}
 
-		if (_methodName40.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes40, parameterTypes)) {
+		if (_methodName136.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes136, parameterTypes)) {
 			return JobCategoryLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName41.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes41, parameterTypes)) {
+		if (_methodName137.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes137, parameterTypes)) {
 			JobCategoryLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -251,8 +251,8 @@ public class JobCategoryLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName40;
-	private String[] _methodParameterTypes40;
-	private String _methodName41;
-	private String[] _methodParameterTypes41;
+	private String _methodName136;
+	private String[] _methodParameterTypes136;
+	private String _methodName137;
+	private String[] _methodParameterTypes137;
 }
