@@ -5,13 +5,13 @@
 	<author>rknowsys</author>
 	<namespace>hrm</namespace>
 
-	<entity name="Interview" table="interview" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Interview" table="interview" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true" />
+		<column name="interviewId" type="long" primary="true" />
 
 		<!-- Audit fields -->
 
@@ -34,13 +34,13 @@
 		</finder>
 	</entity>
 
-	<entity name="DocCategory" table="doc_category" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="DocCategory" table="doc_category" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true" />
+		<column name="docCategoryId" type="long" primary="true" />
 
 		<!-- Audit fields -->
 
@@ -66,8 +66,8 @@
 
 
 	<entity name="ImmigrationDocument" table="immigration_document"
-		data-source="anotherDataSource" local-service="true" remote-service="false"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager"
+		data-source="hrmDataSource" local-service="true" remote-service="false"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager"
 		human-name="ImmigrationDocument">
 
 		<!-- PK fields -->
@@ -108,13 +108,13 @@
 	</entity>
 
 
-	<entity name="News" table="news" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="News" table="news" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
-		<column name="id" type="long" primary="true" />
+		<column name="newsId" type="long" primary="true" />
 
 		<!-- Audit fields -->
 
@@ -139,9 +139,9 @@
 		</finder>
 	</entity>
 
-	<entity name="Membership" table="membership" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Membership" table="membership" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -175,9 +175,9 @@
 		</finder>
 	</entity>
 
-	<entity name="Language" table="language" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Language" table="language" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -212,9 +212,9 @@
 	</entity>
 
 
-	<entity name="License" table="license" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="License" table="license" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -249,9 +249,9 @@
 	</entity>
 
 
-	<entity name="Education" table="education" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Education" table="education" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -285,9 +285,9 @@
 	</entity>
 
 
-	<entity name="Skill" table="skill" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Skill" table="skill" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -321,9 +321,9 @@
 		</finder>
 	</entity>
 
-	<entity name="Location" table="location" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Location" table="location" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -360,8 +360,8 @@
 
 
 	<entity name="SalaryComponent" table="salary_component"
-		data-source="anotherDataSource" local-service="true" remote-service="false"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		data-source="hrmDataSource" local-service="true" remote-service="false"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -401,9 +401,9 @@
 	</entity>
 
 
-	<entity name="JobTitle" table="job_title" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="JobTitle" table="job_title" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -444,9 +444,9 @@
 
 
 
-	<entity name="JobCategory" table="job_category" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="JobCategory" table="job_category" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -474,8 +474,8 @@
 	</entity>
 
 	<entity name="EmploymentStatus" local-service="true"
-		remote-service="false" table="employment_status" data-source="anotherDataSource"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		remote-service="false" table="employment_status" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -496,9 +496,9 @@
         <column name="jobId" type="long"></column>
 	</entity>
 
-	<entity name="PayGrade" table="pay_grade" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="PayGrade" table="pay_grade" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -526,8 +526,8 @@
 	</entity>
 
 	<entity name="PayGradeCurrency" table="pay_grade_currency"
-		data-source="anotherDataSource" local-service="true" remote-service="false"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		data-source="hrmDataSource" local-service="true" remote-service="false"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -555,9 +555,9 @@
 		</finder>
 	</entity>
 
-	<entity name="Workshift" table="workshift" data-source="anotherDataSource"
-		local-service="true" remote-service="false" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+	<entity name="Workshift" table="workshift" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -590,8 +590,8 @@
 
 	</entity>
 	<entity name="Employee" local-service="true" remote-service="false"
-		human-name="Employee" table="employee" data-source="anotherDataSource"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		human-name="Employee" table="employee" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -651,8 +651,8 @@
 
 	<entity name="ContactDetails" remote-service="false"
 		local-service="true" human-name="ContactDetails" table="contact_details"
-		data-source="anotherDataSource" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+		data-source="hrmDataSource" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 
 		<!-- PK fields -->
@@ -686,8 +686,8 @@
 	</entity>
 
 	<entity name="EmergencyContact" local-service="true"
-		remote-service="false" data-source="anotherDataSource"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager"
+		remote-service="false" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager"
 		human-name="EmergencyContact" table="emergency_contact">
 
 		<!-- PK fields -->
@@ -728,8 +728,8 @@
 	</entity>
 
 	<entity name="Dependent" local-service="true" remote-service="false"
-		data-source="anotherDataSource" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+		data-source="hrmDataSource" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -760,8 +760,8 @@
 
 	</entity>
 	<entity name="Attachment" local-service="true" remote-service="false"
-		data-source="anotherDataSource" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager" human-name="attachment" table="attachment">
+		data-source="hrmDataSource" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager" human-name="attachment" table="attachment">
 
 		<!-- PK fields -->
 
@@ -806,8 +806,8 @@
 	</entity>
 
 	<entity name="SubUnit" human-name="SubUnit" table="sub_unit"
-		local-service="true" remote-service="false" data-source="anotherDataSource"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		local-service="true" remote-service="false" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
@@ -831,8 +831,8 @@
         <column name="jobId" type="long"></column>
 	</entity>
 	<entity name="Job" local-service="true" remote-service="false"
-		data-source="anotherDataSource" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+		data-source="hrmDataSource" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 		<column name="jobId" type="long" primary="true"></column>
 		<column name="jobTitleId" type="long"></column>
 		<column name="jobCategoryId" type="long"></column>
@@ -860,8 +860,8 @@
 
 	<entity name="WorkExpCompany" local-service="true"
 		remote-service="false" human-name="WorkExpCompany" table="work_exp_company"
-		data-source="anotherDataSource" session-factory="anotherSessionFactory"
-		tx-manager="anotherTransactionManager">
+		data-source="hrmDataSource" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
 
 
 		<!-- PK fields -->
@@ -895,8 +895,8 @@
 	</entity>
 
 	<entity name="Supervisor" local-service="true" remote-service="false"
-		human-name="Supervisor" table="supervisor" data-source="anotherDataSource"
-		session-factory="anotherSessionFactory" tx-manager="anotherTransactionManager">
+		human-name="Supervisor" table="supervisor" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
