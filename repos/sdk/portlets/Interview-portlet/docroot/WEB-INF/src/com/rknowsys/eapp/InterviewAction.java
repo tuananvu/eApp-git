@@ -77,7 +77,7 @@ public class InterviewAction extends MVCPortlet {
 
 				Interview interview1 = InterviewLocalServiceUtil.getInterview(interviewid);
 
-				interview1.setId(ParamUtil.getLong(actionRequest,
+				interview1.setInterviewId(ParamUtil.getLong(actionRequest,
 						"interviewId"));
 
 				interview1.setName(ParamUtil.getString(actionRequest,
@@ -194,7 +194,7 @@ public class InterviewAction extends MVCPortlet {
 		log.info("id == " + s);
 		Interview interview =  InterviewLocalServiceUtil.getInterview(Long.parseLong(s));
 
-		log.info(interview.getId());
+		log.info(interview.getInterviewId());
 		log.info(interview.getName());
 		PortletSession portletSession = actionRequest.getPortletSession();
 		portletSession.setAttribute("editinterview", interview);
