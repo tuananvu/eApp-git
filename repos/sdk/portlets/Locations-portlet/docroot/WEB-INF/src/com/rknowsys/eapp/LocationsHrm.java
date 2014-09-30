@@ -14,6 +14,8 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import com.rknowsys.eapp.hrm.service.LocationLocalServiceUtil;
 import com.rknowsys.eapp.hrm.model.Location;
@@ -25,9 +27,10 @@ import com.rknowsys.eapp.hrm.model.Location;
 public class LocationsHrm extends MVCPortlet {
 
 	 
-		public void addLocation(ActionRequest actionRequest,ActionResponse actionResponse)throws
+		public void addLocations(ActionRequest actionRequest,ActionResponse actionResponse)throws
 		PortletException,IOException, SystemException
 		{
+			ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 			String name=ParamUtil.getString(actionRequest, "name");
 			String country=ParamUtil.getString(actionRequest, "country");
 			String state=ParamUtil.getString(actionRequest, "state");
@@ -43,6 +46,9 @@ public class LocationsHrm extends MVCPortlet {
 			{
 				try
 				{
+				 locations.setCompanyId(themeDisplay.getCompanyId());
+			     locations.setGroupId(themeDisplay.getCompanyGroupId());
+			    locations.setUserId(themeDisplay.getUserId());
 				locations.setLocationId(id);
 				locations.setName(name);
 				locations.setCountry(country);
@@ -54,11 +60,9 @@ public class LocationsHrm extends MVCPortlet {
 				locations.setPhone(phone);
 				locations.setNotes(notes);
 				LocationLocalServiceUtil.addLocation(locations);
-				SessionMessages.add(actionRequest.getPortletSession(), "location-added-success");
 				}
 				catch(Exception e)
 				{
-					SessionErrors.add(actionRequest, "location-add-fail");
 				}
 			}
 		}
@@ -68,7 +72,7 @@ public class LocationsHrm extends MVCPortlet {
 				 long id=ParamUtil.getLong(actionRequest, "id");
 				 Location Location=LocationLocalServiceUtil.getLocation(id);
 				 actionRequest.setAttribute("edit", Location);
-				 actionResponse.setRenderParameter("mvcPath", "/html/locations/editLocation.jsp" );
+				 actionResponse.setRenderParameter("mvcPath", "/html/locations/editLocations.jsp" );
 			 }
 		 public void updateLocation(ActionRequest actionRequest,ActionResponse actionResponse) throws PortalException, SystemException
 			 {	
@@ -76,6 +80,10 @@ public class LocationsHrm extends MVCPortlet {
 				 String country=ParamUtil.getString(actionRequest, "country");
 				 String state=ParamUtil.getString(actionRequest, "state");
 				 String phone=ParamUtil.getString(actionRequest, "phone");
+				 String address=ParamUtil.getString(actionRequest, "address");
+					String zip=ParamUtil.getString(actionRequest, "zip");
+					String fax=ParamUtil.getString(actionRequest, "fax");
+					
 				 long id=ParamUtil.getLong(actionRequest, "id");
 				 Location locations=LocationLocalServiceUtil.getLocation(id);
 				 locations.setLocationId(id);
@@ -83,6 +91,9 @@ public class LocationsHrm extends MVCPortlet {
 				 locations.setCountry(country);
 				 locations.setState(state);
 				 locations.setPhone(phone);
+				 locations.setAddress(address);
+				 locations.setPostalcode(zip);
+				 locations.setFax(fax);
 				 locations=LocationLocalServiceUtil.updateLocation(locations);
 				 actionResponse.setRenderParameter("mvcPath", "/html/locations/view.jsp");
 				 
@@ -112,14 +123,5 @@ public class LocationsHrm extends MVCPortlet {
 			 }
 			
 		}
-		public void searchLocation(ActionRequest actionRequest,ActionResponse actionResponse) throws SystemException
-		 {
-			String lname=ParamUtil.getString(actionRequest, "locationName");
-			String lcountry=ParamUtil.getString(actionRequest, "country");
-			actionRequest.setAttribute("lname", lname);
-			actionRequest.setAttribute("lcountry", lcountry);
-			actionResponse.setRenderParameter("mvcPath", "/html/locations/search.jsp" );
-		 }
-
 	}
 

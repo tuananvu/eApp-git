@@ -4,11 +4,15 @@
 	<portlet>
 		<portlet-name>locations</portlet-name>
 		<display-name>Locations</display-name>
-		<portlet-class>com.rknowsys.eapp.LocationsHrm</portlet-class>
+		<portlet-class>com.test.LocationsHrm</portlet-class>
 		<init-param>
 			<name>view-template</name>
 			<value>/html/locations/view.jsp</value>
 		</init-param>
+		<init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
 			<mime-type>text/html</mime-type>
