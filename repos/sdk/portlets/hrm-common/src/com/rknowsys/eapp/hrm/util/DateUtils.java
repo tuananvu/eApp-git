@@ -7,18 +7,19 @@ import java.util.Date;
 
 public class DateUtils {
 
-	public static final String DATE_FORMAT_HRM = "dd/MM/yyyy";
+	public static final String DATE_FORMAT_HRM = "dd/mm/yyyy";
 
 	public static String format(Date date) {
-		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 		String dateStr = "";
 		if (date != null)
-			formatter.format(date);
+			dateStr = formatter.format(date);
 		return dateStr;
 	}
 
 	public static void main(String args[]) {
-		System.out.println(format(new Date()));
+		System.out.println(parse("29/10/2014"));
+		System.out.println("date = " + format(new Date()));
 
 	}
 
