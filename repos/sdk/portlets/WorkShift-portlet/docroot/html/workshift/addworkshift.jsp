@@ -49,7 +49,6 @@ $(document).ready(function() {
         var selectedOpts = $('#lstBox2 option');
         if (selectedOpts.length != 0) {
         	     $("#lstBox2 option").each  ( function() {
-        	    	 alert("hello!");
         	    	 $('#lstBox2 option').prop('selected', true);
         	     });
         }
