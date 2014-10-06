@@ -254,13 +254,6 @@ public class EmployeeLocalServiceWrapper implements EmployeeLocalService,
 		return _employeeLocalService.updateEmployee(employee);
 	}
 
-	@Override
-	public com.rknowsys.eapp.hrm.model.EmployeePhotographBlobModel getPhotographBlobModel(
-		java.io.Serializable primaryKey)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _employeeLocalService.getPhotographBlobModel(primaryKey);
-	}
-
 	/**
 	* Returns the Spring bean ID for this bean.
 	*
@@ -287,6 +280,13 @@ public class EmployeeLocalServiceWrapper implements EmployeeLocalService,
 		throws java.lang.Throwable {
 		return _employeeLocalService.invokeMethod(name, parameterTypes,
 			arguments);
+	}
+
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.Employee> getWorkshiftEmployees(
+		long shiftId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _employeeLocalService.getWorkshiftEmployees(shiftId);
 	}
 
 	/**

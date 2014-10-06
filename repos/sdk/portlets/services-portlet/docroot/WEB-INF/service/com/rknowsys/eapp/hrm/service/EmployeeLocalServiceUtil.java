@@ -251,12 +251,6 @@ public class EmployeeLocalServiceUtil {
 		return getService().updateEmployee(employee);
 	}
 
-	public static com.rknowsys.eapp.hrm.model.EmployeePhotographBlobModel getPhotographBlobModel(
-		java.io.Serializable primaryKey)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getPhotographBlobModel(primaryKey);
-	}
-
 	/**
 	* Returns the Spring bean ID for this bean.
 	*
@@ -279,6 +273,12 @@ public class EmployeeLocalServiceUtil {
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable {
 		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Employee> getWorkshiftEmployees(
+		long shiftId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getWorkshiftEmployees(shiftId);
 	}
 
 	public static void clearService() {

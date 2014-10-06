@@ -12,7 +12,7 @@
  * details.
  */
 
-package com.rknowsys.eapp;
+package com.rknowsys.eapp.ui;
 
 import java.text.DateFormat;
 import java.text.DecimalFormat;
@@ -35,11 +35,15 @@ import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
  *
  * @author rknowsys
  */
-public class WorkshiftExtended{
+public class WorkshiftBean{
 	
 	private Workshift workshift;
 	
-	public WorkshiftExtended(Workshift workshift) {
+	public Workshift getWorkshift() {
+		return workshift;
+	}
+
+	public WorkshiftBean(Workshift workshift) {
 	    this.workshift = workshift;
 	}
 	
@@ -65,7 +69,4 @@ public class WorkshiftExtended{
 		return df.format(date, buf, new FieldPosition(0)).toString();
 	}
 
-	public List<Employee> getEmployees() throws SystemException{
-	    return EmployeeLocalServiceUtil.getEmployees(0, EmployeeLocalServiceUtil.getEmployeesCount());
-	}
 }
