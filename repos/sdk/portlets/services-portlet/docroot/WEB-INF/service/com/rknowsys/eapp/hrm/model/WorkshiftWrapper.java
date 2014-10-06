@@ -446,6 +446,11 @@ public class WorkshiftWrapper implements Workshift, ModelWrapper<Workshift> {
 	}
 
 	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.Employee> getEmployees() {
+		return _workshift.getEmployees();
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

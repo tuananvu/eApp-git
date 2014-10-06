@@ -2,62 +2,83 @@
 <portlet:renderURL var="addLocation">
 	<portlet:param name="mvcPath" value="/html/locations/addLocation.jsp"/>
 </portlet:renderURL>
-<portlet:resourceURL var="deleteLocation"></portlet:resourceURL>
+<portlet:resourceURL var="deleteLocations"></portlet:resourceURL>
 <portlet:renderURL var="viewJSP">
 	<portlet:param name="mvcPath" value="/html/locations/view.jsp"/>
 </portlet:renderURL>
-<portlet:actionURL name="searchLocation" var="searchLocation"></portlet:actionURL>
-<div id="searchLocation">
-	<aui:form name="locationSearch" action="<%=searchLocation %>" inlineLabel="right" >
-		<aui:field-wrapper inlineLabel="true">
-		<aui:input name="locationName" label="Location Name" inlineLabel="true" ></aui:input>
-		<aui:select name="country" label="Country" inlineLabel="true">
-		<aui:option label="Afganisthan" value="Afganisthan"></aui:option>
-		<aui:option label="China" value="China"></aui:option>
-		<aui:option label="India" value="India"></aui:option>
-		</aui:select>
-		</aui:field-wrapper>
-		<aui:button type="submit" name="search" value="search"></aui:button>
-	</aui:form>
-</div>
-<div id="buttons" align="right">
-	<aui:a href="<%=addLocation %>">
-	<i class="icon-plus"></i>
-	</aui:a>
-	<aui:button name="delete" id="delLocation" value="delete">
-	</aui:button>
-</div>
-<hr>
-<aui:script use="aui-base,aui-node, aui-io-request-deprecated, aui-datepicker-deprecated, aui-form-deprecated">
-var A=new AUI();
-A.one('#<portlet:namespace />delete').on('click',function(event)
-	{
-	var locationIdArray=[];
-			A.all('input[type=checkbox]:checked').each(function(object)
-			{
-			locationIdArray.push(object.get("value"));
-			alert(locationIdArray[0]);
-			});
-			alert(locationIdArray.length);
-			if(confirm("Are you sure you want to delete?"))
-			{
-	var url="<%=deleteLocation%>"
-	A.io.request(url,
-		{
-		data:{<portlet:namespace />id9:locationIdArray},
-		 on: {
-		     success: function() { 
-		                   alert('Success');
-		                   window.location('<%=viewJSP %>')
-		                         }
-             }
+<aui:script>
+AUI().use(
+  'aui-node',
+  function(A) {
+    var node = A.one('#delLocation');
+    node.on(
+      'click',
+      function() {
+     	var idArray = [];
+      	A.all('input[name=<portlet:namespace />rowIds]:checked').each(function(object) {
+      	idArray.push(object.get("value"));
         });
-        }
-    });
-</aui:script> 
+       if(idArray==""){
+			  alert("Please select records!");
+		  }else{
+			  var d = confirm("Are you sure you want to delete the selected location?");
+		  if(d){
+		   var url = '<%=deleteLocations%>';
+          A.io.request(url,
+         {
+          data: {  
+                <portlet:namespace />id9: idArray,  
+                 },
+          on: {
+               success: function() { 
+                   alert('deleted successfully');
+                   window.location='<%=viewJSP%>';
+              },
+               failure: function() {
+                  
+                 }
+                }
+                 }
+                );
+		  																		
+		  console.log(idArray);
+	  
+      return true;
+  }
+  else
+    return false;
+}             
+      }
+    );
+  }
+);
+</aui:script>
+
+<aui:script>
+AUI().use(
+  'aui-node',
+  function(A) {
+    var node = A.one('#addLocation1');
+    node.on(
+      'click',
+      function() {
+        window.location='<%=addLocation %>';
+      }
+    );
+  }
+);
+
+</aui:script>
+	<div class="row-fluid">
+		<div class="pull-">
+		<button id="addLocation1" class="btn btn-success" type="button" ><i class="icon-plus"></i> Add </button>
+		<button id="delLocation" class="btn btn-danger" type="button"><i class="icon-trash"></i> Delete </button> 
+		</div>
+	</div>
+<hr>
 <%
 PortletURL iteratorURL = renderResponse.createRenderURL();
-iteratorURL.setParameter("mvcPath", "/html/locationseapp/view.jsp");
+iteratorURL.setParameter("mvcPath", "/html/locations/view.jsp");
 RowChecker rowChecker = new RowChecker(renderResponse);
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request);
 String sortByCol = ParamUtil.getString(request, "orderByCol");
@@ -70,7 +91,7 @@ sortByType = portalPrefs.getValue("NAME_SPACE", "sort-by-type ", "asc");
 <%!
   com.liferay.portal.kernel.dao.search.SearchContainer<Location> searchContainer;
 %>
-<div id="displayLocation">
+<div id="displayLocations">
 <liferay-ui:search-container emptyResultsMessage="norecordsfound" 
 headerNames="name,city,country,phone,numberofemployees"
 iteratorURL="<%=iteratorURL %>"
@@ -80,20 +101,20 @@ orderByCol="<%=sortByCol %>"   orderByType="<%=sortByType %>"
 rowChecker="<%=new RowChecker(renderResponse) %>" > 
 		<liferay-ui:search-container-results>
 		<%List<Location> jt=LocationLocalServiceUtil.getLocations(-1, -1);
-		  OrderByComparator orderByComparator=CustomComparatorUtil.getLocationOrderByComparator(sortByCol, sortByType);
+		  OrderByComparator orderByComparator=CustomComparatorUtil.getLocationsOrderByComparator(sortByCol, sortByType);
 		  Collections.sort(jt,orderByComparator);
 		  results=ListUtil.subList(jt, searchContainer.getStart(), searchContainer.getEnd());
-		  total=LocationLocalServiceUtil.getLocationesCount();
+		  total=LocationLocalServiceUtil.getLocationsCount();
 		  pageContext.setAttribute("results", results);
 		  pageContext.setAttribute("total", total);
 		%>
 		</liferay-ui:search-container-results>
 				<liferay-ui:search-container-row className="com.rknowsys.eapp.hrm.model.Location" 
- 				keyProperty="locationId" modelVar="locationId" >
+ 				keyProperty="locationId" modelVar="id" >
 						 <liferay-ui:search-container-column-text name="name" property="name" orderable="<%=true %>" orderableProperty="name"/>
-						 <liferay-ui:search-container-column-text name="city" property="city" orderable="<%=true %>" orderableProperty="city"/>
-						 <liferay-ui:search-container-column-text name="country" property="country" orderable="<%=true %>" orderableProperty="country"/>
-						 <liferay-ui:search-container-column-text name="phone" property="phone" orderable="<%=true %>" orderableProperty="phone"/>
+						 <liferay-ui:search-container-column-text name="city" property="city" />
+						 <liferay-ui:search-container-column-text name="country" property="country" />
+						 <liferay-ui:search-container-column-text name="phone" property="phone" />
 						 	 <liferay-ui:search-container-column-jsp path="/html/locations/edit.jsp" />
  				</liferay-ui:search-container-row>
 	 <liferay-ui:search-iterator searchContainer="<%=searchContainer %>" />
