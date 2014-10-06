@@ -50,7 +50,7 @@ public class InterviewAction extends MVCPortlet {
 		log.info("userId = " + themeDisplay.getUserId());
 		log.info("groupId = " + themeDisplay.getCompanyGroupId());
 		try {
-			Interview interview =  InterviewLocalServiceUtil.createInterview(CounterLocalServiceUtil.increment());
+			
 			
 			log.info("id = "
 					+ ParamUtil.getString(actionRequest, "interviewId"));
@@ -60,6 +60,7 @@ public class InterviewAction extends MVCPortlet {
 			log.info("id == " + id);
 			if (id == "" || id == null) {
 				log.info("inside if loop...");
+				Interview interview =  InterviewLocalServiceUtil.createInterview(CounterLocalServiceUtil.increment());
 				interview.setName(ParamUtil.getString(actionRequest,
 						"name"));
 				interview.setCreateDate(date);
@@ -67,6 +68,7 @@ public class InterviewAction extends MVCPortlet {
 				interview.setCompanyId(themeDisplay.getCompanyId());
 				interview.setGroupId(themeDisplay.getCompanyGroupId());
 				interview.setUserId(themeDisplay.getUserId());
+				log.info("before...");
 				interview = InterviewLocalServiceUtil.addInterview(interview); 
 				log.info("end of if block");
 			} else {
