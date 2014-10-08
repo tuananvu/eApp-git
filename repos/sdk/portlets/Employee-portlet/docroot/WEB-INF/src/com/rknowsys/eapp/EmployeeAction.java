@@ -7,6 +7,8 @@ import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
 import javax.portlet.PortletSession;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
@@ -87,6 +89,7 @@ public class EmployeeAction extends MVCPortlet {
 
 				log.info("new emp = " + employee.getEmployeeId());
 				actionRequest.setAttribute("employee", employee);
+				actionRequest.getPortletSession().setAttribute("LIFERAY_SHARED_employeeId", employee.getEmployeeId(), PortletSession.APPLICATION_SCOPE);
 				actionResponse.setRenderParameter("jspPage",
 						"/html/employee/edit_employee.jsp");
 				log.info("end of if block");
@@ -129,13 +132,16 @@ public class EmployeeAction extends MVCPortlet {
 			e.printStackTrace();
 			log.info("portalexception");
 		}
-		actionRequest.getPortletSession().setAttribute("employee", employee, PortletSession.APPLICATION_SCOPE);
+		//actionRequest.getPortletSession().setAttribute("LIFERAY_SHARED_employee", employee, PortletSession.APPLICATION_SCOPE);
+		actionRequest.setAttribute("employee", employee);
+		actionRequest.getPortletSession().setAttribute("LIFERAY_SHARED_employeeId", employee.getEmployeeId(), PortletSession.APPLICATION_SCOPE);
 		actionResponse.setRenderParameter("mvcPath",
 				"/html/employee/edit_employee.jsp");
 		log.info("employee set in session - " + employee);
 		log.info("end of the saveEmployee method");
 
 	}
+
 
 	private void setEmployeeForUpdate(ActionRequest actionRequest,
 			ThemeDisplay themeDisplay, Date date, Employee employee1)
@@ -206,7 +212,7 @@ public class EmployeeAction extends MVCPortlet {
 		if (lic != null){
 			log.info("License - if");
 		    lic.setLicenseNumber(licenseStr);
-		    lic.setExpiryDate(DateUtils.parse(EMPLOYEE_LICENSE_EXP_DATE_COL_NAME));
+		    lic.setExpiryDate(DateUtils.parse(ParamUtil.getString(actionRequest, EMPLOYEE_LICENSE_EXP_DATE_COL_NAME)));
 		    LicenseLocalServiceUtil.updateLicense(lic);
 		}else{
 			log.info("License - else");
@@ -217,8 +223,7 @@ public class EmployeeAction extends MVCPortlet {
     				EMPLOYEE_LICENSE_EXP_DATE_COL_NAME)));
 		    employee1.setLicenseId(LicenseLocalServiceUtil.addLicense(lic).getLicenseId());
 		}
-		log.info(employee1.getLicense().getExpiryDate());
-		log.info(employee1.getDateOfBirth());
+
 	}
 
 	private void setEmployee(ActionRequest actionRequest,
@@ -337,7 +342,9 @@ public class EmployeeAction extends MVCPortlet {
 		log.info(employee.getFirstName());
 		log.info(employee.getLicense().getExpiryDate());
 		log.info(employee.getDateOfBirth());
+		//actionRequest.getPortletSession().setAttribute("LIFERAY_SHARED_employee", employee, PortletSession.APPLICATION_SCOPE);
 		actionRequest.setAttribute("employee", employee);
+		actionRequest.getPortletSession().setAttribute("LIFERAY_SHARED_employeeId", employee.getEmployeeId(), PortletSession.APPLICATION_SCOPE);
 		// actionResponse.setRenderParameter("jspPage",
 		// "/html/employee/edit_employee.jsp");
 	}

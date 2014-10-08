@@ -98,8 +98,9 @@ AUI().use(
 
 </head>
 <body>
-    <% com.rknowsys.eapp.hrm.model.Employee employee =  (Employee)portletSession.getAttribute("employee", javax.portlet.PortletSession.APPLICATION_SCOPE);
-       System.out.println("Employee retrieved from session = " + employee );
+<jsp:useBean id="employee" type="com.rknowsys.eapp.hrm.model.Employee" scope="request" />
+    <% 
+       System.out.println("Employee retrieved from bean = " + employee );
     %>
 	<div id="editjobadddelete" class="span12">
 		<a href="#" id="add">Add</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"
