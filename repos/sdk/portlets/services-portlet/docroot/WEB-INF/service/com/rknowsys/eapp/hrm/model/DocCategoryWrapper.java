@@ -352,7 +352,7 @@ public class DocCategoryWrapper implements DocCategory,
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.DocCategory docCategory) {
+	public int compareTo(DocCategory docCategory) {
 		return _docCategory.compareTo(docCategory);
 	}
 
@@ -362,17 +362,17 @@ public class DocCategoryWrapper implements DocCategory,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.DocCategory> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<DocCategory> toCacheModel() {
 		return _docCategory.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.DocCategory toEscapedModel() {
+	public DocCategory toEscapedModel() {
 		return new DocCategoryWrapper(_docCategory.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.DocCategory toUnescapedModel() {
+	public DocCategory toUnescapedModel() {
 		return new DocCategoryWrapper(_docCategory.toUnescapedModel());
 	}
 

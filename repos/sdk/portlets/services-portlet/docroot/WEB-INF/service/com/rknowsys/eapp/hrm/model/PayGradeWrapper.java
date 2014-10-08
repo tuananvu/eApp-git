@@ -351,7 +351,7 @@ public class PayGradeWrapper implements PayGrade, ModelWrapper<PayGrade> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.PayGrade payGrade) {
+	public int compareTo(PayGrade payGrade) {
 		return _payGrade.compareTo(payGrade);
 	}
 
@@ -361,17 +361,17 @@ public class PayGradeWrapper implements PayGrade, ModelWrapper<PayGrade> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.PayGrade> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<PayGrade> toCacheModel() {
 		return _payGrade.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.PayGrade toEscapedModel() {
+	public PayGrade toEscapedModel() {
 		return new PayGradeWrapper(_payGrade.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.PayGrade toUnescapedModel() {
+	public PayGrade toUnescapedModel() {
 		return new PayGradeWrapper(_payGrade.toUnescapedModel());
 	}
 

@@ -432,7 +432,7 @@ public class NewsWrapper implements News, ModelWrapper<News> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.News news) {
+	public int compareTo(News news) {
 		return _news.compareTo(news);
 	}
 
@@ -442,17 +442,17 @@ public class NewsWrapper implements News, ModelWrapper<News> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.News> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<News> toCacheModel() {
 		return _news.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.News toEscapedModel() {
+	public News toEscapedModel() {
 		return new NewsWrapper(_news.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.News toUnescapedModel() {
+	public News toUnescapedModel() {
 		return new NewsWrapper(_news.toUnescapedModel());
 	}
 

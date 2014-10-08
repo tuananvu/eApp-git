@@ -14,28 +14,40 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.NoSuchContactDetailsException;
+import com.rknowsys.eapp.hrm.model.ContactDetails;
 import com.rknowsys.eapp.hrm.service.base.ContactDetailsLocalServiceBaseImpl;
 
 /**
  * The implementation of the ContactDetails local service.
- *
+ * 
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalService} interface.
- *
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalService} interface.
+ * 
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
- *
+ * 
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.ContactDetailsLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil
  */
-public class ContactDetailsLocalServiceImpl
-	extends ContactDetailsLocalServiceBaseImpl {
+public class ContactDetailsLocalServiceImpl extends
+		ContactDetailsLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil} to access the ContactDetails local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.ContactDetailsLocalServiceUtil} to access
+	 * the ContactDetails local service.
 	 */
+	public ContactDetails findByEmployeeId(long employeeId) throws NoSuchContactDetailsException, SystemException{
+		return contactDetailsPersistence.findByEmployeeId(employeeId);
+	}
 
 }

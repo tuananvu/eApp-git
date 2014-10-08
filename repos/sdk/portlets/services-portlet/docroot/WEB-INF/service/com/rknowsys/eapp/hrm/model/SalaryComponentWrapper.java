@@ -480,8 +480,7 @@ public class SalaryComponentWrapper implements SalaryComponent,
 	}
 
 	@Override
-	public int compareTo(
-		com.rknowsys.eapp.hrm.model.SalaryComponent salaryComponent) {
+	public int compareTo(SalaryComponent salaryComponent) {
 		return _salaryComponent.compareTo(salaryComponent);
 	}
 
@@ -491,17 +490,17 @@ public class SalaryComponentWrapper implements SalaryComponent,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.SalaryComponent> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<SalaryComponent> toCacheModel() {
 		return _salaryComponent.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.SalaryComponent toEscapedModel() {
+	public SalaryComponent toEscapedModel() {
 		return new SalaryComponentWrapper(_salaryComponent.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.SalaryComponent toUnescapedModel() {
+	public SalaryComponent toUnescapedModel() {
 		return new SalaryComponentWrapper(_salaryComponent.toUnescapedModel());
 	}
 

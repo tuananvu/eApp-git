@@ -75,9 +75,9 @@ public class WorkshiftModelImpl extends BaseModelImpl<Workshift>
 	public static final String TABLE_SQL_DROP = "drop table workshift";
 	public static final String ORDER_BY_JPQL = " ORDER BY workshift.shiftId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY workshift.shiftId ASC";
-	public static final String DATA_SOURCE = "anotherDataSource";
-	public static final String SESSION_FACTORY = "anotherSessionFactory";
-	public static final String TX_MANAGER = "anotherTransactionManager";
+	public static final String DATA_SOURCE = "hrmDataSource";
+	public static final String SESSION_FACTORY = "hrmSessionFactory";
+	public static final String TX_MANAGER = "hrmTransactionManager";
 	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.entity.cache.enabled.com.rknowsys.eapp.hrm.model.Workshift"),
 			true);
@@ -206,7 +206,19 @@ public class WorkshiftModelImpl extends BaseModelImpl<Workshift>
 
 	@Override
 	public void setShiftId(long shiftId) {
+		_columnBitmask |= SHIFTID_COLUMN_BITMASK;
+
+		if (!_setOriginalShiftId) {
+			_setOriginalShiftId = true;
+
+			_originalShiftId = _shiftId;
+		}
+
 		_shiftId = shiftId;
+	}
+
+	public long getOriginalShiftId() {
+		return _originalShiftId;
 	}
 
 	@Override
@@ -408,6 +420,10 @@ public class WorkshiftModelImpl extends BaseModelImpl<Workshift>
 	public void resetOriginalValues() {
 		WorkshiftModelImpl workshiftModelImpl = this;
 
+		workshiftModelImpl._originalShiftId = workshiftModelImpl._shiftId;
+
+		workshiftModelImpl._setOriginalShiftId = false;
+
 		workshiftModelImpl._originalGroupId = workshiftModelImpl._groupId;
 
 		workshiftModelImpl._setOriginalGroupId = false;
@@ -556,6 +572,8 @@ public class WorkshiftModelImpl extends BaseModelImpl<Workshift>
 			Workshift.class
 		};
 	private long _shiftId;
+	private long _originalShiftId;
+	private boolean _setOriginalShiftId;
 	private long _companyId;
 	private long _groupId;
 	private long _originalGroupId;

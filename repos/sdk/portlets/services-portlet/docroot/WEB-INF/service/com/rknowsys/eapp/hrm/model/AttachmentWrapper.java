@@ -542,7 +542,7 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.Attachment attachment) {
+	public int compareTo(Attachment attachment) {
 		return _attachment.compareTo(attachment);
 	}
 
@@ -552,17 +552,17 @@ public class AttachmentWrapper implements Attachment, ModelWrapper<Attachment> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Attachment> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<Attachment> toCacheModel() {
 		return _attachment.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment toEscapedModel() {
+	public Attachment toEscapedModel() {
 		return new AttachmentWrapper(_attachment.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Attachment toUnescapedModel() {
+	public Attachment toUnescapedModel() {
 		return new AttachmentWrapper(_attachment.toUnescapedModel());
 	}
 

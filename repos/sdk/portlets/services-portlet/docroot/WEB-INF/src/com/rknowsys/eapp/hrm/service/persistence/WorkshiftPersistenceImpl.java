@@ -569,6 +569,347 @@ public class WorkshiftPersistenceImpl extends BasePersistenceImpl<Workshift>
 	}
 
 	private static final String _FINDER_COLUMN_GROUPID_GROUPID_2 = "workshift.groupId = ?";
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_SHIFTID = new FinderPath(WorkshiftModelImpl.ENTITY_CACHE_ENABLED,
+			WorkshiftModelImpl.FINDER_CACHE_ENABLED, WorkshiftImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByshiftId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SHIFTID =
+		new FinderPath(WorkshiftModelImpl.ENTITY_CACHE_ENABLED,
+			WorkshiftModelImpl.FINDER_CACHE_ENABLED, WorkshiftImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByshiftId",
+			new String[] { Long.class.getName() },
+			WorkshiftModelImpl.SHIFTID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_SHIFTID = new FinderPath(WorkshiftModelImpl.ENTITY_CACHE_ENABLED,
+			WorkshiftModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByshiftId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the workshifts where shiftId = &#63;.
+	 *
+	 * @param shiftId the shift ID
+	 * @return the matching workshifts
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Workshift> findByshiftId(long shiftId)
+		throws SystemException {
+		return findByshiftId(shiftId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the workshifts where shiftId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.WorkshiftModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param shiftId the shift ID
+	 * @param start the lower bound of the range of workshifts
+	 * @param end the upper bound of the range of workshifts (not inclusive)
+	 * @return the range of matching workshifts
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Workshift> findByshiftId(long shiftId, int start, int end)
+		throws SystemException {
+		return findByshiftId(shiftId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the workshifts where shiftId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.WorkshiftModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param shiftId the shift ID
+	 * @param start the lower bound of the range of workshifts
+	 * @param end the upper bound of the range of workshifts (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching workshifts
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<Workshift> findByshiftId(long shiftId, int start, int end,
+		OrderByComparator orderByComparator) throws SystemException {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SHIFTID;
+			finderArgs = new Object[] { shiftId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_SHIFTID;
+			finderArgs = new Object[] { shiftId, start, end, orderByComparator };
+		}
+
+		List<Workshift> list = (List<Workshift>)FinderCacheUtil.getResult(finderPath,
+				finderArgs, this);
+
+		if ((list != null) && !list.isEmpty()) {
+			for (Workshift workshift : list) {
+				if ((shiftId != workshift.getShiftId())) {
+					list = null;
+
+					break;
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 3));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_WORKSHIFT_WHERE);
+
+			query.append(_FINDER_COLUMN_SHIFTID_SHIFTID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(WorkshiftModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(shiftId);
+
+				if (!pagination) {
+					list = (List<Workshift>)QueryUtil.list(q, getDialect(),
+							start, end, false);
+
+					Collections.sort(list);
+
+					list = new UnmodifiableList<Workshift>(list);
+				}
+				else {
+					list = (List<Workshift>)QueryUtil.list(q, getDialect(),
+							start, end);
+				}
+
+				cacheResult(list);
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first workshift in the ordered set where shiftId = &#63;.
+	 *
+	 * @param shiftId the shift ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching workshift
+	 * @throws com.rknowsys.eapp.hrm.NoSuchWorkshiftException if a matching workshift could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Workshift findByshiftId_First(long shiftId,
+		OrderByComparator orderByComparator)
+		throws NoSuchWorkshiftException, SystemException {
+		Workshift workshift = fetchByshiftId_First(shiftId, orderByComparator);
+
+		if (workshift != null) {
+			return workshift;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("shiftId=");
+		msg.append(shiftId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchWorkshiftException(msg.toString());
+	}
+
+	/**
+	 * Returns the first workshift in the ordered set where shiftId = &#63;.
+	 *
+	 * @param shiftId the shift ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching workshift, or <code>null</code> if a matching workshift could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Workshift fetchByshiftId_First(long shiftId,
+		OrderByComparator orderByComparator) throws SystemException {
+		List<Workshift> list = findByshiftId(shiftId, 0, 1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last workshift in the ordered set where shiftId = &#63;.
+	 *
+	 * @param shiftId the shift ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching workshift
+	 * @throws com.rknowsys.eapp.hrm.NoSuchWorkshiftException if a matching workshift could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Workshift findByshiftId_Last(long shiftId,
+		OrderByComparator orderByComparator)
+		throws NoSuchWorkshiftException, SystemException {
+		Workshift workshift = fetchByshiftId_Last(shiftId, orderByComparator);
+
+		if (workshift != null) {
+			return workshift;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("shiftId=");
+		msg.append(shiftId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchWorkshiftException(msg.toString());
+	}
+
+	/**
+	 * Returns the last workshift in the ordered set where shiftId = &#63;.
+	 *
+	 * @param shiftId the shift ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching workshift, or <code>null</code> if a matching workshift could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Workshift fetchByshiftId_Last(long shiftId,
+		OrderByComparator orderByComparator) throws SystemException {
+		int count = countByshiftId(shiftId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<Workshift> list = findByshiftId(shiftId, count - 1, count,
+				orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Removes all the workshifts where shiftId = &#63; from the database.
+	 *
+	 * @param shiftId the shift ID
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeByshiftId(long shiftId) throws SystemException {
+		for (Workshift workshift : findByshiftId(shiftId, QueryUtil.ALL_POS,
+				QueryUtil.ALL_POS, null)) {
+			remove(workshift);
+		}
+	}
+
+	/**
+	 * Returns the number of workshifts where shiftId = &#63;.
+	 *
+	 * @param shiftId the shift ID
+	 * @return the number of matching workshifts
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countByshiftId(long shiftId) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_SHIFTID;
+
+		Object[] finderArgs = new Object[] { shiftId };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_WORKSHIFT_WHERE);
+
+			query.append(_FINDER_COLUMN_SHIFTID_SHIFTID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(shiftId);
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_SHIFTID_SHIFTID_2 = "workshift.shiftId = ?";
 
 	public WorkshiftPersistenceImpl() {
 		setModelClass(Workshift.class);
@@ -808,6 +1149,23 @@ public class WorkshiftPersistenceImpl extends BasePersistenceImpl<Workshift>
 
 				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
 				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+					args);
+			}
+
+			if ((workshiftModelImpl.getColumnBitmask() &
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SHIFTID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						workshiftModelImpl.getOriginalShiftId()
+					};
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_SHIFTID, args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SHIFTID,
+					args);
+
+				args = new Object[] { workshiftModelImpl.getShiftId() };
+
+				FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_SHIFTID, args);
+				FinderCacheUtil.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_SHIFTID,
 					args);
 			}
 		}

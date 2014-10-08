@@ -487,8 +487,7 @@ public class WorkExpCompanyWrapper implements WorkExpCompany,
 	}
 
 	@Override
-	public int compareTo(
-		com.rknowsys.eapp.hrm.model.WorkExpCompany workExpCompany) {
+	public int compareTo(WorkExpCompany workExpCompany) {
 		return _workExpCompany.compareTo(workExpCompany);
 	}
 
@@ -498,17 +497,17 @@ public class WorkExpCompanyWrapper implements WorkExpCompany,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.WorkExpCompany> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<WorkExpCompany> toCacheModel() {
 		return _workExpCompany.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.WorkExpCompany toEscapedModel() {
+	public WorkExpCompany toEscapedModel() {
 		return new WorkExpCompanyWrapper(_workExpCompany.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.WorkExpCompany toUnescapedModel() {
+	public WorkExpCompany toUnescapedModel() {
 		return new WorkExpCompanyWrapper(_workExpCompany.toUnescapedModel());
 	}
 

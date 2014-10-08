@@ -378,7 +378,7 @@ public class SubUnitWrapper implements SubUnit, ModelWrapper<SubUnit> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.SubUnit subUnit) {
+	public int compareTo(SubUnit subUnit) {
 		return _subUnit.compareTo(subUnit);
 	}
 
@@ -388,17 +388,17 @@ public class SubUnitWrapper implements SubUnit, ModelWrapper<SubUnit> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.SubUnit> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<SubUnit> toCacheModel() {
 		return _subUnit.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.SubUnit toEscapedModel() {
+	public SubUnit toEscapedModel() {
 		return new SubUnitWrapper(_subUnit.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.SubUnit toUnescapedModel() {
+	public SubUnit toUnescapedModel() {
 		return new SubUnitWrapper(_subUnit.toUnescapedModel());
 	}
 

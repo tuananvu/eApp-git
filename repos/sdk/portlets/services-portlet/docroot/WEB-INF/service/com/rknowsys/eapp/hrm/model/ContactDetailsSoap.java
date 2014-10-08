@@ -48,6 +48,7 @@ public class ContactDetailsSoap implements Serializable {
 		soapModel.setWorkTelephone(model.getWorkTelephone());
 		soapModel.setWorkEmail(model.getWorkEmail());
 		soapModel.setOtherEmail(model.getOtherEmail());
+		soapModel.setEmployeeId(model.getEmployeeId());
 
 		return soapModel;
 	}
@@ -244,6 +245,14 @@ public class ContactDetailsSoap implements Serializable {
 		_otherEmail = otherEmail;
 	}
 
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+	}
+
 	private long _contactDetailsId;
 	private long _groupId;
 	private long _companyId;
@@ -262,4 +271,5 @@ public class ContactDetailsSoap implements Serializable {
 	private String _workTelephone;
 	private String _workEmail;
 	private String _otherEmail;
+	private long _employeeId;
 }

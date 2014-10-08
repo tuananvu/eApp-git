@@ -14,6 +14,9 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.NoSuchJobException;
+import com.rknowsys.eapp.hrm.model.Job;
 import com.rknowsys.eapp.hrm.service.base.JobLocalServiceBaseImpl;
 
 /**
@@ -36,4 +39,7 @@ public class JobLocalServiceImpl extends JobLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.JobLocalServiceUtil} to access the job local service.
 	 */
+	public Job findByEmployeeId(long employeeId) throws NoSuchJobException, SystemException{
+		return jobPersistence.findByEmployeeId(employeeId);
+	}
 }

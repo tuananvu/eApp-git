@@ -432,7 +432,7 @@ public class LicenseWrapper implements License, ModelWrapper<License> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.License license) {
+	public int compareTo(License license) {
 		return _license.compareTo(license);
 	}
 
@@ -442,17 +442,17 @@ public class LicenseWrapper implements License, ModelWrapper<License> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.License> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<License> toCacheModel() {
 		return _license.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License toEscapedModel() {
+	public License toEscapedModel() {
 		return new LicenseWrapper(_license.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.License toUnescapedModel() {
+	public License toUnescapedModel() {
 		return new LicenseWrapper(_license.toUnescapedModel());
 	}
 

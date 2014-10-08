@@ -30,12 +30,9 @@ import com.liferay.portlet.expando.util.ExpandoBridgeFactoryUtil;
 
 import com.rknowsys.eapp.hrm.model.Employee;
 import com.rknowsys.eapp.hrm.model.EmployeeModel;
-import com.rknowsys.eapp.hrm.model.EmployeePhotographBlobModel;
-import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
 
 import java.io.Serializable;
 
-import java.sql.Blob;
 import java.sql.Types;
 
 import java.util.Date;
@@ -65,8 +62,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	public static final String TABLE_NAME = "employee";
 	public static final Object[][] TABLE_COLUMNS = {
 			{ "employeeId", Types.BIGINT },
-			{ "contactDetailsId", Types.BIGINT },
-			{ "jobId", Types.BIGINT },
 			{ "shiftId", Types.BIGINT },
 			{ "licenseId", Types.BIGINT },
 			{ "groupId", Types.BIGINT },
@@ -77,20 +72,19 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 			{ "firstName", Types.VARCHAR },
 			{ "lastName", Types.VARCHAR },
 			{ "middleName", Types.VARCHAR },
-			{ "photograph", Types.BLOB },
 			{ "gender", Types.INTEGER },
 			{ "maritalStatus", Types.INTEGER },
-			{ "nationality", Types.VARCHAR },
+			{ "nationalityId", Types.BIGINT },
 			{ "dateOfBirth", Types.TIMESTAMP },
 			{ "otherId", Types.VARCHAR }
 		};
-	public static final String TABLE_SQL_CREATE = "create table employee (employeeId LONG not null primary key,contactDetailsId LONG,jobId LONG,shiftId LONG,licenseId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,middleName VARCHAR(75) null,photograph BLOB,gender INTEGER,maritalStatus INTEGER,nationality VARCHAR(75) null,dateOfBirth DATE null,otherId VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table employee (employeeId LONG not null primary key,shiftId LONG,licenseId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,middleName VARCHAR(75) null,gender INTEGER,maritalStatus INTEGER,nationalityId LONG,dateOfBirth DATE null,otherId VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table employee";
 	public static final String ORDER_BY_JPQL = " ORDER BY employee.employeeId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY employee.employeeId ASC";
-	public static final String DATA_SOURCE = "anotherDataSource";
-	public static final String SESSION_FACTORY = "anotherSessionFactory";
-	public static final String TX_MANAGER = "anotherTransactionManager";
+	public static final String DATA_SOURCE = "hrmDataSource";
+	public static final String SESSION_FACTORY = "hrmSessionFactory";
+	public static final String TX_MANAGER = "hrmTransactionManager";
 	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.entity.cache.enabled.com.rknowsys.eapp.hrm.model.Employee"),
 			true);
@@ -143,8 +137,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("employeeId", getEmployeeId());
-		attributes.put("contactDetailsId", getContactDetailsId());
-		attributes.put("jobId", getJobId());
 		attributes.put("shiftId", getShiftId());
 		attributes.put("licenseId", getLicenseId());
 		attributes.put("groupId", getGroupId());
@@ -155,10 +147,9 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		attributes.put("firstName", getFirstName());
 		attributes.put("lastName", getLastName());
 		attributes.put("middleName", getMiddleName());
-		attributes.put("photograph", getPhotograph());
 		attributes.put("gender", getGender());
 		attributes.put("maritalStatus", getMaritalStatus());
-		attributes.put("nationality", getNationality());
+		attributes.put("nationalityId", getNationalityId());
 		attributes.put("dateOfBirth", getDateOfBirth());
 		attributes.put("otherId", getOtherId());
 
@@ -171,18 +162,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 		if (employeeId != null) {
 			setEmployeeId(employeeId);
-		}
-
-		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
-
-		if (contactDetailsId != null) {
-			setContactDetailsId(contactDetailsId);
-		}
-
-		Long jobId = (Long)attributes.get("jobId");
-
-		if (jobId != null) {
-			setJobId(jobId);
 		}
 
 		Long shiftId = (Long)attributes.get("shiftId");
@@ -245,12 +224,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 			setMiddleName(middleName);
 		}
 
-		Blob photograph = (Blob)attributes.get("photograph");
-
-		if (photograph != null) {
-			setPhotograph(photograph);
-		}
-
 		Integer gender = (Integer)attributes.get("gender");
 
 		if (gender != null) {
@@ -263,10 +236,10 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 			setMaritalStatus(maritalStatus);
 		}
 
-		String nationality = (String)attributes.get("nationality");
+		Long nationalityId = (Long)attributes.get("nationalityId");
 
-		if (nationality != null) {
-			setNationality(nationality);
+		if (nationalityId != null) {
+			setNationalityId(nationalityId);
 		}
 
 		Date dateOfBirth = (Date)attributes.get("dateOfBirth");
@@ -302,26 +275,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 	public long getOriginalEmployeeId() {
 		return _originalEmployeeId;
-	}
-
-	@Override
-	public long getContactDetailsId() {
-		return _contactDetailsId;
-	}
-
-	@Override
-	public void setContactDetailsId(long contactDetailsId) {
-		_contactDetailsId = contactDetailsId;
-	}
-
-	@Override
-	public long getJobId() {
-		return _jobId;
-	}
-
-	@Override
-	public void setJobId(long jobId) {
-		_jobId = jobId;
 	}
 
 	@Override
@@ -462,36 +415,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	}
 
 	@Override
-	public Blob getPhotograph() {
-		if (_photographBlobModel == null) {
-			try {
-				_photographBlobModel = EmployeeLocalServiceUtil.getPhotographBlobModel(getPrimaryKey());
-			}
-			catch (Exception e) {
-			}
-		}
-
-		Blob blob = null;
-
-		if (_photographBlobModel != null) {
-			blob = _photographBlobModel.getPhotographBlob();
-		}
-
-		return blob;
-	}
-
-	@Override
-	public void setPhotograph(Blob photograph) {
-		if (_photographBlobModel == null) {
-			_photographBlobModel = new EmployeePhotographBlobModel(getPrimaryKey(),
-					photograph);
-		}
-		else {
-			_photographBlobModel.setPhotographBlob(photograph);
-		}
-	}
-
-	@Override
 	public int getGender() {
 		return _gender;
 	}
@@ -512,18 +435,13 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	}
 
 	@Override
-	public String getNationality() {
-		if (_nationality == null) {
-			return StringPool.BLANK;
-		}
-		else {
-			return _nationality;
-		}
+	public long getNationalityId() {
+		return _nationalityId;
 	}
 
 	@Override
-	public void setNationality(String nationality) {
-		_nationality = nationality;
+	public void setNationalityId(long nationalityId) {
+		_nationalityId = nationalityId;
 	}
 
 	@Override
@@ -583,8 +501,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		EmployeeImpl employeeImpl = new EmployeeImpl();
 
 		employeeImpl.setEmployeeId(getEmployeeId());
-		employeeImpl.setContactDetailsId(getContactDetailsId());
-		employeeImpl.setJobId(getJobId());
 		employeeImpl.setShiftId(getShiftId());
 		employeeImpl.setLicenseId(getLicenseId());
 		employeeImpl.setGroupId(getGroupId());
@@ -597,7 +513,7 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		employeeImpl.setMiddleName(getMiddleName());
 		employeeImpl.setGender(getGender());
 		employeeImpl.setMaritalStatus(getMaritalStatus());
-		employeeImpl.setNationality(getNationality());
+		employeeImpl.setNationalityId(getNationalityId());
 		employeeImpl.setDateOfBirth(getDateOfBirth());
 		employeeImpl.setOtherId(getOtherId());
 
@@ -660,8 +576,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 		employeeModelImpl._setOriginalShiftId = false;
 
-		employeeModelImpl._photographBlobModel = null;
-
 		employeeModelImpl._columnBitmask = 0;
 	}
 
@@ -670,10 +584,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		EmployeeCacheModel employeeCacheModel = new EmployeeCacheModel();
 
 		employeeCacheModel.employeeId = getEmployeeId();
-
-		employeeCacheModel.contactDetailsId = getContactDetailsId();
-
-		employeeCacheModel.jobId = getJobId();
 
 		employeeCacheModel.shiftId = getShiftId();
 
@@ -731,13 +641,7 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 		employeeCacheModel.maritalStatus = getMaritalStatus();
 
-		employeeCacheModel.nationality = getNationality();
-
-		String nationality = employeeCacheModel.nationality;
-
-		if ((nationality != null) && (nationality.length() == 0)) {
-			employeeCacheModel.nationality = null;
-		}
+		employeeCacheModel.nationalityId = getNationalityId();
 
 		Date dateOfBirth = getDateOfBirth();
 
@@ -761,14 +665,10 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(39);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{employeeId=");
 		sb.append(getEmployeeId());
-		sb.append(", contactDetailsId=");
-		sb.append(getContactDetailsId());
-		sb.append(", jobId=");
-		sb.append(getJobId());
 		sb.append(", shiftId=");
 		sb.append(getShiftId());
 		sb.append(", licenseId=");
@@ -793,8 +693,8 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		sb.append(getGender());
 		sb.append(", maritalStatus=");
 		sb.append(getMaritalStatus());
-		sb.append(", nationality=");
-		sb.append(getNationality());
+		sb.append(", nationalityId=");
+		sb.append(getNationalityId());
 		sb.append(", dateOfBirth=");
 		sb.append(getDateOfBirth());
 		sb.append(", otherId=");
@@ -806,7 +706,7 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(61);
+		StringBundler sb = new StringBundler(52);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Employee");
@@ -815,14 +715,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		sb.append(
 			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>contactDetailsId</column-name><column-value><![CDATA[");
-		sb.append(getContactDetailsId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>jobId</column-name><column-value><![CDATA[");
-		sb.append(getJobId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>shiftId</column-name><column-value><![CDATA[");
@@ -873,8 +765,8 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 		sb.append(getMaritalStatus());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>nationality</column-name><column-value><![CDATA[");
-		sb.append(getNationality());
+			"<column><column-name>nationalityId</column-name><column-value><![CDATA[");
+		sb.append(getNationalityId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>dateOfBirth</column-name><column-value><![CDATA[");
@@ -897,8 +789,6 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	private long _employeeId;
 	private long _originalEmployeeId;
 	private boolean _setOriginalEmployeeId;
-	private long _contactDetailsId;
-	private long _jobId;
 	private long _shiftId;
 	private long _originalShiftId;
 	private boolean _setOriginalShiftId;
@@ -912,10 +802,9 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	private String _firstName;
 	private String _lastName;
 	private String _middleName;
-	private EmployeePhotographBlobModel _photographBlobModel;
 	private int _gender;
 	private int _maritalStatus;
-	private String _nationality;
+	private long _nationalityId;
 	private Date _dateOfBirth;
 	private String _otherId;
 	private long _columnBitmask;

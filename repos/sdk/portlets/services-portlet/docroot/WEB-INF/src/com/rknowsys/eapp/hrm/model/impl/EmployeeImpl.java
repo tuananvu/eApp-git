@@ -18,6 +18,10 @@ import java.util.List;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.NoSuchContactDetailsException;
+import com.rknowsys.eapp.hrm.NoSuchJobException;
+import com.rknowsys.eapp.hrm.NoSuchLicenseException;
+import com.rknowsys.eapp.hrm.NoSuchNationalityException;
 import com.rknowsys.eapp.hrm.model.Attachment;
 import com.rknowsys.eapp.hrm.model.ContactDetails;
 import com.rknowsys.eapp.hrm.model.Dependent;
@@ -28,6 +32,7 @@ import com.rknowsys.eapp.hrm.model.Job;
 import com.rknowsys.eapp.hrm.model.Language;
 import com.rknowsys.eapp.hrm.model.License;
 import com.rknowsys.eapp.hrm.model.Membership;
+import com.rknowsys.eapp.hrm.model.Nationality;
 import com.rknowsys.eapp.hrm.model.SalaryComponent;
 import com.rknowsys.eapp.hrm.model.Skill;
 import com.rknowsys.eapp.hrm.service.AttachmentLocalServiceUtil;
@@ -40,6 +45,7 @@ import com.rknowsys.eapp.hrm.service.JobLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.LanguageLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.LicenseLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.MembershipLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.NationalityLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.SkillLocalServiceUtil;
 
@@ -69,16 +75,28 @@ public class EmployeeImpl extends EmployeeBaseImpl {
 
 	public ContactDetails getContactDetails() throws PortalException,
 			SystemException {
-		return ContactDetailsLocalServiceUtil
-				.getContactDetails(getContactDetailsId());
+		try {
+			return ContactDetailsLocalServiceUtil
+					.findByEmployeeId(getEmployeeId());
+		} catch (NoSuchContactDetailsException nc) {
+			return null;
+		}
 	}
 
 	public License getLicense() throws PortalException, SystemException {
-		return LicenseLocalServiceUtil.getLicense(getLicenseId());
+		try {
+			return LicenseLocalServiceUtil.getLicense(getLicenseId());
+		} catch (NoSuchLicenseException n) {
+			return null;
+		}
 	}
 
 	public Job getJob() throws PortalException, SystemException {
-		return JobLocalServiceUtil.getJob(getJobId());
+		try{
+		    return JobLocalServiceUtil.findByEmployeeId(getEmployeeId());
+		}catch(NoSuchJobException ns){
+			return null;
+		}
 	}
 
 	public List<Attachment> getAttachments() throws PortalException,
@@ -98,10 +116,9 @@ public class EmployeeImpl extends EmployeeBaseImpl {
 				.getEmployeeSalaryComponents(getEmployeeId());
 	}
 
-	public List<EmergencyContact> getEmergencyContacts() throws
-	PortalException, SystemException {
-		return
-		EmergencyContactLocalServiceUtil
+	public List<EmergencyContact> getEmergencyContacts()
+			throws PortalException, SystemException {
+		return EmergencyContactLocalServiceUtil
 				.getEmployeeEmergencyContacts(getEmployeeId());
 	}
 
@@ -111,28 +128,32 @@ public class EmployeeImpl extends EmployeeBaseImpl {
 				.getEmployeeImmigrationDocuments(getEmployeeId());
 	}
 
-	public List<Education> getEducations()
-			throws PortalException, SystemException {
-		return EducationLocalServiceUtil
-				.getEmployeeEducations(getEmployeeId());
+	public List<Education> getEducations() throws PortalException,
+			SystemException {
+		return EducationLocalServiceUtil.getEmployeeEducations(getEmployeeId());
 	}
-	
-	public List<Language> getLanguages()
-			throws PortalException, SystemException {
-		return LanguageLocalServiceUtil.
-				getEmployeeLanguages(getEmployeeId());
+
+	public List<Language> getLanguages() throws PortalException,
+			SystemException {
+		return LanguageLocalServiceUtil.getEmployeeLanguages(getEmployeeId());
 	}
-	
-	public List<Skill> getSkills()
-			throws PortalException, SystemException {
-		return SkillLocalServiceUtil
-				.getEmployeeSkills(getEmployeeId());
+
+	public List<Skill> getSkills() throws PortalException, SystemException {
+		return SkillLocalServiceUtil.getEmployeeSkills(getEmployeeId());
 	}
-	
-	public List<Membership> getMemberships()
-			throws PortalException, SystemException {
+
+	public List<Membership> getMemberships() throws PortalException,
+			SystemException {
 		return MembershipLocalServiceUtil
 				.getEmployeeMemberships(getEmployeeId());
 	}
-	
+
+	public Nationality getNationality() throws PortalException, SystemException {
+		try {
+			return NationalityLocalServiceUtil
+					.getNationality(getNationalityId());
+		} catch (NoSuchNationalityException n) {
+			return null;
+		}
+	}
 }

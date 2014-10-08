@@ -355,6 +355,20 @@ public interface ContactDetailsModel extends BaseModel<ContactDetails>,
 	 */
 	public void setOtherEmail(String otherEmail);
 
+	/**
+	 * Returns the employee ID of this ContactDetails.
+	 *
+	 * @return the employee ID of this ContactDetails
+	 */
+	public long getEmployeeId();
+
+	/**
+	 * Sets the employee ID of this ContactDetails.
+	 *
+	 * @param employeeId the employee ID of this ContactDetails
+	 */
+	public void setEmployeeId(long employeeId);
+
 	@Override
 	public boolean isNew();
 

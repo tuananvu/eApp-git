@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderPath;
 import com.liferay.portal.kernel.dao.orm.Query;
+import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -30,6 +31,7 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnmodifiableList;
 import com.liferay.portal.model.CacheModel;
@@ -80,6 +82,223 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 	public static final FinderPath FINDER_PATH_COUNT_ALL = new FinderPath(JobModelImpl.ENTITY_CACHE_ENABLED,
 			JobModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll", new String[0]);
+	public static final FinderPath FINDER_PATH_FETCH_BY_EMPLOYEEID = new FinderPath(JobModelImpl.ENTITY_CACHE_ENABLED,
+			JobModelImpl.FINDER_CACHE_ENABLED, JobImpl.class,
+			FINDER_CLASS_NAME_ENTITY, "fetchByEmployeeId",
+			new String[] { Long.class.getName() },
+			JobModelImpl.EMPLOYEEID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_EMPLOYEEID = new FinderPath(JobModelImpl.ENTITY_CACHE_ENABLED,
+			JobModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByEmployeeId",
+			new String[] { Long.class.getName() });
+
+	/**
+	 * Returns the job where employeeId = &#63; or throws a {@link com.rknowsys.eapp.hrm.NoSuchJobException} if it could not be found.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the matching job
+	 * @throws com.rknowsys.eapp.hrm.NoSuchJobException if a matching job could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Job findByEmployeeId(long employeeId)
+		throws NoSuchJobException, SystemException {
+		Job job = fetchByEmployeeId(employeeId);
+
+		if (job == null) {
+			StringBundler msg = new StringBundler(4);
+
+			msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+			msg.append("employeeId=");
+			msg.append(employeeId);
+
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+			if (_log.isWarnEnabled()) {
+				_log.warn(msg.toString());
+			}
+
+			throw new NoSuchJobException(msg.toString());
+		}
+
+		return job;
+	}
+
+	/**
+	 * Returns the job where employeeId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the matching job, or <code>null</code> if a matching job could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Job fetchByEmployeeId(long employeeId) throws SystemException {
+		return fetchByEmployeeId(employeeId, true);
+	}
+
+	/**
+	 * Returns the job where employeeId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	 *
+	 * @param employeeId the employee ID
+	 * @param retrieveFromCache whether to use the finder cache
+	 * @return the matching job, or <code>null</code> if a matching job could not be found
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Job fetchByEmployeeId(long employeeId, boolean retrieveFromCache)
+		throws SystemException {
+		Object[] finderArgs = new Object[] { employeeId };
+
+		Object result = null;
+
+		if (retrieveFromCache) {
+			result = FinderCacheUtil.getResult(FINDER_PATH_FETCH_BY_EMPLOYEEID,
+					finderArgs, this);
+		}
+
+		if (result instanceof Job) {
+			Job job = (Job)result;
+
+			if ((employeeId != job.getEmployeeId())) {
+				result = null;
+			}
+		}
+
+		if (result == null) {
+			StringBundler query = new StringBundler(3);
+
+			query.append(_SQL_SELECT_JOB_WHERE);
+
+			query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(employeeId);
+
+				List<Job> list = q.list();
+
+				if (list.isEmpty()) {
+					FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_EMPLOYEEID,
+						finderArgs, list);
+				}
+				else {
+					if ((list.size() > 1) && _log.isWarnEnabled()) {
+						_log.warn(
+							"JobPersistenceImpl.fetchByEmployeeId(long, boolean) with parameters (" +
+							StringUtil.merge(finderArgs) +
+							") yields a result set with more than 1 result. This violates the logical unique restriction. There is no order guarantee on which result is returned by this finder.");
+					}
+
+					Job job = list.get(0);
+
+					result = job;
+
+					cacheResult(job);
+
+					if ((job.getEmployeeId() != employeeId)) {
+						FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_EMPLOYEEID,
+							finderArgs, job);
+					}
+				}
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_EMPLOYEEID,
+					finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		if (result instanceof List<?>) {
+			return null;
+		}
+		else {
+			return (Job)result;
+		}
+	}
+
+	/**
+	 * Removes the job where employeeId = &#63; from the database.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the job that was removed
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public Job removeByEmployeeId(long employeeId)
+		throws NoSuchJobException, SystemException {
+		Job job = findByEmployeeId(employeeId);
+
+		return remove(job);
+	}
+
+	/**
+	 * Returns the number of jobs where employeeId = &#63;.
+	 *
+	 * @param employeeId the employee ID
+	 * @return the number of matching jobs
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int countByEmployeeId(long employeeId) throws SystemException {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_EMPLOYEEID;
+
+		Object[] finderArgs = new Object[] { employeeId };
+
+		Long count = (Long)FinderCacheUtil.getResult(finderPath, finderArgs,
+				this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_JOB_WHERE);
+
+			query.append(_FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(employeeId);
+
+				count = (Long)q.uniqueResult();
+
+				FinderCacheUtil.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				FinderCacheUtil.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_EMPLOYEEID_EMPLOYEEID_2 = "job.employeeId = ?";
 
 	public JobPersistenceImpl() {
 		setModelClass(Job.class);
@@ -94,6 +313,9 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 	public void cacheResult(Job job) {
 		EntityCacheUtil.putResult(JobModelImpl.ENTITY_CACHE_ENABLED,
 			JobImpl.class, job.getPrimaryKey(), job);
+
+		FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_EMPLOYEEID,
+			new Object[] { job.getEmployeeId() }, job);
 
 		job.resetOriginalValues();
 	}
@@ -150,6 +372,8 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 
 		FinderCacheUtil.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
 		FinderCacheUtil.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+
+		clearUniqueFindersCache(job);
 	}
 
 	@Override
@@ -160,6 +384,48 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 		for (Job job : jobs) {
 			EntityCacheUtil.removeResult(JobModelImpl.ENTITY_CACHE_ENABLED,
 				JobImpl.class, job.getPrimaryKey());
+
+			clearUniqueFindersCache(job);
+		}
+	}
+
+	protected void cacheUniqueFindersCache(Job job) {
+		if (job.isNew()) {
+			Object[] args = new Object[] { job.getEmployeeId() };
+
+			FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_EMPLOYEEID, args,
+				Long.valueOf(1));
+			FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_EMPLOYEEID, args, job);
+		}
+		else {
+			JobModelImpl jobModelImpl = (JobModelImpl)job;
+
+			if ((jobModelImpl.getColumnBitmask() &
+					FINDER_PATH_FETCH_BY_EMPLOYEEID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] { job.getEmployeeId() };
+
+				FinderCacheUtil.putResult(FINDER_PATH_COUNT_BY_EMPLOYEEID,
+					args, Long.valueOf(1));
+				FinderCacheUtil.putResult(FINDER_PATH_FETCH_BY_EMPLOYEEID,
+					args, job);
+			}
+		}
+	}
+
+	protected void clearUniqueFindersCache(Job job) {
+		JobModelImpl jobModelImpl = (JobModelImpl)job;
+
+		Object[] args = new Object[] { job.getEmployeeId() };
+
+		FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EMPLOYEEID, args);
+		FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_EMPLOYEEID, args);
+
+		if ((jobModelImpl.getColumnBitmask() &
+				FINDER_PATH_FETCH_BY_EMPLOYEEID.getColumnBitmask()) != 0) {
+			args = new Object[] { jobModelImpl.getOriginalEmployeeId() };
+
+			FinderCacheUtil.removeResult(FINDER_PATH_COUNT_BY_EMPLOYEEID, args);
+			FinderCacheUtil.removeResult(FINDER_PATH_FETCH_BY_EMPLOYEEID, args);
 		}
 	}
 
@@ -297,12 +563,15 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 
 		FinderCacheUtil.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
 
-		if (isNew) {
+		if (isNew || !JobModelImpl.COLUMN_BITMASK_ENABLED) {
 			FinderCacheUtil.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
 		}
 
 		EntityCacheUtil.putResult(JobModelImpl.ENTITY_CACHE_ENABLED,
 			JobImpl.class, job.getPrimaryKey(), job);
+
+		clearUniqueFindersCache(job);
+		cacheUniqueFindersCache(job);
 
 		job.resetOriginalValues();
 
@@ -334,6 +603,7 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 		jobImpl.setEmploymentContractStartDate(job.getEmploymentContractStartDate());
 		jobImpl.setEmploymentContractEndDate(job.getEmploymentContractEndDate());
 		jobImpl.setContractDetails(job.getContractDetails());
+		jobImpl.setEmployeeId(job.getEmployeeId());
 
 		return jobImpl;
 	}
@@ -640,9 +910,12 @@ public class JobPersistenceImpl extends BasePersistenceImpl<Job>
 	}
 
 	private static final String _SQL_SELECT_JOB = "SELECT job FROM Job job";
+	private static final String _SQL_SELECT_JOB_WHERE = "SELECT job FROM Job job WHERE ";
 	private static final String _SQL_COUNT_JOB = "SELECT COUNT(job) FROM Job job";
+	private static final String _SQL_COUNT_JOB_WHERE = "SELECT COUNT(job) FROM Job job WHERE ";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "job.";
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No Job exists with the primary key ";
+	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No Job exists with the key {";
 	private static final boolean _HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE = GetterUtil.getBoolean(PropsUtil.get(
 				PropsKeys.HIBERNATE_CACHE_USE_SECOND_LEVEL_CACHE));
 	private static Log _log = LogFactoryUtil.getLog(JobPersistenceImpl.class);

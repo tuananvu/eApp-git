@@ -38,7 +38,7 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{contactDetailsId=");
 		sb.append(contactDetailsId);
@@ -76,6 +76,8 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 		sb.append(workEmail);
 		sb.append(", otherEmail=");
 		sb.append(otherEmail);
+		sb.append(", employeeId=");
+		sb.append(employeeId);
 		sb.append("}");
 
 		return sb.toString();
@@ -188,6 +190,8 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 			contactDetailsImpl.setOtherEmail(otherEmail);
 		}
 
+		contactDetailsImpl.setEmployeeId(employeeId);
+
 		contactDetailsImpl.resetOriginalValues();
 
 		return contactDetailsImpl;
@@ -213,6 +217,7 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 		workTelephone = objectInput.readUTF();
 		workEmail = objectInput.readUTF();
 		otherEmail = objectInput.readUTF();
+		employeeId = objectInput.readLong();
 	}
 
 	@Override
@@ -309,6 +314,8 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 		else {
 			objectOutput.writeUTF(otherEmail);
 		}
+
+		objectOutput.writeLong(employeeId);
 	}
 
 	public long contactDetailsId;
@@ -329,4 +336,5 @@ public class ContactDetailsCacheModel implements CacheModel<ContactDetails>,
 	public String workTelephone;
 	public String workEmail;
 	public String otherEmail;
+	public long employeeId;
 }

@@ -76,22 +76,27 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 			{ "joinedDate", Types.TIMESTAMP },
 			{ "employmentContractStartDate", Types.TIMESTAMP },
 			{ "employmentContractEndDate", Types.TIMESTAMP },
-			{ "contractDetails", Types.BLOB }
+			{ "contractDetails", Types.BLOB },
+			{ "employeeId", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table hrm_Job (jobId LONG not null primary key,jobTitleId LONG,jobCategoryId LONG,subUnitId LONG,locationId LONG,employmentStatusId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,joinedDate DATE null,employmentContractStartDate DATE null,employmentContractEndDate DATE null,contractDetails BLOB)";
+	public static final String TABLE_SQL_CREATE = "create table hrm_Job (jobId LONG not null primary key,jobTitleId LONG,jobCategoryId LONG,subUnitId LONG,locationId LONG,employmentStatusId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,joinedDate DATE null,employmentContractStartDate DATE null,employmentContractEndDate DATE null,contractDetails BLOB,employeeId LONG)";
 	public static final String TABLE_SQL_DROP = "drop table hrm_Job";
 	public static final String ORDER_BY_JPQL = " ORDER BY job.jobId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY hrm_Job.jobId ASC";
-	public static final String DATA_SOURCE = "anotherDataSource";
-	public static final String SESSION_FACTORY = "anotherSessionFactory";
-	public static final String TX_MANAGER = "anotherTransactionManager";
+	public static final String DATA_SOURCE = "hrmDataSource";
+	public static final String SESSION_FACTORY = "hrmSessionFactory";
+	public static final String TX_MANAGER = "hrmTransactionManager";
 	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.entity.cache.enabled.com.rknowsys.eapp.hrm.model.Job"),
 			true);
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.rknowsys.eapp.hrm.model.Job"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.rknowsys.eapp.hrm.model.Job"),
+			true);
+	public static long EMPLOYEEID_COLUMN_BITMASK = 1L;
+	public static long JOBID_COLUMN_BITMASK = 2L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.rknowsys.eapp.hrm.model.Job"));
 
@@ -149,6 +154,7 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 		attributes.put("employmentContractEndDate",
 			getEmploymentContractEndDate());
 		attributes.put("contractDetails", getContractDetails());
+		attributes.put("employeeId", getEmployeeId());
 
 		return attributes;
 	}
@@ -245,6 +251,12 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 
 		if (contractDetails != null) {
 			setContractDetails(contractDetails);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 	}
 
@@ -429,6 +441,32 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 	}
 
 	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_columnBitmask |= EMPLOYEEID_COLUMN_BITMASK;
+
+		if (!_setOriginalEmployeeId) {
+			_setOriginalEmployeeId = true;
+
+			_originalEmployeeId = _employeeId;
+		}
+
+		_employeeId = employeeId;
+	}
+
+	public long getOriginalEmployeeId() {
+		return _originalEmployeeId;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
+	}
+
+	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
 			Job.class.getName(), getPrimaryKey());
@@ -469,6 +507,7 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 		jobImpl.setJoinedDate(getJoinedDate());
 		jobImpl.setEmploymentContractStartDate(getEmploymentContractStartDate());
 		jobImpl.setEmploymentContractEndDate(getEmploymentContractEndDate());
+		jobImpl.setEmployeeId(getEmployeeId());
 
 		jobImpl.resetOriginalValues();
 
@@ -522,6 +561,12 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 		JobModelImpl jobModelImpl = this;
 
 		jobModelImpl._contractDetailsBlobModel = null;
+
+		jobModelImpl._originalEmployeeId = jobModelImpl._employeeId;
+
+		jobModelImpl._setOriginalEmployeeId = false;
+
+		jobModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -591,12 +636,14 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 			jobCacheModel.employmentContractEndDate = Long.MIN_VALUE;
 		}
 
+		jobCacheModel.employeeId = getEmployeeId();
+
 		return jobCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(31);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{jobId=");
 		sb.append(getJobId());
@@ -626,13 +673,16 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 		sb.append(getEmploymentContractStartDate());
 		sb.append(", employmentContractEndDate=");
 		sb.append(getEmploymentContractEndDate());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
+		sb.append("}");
 
 		return sb.toString();
 	}
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(49);
+		StringBundler sb = new StringBundler(52);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Job");
@@ -694,6 +744,10 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 			"<column><column-name>employmentContractEndDate</column-name><column-value><![CDATA[");
 		sb.append(getEmploymentContractEndDate());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -718,5 +772,9 @@ public class JobModelImpl extends BaseModelImpl<Job> implements JobModel {
 	private Date _employmentContractStartDate;
 	private Date _employmentContractEndDate;
 	private JobContractDetailsBlobModel _contractDetailsBlobModel;
+	private long _employeeId;
+	private long _originalEmployeeId;
+	private boolean _setOriginalEmployeeId;
+	private long _columnBitmask;
 	private Job _escapedModel;
 }

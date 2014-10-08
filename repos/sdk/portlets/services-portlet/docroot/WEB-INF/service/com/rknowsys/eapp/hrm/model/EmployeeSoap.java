@@ -31,8 +31,6 @@ public class EmployeeSoap implements Serializable {
 		EmployeeSoap soapModel = new EmployeeSoap();
 
 		soapModel.setEmployeeId(model.getEmployeeId());
-		soapModel.setContactDetailsId(model.getContactDetailsId());
-		soapModel.setJobId(model.getJobId());
 		soapModel.setShiftId(model.getShiftId());
 		soapModel.setLicenseId(model.getLicenseId());
 		soapModel.setGroupId(model.getGroupId());
@@ -106,22 +104,6 @@ public class EmployeeSoap implements Serializable {
 
 	public void setEmployeeId(long employeeId) {
 		_employeeId = employeeId;
-	}
-
-	public long getContactDetailsId() {
-		return _contactDetailsId;
-	}
-
-	public void setContactDetailsId(long contactDetailsId) {
-		_contactDetailsId = contactDetailsId;
-	}
-
-	public long getJobId() {
-		return _jobId;
-	}
-
-	public void setJobId(long jobId) {
-		_jobId = jobId;
 	}
 
 	public long getShiftId() {
@@ -245,8 +227,6 @@ public class EmployeeSoap implements Serializable {
 	}
 
 	private long _employeeId;
-	private long _contactDetailsId;
-	private long _jobId;
 	private long _shiftId;
 	private long _licenseId;
 	private long _groupId;

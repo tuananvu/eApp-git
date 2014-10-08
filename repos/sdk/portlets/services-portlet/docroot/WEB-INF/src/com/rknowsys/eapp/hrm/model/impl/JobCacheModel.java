@@ -36,7 +36,7 @@ import java.util.Date;
 public class JobCacheModel implements CacheModel<Job>, Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(29);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("{jobId=");
 		sb.append(jobId);
@@ -66,6 +66,9 @@ public class JobCacheModel implements CacheModel<Job>, Externalizable {
 		sb.append(employmentContractStartDate);
 		sb.append(", employmentContractEndDate=");
 		sb.append(employmentContractEndDate);
+		sb.append(", employeeId=");
+		sb.append(employeeId);
+		sb.append("}");
 
 		return sb.toString();
 	}
@@ -121,6 +124,8 @@ public class JobCacheModel implements CacheModel<Job>, Externalizable {
 					employmentContractEndDate));
 		}
 
+		jobImpl.setEmployeeId(employeeId);
+
 		jobImpl.resetOriginalValues();
 
 		return jobImpl;
@@ -142,6 +147,7 @@ public class JobCacheModel implements CacheModel<Job>, Externalizable {
 		joinedDate = objectInput.readLong();
 		employmentContractStartDate = objectInput.readLong();
 		employmentContractEndDate = objectInput.readLong();
+		employeeId = objectInput.readLong();
 	}
 
 	@Override
@@ -161,6 +167,7 @@ public class JobCacheModel implements CacheModel<Job>, Externalizable {
 		objectOutput.writeLong(joinedDate);
 		objectOutput.writeLong(employmentContractStartDate);
 		objectOutput.writeLong(employmentContractEndDate);
+		objectOutput.writeLong(employeeId);
 	}
 
 	public long jobId;
@@ -177,4 +184,5 @@ public class JobCacheModel implements CacheModel<Job>, Externalizable {
 	public long joinedDate;
 	public long employmentContractStartDate;
 	public long employmentContractEndDate;
+	public long employeeId;
 }

@@ -351,7 +351,7 @@ public class InterviewWrapper implements Interview, ModelWrapper<Interview> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.Interview interview) {
+	public int compareTo(Interview interview) {
 		return _interview.compareTo(interview);
 	}
 
@@ -361,17 +361,17 @@ public class InterviewWrapper implements Interview, ModelWrapper<Interview> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Interview> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<Interview> toCacheModel() {
 		return _interview.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Interview toEscapedModel() {
+	public Interview toEscapedModel() {
 		return new InterviewWrapper(_interview.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Interview toUnescapedModel() {
+	public Interview toUnescapedModel() {
 		return new InterviewWrapper(_interview.toUnescapedModel());
 	}
 

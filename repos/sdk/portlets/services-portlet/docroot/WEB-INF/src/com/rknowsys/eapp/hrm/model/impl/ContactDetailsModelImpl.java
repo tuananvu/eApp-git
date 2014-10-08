@@ -78,22 +78,27 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 			{ "mobile", Types.VARCHAR },
 			{ "workTelephone", Types.VARCHAR },
 			{ "workEmail", Types.VARCHAR },
-			{ "otherEmail", Types.VARCHAR }
+			{ "otherEmail", Types.VARCHAR },
+			{ "employeeId", Types.BIGINT }
 		};
-	public static final String TABLE_SQL_CREATE = "create table contact_details (contactDetailsId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,addressStreet1 VARCHAR(75) null,addressStreet2 VARCHAR(75) null,city VARCHAR(75) null,state_ VARCHAR(75) null,postalCode VARCHAR(75) null,country VARCHAR(75) null,homeTelephone VARCHAR(75) null,mobile VARCHAR(75) null,workTelephone VARCHAR(75) null,workEmail VARCHAR(75) null,otherEmail VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table contact_details (contactDetailsId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,addressStreet1 VARCHAR(75) null,addressStreet2 VARCHAR(75) null,city VARCHAR(75) null,state_ VARCHAR(75) null,postalCode VARCHAR(75) null,country VARCHAR(75) null,homeTelephone VARCHAR(75) null,mobile VARCHAR(75) null,workTelephone VARCHAR(75) null,workEmail VARCHAR(75) null,otherEmail VARCHAR(75) null,employeeId LONG)";
 	public static final String TABLE_SQL_DROP = "drop table contact_details";
 	public static final String ORDER_BY_JPQL = " ORDER BY contactDetails.contactDetailsId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY contact_details.contactDetailsId ASC";
-	public static final String DATA_SOURCE = "anotherDataSource";
-	public static final String SESSION_FACTORY = "anotherSessionFactory";
-	public static final String TX_MANAGER = "anotherTransactionManager";
+	public static final String DATA_SOURCE = "hrmDataSource";
+	public static final String SESSION_FACTORY = "hrmSessionFactory";
+	public static final String TX_MANAGER = "hrmTransactionManager";
 	public static final boolean ENTITY_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.entity.cache.enabled.com.rknowsys.eapp.hrm.model.ContactDetails"),
 			true);
 	public static final boolean FINDER_CACHE_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.com.rknowsys.eapp.hrm.model.ContactDetails"),
 			true);
-	public static final boolean COLUMN_BITMASK_ENABLED = false;
+	public static final boolean COLUMN_BITMASK_ENABLED = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
+				"value.object.column.bitmask.enabled.com.rknowsys.eapp.hrm.model.ContactDetails"),
+			true);
+	public static long EMPLOYEEID_COLUMN_BITMASK = 1L;
+	public static long CONTACTDETAILSID_COLUMN_BITMASK = 2L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.rknowsys.eapp.hrm.model.ContactDetails"));
 
@@ -152,6 +157,7 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 		attributes.put("workTelephone", getWorkTelephone());
 		attributes.put("workEmail", getWorkEmail());
 		attributes.put("otherEmail", getOtherEmail());
+		attributes.put("employeeId", getEmployeeId());
 
 		return attributes;
 	}
@@ -264,6 +270,12 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 
 		if (otherEmail != null) {
 			setOtherEmail(otherEmail);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 	}
 
@@ -518,6 +530,32 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 	}
 
 	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_columnBitmask |= EMPLOYEEID_COLUMN_BITMASK;
+
+		if (!_setOriginalEmployeeId) {
+			_setOriginalEmployeeId = true;
+
+			_originalEmployeeId = _employeeId;
+		}
+
+		_employeeId = employeeId;
+	}
+
+	public long getOriginalEmployeeId() {
+		return _originalEmployeeId;
+	}
+
+	public long getColumnBitmask() {
+		return _columnBitmask;
+	}
+
+	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return ExpandoBridgeFactoryUtil.getExpandoBridge(getCompanyId(),
 			ContactDetails.class.getName(), getPrimaryKey());
@@ -562,6 +600,7 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 		contactDetailsImpl.setWorkTelephone(getWorkTelephone());
 		contactDetailsImpl.setWorkEmail(getWorkEmail());
 		contactDetailsImpl.setOtherEmail(getOtherEmail());
+		contactDetailsImpl.setEmployeeId(getEmployeeId());
 
 		contactDetailsImpl.resetOriginalValues();
 
@@ -612,6 +651,13 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 
 	@Override
 	public void resetOriginalValues() {
+		ContactDetailsModelImpl contactDetailsModelImpl = this;
+
+		contactDetailsModelImpl._originalEmployeeId = contactDetailsModelImpl._employeeId;
+
+		contactDetailsModelImpl._setOriginalEmployeeId = false;
+
+		contactDetailsModelImpl._columnBitmask = 0;
 	}
 
 	@Override
@@ -740,12 +786,14 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 			contactDetailsCacheModel.otherEmail = null;
 		}
 
+		contactDetailsCacheModel.employeeId = getEmployeeId();
+
 		return contactDetailsCacheModel;
 	}
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{contactDetailsId=");
 		sb.append(getContactDetailsId());
@@ -783,6 +831,8 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 		sb.append(getWorkEmail());
 		sb.append(", otherEmail=");
 		sb.append(getOtherEmail());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append("}");
 
 		return sb.toString();
@@ -790,7 +840,7 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(58);
+		StringBundler sb = new StringBundler(61);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.ContactDetails");
@@ -868,6 +918,10 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 			"<column><column-name>otherEmail</column-name><column-value><![CDATA[");
 		sb.append(getOtherEmail());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -897,5 +951,9 @@ public class ContactDetailsModelImpl extends BaseModelImpl<ContactDetails>
 	private String _workTelephone;
 	private String _workEmail;
 	private String _otherEmail;
+	private long _employeeId;
+	private long _originalEmployeeId;
+	private boolean _setOriginalEmployeeId;
+	private long _columnBitmask;
 	private ContactDetails _escapedModel;
 }

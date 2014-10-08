@@ -433,8 +433,7 @@ public class PayGradeCurrencyWrapper implements PayGradeCurrency,
 	}
 
 	@Override
-	public int compareTo(
-		com.rknowsys.eapp.hrm.model.PayGradeCurrency payGradeCurrency) {
+	public int compareTo(PayGradeCurrency payGradeCurrency) {
 		return _payGradeCurrency.compareTo(payGradeCurrency);
 	}
 
@@ -444,17 +443,17 @@ public class PayGradeCurrencyWrapper implements PayGradeCurrency,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.PayGradeCurrency> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<PayGradeCurrency> toCacheModel() {
 		return _payGradeCurrency.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.PayGradeCurrency toEscapedModel() {
+	public PayGradeCurrency toEscapedModel() {
 		return new PayGradeCurrencyWrapper(_payGradeCurrency.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.PayGradeCurrency toUnescapedModel() {
+	public PayGradeCurrency toUnescapedModel() {
 		return new PayGradeCurrencyWrapper(_payGradeCurrency.toUnescapedModel());
 	}
 

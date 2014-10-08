@@ -405,7 +405,7 @@ public class SkillWrapper implements Skill, ModelWrapper<Skill> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.Skill skill) {
+	public int compareTo(Skill skill) {
 		return _skill.compareTo(skill);
 	}
 
@@ -415,17 +415,17 @@ public class SkillWrapper implements Skill, ModelWrapper<Skill> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Skill> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<Skill> toCacheModel() {
 		return _skill.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill toEscapedModel() {
+	public Skill toEscapedModel() {
 		return new SkillWrapper(_skill.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Skill toUnescapedModel() {
+	public Skill toUnescapedModel() {
 		return new SkillWrapper(_skill.toUnescapedModel());
 	}
 

@@ -31,4 +31,5 @@ public class WorkshiftImpl extends WorkshiftBaseImpl {
 	 */
 	public WorkshiftImpl() {
 	}
+	
 }

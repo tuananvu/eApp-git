@@ -432,7 +432,7 @@ public class JobTitleWrapper implements JobTitle, ModelWrapper<JobTitle> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.JobTitle jobTitle) {
+	public int compareTo(JobTitle jobTitle) {
 		return _jobTitle.compareTo(jobTitle);
 	}
 
@@ -442,17 +442,17 @@ public class JobTitleWrapper implements JobTitle, ModelWrapper<JobTitle> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.JobTitle> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<JobTitle> toCacheModel() {
 		return _jobTitle.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobTitle toEscapedModel() {
+	public JobTitle toEscapedModel() {
 		return new JobTitleWrapper(_jobTitle.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobTitle toUnescapedModel() {
+	public JobTitle toUnescapedModel() {
 		return new JobTitleWrapper(_jobTitle.toUnescapedModel());
 	}
 

@@ -93,6 +93,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 		attributes.put("workTelephone", getWorkTelephone());
 		attributes.put("workEmail", getWorkEmail());
 		attributes.put("otherEmail", getOtherEmail());
+		attributes.put("employeeId", getEmployeeId());
 
 		return attributes;
 	}
@@ -205,6 +206,12 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 
 		if (otherEmail != null) {
 			setOtherEmail(otherEmail);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 	}
 
@@ -635,6 +642,29 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 		}
 	}
 
+	@Override
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+
+		if (_contactDetailsRemoteModel != null) {
+			try {
+				Class<?> clazz = _contactDetailsRemoteModel.getClass();
+
+				Method method = clazz.getMethod("setEmployeeId", long.class);
+
+				method.invoke(_contactDetailsRemoteModel, employeeId);
+			}
+			catch (Exception e) {
+				throw new UnsupportedOperationException(e);
+			}
+		}
+	}
+
 	public BaseModel<?> getContactDetailsRemoteModel() {
 		return _contactDetailsRemoteModel;
 	}
@@ -724,6 +754,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 		clone.setWorkTelephone(getWorkTelephone());
 		clone.setWorkEmail(getWorkEmail());
 		clone.setOtherEmail(getOtherEmail());
+		clone.setEmployeeId(getEmployeeId());
 
 		return clone;
 	}
@@ -772,7 +803,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(39);
 
 		sb.append("{contactDetailsId=");
 		sb.append(getContactDetailsId());
@@ -810,6 +841,8 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 		sb.append(getWorkEmail());
 		sb.append(", otherEmail=");
 		sb.append(getOtherEmail());
+		sb.append(", employeeId=");
+		sb.append(getEmployeeId());
 		sb.append("}");
 
 		return sb.toString();
@@ -817,7 +850,7 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(58);
+		StringBundler sb = new StringBundler(61);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.ContactDetails");
@@ -895,6 +928,10 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 			"<column><column-name>otherEmail</column-name><column-value><![CDATA[");
 		sb.append(getOtherEmail());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
+		sb.append(getEmployeeId());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -920,5 +957,6 @@ public class ContactDetailsClp extends BaseModelImpl<ContactDetails>
 	private String _workTelephone;
 	private String _workEmail;
 	private String _otherEmail;
+	private long _employeeId;
 	private BaseModel<?> _contactDetailsRemoteModel;
 }

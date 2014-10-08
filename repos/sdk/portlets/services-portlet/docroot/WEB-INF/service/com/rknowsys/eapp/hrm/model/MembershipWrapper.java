@@ -378,7 +378,7 @@ public class MembershipWrapper implements Membership, ModelWrapper<Membership> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.Membership membership) {
+	public int compareTo(Membership membership) {
 		return _membership.compareTo(membership);
 	}
 
@@ -388,17 +388,17 @@ public class MembershipWrapper implements Membership, ModelWrapper<Membership> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Membership> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<Membership> toCacheModel() {
 		return _membership.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership toEscapedModel() {
+	public Membership toEscapedModel() {
 		return new MembershipWrapper(_membership.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Membership toUnescapedModel() {
+	public Membership toUnescapedModel() {
 		return new MembershipWrapper(_membership.toUnescapedModel());
 	}
 

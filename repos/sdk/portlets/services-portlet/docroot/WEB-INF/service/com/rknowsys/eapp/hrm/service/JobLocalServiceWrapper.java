@@ -286,6 +286,13 @@ public class JobLocalServiceWrapper implements JobLocalService,
 		return _jobLocalService.invokeMethod(name, parameterTypes, arguments);
 	}
 
+	@Override
+	public com.rknowsys.eapp.hrm.model.Job findByEmployeeId(long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchJobException {
+		return _jobLocalService.findByEmployeeId(employeeId);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */
