@@ -1,9 +1,18 @@
+![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif)
 
- eApp
-====
+### The Human Resource Application in Liferay
 
-Project Setup
----------------------
+*Riot is a manifesto for vanilla JavaScript and jQuery.*
+
+---
+
+<small>
+[Official website](http://rknowsys.com/) &bull;
+[Demo application](http://rknowsys.com/) &bull;
+</small>
+ 
+Project Setup For Developers
+============================
 
 1. In eclipse, launch a new workspace. For example: D:\eApp\workspace_eApp
 
