@@ -6,12 +6,12 @@ eApp ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif)
 ---
 
 <small>
-[Official website](http://rknowsys.com/) &bull;
+[Official website](http://rknowsys.com/)
 </small>
  
 Project Setup For Developers
 ============================
-<small>
+
 1. Fork eApp. 
 2. In eclipse, launch a new workspace. For example: D:\eApp\workspace_eApp
 3. File --> Import --> Git --> Projects from Git --> "Select Repository Source", choose "Clone URI" option. Click Next.
@@ -26,5 +26,5 @@ Project Setup For Developers
 12. Right clicking on build.xml in services-portlet gives a context menu and then Liferay-->Build-Services. This will generate all services related classes in service-portlet-service.jar.
 13. Deploy the services-portlet. The database will get generated.
 14. You are all set now. Remember to send pull requests to only staging branch. Happy Coding. 
-</small>
+
 
