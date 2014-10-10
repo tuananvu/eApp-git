@@ -7,7 +7,6 @@ eApp ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif)
 
 <small>
 [Official website](http://rknowsys.com/) &bull;
-[Demo application](http://rknowsys.com/) &bull;
 </small>
  
 Project Setup For Developers
