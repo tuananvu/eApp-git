@@ -1,8 +1,9 @@
-![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif)
+ ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif) 
+ 
+eApp
+====
 
 ### The Human Resource Application in Liferay
-
-*Riot is a manifesto for vanilla JavaScript and jQuery.*
 
 ---
 
