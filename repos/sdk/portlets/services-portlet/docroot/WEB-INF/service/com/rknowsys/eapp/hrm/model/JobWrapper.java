@@ -68,7 +68,6 @@ public class JobWrapper implements Job, ModelWrapper<Job> {
 		attributes.put("employmentContractEndDate",
 			getEmploymentContractEndDate());
 		attributes.put("contractDetails", getContractDetails());
-		attributes.put("employeeId", getEmployeeId());
 
 		return attributes;
 	}
@@ -165,12 +164,6 @@ public class JobWrapper implements Job, ModelWrapper<Job> {
 
 		if (contractDetails != null) {
 			setContractDetails(contractDetails);
-		}
-
-		Long employeeId = (Long)attributes.get("employeeId");
-
-		if (employeeId != null) {
-			setEmployeeId(employeeId);
 		}
 	}
 
@@ -518,26 +511,6 @@ public class JobWrapper implements Job, ModelWrapper<Job> {
 		_job.setContractDetails(contractDetails);
 	}
 
-	/**
-	* Returns the employee ID of this job.
-	*
-	* @return the employee ID of this job
-	*/
-	@Override
-	public long getEmployeeId() {
-		return _job.getEmployeeId();
-	}
-
-	/**
-	* Sets the employee ID of this job.
-	*
-	* @param employeeId the employee ID of this job
-	*/
-	@Override
-	public void setEmployeeId(long employeeId) {
-		_job.setEmployeeId(employeeId);
-	}
-
 	@Override
 	public boolean isNew() {
 		return _job.isNew();
@@ -602,7 +575,7 @@ public class JobWrapper implements Job, ModelWrapper<Job> {
 	}
 
 	@Override
-	public int compareTo(Job job) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Job job) {
 		return _job.compareTo(job);
 	}
 
@@ -612,17 +585,17 @@ public class JobWrapper implements Job, ModelWrapper<Job> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Job> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Job> toCacheModel() {
 		return _job.toCacheModel();
 	}
 
 	@Override
-	public Job toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Job toEscapedModel() {
 		return new JobWrapper(_job.toEscapedModel());
 	}
 
 	@Override
-	public Job toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Job toUnescapedModel() {
 		return new JobWrapper(_job.toUnescapedModel());
 	}
 

@@ -703,7 +703,7 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	@Override
-	public int compareTo(Organization organization) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Organization organization) {
 		return _organization.compareTo(organization);
 	}
 
@@ -713,17 +713,17 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Organization> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Organization> toCacheModel() {
 		return _organization.toCacheModel();
 	}
 
 	@Override
-	public Organization toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Organization toEscapedModel() {
 		return new OrganizationWrapper(_organization.toEscapedModel());
 	}
 
 	@Override
-	public Organization toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Organization toUnescapedModel() {
 		return new OrganizationWrapper(_organization.toUnescapedModel());
 	}
 

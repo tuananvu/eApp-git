@@ -277,13 +277,6 @@ public class JobLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
-	public static com.rknowsys.eapp.hrm.model.Job findByEmployeeId(
-		long employeeId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			com.rknowsys.eapp.hrm.NoSuchJobException {
-		return getService().findByEmployeeId(employeeId);
-	}
-
 	public static void clearService() {
 		_service = null;
 	}

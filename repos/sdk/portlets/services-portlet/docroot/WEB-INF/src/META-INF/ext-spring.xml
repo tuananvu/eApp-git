@@ -9,12 +9,12 @@
 		<aop:advisor advice-ref="transactionAdvice" pointcut-ref="transactionOperation" />
 	</aop:config>
 	<bean id="basePersistence" abstract="true">
-		<property name="dataSource" ref="hrmDataSource" />
-		<property name="sessionFactory" ref="hrmSessionFactory" />
+		<property name="dataSource" ref="anotherDataSource" />
+		<property name="sessionFactory" ref="anotherSessionFactory" />
 	</bean>
 	<bean id="transactionAdvice"
 		class="org.springframework.transaction.interceptor.TransactionInterceptor">
-		<property name="transactionManager" ref="hrmTransactionManager" />
+		<property name="transactionManager" ref="anotherTransactionManager" />
 		<property name="transactionAttributeSource">
 			<bean
 				class="org.springframework.transaction.annotation.AnnotationTransactionAttributeSource">
@@ -25,10 +25,10 @@
 			</bean>
 		</property>
 	</bean>
-	<bean id="hrmHibernateSessionFactory"
+	<bean id="anotherHibernateSessionFactory"
 		class="com.liferay.portal.spring.hibernate.PortletHibernateConfiguration"
 		lazy-init="true">
-		<property name="dataSource" ref="hrmDataSource" />
+		<property name="dataSource" ref="anotherDataSource" />
 		<property name="hibernateProperties">
 		<props>
 		<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -39,19 +39,19 @@
 		
 	</bean>
 
-	<bean id="hrmSessionFactory" class="com.liferay.portal.dao.orm.hibernate.SessionFactoryImpl"
+	<bean id="anotherSessionFactory" class="com.liferay.portal.dao.orm.hibernate.SessionFactoryImpl"
 		lazy-init="true">
-		<property name="sessionFactoryImplementor" ref="hrmHibernateSessionFactory" />
+		<property name="sessionFactoryImplementor" ref="anotherHibernateSessionFactory" />
 	</bean>
 
-	<bean id="hrmTransactionManager"
+	<bean id="anotherTransactionManager"
 		class="org.springframework.orm.hibernate3.HibernateTransactionManager"
 		lazy-init="true">
-		<property name="dataSource" ref="hrmDataSource" />
+		<property name="dataSource" ref="anotherDataSource" />
 		<property name="globalRollbackOnParticipationFailure" value="false" />
-		<property name="sessionFactory" ref="hrmHibernateSessionFactory" />
+		<property name="sessionFactory" ref="anotherHibernateSessionFactory" />
 	</bean>
-	<bean id="hrmDataSource"
+	<bean id="anotherDataSource"
 		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
 		<property name="targetDataSource">
 			<bean class="com.liferay.portal.dao.jdbc.util.DataSourceFactoryBean">

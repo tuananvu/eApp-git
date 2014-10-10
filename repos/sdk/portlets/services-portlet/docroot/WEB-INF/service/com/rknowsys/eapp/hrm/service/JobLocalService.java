@@ -248,8 +248,4 @@ public interface JobLocalService extends BaseLocalService, InvokableLocalService
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
-
-	public com.rknowsys.eapp.hrm.model.Job findByEmployeeId(long employeeId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			com.rknowsys.eapp.hrm.NoSuchJobException;
 }

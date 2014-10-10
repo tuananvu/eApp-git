@@ -63,7 +63,6 @@
 			<basic name="workTelephone" />
 			<basic name="workEmail" />
 			<basic name="otherEmail" />
-			<basic name="employeeId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -96,7 +95,9 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.DocCategoryModelImpl">
 		<attributes>
-			<id name="docCategoryId" />
+			<id name="id">
+				<column name="ID_" />
+			</id>
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -160,6 +161,8 @@
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.EmployeeModelImpl">
 		<attributes>
 			<id name="employeeId" />
+			<basic name="contactDetailsId" />
+			<basic name="jobId" />
 			<basic name="shiftId" />
 			<basic name="licenseId" />
 			<basic name="groupId" />
@@ -174,9 +177,10 @@
 			<basic name="firstName" />
 			<basic name="lastName" />
 			<basic name="middleName" />
+			<basic name="photograph" />
 			<basic name="gender" />
 			<basic name="maritalStatus" />
-			<basic name="nationalityId" />
+			<basic name="nationality" />
 			<basic name="dateOfBirth">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
@@ -200,6 +204,7 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="employmentstatus" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -234,7 +239,9 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.InterviewModelImpl">
 		<attributes>
-			<id name="interviewId" />
+			<id name="id">
+				<column name="ID_" />
+			</id>
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -278,7 +285,6 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="contractDetails" />
-			<basic name="employeeId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -298,6 +304,7 @@
 			</basic>
 			<basic name="userId" />
 			<basic name="jobcategory" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -316,10 +323,12 @@
 				<temporal>TIMESTAMP</temporal>
 			</basic>
 			<basic name="userId" />
+			<basic name="employeeId" />
 			<basic name="title" />
 			<basic name="description" />
 			<basic name="notes" />
 			<basic name="specification" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -363,7 +372,6 @@
 			<basic name="expiryDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="licenseNumber" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -393,6 +401,7 @@
 			<basic name="phone" />
 			<basic name="fax" />
 			<basic name="notes" />
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -422,7 +431,6 @@
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.NationalityModelImpl">
 		<attributes>
 			<id name="nationalityId" />
-			<basic name="employeeId" />
 			<basic name="groupId" />
 			<basic name="companyId" />
 			<basic name="userId" />
@@ -432,7 +440,7 @@
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<basic name="name" />
+			<basic name="Name" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -441,7 +449,9 @@
 	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.NewsModelImpl">
 		<attributes>
-			<id name="newsId" />
+			<id name="id">
+				<column name="ID_" />
+			</id>
 			<basic name="companyId" />
 			<basic name="groupId" />
 			<basic name="createDate">
@@ -457,40 +467,6 @@
 			<basic name="publishDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
-			<transient name="modelAttributes" />
-			<transient name="primaryKey" />
-			<transient name="primaryKeyObj" />
-			<transient name="userUuid" />
-		</attributes>
-	</mapped-superclass>
-	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.OrganizationModelImpl">
-		<attributes>
-			<id name="organizationId" />
-			<basic name="groupId" />
-			<basic name="companyId" />
-			<basic name="userId" />
-			<basic name="createDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="modifiedDate">
-				<temporal>TIMESTAMP</temporal>
-			</basic>
-			<basic name="organizationName" />
-			<basic name="taxId" />
-			<basic name="numberOfEmployees" />
-			<basic name="registrationNumber" />
-			<basic name="phone" />
-			<basic name="fax" />
-			<basic name="email" />
-			<basic name="addressStreet1" />
-			<basic name="addressStreet2" />
-			<basic name="city" />
-			<basic name="state">
-				<column name="STATE_" />
-			</basic>
-			<basic name="postalCode" />
-			<basic name="nationalityId" />
-			<basic name="note" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -600,6 +576,7 @@
 			<basic name="modifiedDate">
 				<temporal>TIMESTAMP</temporal>
 			</basic>
+			<basic name="jobId" />
 			<transient name="modelAttributes" />
 			<transient name="primaryKey" />
 			<transient name="primaryKeyObj" />
@@ -751,15 +728,11 @@
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.NationalityImpl" name="Nationality">
-		<table name="nationality" />
+		<table name="hrm_Nationality" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.NewsImpl" name="News">
 		<table name="news" />
-		<attributes />
-	</entity>
-	<entity class="com.rknowsys.eapp.hrm.model.impl.OrganizationImpl" name="Organization">
-		<table name="hrm_Organization" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.PayGradeImpl" name="PayGrade">

@@ -50,6 +50,8 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("employeeId", getEmployeeId());
+		attributes.put("contactDetailsId", getContactDetailsId());
+		attributes.put("jobId", getJobId());
 		attributes.put("shiftId", getShiftId());
 		attributes.put("licenseId", getLicenseId());
 		attributes.put("groupId", getGroupId());
@@ -75,6 +77,18 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 
 		if (employeeId != null) {
 			setEmployeeId(employeeId);
+		}
+
+		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
+
+		if (contactDetailsId != null) {
+			setContactDetailsId(contactDetailsId);
+		}
+
+		Long jobId = (Long)attributes.get("jobId");
+
+		if (jobId != null) {
+			setJobId(jobId);
 		}
 
 		Long shiftId = (Long)attributes.get("shiftId");
@@ -206,6 +220,46 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	@Override
 	public void setEmployeeId(long employeeId) {
 		_employee.setEmployeeId(employeeId);
+	}
+
+	/**
+	* Returns the contact details ID of this Employee.
+	*
+	* @return the contact details ID of this Employee
+	*/
+	@Override
+	public long getContactDetailsId() {
+		return _employee.getContactDetailsId();
+	}
+
+	/**
+	* Sets the contact details ID of this Employee.
+	*
+	* @param contactDetailsId the contact details ID of this Employee
+	*/
+	@Override
+	public void setContactDetailsId(long contactDetailsId) {
+		_employee.setContactDetailsId(contactDetailsId);
+	}
+
+	/**
+	* Returns the job ID of this Employee.
+	*
+	* @return the job ID of this Employee
+	*/
+	@Override
+	public long getJobId() {
+		return _employee.getJobId();
+	}
+
+	/**
+	* Sets the job ID of this Employee.
+	*
+	* @param jobId the job ID of this Employee
+	*/
+	@Override
+	public void setJobId(long jobId) {
+		_employee.setJobId(jobId);
 	}
 
 	/**
@@ -594,7 +648,7 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	}
 
 	@Override
-	public int compareTo(Employee employee) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Employee employee) {
 		return _employee.compareTo(employee);
 	}
 
@@ -604,17 +658,17 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Employee> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Employee> toCacheModel() {
 		return _employee.toCacheModel();
 	}
 
 	@Override
-	public Employee toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Employee toEscapedModel() {
 		return new EmployeeWrapper(_employee.toEscapedModel());
 	}
 
 	@Override
-	public Employee toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Employee toUnescapedModel() {
 		return new EmployeeWrapper(_employee.toUnescapedModel());
 	}
 
@@ -716,13 +770,6 @@ public class EmployeeWrapper implements Employee, ModelWrapper<Employee> {
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _employee.getMemberships();
-	}
-
-	@Override
-	public com.rknowsys.eapp.hrm.model.Nationality getNationality()
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		return _employee.getNationality();
 	}
 
 	@Override

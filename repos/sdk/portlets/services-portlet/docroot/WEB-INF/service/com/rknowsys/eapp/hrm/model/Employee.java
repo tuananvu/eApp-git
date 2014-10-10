@@ -78,8 +78,4 @@ public interface Employee extends EmployeeModel, PersistedModel {
 	public java.util.List<com.rknowsys.eapp.hrm.model.Membership> getMemberships()
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
-
-	public com.rknowsys.eapp.hrm.model.Nationality getNationality()
-		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
 }
