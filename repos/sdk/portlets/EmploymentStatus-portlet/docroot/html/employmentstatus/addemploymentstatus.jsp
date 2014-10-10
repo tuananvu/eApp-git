@@ -170,7 +170,8 @@ System.out.println("sortByType == " +sortByType);
 	deltaConfigurable="true" iteratorURL="<%=iteratorURL%>">
 	<liferay-ui:search-container-results>
 
-		<%
+		<% 
+		 System.out.println("addemployee jsp =========");
             List<EmploymentStatus> employmentstatusList = EmploymentStatusLocalServiceUtil.getEmploymentStatuses(searchContainer.getStart(), searchContainer.getEnd());
             System.out.println("list size == " +employmentstatusList.size());
             OrderByComparator orderByComparator = CustomComparatorUtil.getEmploymentStatusrOrderByComparator(sortByCol, sortByType);         
@@ -190,7 +191,7 @@ System.out.println("sortByType == " +sortByType);
 
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row className="EmploymentStatus"
-		keyProperty="id" modelVar="employmentstatus" rowVar="curRow"
+		keyProperty="employmentStatusId" modelVar="employmentstatus" rowVar="curRow"
 		escapedModel="<%= true %>">
 		<liferay-ui:search-container-column-text orderable="<%=true %>"
 			name="Employment Status" property="employmentstatus"

@@ -3,8 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Work Shifts</title>
-<portlet:actionURL var="saveworkshift" name="saveWorkshift">
-</portlet:actionURL>
+<portlet:actionURL var="saveworkshift" name="saveWorkshift"/>
 <portlet:resourceURL var="deleteworkshift" id="deleteWorkshift" />
 <portlet:renderURL var="listview">
 	<portlet:param name="mvcPath" value="/html/workshift/addworkshift.jsp" />
@@ -20,16 +19,16 @@
 </style>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
-var arr = new Array;
+var selectedEmps = new Array;
 $(document).ready(function() {
-    $('#<portlet:namespace/>btnRight').click(function(e) {
-        var selectedOpts = $('#<portlet:namespace/>lstBox1 option:selected');
+    $('#btnRight').click(function(e) {
+        var selectedOpts = $('#lstBox1 option:selected');
         if (selectedOpts.length == 0) {
             alert("Nothing to move.");
             e.preventDefault();
         }
 
-        $('##<portlet:namespace/>lstBox2').append($(selectedOpts).clone());
+        $('#lstBox2').append($(selectedOpts).clone());
         $(selectedOpts).remove();
         e.preventDefault();
     });
@@ -47,16 +46,15 @@ $(document).ready(function() {
     });
     
     $('#<portlet:namespace/>save').click(function(element) {
-        var selectedOpts = $('#lstBox2 option:selected');
+        var selectedOpts = $('#lstBox2 option');
         if (selectedOpts.length != 0) {
         	     $("#lstBox2 option").each  ( function() {
-        	        arr.push ( $(this).val() );
+        	    	 $('#lstBox2 option').prop('selected', true);
         	     });
-
-        	 alert ( arr.join(',' ) );
         }
     });
 });
+
 </script>
 <aui:script>
 AUI().use(
@@ -156,7 +154,7 @@ YUI().use(
         mask:'%H:%M',
         on: {
           selectionChange: function(event) {
-            document.<portlet:namespace />addworkshiftForm_1.<portlet:namespace />duration.value = event.newSelection;
+            document.<portlet:namespace />workshiftForm.<portlet:namespace />duration.value = event.newSelection;
           }
         }
       }
@@ -170,7 +168,7 @@ YUI().use(
         },
         on: {
           selectionChange: function(event) {
-            document.<portlet:namespace />addworkshiftForm_1.<portlet:namespace />duration.value = event.newSelection;
+            document.<portlet:namespace />workshiftForm.<portlet:namespace />duration.value = event.newSelection;
           }
         }
       }
@@ -186,13 +184,14 @@ YUI().use(
 			id="delete">Delete</a>
 
 	</div>
-	<portlet:actionURL name="addLocations" var="addLocation"></portlet:actionURL>
-	<div id="addworkshiftForm">
-	<aui:form name = "addworkshiftForm_1" action="<%=saveworkshift%>" method="post">
+<%-- 	<portlet:actionURL name="addWorkshifts" var="addWorkshift"></portlet:actionURL>
+ --%>	
+ 	<div id="addworkshiftForm" >
+	<aui:form name = "workshiftForm" action="<%=saveworkshift %>">
 		<aui:input name="shiftId" type="hidden" id="shiftId" />
 		<aui:fieldset label="Add Work Shift">
 			<aui:input name="workshiftName"
-				id="workshiftName" type="text" label="Shift Name">
+				type="text" label="Shift Name">
 				<aui:validator name="required" />
 			</aui:input>
 			<label>From</label>
@@ -206,17 +205,17 @@ YUI().use(
 
 	<table style='width:370px;'>
     <tr>
-				<td style='width: 160px;'><b>Group 1:</b><br /> <select
-					multiple="multiple" id='lstBox1'>
+				<td style='width: 160px;'><b>Available Employees</b><br /> <select
+					multiple="multiple" id="lstBox1" name="<portlet:namespace/>lstBox1">
 						<%
 							List<Employee> allEmployees = EmployeeLocalServiceUtil
-									.getEmployees(0,
-											EmployeeLocalServiceUtil.getEmployeesCount());
+									.getWorkshiftEmployees(0);
 							for (Iterator<Employee> iter = allEmployees.iterator(); iter
 									.hasNext();) {
 								Employee employee = iter.next();
+								System.out.println("Employee # " + employee);
 						%>
-						<option value="<%=employee.getEmployeeId()%>"><%=employee.getFirstName()%></option>
+						<option value="<%=employee.getEmployeeId()%>"><%=employee.getFirstName() + " " + employee.getMiddleName() + " " + employee.getLastName() %></option>
 						<%
 							}
 						%>
@@ -226,8 +225,8 @@ YUI().use(
         <br/><input type='button' id='btnLeft' value ='  <  '/>
     </td>
     <td style='width:160px;'>
-        <b>Group 2: </b><br/>
-        <select multiple="multiple" id='lstBox2'> 
+        <b>Assigned Employees</b><br/>
+        <select multiple="multiple" name="<portlet:namespace />lstBox2" id="lstBox2"> 
         </select>
     </td>
 </tr>
@@ -306,13 +305,15 @@ YUI().use(
 						System.out.println("total == " + total);
 						pageContext.setAttribute("results", results);
 						pageContext.setAttribute("total", total);
+				System.out.println("searchContainer.getStart() =" + searchContainer.getStart());
+					System.out.println(	"searchContainer.getEnd() = " + searchContainer.getEnd());
 			%>
 
 		</liferay-ui:search-container-results>
 		<liferay-ui:search-container-row className="Workshift"
 			keyProperty="shiftId" modelVar="workshift" rowVar="curRow"
 			escapedModel="<%=true%>">
-			<% WorkshiftExtended workshiftExt = new WorkshiftExtended(workshift); %>
+			<% WorkshiftBean workshiftExt = new WorkshiftBean(workshift); %>
 			<liferay-ui:search-container-column-text orderable="<%=true%>"
 				name="Shift Name" property="workshiftName"
 				orderableProperty="workshiftName" />

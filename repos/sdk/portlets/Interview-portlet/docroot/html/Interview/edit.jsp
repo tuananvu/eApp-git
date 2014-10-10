@@ -134,7 +134,7 @@ Interview editinterview = (Interview) portletSession.getAttribute("editinterview
 	
 	<div id="editInterviewForm">
   <aui:form name="myForm" action="<%=saveinterview.toString()%>">
-		<input name="<portlet:namespace/>interviewId" type="hidden" id="interviewId" value="<%=editinterview.getId()%>">
+		<input name="<portlet:namespace/>interviewId" type="hidden" id="interviewId" value="<%=editinterview.getInterviewId()%>">
 		<div class="span12">
 				<div class="span2">
 						<label>Interview Name<em>*</em> </label>
@@ -203,7 +203,7 @@ System.out.println("sortByType == " +sortByType);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Interview" keyProperty="id" modelVar="Interview"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="Interview" keyProperty="interviewId" modelVar="Interview"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="Interview" property="name" orderableProperty="interview"/>
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/Interview/editclick.jsp"/>
 		 

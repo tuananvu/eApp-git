@@ -1,4 +1,5 @@
 <%@page import="com.rknowsys.eapp.hrm.model.Workshift"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@page import="com.liferay.portal.kernel.dao.search.ResultRow"%>
 <%@ include file="/html/workshift/init.jsp"%>
@@ -22,6 +23,53 @@
 	width: 15%;
 }
 </style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+var selectedEmps = new Array;
+$(document).ready(function() {
+    $('#btnRight').click(function(e) {
+        var selectedOpts = $('#lstBox1 option:selected');
+        if (selectedOpts.length == 0) {
+            alert("Nothing to move.");
+            e.preventDefault();
+        }
+
+        $('#lstBox2').append($(selectedOpts).clone());
+        $(selectedOpts).remove();
+        e.preventDefault();
+    });
+
+    $('#btnLeft').click(function(e) {
+        var selectedOpts = $('#lstBox2 option:selected');
+        if (selectedOpts.length == 0) {
+            alert("Nothing to move.");
+            e.preventDefault();
+        }
+
+        $('#lstBox1').append($(selectedOpts).clone());
+        $(selectedOpts).remove();
+        e.preventDefault();
+    });
+    
+    $('#<portlet:namespace/>save').click(function(element) {
+
+        var allAssignedOpts = $('#lstBox2 option');
+        if (allAssignedOpts.length != 0) {
+        	     $("#lstBox2 option").each  ( function() {
+        	    	 $('#lstBox2 option').prop('selected', true);
+        	     });
+        }
+        var allAvailableOpts = $('#lstBox1 option');
+        if (allAvailableOpts.length != 0) {
+        	     $("#lstBox1 option").each  ( function() {
+        	    	 $('#lstBox1 option').prop('selected', true);
+        	     });
+        }
+
+    });
+});
+
+</script>
 <aui:script>
 AUI().use(
   'aui-node',
@@ -157,12 +205,12 @@ YUI().use(
 	</div>
 	
 	<div id="editWorkshiftForm">
-		<aui:form name="myForm" action="<%=saveworkshift.toString()%>">
+		<aui:form name="workshiftForm" action="<%=saveworkshift.toString()%>">
 			<aui:input name="shiftId" type="hidden" id="shiftId"
 				value="<%=editworkshift.getShiftId()%>" />
 				<aui:fieldset label="Edit Work Shift">
 					<label>Edit Work Shift</label>
-					<% WorkshiftExtended workshiftExt = new WorkshiftExtended(editworkshift) %>
+					<% WorkshiftBean workshiftExt = new WorkshiftBean(editworkshift); %>
 					<input name="<portlet:namespace/>workshiftName" id="workshiftName"
 					    type="text" value="<%=editworkshift.getWorkshiftName() %>">
 					<label>From</label>
@@ -171,8 +219,50 @@ YUI().use(
                     <label>To</label>
 					<input name="<portlet:namespace/>toWorkHours" id="toWorkHours"
 						type="text" value="<%=workshiftExt.getFormattedToWorkHoursStr() %>">
+<table style='width:370px;'>
+    <tr>
+				<td style='width: 160px;'><b>Available Employees</b><br /> <select
+					multiple="multiple" id="lstBox1" name="<portlet:namespace/>lstBox1">
+						        	<jsp:useBean id="unassignedemployees"
+		class="java.util.ArrayList" scope="request" />
+        
+        						<%
+ 								if (unassignedemployees != null) {
+							    for (Object employee : unassignedemployees) {
+								    System.out.println("Employee # " + employee);
+								%>
+									<option value="<%=((Employee)employee).getEmployeeId()%>"> <%=((Employee)employee).getFirstName() + " " + ((Employee)employee).getMiddleName() + " " + ((Employee)employee).getLastName() %></option>
+								<%
+							        }
+        						}
+							%>
+				</select></td>
+				<td style='width:50px;text-align:center;vertical-align:middle;'>
+        <input type='button' id='btnRight' value ='  >  '/>
+        <br/><input type='button' id='btnLeft' value ='  <  '/>
+    </td>
+    <td style='width:160px;'>
+        <b>Assigned Employees</b><br/>
+        <select multiple="multiple" name="<portlet:namespace />lstBox2" id="lstBox2"> 
+        	<jsp:useBean id="shiftemployees"
+		class="java.util.ArrayList" scope="request" />
+        
+        						<%
+ 								if (shiftemployees != null) {
+							    for (Object employee : shiftemployees) {
+								    System.out.println("Employee # " + employee);
+								%>
+									<option value="<%=((Employee)employee).getEmployeeId()%>"> <%=((Employee)employee).getFirstName() + " " + ((Employee)employee).getMiddleName() + " " + ((Employee)employee).getLastName() %></option>
+								<%
+							        }
+        						}
+							%>
+        </select>
+    </td>
+</tr>
+</table>						
 		<aui:button-row>
-			<aui:button type="submit" value="Submit" />
+			<aui:button name="save" type="submit" />
 			<aui:button type="reset" value="Cancel" id="editcancel"></aui:button>
 		</aui:button-row>
 		</aui:fieldset>
@@ -233,7 +323,7 @@ System.out.println("sortByType == " +sortByType);
 <liferay-ui:search-container-row className="Workshift"
 			keyProperty="shiftId" modelVar="workshift" rowVar="curRow"
 			escapedModel="<%=true%>">
-			<% WorkshiftExtended workshiftExt = new WorkshiftExtended(workshift); %>
+			<% WorkshiftBean workshiftExt = new WorkshiftBean(workshift); %>
 			<liferay-ui:search-container-column-text orderable="<%=true%>"
 				name="Shift Name" property="workshiftName"
 				orderableProperty="workshiftName" />
