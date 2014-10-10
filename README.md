@@ -1,16 +1,15 @@
 eApp ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif) 
 ====
 
-### The Human Resource Application in Liferay
-
----
-
+### The Human Resource Application in Liferay 
 <small>
 [Official website](http://rknowsys.com/)
 </small>
- 
-Project Setup For Developers
-============================
+
+---
+
+### Project Setup For Developers
+====
 
 1. Fork eApp. 
 2. In eclipse, launch a new workspace. For example: D:\eApp\workspace_eApp
