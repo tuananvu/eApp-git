@@ -567,7 +567,7 @@ public class LocationWrapper implements Location, ModelWrapper<Location> {
 	}
 
 	@Override
-	public int compareTo(Location location) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Location location) {
 		return _location.compareTo(location);
 	}
 
@@ -577,17 +577,17 @@ public class LocationWrapper implements Location, ModelWrapper<Location> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Location> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Location> toCacheModel() {
 		return _location.toCacheModel();
 	}
 
 	@Override
-	public Location toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Location toEscapedModel() {
 		return new LocationWrapper(_location.toEscapedModel());
 	}
 
 	@Override
-	public Location toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Location toUnescapedModel() {
 		return new LocationWrapper(_location.toUnescapedModel());
 	}
 

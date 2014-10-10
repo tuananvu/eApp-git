@@ -432,7 +432,7 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 	}
 
 	@Override
-	public int compareTo(Dependent dependent) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Dependent dependent) {
 		return _dependent.compareTo(dependent);
 	}
 
@@ -442,17 +442,17 @@ public class DependentWrapper implements Dependent, ModelWrapper<Dependent> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Dependent> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Dependent> toCacheModel() {
 		return _dependent.toCacheModel();
 	}
 
 	@Override
-	public Dependent toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Dependent toEscapedModel() {
 		return new DependentWrapper(_dependent.toEscapedModel());
 	}
 
 	@Override
-	public Dependent toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Dependent toUnescapedModel() {
 		return new DependentWrapper(_dependent.toUnescapedModel());
 	}
 

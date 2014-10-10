@@ -488,7 +488,8 @@ public class ImmigrationDocumentWrapper implements ImmigrationDocument,
 	}
 
 	@Override
-	public int compareTo(ImmigrationDocument immigrationDocument) {
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.ImmigrationDocument immigrationDocument) {
 		return _immigrationDocument.compareTo(immigrationDocument);
 	}
 
@@ -498,17 +499,17 @@ public class ImmigrationDocumentWrapper implements ImmigrationDocument,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<ImmigrationDocument> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.ImmigrationDocument> toCacheModel() {
 		return _immigrationDocument.toCacheModel();
 	}
 
 	@Override
-	public ImmigrationDocument toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.ImmigrationDocument toEscapedModel() {
 		return new ImmigrationDocumentWrapper(_immigrationDocument.toEscapedModel());
 	}
 
 	@Override
-	public ImmigrationDocument toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.ImmigrationDocument toUnescapedModel() {
 		return new ImmigrationDocumentWrapper(_immigrationDocument.toUnescapedModel());
 	}
 

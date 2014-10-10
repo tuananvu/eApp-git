@@ -378,7 +378,7 @@ public class EducationWrapper implements Education, ModelWrapper<Education> {
 	}
 
 	@Override
-	public int compareTo(Education education) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Education education) {
 		return _education.compareTo(education);
 	}
 
@@ -388,17 +388,17 @@ public class EducationWrapper implements Education, ModelWrapper<Education> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Education> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Education> toCacheModel() {
 		return _education.toCacheModel();
 	}
 
 	@Override
-	public Education toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Education toEscapedModel() {
 		return new EducationWrapper(_education.toEscapedModel());
 	}
 
 	@Override
-	public Education toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Education toUnescapedModel() {
 		return new EducationWrapper(_education.toUnescapedModel());
 	}
 

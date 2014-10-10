@@ -286,20 +286,6 @@ public interface JobModel extends BaseModel<Job> {
 	 */
 	public void setContractDetails(Blob contractDetails);
 
-	/**
-	 * Returns the employee ID of this job.
-	 *
-	 * @return the employee ID of this job
-	 */
-	public long getEmployeeId();
-
-	/**
-	 * Sets the employee ID of this job.
-	 *
-	 * @param employeeId the employee ID of this job
-	 */
-	public void setEmployeeId(long employeeId);
-
 	@Override
 	public boolean isNew();
 

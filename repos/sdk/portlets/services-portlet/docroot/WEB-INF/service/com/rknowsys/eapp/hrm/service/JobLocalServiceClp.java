@@ -111,10 +111,6 @@ public class JobLocalServiceClp implements JobLocalService {
 		_methodName18 = "setBeanIdentifier";
 
 		_methodParameterTypes18 = new String[] { "java.lang.String" };
-
-		_methodName20 = "findByEmployeeId";
-
-		_methodParameterTypes20 = new String[] { "long" };
 	}
 
 	@Override
@@ -692,39 +688,6 @@ public class JobLocalServiceClp implements JobLocalService {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public com.rknowsys.eapp.hrm.model.Job findByEmployeeId(long employeeId)
-		throws com.liferay.portal.kernel.exception.SystemException,
-			com.rknowsys.eapp.hrm.NoSuchJobException {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName20,
-					_methodParameterTypes20, new Object[] { employeeId });
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
-				throw (com.liferay.portal.kernel.exception.SystemException)t;
-			}
-
-			if (t instanceof com.rknowsys.eapp.hrm.NoSuchJobException) {
-				throw (com.rknowsys.eapp.hrm.NoSuchJobException)t;
-			}
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return (com.rknowsys.eapp.hrm.model.Job)ClpSerializer.translateOutput(returnObj);
-	}
-
 	private InvokableLocalService _invokableLocalService;
 	private String _methodName0;
 	private String[] _methodParameterTypes0;
@@ -764,6 +727,4 @@ public class JobLocalServiceClp implements JobLocalService {
 	private String[] _methodParameterTypes17;
 	private String _methodName18;
 	private String[] _methodParameterTypes18;
-	private String _methodName20;
-	private String[] _methodParameterTypes20;
 }

@@ -405,7 +405,7 @@ public class SupervisorWrapper implements Supervisor, ModelWrapper<Supervisor> {
 	}
 
 	@Override
-	public int compareTo(Supervisor supervisor) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Supervisor supervisor) {
 		return _supervisor.compareTo(supervisor);
 	}
 
@@ -415,17 +415,17 @@ public class SupervisorWrapper implements Supervisor, ModelWrapper<Supervisor> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Supervisor> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Supervisor> toCacheModel() {
 		return _supervisor.toCacheModel();
 	}
 
 	@Override
-	public Supervisor toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Supervisor toEscapedModel() {
 		return new SupervisorWrapper(_supervisor.toEscapedModel());
 	}
 
 	@Override
-	public Supervisor toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Supervisor toUnescapedModel() {
 		return new SupervisorWrapper(_supervisor.toUnescapedModel());
 	}
 

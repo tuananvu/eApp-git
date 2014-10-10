@@ -275,6 +275,12 @@ public class EmployeeLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Employee> getWorkshiftEmployees(
+		long shiftId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().getWorkshiftEmployees(shiftId);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

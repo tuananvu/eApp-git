@@ -378,7 +378,7 @@ public class LanguageWrapper implements Language, ModelWrapper<Language> {
 	}
 
 	@Override
-	public int compareTo(Language language) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Language language) {
 		return _language.compareTo(language);
 	}
 
@@ -388,17 +388,17 @@ public class LanguageWrapper implements Language, ModelWrapper<Language> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Language> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Language> toCacheModel() {
 		return _language.toCacheModel();
 	}
 
 	@Override
-	public Language toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Language toEscapedModel() {
 		return new LanguageWrapper(_language.toEscapedModel());
 	}
 
 	@Override
-	public Language toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Language toUnescapedModel() {
 		return new LanguageWrapper(_language.toUnescapedModel());
 	}
 

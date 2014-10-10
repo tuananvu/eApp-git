@@ -379,7 +379,7 @@ public class NationalityWrapper implements Nationality,
 	}
 
 	@Override
-	public int compareTo(Nationality nationality) {
+	public int compareTo(com.rknowsys.eapp.hrm.model.Nationality nationality) {
 		return _nationality.compareTo(nationality);
 	}
 
@@ -389,17 +389,17 @@ public class NationalityWrapper implements Nationality,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<Nationality> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Nationality> toCacheModel() {
 		return _nationality.toCacheModel();
 	}
 
 	@Override
-	public Nationality toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.Nationality toEscapedModel() {
 		return new NationalityWrapper(_nationality.toEscapedModel());
 	}
 
 	@Override
-	public Nationality toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.Nationality toUnescapedModel() {
 		return new NationalityWrapper(_nationality.toUnescapedModel());
 	}
 

@@ -587,6 +587,10 @@
 
 		<column name="employeeId" type="long" primary="true"></column>
 
+
+		<column name="contactDetailsId" type="long"></column>
+		<column name="jobId" type="long"></column>
+
 		<!-- Relationship fields -->
 
 		<column name="shiftId" type="long" />
@@ -655,6 +659,8 @@
 		<column name="userName" type="String"></column>
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
+
+
 		<column name="addressStreet1" type="String"></column>
 		<column name="addressStreet2" type="String"></column>
 		<column name="city" type="String"></column>
@@ -666,12 +672,6 @@
 		<column name="workTelephone" type="String"></column>
 		<column name="workEmail" type="String"></column>
 		<column name="otherEmail" type="String"></column>
-        
-        <column name="employeeId" type="long"></column>
-        <finder name="EmployeeId" return-type="com.rknowsys.eapp.hrm.model.ContactDetails">
-			<finder-column name="employeeId" />
-		</finder>
-
 	</entity>
 
 	<entity name="EmergencyContact" local-service="true"
@@ -842,11 +842,6 @@
 		<column name="employmentContractStartDate" type="Date"></column>
 		<column name="employmentContractEndDate" type="Date"></column>
 		<column name="contractDetails" type="Blob"></column>
-		
-		<column name="employeeId" type="long"></column>
-		<finder name="EmployeeId" return-type="com.rknowsys.eapp.hrm.model.Job">
-			<finder-column name="employeeId" />
-		</finder>
 	</entity>
 
 	<entity name="WorkExpCompany" local-service="true"

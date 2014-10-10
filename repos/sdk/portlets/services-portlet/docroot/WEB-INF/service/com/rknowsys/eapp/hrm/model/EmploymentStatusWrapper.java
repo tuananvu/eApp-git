@@ -352,7 +352,8 @@ public class EmploymentStatusWrapper implements EmploymentStatus,
 	}
 
 	@Override
-	public int compareTo(EmploymentStatus employmentStatus) {
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmploymentStatus employmentStatus) {
 		return _employmentStatus.compareTo(employmentStatus);
 	}
 
@@ -362,17 +363,17 @@ public class EmploymentStatusWrapper implements EmploymentStatus,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<EmploymentStatus> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.EmploymentStatus> toCacheModel() {
 		return _employmentStatus.toCacheModel();
 	}
 
 	@Override
-	public EmploymentStatus toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus toEscapedModel() {
 		return new EmploymentStatusWrapper(_employmentStatus.toEscapedModel());
 	}
 
 	@Override
-	public EmploymentStatus toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus toUnescapedModel() {
 		return new EmploymentStatusWrapper(_employmentStatus.toUnescapedModel());
 	}
 
