@@ -77,7 +77,7 @@ public class EmploymentStatusAction extends MVCPortlet {
 				EmploymentStatus EmploymentStatus1 = EmploymentStatusLocalServiceUtil
 						.getEmploymentStatus(EmploymentStatusid);
 
-				EmploymentStatus1.setId(ParamUtil.getLong(actionRequest,
+				EmploymentStatus1.setEmploymentStatusId(ParamUtil.getLong(actionRequest,
 						EMPLOYMENT_STATUS_ID));
 
 				EmploymentStatus1.setEmploymentstatus(ParamUtil.getString(actionRequest,
@@ -194,7 +194,7 @@ public class EmploymentStatusAction extends MVCPortlet {
 		EmploymentStatus es = EmploymentStatusLocalServiceUtil.getEmploymentStatus(Long
 				.parseLong(s));
 
-		log.info(es.getId());
+		log.info(es.getEmploymentStatusId());
 		log.info(es.getEmploymentstatus());
 		actionRequest.setAttribute("editemploymentstatus", es);
 		actionResponse.setRenderParameter("jspPage",
