@@ -7,10 +7,8 @@ eApp ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif)
 </small>
 
 ---
-
 ### Project Setup For Developers
 ====
-
 1. Fork eApp. 
 2. In eclipse, launch a new workspace. For example: D:\eApp\workspace_eApp
 3. File --> Import --> Git --> Projects from Git --> "Select Repository Source", choose "Clone URI" option. Click Next.
