@@ -275,6 +275,13 @@ public class ContactDetailsLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
+	public static com.rknowsys.eapp.hrm.model.ContactDetails findByEmployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchContactDetailsException {
+		return getService().findByEmployeeId(employeeId);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

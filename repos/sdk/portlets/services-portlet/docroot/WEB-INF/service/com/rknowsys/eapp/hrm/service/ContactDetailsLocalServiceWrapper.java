@@ -288,6 +288,14 @@ public class ContactDetailsLocalServiceWrapper
 			arguments);
 	}
 
+	@Override
+	public com.rknowsys.eapp.hrm.model.ContactDetails findByEmployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchContactDetailsException {
+		return _contactDetailsLocalService.findByEmployeeId(employeeId);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

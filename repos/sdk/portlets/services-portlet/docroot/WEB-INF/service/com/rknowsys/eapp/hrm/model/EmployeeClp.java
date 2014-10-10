@@ -75,8 +75,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("employeeId", getEmployeeId());
-		attributes.put("contactDetailsId", getContactDetailsId());
-		attributes.put("jobId", getJobId());
 		attributes.put("shiftId", getShiftId());
 		attributes.put("licenseId", getLicenseId());
 		attributes.put("groupId", getGroupId());
@@ -102,18 +100,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
 		if (employeeId != null) {
 			setEmployeeId(employeeId);
-		}
-
-		Long contactDetailsId = (Long)attributes.get("contactDetailsId");
-
-		if (contactDetailsId != null) {
-			setContactDetailsId(contactDetailsId);
-		}
-
-		Long jobId = (Long)attributes.get("jobId");
-
-		if (jobId != null) {
-			setJobId(jobId);
 		}
 
 		Long shiftId = (Long)attributes.get("shiftId");
@@ -223,53 +209,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 				Method method = clazz.getMethod("setEmployeeId", long.class);
 
 				method.invoke(_employeeRemoteModel, employeeId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public long getContactDetailsId() {
-		return _contactDetailsId;
-	}
-
-	@Override
-	public void setContactDetailsId(long contactDetailsId) {
-		_contactDetailsId = contactDetailsId;
-
-		if (_employeeRemoteModel != null) {
-			try {
-				Class<?> clazz = _employeeRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setContactDetailsId",
-						long.class);
-
-				method.invoke(_employeeRemoteModel, contactDetailsId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public long getJobId() {
-		return _jobId;
-	}
-
-	@Override
-	public void setJobId(long jobId) {
-		_jobId = jobId;
-
-		if (_employeeRemoteModel != null) {
-			try {
-				Class<?> clazz = _employeeRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setJobId", long.class);
-
-				method.invoke(_employeeRemoteModel, jobId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -845,6 +784,25 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	}
 
 	@Override
+	public com.rknowsys.eapp.hrm.model.Nationality getNationality() {
+		try {
+			String methodName = "getNationality";
+
+			Class<?>[] parameterTypes = new Class<?>[] {  };
+
+			Object[] parameterValues = new Object[] {  };
+
+			com.rknowsys.eapp.hrm.model.Nationality returnObj = (com.rknowsys.eapp.hrm.model.Nationality)invokeOnRemoteModel(methodName,
+					parameterTypes, parameterValues);
+
+			return returnObj;
+		}
+		catch (Exception e) {
+			throw new UnsupportedOperationException(e);
+		}
+	}
+
+	@Override
 	public java.util.List<com.rknowsys.eapp.hrm.model.Attachment> getAttachments() {
 		try {
 			String methodName = "getAttachments";
@@ -933,8 +891,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		EmployeeClp clone = new EmployeeClp();
 
 		clone.setEmployeeId(getEmployeeId());
-		clone.setContactDetailsId(getContactDetailsId());
-		clone.setJobId(getJobId());
 		clone.setShiftId(getShiftId());
 		clone.setLicenseId(getLicenseId());
 		clone.setGroupId(getGroupId());
@@ -998,14 +954,10 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(37);
+		StringBundler sb = new StringBundler(33);
 
 		sb.append("{employeeId=");
 		sb.append(getEmployeeId());
-		sb.append(", contactDetailsId=");
-		sb.append(getContactDetailsId());
-		sb.append(", jobId=");
-		sb.append(getJobId());
 		sb.append(", shiftId=");
 		sb.append(getShiftId());
 		sb.append(", licenseId=");
@@ -1043,7 +995,7 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(58);
+		StringBundler sb = new StringBundler(52);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Employee");
@@ -1052,14 +1004,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		sb.append(
 			"<column><column-name>employeeId</column-name><column-value><![CDATA[");
 		sb.append(getEmployeeId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>contactDetailsId</column-name><column-value><![CDATA[");
-		sb.append(getContactDetailsId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>jobId</column-name><column-value><![CDATA[");
-		sb.append(getJobId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>shiftId</column-name><column-value><![CDATA[");
@@ -1128,8 +1072,6 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	}
 
 	private long _employeeId;
-	private long _contactDetailsId;
-	private long _jobId;
 	private long _shiftId;
 	private long _licenseId;
 	private long _groupId;

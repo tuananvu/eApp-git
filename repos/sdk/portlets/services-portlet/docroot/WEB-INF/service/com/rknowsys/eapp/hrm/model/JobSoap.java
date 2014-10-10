@@ -47,6 +47,7 @@ public class JobSoap implements Serializable {
 		soapModel.setEmploymentContractStartDate(model.getEmploymentContractStartDate());
 		soapModel.setEmploymentContractEndDate(model.getEmploymentContractEndDate());
 		soapModel.setContractDetails(model.getContractDetails());
+		soapModel.setEmployeeId(model.getEmployeeId());
 
 		return soapModel;
 	}
@@ -219,6 +220,14 @@ public class JobSoap implements Serializable {
 		_contractDetails = contractDetails;
 	}
 
+	public long getEmployeeId() {
+		return _employeeId;
+	}
+
+	public void setEmployeeId(long employeeId) {
+		_employeeId = employeeId;
+	}
+
 	private long _jobId;
 	private long _jobTitleId;
 	private long _jobCategoryId;
@@ -234,4 +243,5 @@ public class JobSoap implements Serializable {
 	private Date _employmentContractStartDate;
 	private Date _employmentContractEndDate;
 	private Blob _contractDetails;
+	private long _employeeId;
 }

@@ -352,7 +352,7 @@ public class JobCategoryWrapper implements JobCategory,
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.JobCategory jobCategory) {
+	public int compareTo(JobCategory jobCategory) {
 		return _jobCategory.compareTo(jobCategory);
 	}
 
@@ -362,17 +362,17 @@ public class JobCategoryWrapper implements JobCategory,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.JobCategory> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<JobCategory> toCacheModel() {
 		return _jobCategory.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory toEscapedModel() {
+	public JobCategory toEscapedModel() {
 		return new JobCategoryWrapper(_jobCategory.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.JobCategory toUnescapedModel() {
+	public JobCategory toUnescapedModel() {
 		return new JobCategoryWrapper(_jobCategory.toUnescapedModel());
 	}
 

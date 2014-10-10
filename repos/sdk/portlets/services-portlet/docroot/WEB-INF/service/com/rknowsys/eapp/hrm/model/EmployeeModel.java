@@ -75,34 +75,6 @@ public interface EmployeeModel extends BaseModel<Employee> {
 	public void setEmployeeId(long employeeId);
 
 	/**
-	 * Returns the contact details ID of this Employee.
-	 *
-	 * @return the contact details ID of this Employee
-	 */
-	public long getContactDetailsId();
-
-	/**
-	 * Sets the contact details ID of this Employee.
-	 *
-	 * @param contactDetailsId the contact details ID of this Employee
-	 */
-	public void setContactDetailsId(long contactDetailsId);
-
-	/**
-	 * Returns the job ID of this Employee.
-	 *
-	 * @return the job ID of this Employee
-	 */
-	public long getJobId();
-
-	/**
-	 * Sets the job ID of this Employee.
-	 *
-	 * @param jobId the job ID of this Employee
-	 */
-	public void setJobId(long jobId);
-
-	/**
 	 * Returns the shift ID of this Employee.
 	 *
 	 * @return the shift ID of this Employee

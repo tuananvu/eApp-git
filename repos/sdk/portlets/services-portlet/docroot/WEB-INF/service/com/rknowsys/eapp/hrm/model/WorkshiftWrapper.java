@@ -405,7 +405,7 @@ public class WorkshiftWrapper implements Workshift, ModelWrapper<Workshift> {
 	}
 
 	@Override
-	public int compareTo(com.rknowsys.eapp.hrm.model.Workshift workshift) {
+	public int compareTo(Workshift workshift) {
 		return _workshift.compareTo(workshift);
 	}
 
@@ -415,17 +415,17 @@ public class WorkshiftWrapper implements Workshift, ModelWrapper<Workshift> {
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.Workshift> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<Workshift> toCacheModel() {
 		return _workshift.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Workshift toEscapedModel() {
+	public Workshift toEscapedModel() {
 		return new WorkshiftWrapper(_workshift.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.Workshift toUnescapedModel() {
+	public Workshift toUnescapedModel() {
 		return new WorkshiftWrapper(_workshift.toUnescapedModel());
 	}
 
@@ -443,11 +443,6 @@ public class WorkshiftWrapper implements Workshift, ModelWrapper<Workshift> {
 	public void persist()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		_workshift.persist();
-	}
-
-	@Override
-	public java.util.List<com.rknowsys.eapp.hrm.model.Employee> getEmployees() {
-		return _workshift.getEmployees();
 	}
 
 	@Override

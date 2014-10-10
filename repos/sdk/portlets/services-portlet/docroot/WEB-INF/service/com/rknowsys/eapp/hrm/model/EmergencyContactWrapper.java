@@ -487,8 +487,7 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	@Override
-	public int compareTo(
-		com.rknowsys.eapp.hrm.model.EmergencyContact emergencyContact) {
+	public int compareTo(EmergencyContact emergencyContact) {
 		return _emergencyContact.compareTo(emergencyContact);
 	}
 
@@ -498,17 +497,17 @@ public class EmergencyContactWrapper implements EmergencyContact,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.EmergencyContact> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<EmergencyContact> toCacheModel() {
 		return _emergencyContact.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.EmergencyContact toEscapedModel() {
+	public EmergencyContact toEscapedModel() {
 		return new EmergencyContactWrapper(_emergencyContact.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.EmergencyContact toUnescapedModel() {
+	public EmergencyContact toUnescapedModel() {
 		return new EmergencyContactWrapper(_emergencyContact.toUnescapedModel());
 	}
 

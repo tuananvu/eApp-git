@@ -282,13 +282,6 @@ public class EmployeeLocalServiceWrapper implements EmployeeLocalService,
 			arguments);
 	}
 
-	@Override
-	public java.util.List<com.rknowsys.eapp.hrm.model.Employee> getWorkshiftEmployees(
-		long shiftId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _employeeLocalService.getWorkshiftEmployees(shiftId);
-	}
-
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

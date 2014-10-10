@@ -68,6 +68,7 @@ public class ContactDetailsWrapper implements ContactDetails,
 		attributes.put("workTelephone", getWorkTelephone());
 		attributes.put("workEmail", getWorkEmail());
 		attributes.put("otherEmail", getOtherEmail());
+		attributes.put("employeeId", getEmployeeId());
 
 		return attributes;
 	}
@@ -180,6 +181,12 @@ public class ContactDetailsWrapper implements ContactDetails,
 
 		if (otherEmail != null) {
 			setOtherEmail(otherEmail);
+		}
+
+		Long employeeId = (Long)attributes.get("employeeId");
+
+		if (employeeId != null) {
+			setEmployeeId(employeeId);
 		}
 	}
 
@@ -585,6 +592,26 @@ public class ContactDetailsWrapper implements ContactDetails,
 		_contactDetails.setOtherEmail(otherEmail);
 	}
 
+	/**
+	* Returns the employee ID of this ContactDetails.
+	*
+	* @return the employee ID of this ContactDetails
+	*/
+	@Override
+	public long getEmployeeId() {
+		return _contactDetails.getEmployeeId();
+	}
+
+	/**
+	* Sets the employee ID of this ContactDetails.
+	*
+	* @param employeeId the employee ID of this ContactDetails
+	*/
+	@Override
+	public void setEmployeeId(long employeeId) {
+		_contactDetails.setEmployeeId(employeeId);
+	}
+
 	@Override
 	public boolean isNew() {
 		return _contactDetails.isNew();
@@ -649,8 +676,7 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	@Override
-	public int compareTo(
-		com.rknowsys.eapp.hrm.model.ContactDetails contactDetails) {
+	public int compareTo(ContactDetails contactDetails) {
 		return _contactDetails.compareTo(contactDetails);
 	}
 
@@ -660,17 +686,17 @@ public class ContactDetailsWrapper implements ContactDetails,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.ContactDetails> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<ContactDetails> toCacheModel() {
 		return _contactDetails.toCacheModel();
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.ContactDetails toEscapedModel() {
+	public ContactDetails toEscapedModel() {
 		return new ContactDetailsWrapper(_contactDetails.toEscapedModel());
 	}
 
 	@Override
-	public com.rknowsys.eapp.hrm.model.ContactDetails toUnescapedModel() {
+	public ContactDetails toUnescapedModel() {
 		return new ContactDetailsWrapper(_contactDetails.toUnescapedModel());
 	}
 

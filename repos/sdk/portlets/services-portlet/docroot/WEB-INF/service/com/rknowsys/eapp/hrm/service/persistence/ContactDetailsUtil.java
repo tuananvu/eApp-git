@@ -111,6 +111,74 @@ public class ContactDetailsUtil {
 	}
 
 	/**
+	* Returns the ContactDetails where employeeId = &#63; or throws a {@link com.rknowsys.eapp.hrm.NoSuchContactDetailsException} if it could not be found.
+	*
+	* @param employeeId the employee ID
+	* @return the matching ContactDetails
+	* @throws com.rknowsys.eapp.hrm.NoSuchContactDetailsException if a matching ContactDetails could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.ContactDetails findByEmployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchContactDetailsException {
+		return getPersistence().findByEmployeeId(employeeId);
+	}
+
+	/**
+	* Returns the ContactDetails where employeeId = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+	*
+	* @param employeeId the employee ID
+	* @return the matching ContactDetails, or <code>null</code> if a matching ContactDetails could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.ContactDetails fetchByEmployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByEmployeeId(employeeId);
+	}
+
+	/**
+	* Returns the ContactDetails where employeeId = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+	*
+	* @param employeeId the employee ID
+	* @param retrieveFromCache whether to use the finder cache
+	* @return the matching ContactDetails, or <code>null</code> if a matching ContactDetails could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.ContactDetails fetchByEmployeeId(
+		long employeeId, boolean retrieveFromCache)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByEmployeeId(employeeId, retrieveFromCache);
+	}
+
+	/**
+	* Removes the ContactDetails where employeeId = &#63; from the database.
+	*
+	* @param employeeId the employee ID
+	* @return the ContactDetails that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	public static com.rknowsys.eapp.hrm.model.ContactDetails removeByEmployeeId(
+		long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			com.rknowsys.eapp.hrm.NoSuchContactDetailsException {
+		return getPersistence().removeByEmployeeId(employeeId);
+	}
+
+	/**
+	* Returns the number of ContactDetailses where employeeId = &#63;.
+	*
+	* @param employeeId the employee ID
+	* @return the number of matching ContactDetailses
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByEmployeeId(long employeeId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByEmployeeId(employeeId);
+	}
+
+	/**
 	* Caches the ContactDetails in the entity cache if it is enabled.
 	*
 	* @param contactDetails the ContactDetails
