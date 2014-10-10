@@ -1,6 +1,4 @@
- ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif) 
- 
-eApp
+eApp ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif) 
 ====
 
 ### The Human Resource Application in Liferay
