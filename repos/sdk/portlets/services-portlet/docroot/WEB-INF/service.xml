@@ -1186,14 +1186,24 @@
 		<!-- Other fields -->
 		<column name="reportingmethodName" type="String" />
 		<!-- Order -->
-		<!-- Finder methods -->
-		<finder name="GroupId" return-type="Collection">
-			<finder-column name="groupId" />
-		</finder>
-		<finder name="reportingmethodId" return-type="Collection">
-			<finder-column name="reportingmethodId" />
-		</finder>
+		
 	</entity>
-	
+	<entity name="TerminationReasons" table="terminationreasons" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
+		<!-- PK fields -->
+		<column name="terminationreasonsId" type="long" primary="true" />
+		<!-- Audit fields -->
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
+		<column name="terminationreasonsName" type="String" />
+		<!-- Order -->
+		
+		
+	</entity>
 
 </service-builder>
