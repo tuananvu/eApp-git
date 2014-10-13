@@ -3,7 +3,9 @@ eApp ![This is a rknowsys eApp!](http://rknowsys.com/assets/img/logo.gif)
 
 ### The Human Resource Application in Liferay 
 <small>
-[Official website](http://rknowsys.com/)
+[Official website](http://rknowsys.com/)&bull;
+[Project Page](http://r-knowsys.github.io/eApp)
+
 </small>
 
 ---
