@@ -5,6 +5,38 @@
 	<author>rknowsys</author>
 	<namespace>hrm</namespace>
 
+
+	<entity name="LeavePeriod" table="leave_period" data-source="hrmDataSource"
+		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
+		tx-manager="hrmTransactionManager">
+
+		<!-- PK fields -->
+
+		<column name="leavePeriodId" type="long" primary="true" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="groupId" type="long" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+		<column name="userId" type="long" />
+		<!-- Other fields -->
+
+		<column name="startMonth" type="int" />
+		<column name="startDate" type="int" />
+		<column name="endDate" type="String" />
+
+		<!-- Order -->
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+	</entity>
+ 
+
 	<entity name="Interview" table="interview" data-source="hrmDataSource"
 		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
 		tx-manager="hrmTransactionManager">
