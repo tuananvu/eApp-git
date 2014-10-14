@@ -3,6 +3,7 @@ package com.rknowsys.eapp.hrm.util;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class DateUtils {
@@ -17,9 +18,15 @@ public class DateUtils {
 		return dateStr;
 	}
 
+
+	public static String format(Calendar calendar) {
+		return format(calendar.getTime());
+	}
+
+	
 	public static void main(String args[]) {
-		System.out.println(parse("29/10/2014"));
-		System.out.println("date = " + format(new Date()));
+//		System.out.println(parse("29/10/2014"));
+		System.out.println("date = " + format(Calendar.getInstance()));
 
 	}
 
@@ -39,4 +46,5 @@ public class DateUtils {
 	public static Date parse(String strDate) {
 		return parse(strDate, DATE_FORMAT_HRM);
 	}
+
 }
