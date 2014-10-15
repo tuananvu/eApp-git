@@ -146,18 +146,10 @@ font: small-caption;
 		String jobtitle = ParamUtil.getString(renderRequest, "jobtitle");
 		String subunit = ParamUtil.getString(renderRequest, "subunit");
 		System.out.println("before results....parameters.." +empname+ ", "+empid+", "+empstatus+", "+supervisorname+", "+jobtitle+", " +subunit);
-	    if(empname.equals("")&&empid.equals("")&&empstatus.equals("")&&supervisorname.equals("")&&jobtitle.equals("")&&subunit.equals("")){
-	    	System.out.println("if block....");
-		results = EmpDetailsLocalServiceUtil.findByEmpDetails(searchContainer.getStart(),searchContainer.getEnd());
-		System.out.println("after results....");
-		total   =  results.size();
-	    }
-	    else{
-	     System.out.println("else block...");
-	     searchContainer.setResults(EmpDetailsLocalServiceUtil.getSearchEmployees(empname, empid, empstatus, supervisorname, jobtitle, subunit, displayTerms.isAndOperator(), searchContainer.getStart(),searchContainer.getEnd()));
-	     total = EmpDetailsLocalServiceUtil.getSearchEmployeesCount(empname, empid, empstatus, supervisorname, jobtitle, subunit, displayTerms.isAndOperator());
-	    }
-		pageContext.setAttribute("results", results);
+	   
+		searchContainer.setResults(EmpDetailsLocalServiceUtil.findEmpDetails(empname, empid, empstatus, supervisorname, jobtitle, subunit, searchContainer.getStart(), searchContainer.getEnd()));
+	     total = results.size(); 
+	  	pageContext.setAttribute("results", results);
 		pageContext.setAttribute("total", total);
 		%>
 	</liferay-ui:search-container-results>
@@ -168,7 +160,7 @@ font: small-caption;
 	    <liferay-ui:search-container-column-text orderable="true" name="Job Title" property="title"/>
 	    <liferay-ui:search-container-column-text orderable="true" name="Sub Unit" property="name"/>
 	    <liferay-ui:search-container-column-text orderable="true" name="supervisor" property="supervisor"/>
-	    
+	    <liferay-ui:search-container-column-text orderable="true" name="Employement Status" property="employmentstatus"/>
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator/>
 	
