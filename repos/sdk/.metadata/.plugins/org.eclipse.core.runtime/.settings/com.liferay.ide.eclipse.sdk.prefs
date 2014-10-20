@@ -1,3 +1,0 @@
-OVERWRITE_USER_BUILD_FILE=never
-eclipse.preferences.version=1
-sdks=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<sdks default\="sdk">\r\n<sdk location\="E\:/eApp/repos/sdk" name\="sdk" version\="6.2.0"/>\r\n</sdks>
