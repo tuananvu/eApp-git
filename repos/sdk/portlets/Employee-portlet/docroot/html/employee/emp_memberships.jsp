@@ -1,24 +1,45 @@
-<%@page
-	import="com.rknowsys.eapp.hrm.service.MembershipLocalServiceUtil"%>
-<%@page import="com.rknowsys.eapp.hrm.model.Membership"%>
 <%@ include file="/html/employee/init.jsp"%>
-<div id="empMembershipAddDelete" class="panel">
-	<div class="panel-heading">
-		<h3>Membership</h3>
-	</div>
-	<div class="panel-body">
-		<aui:button id="empMembershipAdd" name="empMembershipAdd" value="Add"></aui:button>
-		<aui:button id="empMembershipDelete" value="Delete"
-			name="empMembershipDelete"></aui:button>
-	</div>
-</div>
+<portlet:actionURL name="updateMembership" var="updateMembership">
+</portlet:actionURL>
+<aui:script use="aui-base,aui-node,aui-io-request-deprecated">
+var A=new AUI();
+A.ready(function()
+  {
+  A.one('#addEmpMembership').hide();
+  });
+   var addButton=A.one('#<portlet:namespace />empMembershipAdd');
+   addButton.on('click',
+   function()
+   {
+   A.one('#<portlet:namespace />empMembershipAdd').hide();
+   A.one('#<portlet:namespace />empMembershipDelete').hide();
+   A.one('#addEmpMembership').show();
+   
+   A.all('input[type=text]').set('disabled',false);
+   A.all('select').set('disabled',false);
+   A.all('input[type=radio]').set('disabled',false);
+   });
+   var cancelButton=A.one('#<portlet:namespace />cancelMembership');
+   cancelButton.on('click',function()
+   {
+	   A.one('#addEmpMembership').hide();
+	   A.one('#<portlet:namespace />empMembershipAdd').show();
+       A.one('#<portlet:namespace />empMembershipDelete').show();
+   });
+</aui:script>
+<%
+	Map empId = (Map) request.getSession(false).getAttribute("empId");
+	long employeeId = (Long) empId.get("empId");
+	String jsp = (String) empId.get("jsp");
+%>
 <div id="addEmpMembership" class="panel">
 	<div class="panel-heading">
 		<h3>Add Membership</h3>
 	</div>
 	<div class="panel-body">
 		<aui:form name="addEmployeeMembership" id="addEmployeeMembership"
-			action="<portlet:actionURL/>" method="post">
+			action="<%=updateMembership%>" method="post">
+			<aui:input name="empMemId" value="<%=employeeId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span6">
 					<aui:select name="emp_membership" label="Membership"
@@ -31,7 +52,6 @@
 										Membership membership = (Membership) membershipList2
 												.next();
 						%>
-
 						<aui:option value="<%=membership.getMembershipName()%>"
 							label="<%=membership.getMembershipName()%>"></aui:option>
 						<%
@@ -50,7 +70,19 @@
 			</div>
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitMembershipDetails"></aui:button>
-			<aui:button type="reset" value="Cancel" cssClass="button btn-warning"></aui:button>
+			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
+				id="cancelMembership" name="cancelMembership"></aui:button>
 		</aui:form>
+	</div>
+</div>
+<div id="empMembershipAddDelete" class="panel">
+	<div class="panel-heading">
+		<h3>Membership</h3>
+	</div>
+	<div class="panel-body">
+		<aui:button id="empMembershipAdd" name="empMembershipAdd" value="Add"
+			cssClass="button btn-primary"></aui:button>
+		<aui:button id="empMembershipDelete" value="Delete"
+			name="empMembershipDelete" cssClass="button btn-danger"></aui:button>
 	</div>
 </div>

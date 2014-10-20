@@ -788,6 +788,24 @@
 		<column name="reporterEmployeeId" type="long"></column>
 		<column name="reportingMethod" type="long"></column>
 	</entity>
+	<entity name="EmpSubordinate" local-service="true" remote-service="false"
+		human-name="EmpSubordinate" table="emp_subordinate" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager">
+		<!-- PK fields -->
+		<column name="empSubordinateId" type="long" primary="true"></column>
+		<!-- Relationship fields -->
+		<column name="employeeId" type="long"></column>
+		<!-- Group instance -->
+		<column name="groupId" type="long"></column>
+		<!-- Audit fields -->
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		<!-- Other fields -->
+		<column name="reporterEmployeeId" type="long"></column>
+		<column name="reportingMethod" type="long"></column>
+	</entity>
 	
 	<entity name="EmpWorkExp" local-service="true"
 		remote-service="false" human-name="EmpWorkExp" table="emp_work_exp"

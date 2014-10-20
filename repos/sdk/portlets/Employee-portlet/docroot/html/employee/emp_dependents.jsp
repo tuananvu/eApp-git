@@ -1,8 +1,7 @@
 <%@ include file="/html/employee/init.jsp"%>
 <portlet:actionURL name="updateAssignedDependents"
-	var="updateAssignedDependents"
-	windowState="<%=LiferayWindowState.EXCLUSIVE.toString()%>"></portlet:actionURL>
-<aui:script use="aui-base,aui-node,aui-io-request">
+	var="updateAssignedDependents" ></portlet:actionURL>
+<aui:script use="aui-base,aui-node,aui-io-request-deprecated">
 var A=new AUI();
 A.ready(function()
   {
@@ -13,33 +12,29 @@ A.ready(function()
    function()
    {
    alert("adding dependent details");
-   A.one('#assignedDependentAddDelete').hide();
+   A.one('#<portlet:namespace/>dependentAdd').hide();
+   A.one('#<portlet:namespace/>dependentDelete').hide();
    A.one('#assignedDependentAdd').show();
+   
    A.all('input[type=text]').set('disabled',false);
    A.all('select').set('disabled',false);
    A.all('input[type=radio]').set('disabled',false);
    });
-   Liferay.provide(
-     window,'submitForm',
-   function() {
-   var A = AUI();
-   A.io.request('<%=updateAssignedDependents%>',{
-   method: 'POST',
-   form: { id: '<portlet:namespace />addDependent' },
-   on: {
-       success: function(){
-       A.one('#assignedDependentAdd').hide();
-       A.one('#assignedDependentAddDelete').show();
-       }
-       }
-    });
-  });
+   var cancelButton=A.one('#<portlet:namespace/>cancelDependentDetails');
+   cancelButton.on('click',function()
+   {
+	   A.one('#assignedDependentAdd').hide();
+	   A.one('#assignedDependentAddDelete').show();
+	   A.one('#<portlet:namespace/>dependentAdd').show();
+       A.one('#<portlet:namespace/>dependentDelete').show();
+   });
 </aui:script>
 <%
-	String empId = (String) request.getSession(false).getAttribute(
+	Map empId = (Map) request.getSession(false).getAttribute(
 			"empId");
+	long employeeId = (Long)empId.get("empId");
+	String jsp=(String)empId.get("jsp");
 	String dependentName, dependentRelation, dependentDOB;
-	long employeeId = Long.parseLong(empId);
 	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpDependent.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -47,30 +42,7 @@ A.ready(function()
 			.eq(employeeId));
 	List<EmpDependent> empDependentDetails = EmpDependentLocalServiceUtil
 			.dynamicQuery(dependentDynamicQuery);
-	EmpDependent empDependent = null;
-	if (empDependentDetails.size() != 0) {
-		empDependent = empDependentDetails.get(0);
-		dependentRelation = empDependent.getRelationship() != null ? empDependent
-				.getRelationship() : "";
-		dependentName = empDependent.getName() != null ? empDependent
-				.getName() : "";
-		dependentDOB = empDependent.getDateOfBirth() != null ? empDependent
-				.getDateOfBirth().toString() : "";
-	} else {
-		dependentRelation = "";
-		dependentDOB = "";
-		dependentName = "";
-	}
 %>
-<div id="assignedDependentAddDelete" class="panel">
-	<div class="panel-heading">
-		<h3>Assigned Dependents</h3>
-	</div>
-	<div class="panel-body">
-		<aui:button id="dependentAdd" name="dependentAdd" value="Add"></aui:button>
-		<aui:button id="dependentDelete" value="Delete" name="dependentDelete"></aui:button>
-	</div>
-</div>
 <div id="assignedDependentAdd" class="panel">
 	<div class="panel-heading">
 		<h3>Add Dependent</h3>
@@ -78,21 +50,54 @@ A.ready(function()
 	<div class="panel-body">
 		<aui:form name="addDependent" id="addDependent"
 			action="<%=updateAssignedDependents%>" method="post">
+			<aui:input name="empDependentId" value="<%=employeeId %>" type="hidden" />
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:input name="dependent_name" label="Name"
-						value="<%=dependentName%>" inlineLabel="left"></aui:input>
+						 inlineLabel="left"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:input name="dependent_relationship" label="Relationship"
-						value="<%=dependentRelation%>" inlineLabel="left"></aui:input>
+				 inlineLabel="left"></aui:input>
 				</div>
 			</div>
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitDependentDetails"></aui:button>
-			<aui:button type="reset" value="Cancel" cssClass="button btn-warning"></aui:button>
+			<aui:button type="reset" value="Cancel" id="cancelDependentDetails"
+			cssClass="button btn-danger" name="cancelDependentDetails"></aui:button>
 		</aui:form>
+	</div>
+</div>
+<div id="assignedDependentAddDelete" class="panel">
+	<div class="panel-heading">
+		<h3>Assigned Dependents</h3>
+	</div>
+	<div class="panel-body">
+		<aui:button id="dependentAdd" name="dependentAdd" value="Add" 
+		cssClass="button btn-primary"></aui:button>
+		<aui:button id="dependentDelete" value="Delete" name="dependentDelete"
+		cssClass="button btn-danger"></aui:button>
+		<liferay-ui:search-container delta="5"
+			emptyResultsMessage="No records are available for EmpDependent"
+			deltaConfigurable="true" rowChecker="<%= new RowChecker(renderResponse) %>">
+			<liferay-ui:search-container-results>
+				<%
+					List<EmpDependent> dependentDetails = empDependentDetails;
+							results = dependentDetails;
+							total = dependentDetails.size();
+							pageContext.setAttribute("results", results);
+							pageContext.setAttribute("total", total);
+				%>
+			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-row className="EmpDependent"
+				modelVar="id">
+				<liferay-ui:search-container-column-text name="Name" property="name" />
+				<liferay-ui:search-container-column-text name="Relation"
+					property="relationship" />
+			</liferay-ui:search-container-row>
+			<liferay-ui:search-iterator />
+		</liferay-ui:search-container>
 	</div>
 </div>

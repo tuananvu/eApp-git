@@ -1,20 +1,13 @@
 <%@page import="java.util.Date"%>
 <%@ include file="/html/employee/init.jsp"%>
 <portlet:actionURL var="updateEmpPersonalDetails"
-	name="updateEmpPersonalDetails"
-	windowState="<%=LiferayWindowState.EXCLUSIVE.toString()%>" />
-<aui:script use="aui-base,aui-node,aui-io-request">
+	name="updateEmpPersonalDetails" />
+<aui:script use="aui-base,aui-node,aui-io-request-deprecated">
 var A=new AUI();
 A.ready(function()
 {
 A.one('#<portlet:namespace />savePersonalDetails').hide();
-A.all('input[type=text]').set('disabled',true);
-	A.all('select').set('disabled',true);
-	A.all('input[type=radio]').set('disabled',true);
 });
-AUI().use(
-    'aui-node',
-    function(A) { 
 	var node=A.one('#<portlet:namespace />editPersonalDetails');
 	node.on('click',function()
 	{
@@ -24,35 +17,19 @@ AUI().use(
 	A.all('select').set('disabled',false);
 	A.all('input[type=radio]').set('disabled',false);
 	});
-});
-	
- Liferay.provide(
-     window,'submitForm',
-   function() {
-   var A = AUI();
-   A.io.request('<%=updateEmpPersonalDetails%>',{
-   method: 'POST',
-   form: { id: '<portlet:namespace />empPersonalDetailsSave' },
-   on: {
-       success: function(){
-       A.one('#<portlet:namespace/>savePersonalDetails').hide();
-       	 A.one('#<portlet:namespace/>editPersonalDetails').show();
-       	 A.all('input[type=text]').set('disabled',true);
-	    A.all('select').set('disabled',true);
-	    A.all('input[type=radio]').set('disabled',true);
-       }
-       }
-    });
-  });
 </aui:script>
 <%
-	String empId = (String) request.getSession(false).getAttribute(
-			"empId");
+	/* String empId = (String) request.getSession(false).getAttribute(
+			"empId"); */
+Map empId = (Map) request.getSession(false).getAttribute(
+		"empId");
+long employeeId = (Long)empId.get("empId");
+String jsp=(String)empId.get("jsp");
 	String firstName, middleName, lastName, empNo, otherId, licenseNumber, licenseExpDate, gender, nationality, maritslStatus;
 	Long personalDetailsId;
 	Date dateOfB;
 	Date k = new Date();
-	long employeeId = Long.parseLong(empId);
+	//long employeeId = Long.parseLong(empId);
 	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpPersonalDetails.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -119,48 +96,59 @@ AUI().use(
 	</div>
 	<div class="panel-body">
 		<aui:form name="empPersonalDetailsSave" id="empPersonalDetailsSave"
-			method="post" action="<portlet:actionURL/>">
-			<aui:input name="personalDetailsId" type="hidden" value="<%=personalDetailsId %>"></aui:input>
+			method="post" action="<%=updateEmpPersonalDetails %>" >
+			<aui:input name="personalDetailsId" type="hidden"
+				value="<%=personalDetailsId %>"></aui:input>
+				<aui:input name="perEmpId" type="hidden"
+				value="<%=employeeId%>"></aui:input>
 			<div class="row-fluid">
-				<div class="span4">
+				<div class="span8">
 					<label>Full Name</label>
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span4">
+				<div class="span8">
 					<aui:input name="firstName" label="First Name"
 						showRequiredLabel="false" disabled="true" value="<%=firstName%>">
 						<aui:validator name="required"></aui:validator>
 					</aui:input>
 				</div>
-				<div class="span4">
+				<div class="row-fluid">
+				<div class="span8">
 					<aui:input name="middleName" label="Middle Name"
 						showRequiredLabel="false" disabled="true" value="<%=middleName%>"></aui:input>
 				</div>
-				<div class="span4">
+				</div>
+				<div class="row-fluid">
+				<div class="span8">
 					<aui:input name="lastName" label="Last Name"
 						showRequiredLabel="false" disabled="true" value="<%=lastName%>">
 						<aui:validator name="required"></aui:validator>
 					</aui:input>
+					</div>
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:input name="employee_no" label="EmployeeNo" disabled="true"
 						inlineLabel="left" value="<%=empNo%>"></aui:input>
 				</div>
-				<div class="span6">
+				</div>
+				<div class="row-fluid">
+				<div class="span8">
 					<aui:input name="other_id" label="Other Id" inlineLabel="left"
 						disabled="true" value="<%=otherId%>">
 					</aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:input name="driver_license_no" label="Driver License No"
 						inlineLabel="left" disabled="true" value="<%=licenseNumber%>"></aui:input>
 				</div>
-				<div class="span6">
+				</div>
+				<div class="row-fluid">
+				<div class="span8">
 					<aui:input name="expiry_date" label="Expiry Date"
 						inlineLabel="left" disabled="true" value="<%=licenseExpDate%>"
 						class="dateTrigger"></aui:input>
@@ -182,7 +170,7 @@ AUI().use(
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:select name="marital_status" label="Marital Status"
 						inlineLabel="left" disabled="true">
 						<aui:option selected="selected" value="Select" label="select"></aui:option>
@@ -191,7 +179,9 @@ AUI().use(
 						<aui:option value="other" label="Other"></aui:option>
 					</aui:select>
 				</div>
-				<div class="span6">
+					</div>
+				<div class="row-fluid">
+				<div class="span8">
 					<aui:select name="emp_nationality" label="Nationality"
 						disabled="true">
 						<%
@@ -208,11 +198,16 @@ AUI().use(
 						%>
 					</aui:select>
 				</div>
+				</div>
+				<div class="row-fluid">
+				<div class="span8">
+				<aui:input name="date_of_birth" label="Date of Birth" inlineLabel="left" value="<%=k %>"> </aui:input>
+				</div>
 			</div>
 			<aui:button id="editPersonalDetails" name="editPersonalDetails"
 				value="Edit" cssClass="button btn-success"></aui:button>
 			<aui:button id="savePersonalDetails" name="savePersonalDetails"
-				value="Save" type="submit" cssClass="button btn-success"></aui:button>
+				value="Save" type="submit" cssClass="button btn-primary"></aui:button>
 		</aui:form>
 	</div>
 </div>

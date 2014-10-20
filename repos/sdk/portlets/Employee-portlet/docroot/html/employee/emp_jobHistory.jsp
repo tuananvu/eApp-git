@@ -1,11 +1,20 @@
 <%@ include file="/html/employee/init.jsp"%>
+<portlet:actionURL name="updateEmpJobHistory"
+	var="updateEmpJobHistory" >
+</portlet:actionURL>
+<%
+	Map empId = (Map) request.getSession(false).getAttribute("empId");
+	long employeeId = (Long) empId.get("empId");
+	String jsp = (String) empId.get("jsp");
+%>
 <div class="panel">
 	<div class="panel-heading">
 		<h3>Job</h3>
 	</div>
 	<div class="panel-body">
-		<aui:form name="jobHistoryDetails" var="jobHistoryDetails"
-			method="post" action="#">
+		<aui:form name="jobHistoryDetails" id="jobHistoryDetails"
+			method="post" action="<%=updateEmpJobHistory %>">
+			<aui:input name="empJId" value="<%=employeeId %>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span6">
 					<aui:input name="joined_date" label="Joined Date"
