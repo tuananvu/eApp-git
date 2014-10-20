@@ -253,18 +253,21 @@ public class DataImportAction extends MVCPortlet {
 			ResourceResponse resourceResponse) throws PortletException,
 			IOException {
 		if (resourceRequest.getResourceID().equals("fileDownload")) {
+			
+			Properties properties = PortalUtil.getPortalProperties();
+			String uploadDirectory = properties.getProperty("liferay.home")
+					+ "/samplefiles/";
 
 			System.out.println("File downloading Started...");
 			resourceResponse.setContentType("text/html");
 			PrintWriter out = resourceResponse.getWriter();
 			String filename = "importData.csv";
-			String filepath = "D:\\git\\github07oct\\server\\samplefiles\\";
 			resourceResponse.setContentType("APPLICATION/OCTET-STREAM");
 
 			resourceResponse.setProperty("Content-Disposition",
 					"attachment; filename=\"" + filename + "\"");
 
-			FileInputStream fileInputStream = new FileInputStream(filepath
+			FileInputStream fileInputStream = new FileInputStream(uploadDirectory
 					+ filename);
 
 			int i;
