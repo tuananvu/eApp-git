@@ -146,7 +146,7 @@ String jsp=(String)empId.get("jsp");
 				<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="expiry_date" label="Expiry Date"
-						inlineLabel="left" disabled="true" value="<%=licenseExpDate%>"
+						inlineLabel="left" disabled="true" value='<%=licenseExpDate%>'
 						cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
@@ -199,7 +199,7 @@ String jsp=(String)empId.get("jsp");
 				<div class="row-fluid">
 				<div class="span8">
 				<aui:input name="date_of_birth" label="Date of Birth" inlineLabel="left" cssClass="dateEmployee"
-				 value="<%=dateOfB %>"> </aui:input>
+				 value='<%=dateOfB %>'> </aui:input>
 				</div>
 			</div>
 			<aui:button id="editPersonalDetails" name="editPersonalDetails"
