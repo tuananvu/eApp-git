@@ -19,16 +19,14 @@ A.one('#<portlet:namespace />savePersonalDetails').hide();
 	});
 </aui:script>
 <%
-	/* String empId = (String) request.getSession(false).getAttribute(
-			"empId"); */
 Map empId = (Map) request.getSession(false).getAttribute(
 		"empId");
 long employeeId = (Long)empId.get("empId");
 String jsp=(String)empId.get("jsp");
-	String firstName, middleName, lastName, empNo, otherId, licenseNumber, licenseExpDate, gender, nationality, maritslStatus;
+	String firstName, middleName, lastName, empNo, otherId, licenseNumber,  gender, nationality, maritslStatus;
 	Long personalDetailsId;
-	Date dateOfB;
-	Date k = new Date();
+	Date dateOfB,licenseExpDate;
+	//Date k = new Date();
 	//long employeeId = Long.parseLong(empId);
 	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpPersonalDetails.class,
@@ -50,8 +48,7 @@ String jsp=(String)empId.get("jsp");
 				.getOtherId() : "";
 		licenseNumber = empPersonalDetails.getLicenseNo() != null ? empPersonalDetails
 				.getLicenseNo() : "";
-		licenseExpDate = empPersonalDetails.getLicenseExpDate() != null ? empPersonalDetails
-				.getLicenseExpDate().toString() : "";
+		licenseExpDate = empPersonalDetails.getLicenseExpDate()!= null ? empPersonalDetails.getLicenseExpDate() : new Date();
 		gender = String.valueOf(empPersonalDetails.getGender()) != null ? String
 				.valueOf(empPersonalDetails.getGender()) : "";
 		Nationality empNationality2 = null;
@@ -73,8 +70,7 @@ String jsp=(String)empId.get("jsp");
 		maritslStatus = String.valueOf(empPersonalDetails
 				.getMaritalStatus()) != null ? String
 				.valueOf(empPersonalDetails.getMaritalStatus()) : "";
-		dateOfB = empPersonalDetails.getDateOfBirth() != null ? empPersonalDetails
-				.getDateOfBirth() : k;
+		dateOfB = empPersonalDetails.getDateOfBirth()!= null ? empPersonalDetails.getDateOfBirth() :new Date() ;
 	} else {
 		personalDetailsId=0l;
 		firstName = "";
@@ -83,11 +79,11 @@ String jsp=(String)empId.get("jsp");
 		empNo = "";
 		otherId = "";
 		licenseNumber = "";
-		licenseExpDate = "";
+		licenseExpDate = new Date();
 		gender = "";
 		nationality = "";
 		maritslStatus = "";
-		dateOfB = k;
+		dateOfB = new Date();
 	}
 %>
 <div id="search_form" class="panel">
@@ -184,6 +180,7 @@ String jsp=(String)empId.get("jsp");
 				<div class="span8">
 					<aui:select name="emp_nationality" label="Nationality"
 						disabled="true">
+						<aui:option value="-1">--Select--</aui:option>
 						<%
 							List l2 = NationalityLocalServiceUtil.getNationalities(-1,
 											-1);
@@ -202,7 +199,7 @@ String jsp=(String)empId.get("jsp");
 				<div class="row-fluid">
 				<div class="span8">
 				<aui:input name="date_of_birth" label="Date of Birth" inlineLabel="left" cssClass="dateEmployee"
-				 value="<%=k %>"> </aui:input>
+				 value="<%=dateOfB %>"> </aui:input>
 				</div>
 			</div>
 			<aui:button id="editPersonalDetails" name="editPersonalDetails"

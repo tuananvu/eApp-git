@@ -1,6 +1,8 @@
 package com.rknowsys.eapp;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -90,6 +92,7 @@ public class EmployeeAction extends MVCPortlet {
 	public void updateEmpPersonalDetails(ActionRequest actionRequest,
 			ActionResponse actionResponse) {
 		//updatePersonalDetails(actionRequest,actionResponse);
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Long empId=ParamUtil.getLong(actionRequest, "perEmpId");
 		String firstName = ParamUtil.getString(actionRequest,EMPLOYEE_FIRST_NAME_COL_NAME);
 		String middleName = ParamUtil.getString(actionRequest,EMPLOYEE_MIDDLE_NAME_COL_NAME);
@@ -97,11 +100,11 @@ public class EmployeeAction extends MVCPortlet {
 		String empNo=ParamUtil.getString(actionRequest, "employee_no");
 		String otherId=ParamUtil.getString(actionRequest, "other_id");
 		String driverLicenseNo=ParamUtil.getString(actionRequest, "driver_license_no");
-		Date expiryDate=ParamUtil.getDate(actionRequest, "expiry_date", null);
+		Date expiryDate=ParamUtil.getDate(actionRequest, "expiry_date", dateFormat);
 		String gender=ParamUtil.getString(actionRequest, "gender");
 		String maritalStatus=ParamUtil.getString(actionRequest, "marital_status");
 		String nationality=ParamUtil.getString(actionRequest, "emp_nationality");
-		Date dateOfB=ParamUtil.getDate(actionRequest, "date_of_birth", null);
+		Date dateOfB=ParamUtil.getDate(actionRequest, "date_of_birth", dateFormat);
 		long perEmpId = ParamUtil.getLong(actionRequest, "personalDetailsId");
 		EmpPersonalDetails empPersonalDetails = null;
 		log.info("first name and last anme are" + " " + firstName

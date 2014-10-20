@@ -103,6 +103,7 @@ A.ready(function()
 				<div class="row-fluid">
 					<div class="span6">
 						<aui:select name="location" label="Location" inlineLabel="left">
+						<aui:option value="-1">--Select--</aui:option>
 							<%
 								List l = LocationLocalServiceUtil.getLocations(-1, -1);
 										Iterator locations = l.iterator();
