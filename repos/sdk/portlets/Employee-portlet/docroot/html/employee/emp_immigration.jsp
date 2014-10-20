@@ -75,13 +75,13 @@ A.ready(function()
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="img_issued_date" id="imgIssueDate"
-						label="Issued Date" inlineLabel="left"></aui:input>
+						label="Issued Date" cssClass="dateEmployee" inlineLabel="left"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="img_exp_date" id="imgExpDate" label="Expiry Date"
-						inlineLabel="left"></aui:input>
+						inlineLabel="left" cssClass="dateEmployee" ></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
@@ -98,7 +98,8 @@ A.ready(function()
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="review_date" id="reviewDate" label="Review Date"></aui:input>
+					<aui:input name="review_date" id="reviewDate" label="Review Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">

@@ -1,7 +1,6 @@
 <%@ include file="/html/employee/init.jsp"%>
 <portlet:resourceURL var="dependencyDropdown" id="dependencyDropdown"></portlet:resourceURL>
-<portlet:actionURL var="updateEmpSalaryDetails"
-	name="updateEmpSalaryDetails" />
+<portlet:actionURL var="updateEmpSalaryDetails" name="updateEmpSalaryDetails" />
 <%
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
@@ -94,7 +93,8 @@ A.ready(function()
 					<aui:input name="annual_basic_pay" label="Annual Basic Payment"></aui:input>
 				</div>
 				<div class="span5">
-					<aui:input name="basic_pay_date" label="Effective Date"></aui:input>
+					<aui:input name="basic_pay_date" label="Effective Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
@@ -105,7 +105,8 @@ A.ready(function()
 					<aui:input name="car_allowance" label="Car Allowance"></aui:input>
 				</div>
 				<div class="span5">
-					<aui:input name="car_pay_date" label="Effective Date"></aui:input>
+					<aui:input name="car_pay_date" label="Effective Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
@@ -116,7 +117,8 @@ A.ready(function()
 					<aui:input name="living_allowance" label="Cost of Living Allowance"></aui:input>
 				</div>
 				<div class="span5">
-					<aui:input name="cost_living_date" label="Effective Date"></aui:input>
+					<aui:input name="cost_living_date" label="Effective Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 		</div>
@@ -131,7 +133,8 @@ A.ready(function()
 					<aui:input name="pension_fund" label="Pension Fund"></aui:input>
 				</div>
 				<div class="span6">
-					<aui:input name="pension_date" label="Effective Date"></aui:input>
+					<aui:input name="pension_date" label="Effective Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
@@ -139,7 +142,8 @@ A.ready(function()
 					<aui:input name="epf_percentage" label="EPF (Percentage)"></aui:input>
 				</div>
 				<div class="span6">
-					<aui:input name="epf_date" label="Effective Date"></aui:input>
+					<aui:input name="epf_date" label="Effective Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 		</div>

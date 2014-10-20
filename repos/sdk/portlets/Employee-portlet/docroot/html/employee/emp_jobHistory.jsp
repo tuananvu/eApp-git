@@ -7,6 +7,7 @@
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
 %>
+
 <div class="panel">
 	<div class="panel-heading">
 		<h3>Job</h3>
@@ -17,18 +18,19 @@
 			<aui:input name="empJId" value="<%=employeeId %>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span6">
-					<aui:input name="joined_date" label="Joined Date"
-						class="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
+					<aui:input name="joined_date" id="joined_date" label="Joined Date"
+						cssClass="dateEmployee" inlineLabel="left" disabled="true" type="date"
+						></aui:input>
 				</div>
 				<div class="span6">
 					<aui:input name="probation_date" label="Probation Date"
-						class="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
+						cssClass="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span6">
 					<aui:input name="date_permanency" label="Date of Permanency"
-						class="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
+						cssClass="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
@@ -129,7 +131,8 @@
 					</aui:select>
 				</div>
 				<div class="span6">
-					<aui:input name="effective_date" label="Effective Date"></aui:input>
+					<aui:input name="effective_date" label="Effective Date"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">

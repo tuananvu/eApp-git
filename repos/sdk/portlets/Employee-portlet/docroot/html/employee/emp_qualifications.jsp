@@ -236,12 +236,14 @@ A.ready(function()
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="exp_from_date" label="From" inlineLabel="left"></aui:input>
+					<aui:input name="exp_from_date" label="From" inlineLabel="left"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="exp_to_date" label="To" inlineLabel="left">
+					<aui:input name="exp_to_date" label="To" inlineLabel="left"
+					cssClass="dateEmployee">
 					</aui:input>
 				</div>
 			</div>
@@ -315,12 +317,14 @@ A.ready(function()
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="edu_from_date" label="From" inlineLabel="left"></aui:input>
+					<aui:input name="edu_from_date" label="From" inlineLabel="left"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="edu_to_date" label="To" inlineLabel="left"></aui:input>
+					<aui:input name="edu_to_date" label="To" inlineLabel="left"
+					cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
@@ -506,13 +510,13 @@ A.ready(function()
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="license_issue_date" label="License Issue Date"
-						inlineLabel="left"></aui:input>
+						inlineLabel="left" cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="license_exp_date" label="License Expiry Date"
-						inlineLabel="left">
+						inlineLabel="left" cssClass="dateEmployee">
 					</aui:input>
 				</div>
 			</div>

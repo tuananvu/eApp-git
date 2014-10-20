@@ -35,6 +35,27 @@ YUI().use(
   }
 );
 </aui:script>
+<aui:script use="aui-base,aui-date-picker,aui-node">
+var A=new AUI();
+AUI().use(
+  'aui-datepicker',
+  function(A) {
+    new A.DatePicker(
+      {
+        trigger: '.dateEmployee',
+        popover: {
+          zIndex: 1
+        },
+        on: {
+          selectionChange: function(event) {
+            console.log(event.newSelection)
+          }
+        }
+      }
+    );
+  }
+);
+</aui:script>
 <div id="employeeDetails">
 	<c:choose>
 		<c:when test='<%= jsp.equals("jsp0") || jsp.equals("jsp1") %>'>
