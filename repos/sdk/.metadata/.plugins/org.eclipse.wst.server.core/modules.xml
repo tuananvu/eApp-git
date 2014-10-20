@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<modules>
-  <module moduleId="org.eclipse.jst.jee.server:job-portlet" serverId="Liferay v6.2 CE Server (Tomcat 7) at localhost"/>
-  <module moduleId="org.eclipse.jst.jee.server:jobcategory-portlet"/>
-  <module moduleId="org.eclipse.jst.jee.server:services-portlet" serverId="Liferay v6.2 CE Server (Tomcat 7) at localhost"/>
-  <module moduleId="org.eclipse.jst.jee.server:jobtitle-portlet" serverId="Liferay v6.2 CE Server (Tomcat 7) at localhost"/>
-</modules>

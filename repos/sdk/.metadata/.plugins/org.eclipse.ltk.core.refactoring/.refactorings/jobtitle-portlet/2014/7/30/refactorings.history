@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;jobtitle-portlet/docroot/WEB-INF/src/com/rknowsys/eApp&apos; to &apos;eapp&apos;" description="Rename resource &apos;eApp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="docroot/WEB-INF/src/com/rknowsys/eApp" name="eapp" stamp="1406023494966" updateReferences="true"/>
-</session>

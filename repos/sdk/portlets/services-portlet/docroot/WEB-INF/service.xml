@@ -252,6 +252,10 @@
 		<!-- PK fields -->
 
 		<column name="locationId" type="long" primary="true" />
+		
+		<!-- Relationship fields -->
+		
+		<column name="holidays" type="Collection" entity="Holiday" mapping-table="locations_holidays"/>
 
 		<!-- Audit fields -->
 
@@ -1218,24 +1222,76 @@
 		<!-- Other fields -->
 		<column name="reportingmethodName" type="String" />
 		<!-- Order -->
-		
+		<!-- Finder methods -->
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="reportingmethodId" return-type="Collection">
+			<finder-column name="reportingmethodId" />
+		</finder>
 	</entity>
-	<entity name="TerminationReasons" table="terminationreasons" data-source="hrmDataSource"
-		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
-		tx-manager="hrmTransactionManager">
+	<entity name="Holiday" local-service="true" human-name="Holiday"
+		table="holiday" data-source="hrmDataSource"
+		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager"
+		remote-service="false">
+		<column name="holidayId" type="long" primary="true"></column>
+		<column name="holidayDate" type="Date"></column>
+		<column name="nationalityId" type="long"></column>
+		<column name="locations" type="Collection" entity="Location"
+			mapping-table="locations_holidays" />
+
+
 		<!-- PK fields -->
-		<column name="terminationreasonsId" type="long" primary="true" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
 		<!-- Audit fields -->
-		<column name="companyId" type="long" />
-		<column name="groupId" type="long" />
-		<column name="createDate" type="Date" />
-		<column name="modifiedDate" type="Date" />
-		<column name="userId" type="long" />
-		<!-- Other fields -->
-		<column name="terminationreasonsName" type="String" />
-		<!-- Order -->
-		
-		
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
 	</entity>
+	<entity name="WorkWeek" local-service="true" human-name="WorkWeek"
+    	table="workweek" data-source="hrmDataSource"
+    	session-factory="hrmSessionFactory"
+    	tx-manager="hrmTransactionManager" remote-service="false">
+    	<column name="workWeekId" type="long" primary="true"></column>
+    	<column name="nationalityId" type="long"></column>
+    	<column name="mondayWorkSchedule" type="int"></column>
+    	<column name="tuesdayWorkSchedule" type="int"></column>
+    	<column name="wednesdayWorkSchedule" type="int"></column>
+    	<column name="thursdayWorkSchedule" type="int"></column>
+    	<column name="fridayWorkSchedule" type="int"></column>
+    	<column name="saturdayWorkSchedule" type="int"></column>
+    	<column name="sundayWorkSchedule" type="int"></column>
+
+
+    	<!-- PK fields -->
+
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="userName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+
+		<!-- Finder methods -->
+
+		<finder name="Nationality" return-type="Collection">
+			<finder-column name="nationalityId" />
+		</finder>
+
+
+		</entity>
+
 
 </service-builder>
