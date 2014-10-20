@@ -1,6 +1,0 @@
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
-
-.portlet-title-text {
-		cursor: auto;
-		font-size:100px;
-	}

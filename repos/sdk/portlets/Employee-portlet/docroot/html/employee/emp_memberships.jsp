@@ -1,0 +1,88 @@
+<%@ include file="/html/employee/init.jsp"%>
+<portlet:actionURL name="updateMembership" var="updateMembership">
+</portlet:actionURL>
+<aui:script use="aui-base,aui-node,aui-io-request-deprecated">
+var A=new AUI();
+A.ready(function()
+  {
+  A.one('#addEmpMembership').hide();
+  });
+   var addButton=A.one('#<portlet:namespace />empMembershipAdd');
+   addButton.on('click',
+   function()
+   {
+   A.one('#<portlet:namespace />empMembershipAdd').hide();
+   A.one('#<portlet:namespace />empMembershipDelete').hide();
+   A.one('#addEmpMembership').show();
+   
+   A.all('input[type=text]').set('disabled',false);
+   A.all('select').set('disabled',false);
+   A.all('input[type=radio]').set('disabled',false);
+   });
+   var cancelButton=A.one('#<portlet:namespace />cancelMembership');
+   cancelButton.on('click',function()
+   {
+	   A.one('#addEmpMembership').hide();
+	   A.one('#<portlet:namespace />empMembershipAdd').show();
+       A.one('#<portlet:namespace />empMembershipDelete').show();
+   });
+</aui:script>
+<%
+	Map empId = (Map) request.getSession(false).getAttribute("empId");
+	long employeeId = (Long) empId.get("empId");
+	String jsp = (String) empId.get("jsp");
+%>
+<div id="addEmpMembership" class="panel">
+	<div class="panel-heading">
+		<h3>Add Membership</h3>
+	</div>
+	<div class="panel-body">
+		<aui:form name="addEmployeeMembership" id="addEmployeeMembership"
+			action="<%=updateMembership%>" method="post">
+			<aui:input name="empMemId" value="<%=employeeId%>" type="hidden"></aui:input>
+			<div class="row-fluid">
+				<div class="span6">
+					<aui:select name="emp_membership" label="Membership"
+						inlineLabel="left" showRequiredLabel="false">
+						<%
+							List<Membership> membershipList = MembershipLocalServiceUtil
+											.getMemberships(-1, -1);
+									Iterator membershipList2 = membershipList.iterator();
+									while (membershipList2.hasNext()) {
+										Membership membership = (Membership) membershipList2
+												.next();
+						%>
+						<aui:option value="<%=membership.getMembershipName()%>"
+							label="<%=membership.getMembershipName()%>"></aui:option>
+						<%
+							}
+						%>
+					</aui:select>
+				</div>
+			</div>
+			<div class="row-fluid">
+				<div class="span6">
+					<aui:select name="sub_paid_by" label="Subscription Paid By">
+						<aui:option>Individual</aui:option>
+						<aui:option>Company</aui:option>
+					</aui:select>
+				</div>
+			</div>
+			<aui:button type="submit" cssClass="button btn-primary" value="save"
+				id="submitMembershipDetails"></aui:button>
+			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
+				id="cancelMembership" name="cancelMembership"></aui:button>
+		</aui:form>
+	</div>
+</div>
+<div id="empMembershipAddDelete" class="panel">
+	<div class="panel-heading">
+		<h3>Membership</h3>
+	</div>
+	<div class="panel-body">
+		<aui:button id="empMembershipAdd" name="empMembershipAdd" value="Add"
+			cssClass="button btn-primary"></aui:button>
+		<aui:button id="empMembershipDelete" value="Delete"
+			name="empMembershipDelete" cssClass="button btn-danger"></aui:button>
+	</div>
+</div>

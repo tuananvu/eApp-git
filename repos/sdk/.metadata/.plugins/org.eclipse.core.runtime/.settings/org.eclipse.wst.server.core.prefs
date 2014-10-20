@@ -1,3 +1,0 @@
-eclipse.preferences.version=1
-module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime bundle-zip-location\="" id\="Liferay v6.2 CE (Tomcat 7)" javadoc-url\="" location\="D\:/eApp/bundles/tomcat-7.0.42" name\="Liferay v6.2 CE (Tomcat 7)" runtime-type-id\="com.liferay.ide.server.62.tomcat.runtime.70" source-location\="" timestamp\="0"/>\r\n  <runtime bundle-zip-location\="" id\="Liferay v6.2 CE (Tomcat 7) (2)" javadoc-url\="" location\="E\:/eApp/bundles/tomcat-7.0.42" name\="Liferay v6.2 CE (Tomcat 7) (2)" runtime-type-id\="com.liferay.ide.server.62.tomcat.runtime.70" source-location\="" timestamp\="0"/>\r\n</runtimes>\r\n
