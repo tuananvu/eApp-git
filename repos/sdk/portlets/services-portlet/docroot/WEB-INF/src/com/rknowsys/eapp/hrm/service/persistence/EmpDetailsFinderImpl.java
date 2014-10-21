@@ -10,6 +10,7 @@ import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.rknowsys.eapp.hrm.model.EmpDetails;
 import com.rknowsys.eapp.hrm.model.impl.EmpDetailsImpl;
 
+
 /**
  * 
  * @author Laxminarayana 10 october 2014 12:57:05 PM
