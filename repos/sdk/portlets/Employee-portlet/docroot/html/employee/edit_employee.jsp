@@ -1,14 +1,9 @@
 <%@ include file="/html/employee/init.jsp"%>
 <%
-	//String empId = (String) request.getSession(false).getAttribute(
-			//"empId");
 Map empId = (Map) request.getSession(false).getAttribute(
 		"empId");
 long employeeId = (Long)empId.get("empId");
 String jsp=(String)empId.get("jsp");
-/* String jsp = (String) request.getSession(false).getAttribute(
-		"jsp"); */
-	//long employeeId = Long.parseLong(empId);
 	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpPersonalDetails.class,
 					PortletClassLoaderUtil.getClassLoader());
