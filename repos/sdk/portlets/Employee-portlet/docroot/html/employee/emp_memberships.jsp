@@ -41,7 +41,7 @@ A.ready(function()
 			action="<%=updateMembership%>" method="post">
 			<aui:input name="empMemId" value="<%=employeeId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:select name="emp_membership" label="Membership"
 						inlineLabel="left" showRequiredLabel="false">
 						<%
@@ -61,7 +61,7 @@ A.ready(function()
 				</div>
 			</div>
 			<div class="row-fluid">
-				<div class="span6">
+				<div class="span8">
 					<aui:select name="sub_paid_by" label="Subscription Paid By">
 						<aui:option>Individual</aui:option>
 						<aui:option>Company</aui:option>

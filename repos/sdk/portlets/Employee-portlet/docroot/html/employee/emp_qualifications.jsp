@@ -18,6 +18,41 @@
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
+	DynamicQuery empWrkExpDynamicQuery = DynamicQueryFactoryUtil
+			.forClass(EmpWorkExp.class,
+					PortletClassLoaderUtil.getClassLoader());
+	empWrkExpDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
+			.eq(employeeId));
+	List<EmpWorkExp> empWrkExpDetails = EmpWorkExpLocalServiceUtil
+			.dynamicQuery(empWrkExpDynamicQuery);
+	DynamicQuery empEducationDynamicQuery = DynamicQueryFactoryUtil
+			.forClass(EmpEducation.class,
+					PortletClassLoaderUtil.getClassLoader());
+	empEducationDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
+			.eq(employeeId));
+	List<EmpEducation> empEducationDetails = EmpEducationLocalServiceUtil
+			.dynamicQuery(empEducationDynamicQuery);
+	DynamicQuery empSkillDynamicQuery = DynamicQueryFactoryUtil
+			.forClass(EmpSkill.class,
+					PortletClassLoaderUtil.getClassLoader());
+	empSkillDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
+			.eq(employeeId));
+	List<EmpSkill> empSkillDetails = EmpSkillLocalServiceUtil
+			.dynamicQuery(empSkillDynamicQuery);
+	DynamicQuery empLanguageDynamicQuery = DynamicQueryFactoryUtil
+			.forClass(EmpLanguage.class,
+					PortletClassLoaderUtil.getClassLoader());
+	empLanguageDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
+			.eq(employeeId));
+	List<EmpLanguage> empLanguageDetails = EmpLanguageLocalServiceUtil
+			.dynamicQuery(empLanguageDynamicQuery);
+	DynamicQuery empLicenseDynamicQuery = DynamicQueryFactoryUtil
+			.forClass(EmpLicense.class,
+					PortletClassLoaderUtil.getClassLoader());
+	empLicenseDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
+			.eq(employeeId));
+	List<EmpLicense> empLicenseDetails = EmpLicenseLocalServiceUtil
+			.dynamicQuery(empLicenseDynamicQuery);
 %>
 <aui:script use="aui-base,aui-node,aui-io-request-deprecated">
 var A=new AUI();
@@ -34,11 +69,11 @@ A.ready(function()
    var addSkillsButton=A.one('#<portlet:namespace />empSkillsAdd');
    var addLanguageButton=A.one('#<portlet:namespace />empLanguageAdd');
    var addLicenseButton=A.one('#<portlet:namespace />empLicenseAdd');
-   var cancelExp=A.one('#<portlet:namespace/>cancelWorkExp');
-   var cancelEdu=A.one('#<portlet:namespace/>cancelEducation');
-   var cancelSki=A.one('#<portlet:namespace/>cancelSkill');
-   var cancelLan=A.one('#<portlet:namespace/>cancelLanguage');
-   var cancelLic=A.one('#<portlet:namespace/>cancelLicense');
+   var cancelExp=A.one('#<portlet:namespace />cancelWorkExp');
+   var cancelEdu=A.one('#<portlet:namespace />cancelEducation');
+   var cancelSki=A.one('#<portlet:namespace />cancelSkill');
+   var cancelLan=A.one('#<portlet:namespace />cancelLanguage');
+   var cancelLic=A.one('#<portlet:namespace />cancelLicense');
    addExpButton.on('click',
 	   function()
 	   {
@@ -237,13 +272,13 @@ A.ready(function()
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="exp_from_date" label="From" inlineLabel="left"
-					cssClass="dateEmployee"></aui:input>
+						cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="exp_to_date" label="To" inlineLabel="left"
-					cssClass="dateEmployee">
+						cssClass="dateEmployee">
 					</aui:input>
 				</div>
 			</div>
@@ -256,7 +291,7 @@ A.ready(function()
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitExpDetails"></aui:button>
 			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
-			id="cancelWorkExp" name="cancelWorkExp"></aui:button>
+				id="cancelWorkExp" name="cancelWorkExp"></aui:button>
 		</aui:form>
 	</div>
 </div>
@@ -266,10 +301,32 @@ A.ready(function()
 	</div>
 	<div class="panel-body">
 		<aui:button id="empWorkExpAdd" name="empWorkExpAdd" value="Add"
-		cssClass="button btn-primary"></aui:button>
+			cssClass="button btn-primary"></aui:button>
 		<aui:button id="empWorkExpDelete" value="Delete"
-			name="empWorkExpDelete" cssClass="button btn-danger"
-			></aui:button>
+			name="empWorkExpDelete" cssClass="button btn-danger"></aui:button>
+		<liferay-ui:search-container delta="5"
+			emptyResultsMessage="No records are available for EmpWorkExp"
+			deltaConfigurable="true"
+			rowChecker="<%=new RowChecker(renderResponse)%>">
+			<liferay-ui:search-container-results>
+				<%
+					List<EmpWorkExp> workExpList = empWrkExpDetails;
+							results = workExpList;
+							total = workExpList.size();
+							pageContext.setAttribute("results", results);
+							pageContext.setAttribute("total", total);
+				%>
+			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-row className="EmpWorkExp"
+				modelVar="id">
+				<liferay-ui:search-container-column-text name="Company" />
+				<liferay-ui:search-container-column-text name="Job Title" />
+				<liferay-ui:search-container-column-text name="From" />
+				<liferay-ui:search-container-column-text name="To" />
+				<liferay-ui:search-container-column-text name="Comment" />
+			</liferay-ui:search-container-row>
+			<liferay-ui:search-iterator />
+		</liferay-ui:search-container>
 	</div>
 </div>
 <div id="addEmployeeEducation" class="panel">
@@ -279,8 +336,7 @@ A.ready(function()
 	<div class="panel-body">
 		<aui:form name="addEmpEducation" id="addEmpEducation"
 			action="<%=addEducation%>" method="post">
-			<aui:input name="empEduId" value="<%=employeeId%>"
-			type="hidden"></aui:input>
+			<aui:input name="empEduId" value="<%=employeeId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="edu_level" label="Level" inlineLabel="left"
@@ -318,19 +374,19 @@ A.ready(function()
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="edu_from_date" label="From" inlineLabel="left"
-					cssClass="dateEmployee"></aui:input>
+						cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="edu_to_date" label="To" inlineLabel="left"
-					cssClass="dateEmployee"></aui:input>
+						cssClass="dateEmployee"></aui:input>
 				</div>
 			</div>
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitEduDetails"></aui:button>
 			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
-			id="cancelEducation" name="cancelEducation"></aui:button>
+				id="cancelEducation" name="cancelEducation"></aui:button>
 		</aui:form>
 	</div>
 </div>
@@ -340,9 +396,30 @@ A.ready(function()
 	</div>
 	<div class="panel-body">
 		<aui:button id="empEducationAdd" name="empEducationAdd" value="Add"
-		cssClass="button btn-primary"></aui:button>
+			cssClass="button btn-primary"></aui:button>
 		<aui:button id="empEducationDelete" value="Delete"
 			name="empEducationDelete" cssClass="button btn-danger"></aui:button>
+		<liferay-ui:search-container delta="5"
+			emptyResultsMessage="No records are available for EmpEducation"
+			deltaConfigurable="true"
+			rowChecker="<%=new RowChecker(renderResponse)%>">
+			<liferay-ui:search-container-results>
+				<%
+					List<EmpEducation> educationList = empEducationDetails;
+							results = educationList;
+							total = educationList.size();
+							pageContext.setAttribute("results", results);
+							pageContext.setAttribute("total", total);
+				%>
+			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-row className="EmpEducation"
+				modelVar="id">
+				<liferay-ui:search-container-column-text name="Level" />
+				<liferay-ui:search-container-column-text name="Year" />
+				<liferay-ui:search-container-column-text name="GPA/Score" />
+			</liferay-ui:search-container-row>
+			<liferay-ui:search-iterator />
+		</liferay-ui:search-container>
 	</div>
 </div>
 <div id="addEmpSkills" class="panel">
@@ -364,7 +441,6 @@ A.ready(function()
 									while (skillList2.hasNext()) {
 										Skill skill = (Skill) skillList2.next();
 						%>
-
 						<aui:option value="<%=skill.getSkillName()%>"
 							label="<%=skill.getSkillName()%>"></aui:option>
 						<%
@@ -389,7 +465,7 @@ A.ready(function()
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitEmpSkills"></aui:button>
 			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
-			id="cancelSkill" name="cancelSkill"></aui:button>
+				id="cancelSkill" name="cancelSkill"></aui:button>
 		</aui:form>
 	</div>
 </div>
@@ -399,9 +475,29 @@ A.ready(function()
 	</div>
 	<div class="panel-body">
 		<aui:button id="empSkillsAdd" name="empSkillsAdd" value="Add"
-		cssClass="button btn-primary"></aui:button>
+			cssClass="button btn-primary"></aui:button>
 		<aui:button id="empSkillsDelete" value="Delete" name="empSkillsDelete"
-		cssClass="button btn-danger"></aui:button>
+			cssClass="button btn-danger"></aui:button>
+		<liferay-ui:search-container delta="5"
+			emptyResultsMessage="No records are available for EmpSkill"
+			deltaConfigurable="true"
+			rowChecker="<%= new RowChecker(renderResponse) %>">
+			<liferay-ui:search-container-results>
+				<%
+					List<EmpSkill> skillList = empSkillDetails;
+							results = skillList;
+							total = skillList.size();
+							pageContext.setAttribute("results", results);
+							pageContext.setAttribute("total", total);
+				%>
+			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-row className="EmpSkill"
+				modelVar="id">
+				<liferay-ui:search-container-column-text name="Skill" />
+				<liferay-ui:search-container-column-text name="Years of Experience" />
+			</liferay-ui:search-container-row>
+			<liferay-ui:search-iterator />
+		</liferay-ui:search-container>
 	</div>
 </div>
 <div id="addEmpLanguage" class="panel">
@@ -423,7 +519,6 @@ A.ready(function()
 									while (languageList2.hasNext()) {
 										Language language = (Language) languageList2.next();
 						%>
-
 						<aui:option value="<%=language.getLanguageName()%>"
 							label="<%=language.getLanguageName()%>"></aui:option>
 						<%
@@ -456,7 +551,7 @@ A.ready(function()
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitLanguage"></aui:button>
 			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
-			id="cancelLanguage" name="cancelLanguage"></aui:button>
+				id="cancelLanguage" name="cancelLanguage"></aui:button>
 		</aui:form>
 	</div>
 </div>
@@ -466,9 +561,31 @@ A.ready(function()
 	</div>
 	<div class="panel-body">
 		<aui:button id="empLanguageAdd" name="empLanguageAdd" value="Add"
-		cssClass="button btn-primary"></aui:button>
+			cssClass="button btn-primary"></aui:button>
 		<aui:button id="empLanguageDelete" value="Delete"
 			name="empLanguageDelete" cssClass="button btn-danger"></aui:button>
+		<liferay-ui:search-container delta="5"
+			emptyResultsMessage="No records are available for EmpLanguage"
+			deltaConfigurable="true"
+			rowChecker="<%=new RowChecker(renderResponse)%>">
+			<liferay-ui:search-container-results>
+				<%
+					List<EmpLanguage> languageList = empLanguageDetails;
+							results = languageList;
+							total = languageList.size();
+							pageContext.setAttribute("results", results);
+							pageContext.setAttribute("total", total);
+				%>
+			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-row className="EmpLanguage"
+				modelVar="id">
+				<liferay-ui:search-container-column-text name="Language" />
+				<liferay-ui:search-container-column-text name="Skill"  />
+				<liferay-ui:search-container-column-text name="Fluency Level"  />
+				<liferay-ui:search-container-column-text name="Comments"  />
+			</liferay-ui:search-container-row>
+			<liferay-ui:search-iterator />
+		</liferay-ui:search-container>
 	</div>
 </div>
 <div id="addEmpLicense" class="panel">
@@ -476,10 +593,9 @@ A.ready(function()
 		<h3>Add License</h3>
 	</div>
 	<div class="panel-body">
-		<aui:form name="addEmpLicen" id="addEmpLicen"
-			action="<%=addLicense%>" method="post">
-			<aui:input name="empLicId" value="<%=employeeId%>"
-			type="hidden"></aui:input>
+		<aui:form name="addEmpLicen" id="addEmpLicen" action="<%=addLicense%>"
+			method="post">
+			<aui:input name="empLicId" value="<%=employeeId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="emp_license_type" label="License Type"
@@ -491,7 +607,6 @@ A.ready(function()
 									while (licenseList2.hasNext()) {
 										License license = (License) licenseList2.next();
 						%>
-
 						<aui:option value="<%=license.getLicenseName()%>"
 							label="<%=license.getLicenseName()%>"></aui:option>
 						<%
@@ -523,7 +638,7 @@ A.ready(function()
 			<aui:button type="submit" cssClass="button btn-primary" value="save"
 				id="submitLicenseDetails"></aui:button>
 			<aui:button type="reset" value="Cancel" cssClass="button btn-danger"
-			id="cancelLicense" name="cancelLicense"></aui:button>
+				id="cancelLicense" name="cancelLicense"></aui:button>
 		</aui:form>
 	</div>
 </div>
@@ -533,8 +648,29 @@ A.ready(function()
 	</div>
 	<div class="panel-body">
 		<aui:button id="empLicenseAdd" name="empLicenseAdd" value="Add"
-		cssClass="button btn-primary"></aui:button>
+			cssClass="button btn-primary"></aui:button>
 		<aui:button id="empLicenseDelete" value="Delete"
-			name="empLicenseDelete"  cssClass="button btn-danger"></aui:button>
+			name="empLicenseDelete" cssClass="button btn-danger"></aui:button>
+		<liferay-ui:search-container delta="5"
+			emptyResultsMessage="No records are available for EmpLicense"
+			deltaConfigurable="true"
+			rowChecker="<%= new RowChecker(renderResponse) %>">
+			<liferay-ui:search-container-results>
+				<%
+					List<EmpLicense> licenseList = empLicenseDetails;
+							results = licenseList;
+							total = licenseList.size();
+							pageContext.setAttribute("results", results);
+							pageContext.setAttribute("total", total);
+				%>
+			</liferay-ui:search-container-results>
+			<liferay-ui:search-container-row className="EmpLicense"
+				modelVar="id">
+				<liferay-ui:search-container-column-text name="License Type" />
+				<liferay-ui:search-container-column-text name="Issued Date" />
+				<liferay-ui:search-container-column-text name="Expiry Date" />
+			</liferay-ui:search-container-row>
+			<liferay-ui:search-iterator />
+		</liferay-ui:search-container>
 	</div>
 </div>
