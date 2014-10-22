@@ -88,17 +88,13 @@ A.ready(function()
 					</div>
 					<div class="row-fluid">
 						<div class="span6">
-							<aui:input name="email" label="Email"></aui:input>
+							<aui:input name="password" label="Password" type="password"></aui:input>
 						</div>
 					</div>
 					<div class="row-fluid">
 						<div class="span6">
-							<aui:input name="password" label="Password"></aui:input>
-						</div>
-					</div>
-					<div class="row-fluid">
-						<div class="span6">
-							<aui:input name="confirm_password" label="Confirm Password"></aui:input>
+							<aui:input name="confirm_password" label="Confirm Password"
+							 type="password"></aui:input>
 						</div>
 					</div>
 				</div>

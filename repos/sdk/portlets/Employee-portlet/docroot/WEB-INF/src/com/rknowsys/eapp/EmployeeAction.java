@@ -34,8 +34,11 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.User;
+import com.liferay.portal.service.ServiceContext;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portlet.expando.model.ExpandoTable;
+import com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import com.rknowsys.eapp.hrm.model.EmpContactDetails;
 import com.rknowsys.eapp.hrm.model.EmpDependent;
@@ -78,6 +81,7 @@ public class EmployeeAction extends MVCPortlet {
 	/**
 	 * <p>
 	 * This method inserts new Employee record and EmpPersonalDetails in database 
+	 * and creates portal user credentials if user name and password are not null
 	 * </p>
 	 * 
 	 * @param actionRequest
@@ -646,19 +650,27 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		if(username!=null || password!=null )
 		{
 			User user=null;
-			try
-			{
-	    user=UserLocalServiceUtil.createUser(CounterLocalServiceUtil.increment());
-		user.setFirstName(username);
-		user.setScreenName(username);
-		user.setEmailAddress(email);
-		user.setPassword(password);
-		UserLocalServiceUtil.addUser(user);
-			}
-			catch(Exception e)
-			{
+			 try {
+				user = UserLocalServiceUtil.addUser(themeDisplay.getUserId(), themeDisplay.getCompanyId(), false,
+						 password , password, true, username + "screenName", username
+				                   + "@liferay.com", 0L, "", themeDisplay.getLocale(), username
+				                   + firstName, middleName, username + lastName,
+				           0, 0, false, 0, 1, 1970, "Job Title", null, null, null,
+				           null, false, new ServiceContext());
+				if (user.getExpandoBridge().hasAttribute("employeeId")) 
+				{
+				user.getExpandoBridge().setAttribute("employeeId", String.valueOf(employee.getEmployeeId()));
+				UserLocalServiceUtil.updateUser(user);
+				}
+				else
+				{
+					user.getExpandoBridge().addAttribute("employeeId");
+					user.getExpandoBridge().setAttribute("employeeId", String.valueOf(employee.getEmployeeId()));
+					UserLocalServiceUtil.updateUser(user);
+				}
+			} catch (PortalException e) {
+				// TODO Auto-generated catch block
 				e.printStackTrace();
-				System.out.println("user creation failed");
 			}
 			if(user!=null)
 			{
