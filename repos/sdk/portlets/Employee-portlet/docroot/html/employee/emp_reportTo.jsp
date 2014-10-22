@@ -76,10 +76,10 @@ A.all('input[type=text]').set('disabled',true);
 	new A.AutoCompleteList({
 		allowBrowserAutocomplete: 'true',
 		activateFirstItem: 'true',
-		inputNode: '#<portlet:namespace />report_sup_name',
+		inputNode: '#<portlet:namespace/>report_sup_name',
 		render: 'true',
 		resultHighlighter: 'phraseMatch',
-		resultTextLocator:'name',
+		resultTextLocator:'firstName',
 		resultFilters:['phraseMatch'],
 		source:function(){
 		var inputValue=A.one("#<portlet:namespace />report_sup_name").get('value');
@@ -134,9 +134,7 @@ A.all('input[type=text]').set('disabled',true);
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="report_sup_name" id="report_sup_name" 
-					label="Name" inlineLabel="left"
-						showRequiredLabel="false">
-						<aui:validator name="required"></aui:validator>
+					label="Name" inlineLabel="left" >
 					</aui:input>
 				</div>
 			</div>

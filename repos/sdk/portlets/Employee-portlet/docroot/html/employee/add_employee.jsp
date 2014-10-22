@@ -6,15 +6,13 @@ A.ready(function()
 {
  A.one("#createLoginDetailsDiv").hide();
 });
-	  var checkbox_obj=A.one("#<portlet:namespace />createLoginDetailsCheckbox");
+	  var checkbox_obj= A.one('input[name=<portlet:namespace/>createLoginDetailsCheckbox]')
 	  checkbox_obj.on('click',function()
 	  {
-	   var checkbox_value=A.one("#<portlet:namespace />createLoginDetailsCheckbox").get("value");
-	  alert(checkbox_value);
-	   if(checkbox_obj.checked)
+	  
+	   if(A.one('input[name=<portlet:namespace/>createLoginDetailsCheckbox]:checked'))
 	   {
-	 alert("login details");
-	 A.one("#createLoginDetailsDiv").show();
+	  A.one("#createLoginDetailsDiv").show();
 	  }
 	  else
 	  {
@@ -72,10 +70,14 @@ A.ready(function()
 					</div>
 				</div>
 				<div class="row-fluid">
-					<div class="span6">
+					<div class="span1">
 						<aui:input name="createLoginDetails" id="createLoginDetails"
-							label="Create Login Details" type="checkbox" 
-							inlineLabel="left"/>
+							label="" type="checkbox" 
+							/>
+					</div>
+					<div class="span1"></div>
+					<div class="span10">
+						<label><b>Create Login Details</b></label>
 					</div>
 				</div>
 				<div id="createLoginDetailsDiv">
