@@ -26,7 +26,7 @@ A.ready(function()
 	</div>
 	<div class="panel-body">
 		<aui:form name="addEmployeeForm" id="addEmployeeForm"
-			action="<%=saveEmpDetails%>" method="post">
+			action="<%=saveEmpDetails%>" method="post" enctype="multipart/form-data">
 			<div class="container-fluid">
 				<aui:input name="employeeId" type="hidden" />
 				<div class="row-fluid">
@@ -65,7 +65,7 @@ A.ready(function()
 				</div>
 				<div class="row-fluid">
 					<div class="span6">
-						<aui:input name="photograph" label="Photograph" type="file"
+						<aui:input id="emp_photograph" name="emp_photograph" label="Photograph" type="file"
 							inlineLabel="left"></aui:input>
 					</div>
 				</div>

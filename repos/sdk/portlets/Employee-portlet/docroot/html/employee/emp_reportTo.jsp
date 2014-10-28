@@ -107,6 +107,7 @@ A.all('input[type=text]').set('disabled',true);
 			"empId");
 	long employeeId = (Long)empId.get("empId");
 	String jsp=(String)empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 	DynamicQuery supervisorDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpSupervisor.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -130,6 +131,8 @@ A.all('input[type=text]').set('disabled',true);
 		<aui:form name="addSupervisor" id="addSupervisor"
 			action="<%=addSupervisorEmp %>" method="post">
 			<aui:input name="empSupId" value="<%=employeeId %>"
+			type="hidden"></aui:input>
+			<aui:input name="reportFileId" value="<%=fileEntryId %>"
 			type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
@@ -163,6 +166,8 @@ A.all('input[type=text]').set('disabled',true);
 		<aui:form name="addSubordinate" id="addSubordinate"
 			action="<%=addSubordinateEmp %>" method="post">
 			<aui:input name="empSubId" value="<%=employeeId %>"
+			type="hidden"></aui:input>
+			<aui:input name="reportFileId" value="<%=fileEntryId %>"
 			type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">

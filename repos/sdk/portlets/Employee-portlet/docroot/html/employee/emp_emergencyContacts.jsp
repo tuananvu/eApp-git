@@ -34,6 +34,7 @@ Map empId = (Map) request.getSession(false).getAttribute(
 		"empId");
 long employeeId = (Long)empId.get("empId");
 String jsp=(String)empId.get("jsp");
+long fileEntryId=(Long)empId.get("fileId");
 	DynamicQuery emergencyContactsDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpEmergencyContact.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -51,6 +52,7 @@ String jsp=(String)empId.get("jsp");
 		<aui:form name="addEmergencyContact" id="addEmergencyContact"
 			 method="post" action="<%=updateContactDetails %>">
 			 <aui:input name="emgEmpId" value="<%=employeeId %>" type="hidden"></aui:input>
+			 <aui:input name="conFileId" value="<%=fileEntryId %>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span10">
 					<aui:input name="emg_name" label="Name" inlineLabel="left"></aui:input>

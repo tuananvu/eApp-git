@@ -20,6 +20,7 @@
 <%@page import="com.rknowsys.eapp.hrm.model.EmpSubordinate"%>
 <%@page import="com.rknowsys.eapp.hrm.service.EmpSupervisorLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.model.EmpSupervisor"%>
+<%@page import="java.util.Date"%>
 <%@page
 	import="com.rknowsys.eapp.hrm.service.MembershipLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.model.Membership"%>
@@ -84,7 +85,6 @@
 <%@page import="com.rknowsys.eapp.hrm.service.EmpJobLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.model.EmpJob"%>
 <%@page import="java.util.Comparator"%>
-<%@page import="com.rknowsys.eapp.JobCreateDateComparator"%>
 <%@page import="com.rknowsys.eapp.hrm.service.EmpLicenseLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.service.EmpLanguageLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.service.EmpSkillLocalServiceUtil"%>

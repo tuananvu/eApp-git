@@ -33,6 +33,7 @@ A.ready(function()
 			"empId");
 	long employeeId = (Long)empId.get("empId");
 	String jsp=(String)empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpImmigrationDocument.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -49,6 +50,7 @@ A.ready(function()
 		<aui:form name="addImmigration" id="addImmigration"
 			action="<%=addImmigrationDetails %>" method="post">
 			<aui:input name="empImgId" value="<%=employeeId %>" type="hidden"></aui:input>
+			<aui:input name="immiFileId" value="<%=fileEntryId %>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span10">
 					<div class="span3">
@@ -56,11 +58,11 @@ A.ready(function()
 					</div>
 					<div class="span4">
 						<aui:input inlineLabel="right" name="document_type" type="radio"
-							value="1" label="Passport" disabled="true" />
+							value="Passport" label="Passport" disabled="true" />
 					</div>
 					<div class="span2">
 						<aui:input checked="<%=true%>" inlineLabel="right" name="document_type"
-							type="radio" value="2" label="Visa" disabled="true" />
+							type="radio" value="Visa" label="Visa" disabled="true" />
 					</div>
 				</div>
 			</div>

@@ -18,6 +18,7 @@
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 	DynamicQuery empWrkExpDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpWorkExp.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -253,6 +254,7 @@ A.ready(function()
 		<aui:form name="addWorkExperience" id="addWorkExperience"
 			action="<%=addWorkExp%>" method="post">
 			<aui:input name="empWrkExpId" value="<%=employeeId%>" type="hidden"></aui:input>
+			<aui:input name="QualFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="exp_company" label="Company" inlineLabel="left"
@@ -319,11 +321,11 @@ A.ready(function()
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpWorkExp"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Company" />
-				<liferay-ui:search-container-column-text name="Job Title" />
-				<liferay-ui:search-container-column-text name="From" />
-				<liferay-ui:search-container-column-text name="To" />
-				<liferay-ui:search-container-column-text name="Comment" />
+				<liferay-ui:search-container-column-text name="Company" property="company"/>
+				<liferay-ui:search-container-column-text name="Job Title" property="jobtitle" />
+				<liferay-ui:search-container-column-text name="From" property="fromDate"/>
+				<liferay-ui:search-container-column-text name="To" property="toDate"/>
+				<liferay-ui:search-container-column-text name="Comment" property="comment"/>
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>
@@ -337,6 +339,7 @@ A.ready(function()
 		<aui:form name="addEmpEducation" id="addEmpEducation"
 			action="<%=addEducation%>" method="post">
 			<aui:input name="empEduId" value="<%=employeeId%>" type="hidden"></aui:input>
+			<aui:input name="QualFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="edu_level" label="Level" inlineLabel="left"
@@ -415,7 +418,7 @@ A.ready(function()
 			<liferay-ui:search-container-row className="EmpEducation"
 				modelVar="id">
 				<liferay-ui:search-container-column-text name="Level" />
-				<liferay-ui:search-container-column-text name="Year" />
+				<liferay-ui:search-container-column-text name="Year" property="year"/>
 				<liferay-ui:search-container-column-text name="GPA/Score" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
@@ -430,6 +433,7 @@ A.ready(function()
 		<aui:form name="addEmpSkill" id="addEmpSkill" action="<%=addSkills%>"
 			method="post">
 			<aui:input name="empSkillId" value="<%=employeeId%>" type="hidden"></aui:input>
+			<aui:input name="QualFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="emp_skill" label="Level" inlineLabel="left"
@@ -494,7 +498,7 @@ A.ready(function()
 			<liferay-ui:search-container-row className="EmpSkill"
 				modelVar="id">
 				<liferay-ui:search-container-column-text name="Skill" />
-				<liferay-ui:search-container-column-text name="Years of Experience" />
+				<liferay-ui:search-container-column-text name="Years of Experience" property="years"/>
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>
@@ -508,6 +512,7 @@ A.ready(function()
 		<aui:form name="addEmpLan" id="addEmpLan" action="<%=addLanguage%>"
 			method="post">
 			<aui:input name="empLanId" value="<%=employeeId%>" type="hidden"></aui:input>
+			<aui:input name="QualFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="emp_language" label="Language" inlineLabel="left"
@@ -580,9 +585,9 @@ A.ready(function()
 			<liferay-ui:search-container-row className="EmpLanguage"
 				modelVar="id">
 				<liferay-ui:search-container-column-text name="Language" />
-				<liferay-ui:search-container-column-text name="Skill"  />
-				<liferay-ui:search-container-column-text name="Fluency Level"  />
-				<liferay-ui:search-container-column-text name="Comments"  />
+				<liferay-ui:search-container-column-text name="Skill" property="languageSkill" />
+				<liferay-ui:search-container-column-text name="Fluency Level" property="languageFluency"/>
+				<liferay-ui:search-container-column-text name="Comments" property="comments" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>
@@ -596,6 +601,7 @@ A.ready(function()
 		<aui:form name="addEmpLicen" id="addEmpLicen" action="<%=addLicense%>"
 			method="post">
 			<aui:input name="empLicId" value="<%=employeeId%>" type="hidden"></aui:input>
+			<aui:input name="QualFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="emp_license_type" label="License Type"
@@ -667,8 +673,8 @@ A.ready(function()
 			<liferay-ui:search-container-row className="EmpLicense"
 				modelVar="id">
 				<liferay-ui:search-container-column-text name="License Type" />
-				<liferay-ui:search-container-column-text name="Issued Date" />
-				<liferay-ui:search-container-column-text name="Expiry Date" />
+				<liferay-ui:search-container-column-text name="Issued Date" property="issuedDate"/>
+				<liferay-ui:search-container-column-text name="Expiry Date" property="expiryDate" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>
