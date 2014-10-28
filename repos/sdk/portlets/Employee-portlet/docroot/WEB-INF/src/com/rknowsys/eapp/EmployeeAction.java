@@ -1,5 +1,8 @@
 package com.rknowsys.eapp;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -15,6 +18,7 @@ import javax.portlet.PortletSession;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 import com.liferay.counter.service.CounterLocalServiceUtil;
@@ -29,35 +33,52 @@ import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
+import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.model.User;
 import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.service.ServiceContextFactory;
 import com.liferay.portal.service.UserLocalServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
-import com.liferay.portlet.expando.model.ExpandoTable;
-import com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil;
+import com.liferay.portal.util.PortalUtil;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.documentlibrary.service.DLAppLocalServiceUtil;
+import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import com.rknowsys.eapp.hrm.model.EmpContactDetails;
 import com.rknowsys.eapp.hrm.model.EmpDependent;
+import com.rknowsys.eapp.hrm.model.EmpDirectDeposit;
+import com.rknowsys.eapp.hrm.model.EmpEducation;
 import com.rknowsys.eapp.hrm.model.EmpEmergencyContact;
 import com.rknowsys.eapp.hrm.model.EmpImmigrationDocument;
 import com.rknowsys.eapp.hrm.model.EmpJob;
+import com.rknowsys.eapp.hrm.model.EmpLanguage;
+import com.rknowsys.eapp.hrm.model.EmpLicense;
 import com.rknowsys.eapp.hrm.model.EmpPersonalDetails;
-import com.rknowsys.eapp.hrm.model.EmpSalary;
+import com.rknowsys.eapp.hrm.model.EmpSkill;
 import com.rknowsys.eapp.hrm.model.EmpSupervisor;
+import com.rknowsys.eapp.hrm.model.EmpWorkExp;
 import com.rknowsys.eapp.hrm.model.Employee;
 import com.rknowsys.eapp.hrm.model.Location;
 import com.rknowsys.eapp.hrm.model.PayGradeCurrency;
 import com.rknowsys.eapp.hrm.service.EmpContactDetailsLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpDependentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpEducationLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpEmergencyContactLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpImmigrationDocumentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpJobLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpLanguageLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpLicenseLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpSkillLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpSupervisorLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpWorkExpLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmployeeLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.LocationLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil;
@@ -99,6 +120,7 @@ public class EmployeeAction extends MVCPortlet {
 	   /** This method updates EmpPersonalDetails record in Database*/
 	public void updateEmpPersonalDetails(ActionRequest actionRequest,
 			ActionResponse actionResponse) {
+			long fileEntryId=ParamUtil.getLong(actionRequest, "fileIdemp");
 			Long empId=ParamUtil.getLong(actionRequest, "perEmpId");
 			String firstName = ParamUtil.getString(actionRequest,EMPLOYEE_FIRST_NAME_COL_NAME);
 			String middleName = ParamUtil.getString(actionRequest,EMPLOYEE_MIDDLE_NAME_COL_NAME);
@@ -146,6 +168,7 @@ public class EmployeeAction extends MVCPortlet {
 			Map map=new HashMap();
 			map.put("empId", empId);
 			map.put("jsp", "jsp1");
+			map.put("fileId", fileEntryId);
 			actionRequest.getPortletSession(true).setAttribute("empId",
 					map,PortletSession.APPLICATION_SCOPE);
 			log.info("updateEmpPersonalDetails method");
@@ -160,6 +183,7 @@ public class EmployeeAction extends MVCPortlet {
 			ActionResponse actionResponse) throws PortletException, IOException,SystemException {
 			log.info("update or add Employee contact details:in updateEmpContactDetails method");
 			Long contactDetailsId=ParamUtil.getLong(actionRequest, "conDetailsId");
+			long fileEntryId=ParamUtil.getLong(actionRequest, "conFileId");
 			String addressStreet1 = ParamUtil.getString(actionRequest,
 					"address_street1");
 			String addressStreet2 = ParamUtil.getString(actionRequest,
@@ -248,6 +272,7 @@ public class EmployeeAction extends MVCPortlet {
 			Map map=new HashMap();
 			map.put("empId", empId);
 			map.put("jsp", "jsp2");
+			map.put("fileId", fileEntryId);
 			actionRequest.getPortletSession(true).setAttribute("empId",
 					map,PortletSession.APPLICATION_SCOPE);
 		actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -262,6 +287,7 @@ public class EmployeeAction extends MVCPortlet {
 			{
 			System.out.println("updating emegergency contact details:updateContactDetails method");
 			long empId=ParamUtil.getLong(actionRequest, "emgEmpId");
+			long fileEntryId=ParamUtil.getLong(actionRequest, "conFileId");
 			String emergencyName=ParamUtil.getString(actionRequest, "emg_name");
 			String relationship=ParamUtil.getString(actionRequest, "emg_relationship");
 			String homeTele=ParamUtil.getString(actionRequest, "emg_hm_telephone");
@@ -291,6 +317,7 @@ public class EmployeeAction extends MVCPortlet {
 			Map map=new HashMap();
 			map.put("empId", empEmergencyContact.getEmployeeId());
 			map.put("jsp", "jsp3");
+			map.put("fileId", fileEntryId);
 			actionRequest.getPortletSession(true).setAttribute("empId",
 					 map,PortletSession.APPLICATION_SCOPE);
 		actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -305,6 +332,7 @@ public class EmployeeAction extends MVCPortlet {
 		{
 			System.out.println("updating dependents");
 			System.out.println("dependent name is"+ParamUtil.getString(actionRequest, "dependent_name"));
+			long fileEntryId=ParamUtil.getLong(actionRequest, "dependentFileId");
 			String name=ParamUtil.getString(actionRequest, "dependent_name");
 			String relation=ParamUtil.getString(actionRequest, "dependent_relationship");
 			Long empId=ParamUtil.getLong(actionRequest, "empDependentId");
@@ -327,6 +355,7 @@ public class EmployeeAction extends MVCPortlet {
 				Map map=new HashMap();
 				map.put("empId", empDependent.getEmployeeId());
 				map.put("jsp", "jsp4");
+				map.put("fileId", fileEntryId);
 				actionRequest.getPortletSession(true).setAttribute("empId",
 						 map,PortletSession.APPLICATION_SCOPE);
 			actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -337,7 +366,8 @@ public class EmployeeAction extends MVCPortlet {
 	* This method inserts new EmpSupervisor and EmpSubordinate records in database 
 	* </p>*/
 	public void addReportToEmp(ActionRequest actionRequest,ActionResponse actionResponse)throws PortletException,IOException
-	{
+	{		 
+		    long fileEntryId=ParamUtil.getLong(actionRequest, "reportFileId");
 			 String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
 			 System.out.println("Constants.CMD: " + cmd);
 			 String reportTo="",reportingMethod="";
@@ -357,6 +387,7 @@ public class EmployeeAction extends MVCPortlet {
 				 Map map=new HashMap();
 					map.put("empId", empId);
 					map.put("jsp", "jsp6");
+					map.put("fileId", fileEntryId);
 					actionRequest.getPortletSession(true).setAttribute("empId",
 							 map,PortletSession.APPLICATION_SCOPE);
 				actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -368,6 +399,7 @@ public class EmployeeAction extends MVCPortlet {
 			 Map map=new HashMap();
 				map.put("empId", empId);
 				map.put("jsp", "jsp6");
+				map.put("fileId", fileEntryId);
 				actionRequest.getPortletSession(true).setAttribute("empId",
 						 map,PortletSession.APPLICATION_SCOPE);
 				actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -383,31 +415,146 @@ public class EmployeeAction extends MVCPortlet {
 		throws PortletException,IOException
 		{
 			String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
+			long fileEntryId=ParamUtil.getLong(actionRequest, "QualFileId");
 			Long empId=0l;
 			 System.out.println("Constants.CMD: " + cmd);
 			 if (cmd.equals("empExperience")) {
 				 log.info("updating employee work experience");
 				 empId=ParamUtil.getLong(actionRequest, "empWrkExpId");
+				 String expCompany=ParamUtil.getString(actionRequest, "exp_company");
+				 String jobTitle=ParamUtil.getString(actionRequest, "exp_jobtitle");
+				 Date fromDate=ParamUtil.getDate(actionRequest, "exp_from_date",dateFormat);
+				 Date toDate=ParamUtil.getDate(actionRequest, "exp_to_date", dateFormat);
+				 String comments=ParamUtil.getString(actionRequest, "exp_comments");
+				 EmpWorkExp empWorkExp=null;
+				 try {
+					empWorkExp=EmpWorkExpLocalServiceUtil.
+							createEmpWorkExp(CounterLocalServiceUtil.increment());
+					} catch (SystemException e) {
+						e.printStackTrace();
+					}
+				 empWorkExp.setEmployeeId(empId);
+				 empWorkExp.setComment(comments);
+				 empWorkExp.setCompany(expCompany);
+				 empWorkExp.setFromDate(fromDate);
+				 empWorkExp.setToDate(toDate);
+				 empWorkExp.setJobTitle(jobTitle);
+				 try {
+					EmpWorkExpLocalServiceUtil.addEmpWorkExp(empWorkExp);
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			 }
 			if (cmd.equals("empEducation")) {
 				 log.info("updating employee education");
 				 empId=ParamUtil.getLong(actionRequest, "empEduId");
+				 String level=ParamUtil.getString(actionRequest, "edu_level");
+				 String institute=ParamUtil.getString(actionRequest, "edu_institute");
+				 String splization=ParamUtil.getString(actionRequest, "edu_major");
+				 String year=ParamUtil.getString(actionRequest, "edu_year");
+				 String score=ParamUtil.getString(actionRequest, "edu_score");
+				 Date from=ParamUtil.getDate(actionRequest, "edu_from_date", dateFormat);
+				 Date to=ParamUtil.getDate(actionRequest, "edu_to_date", dateFormat);
+				 EmpEducation education=null;
+				 try {
+					education=EmpEducationLocalServiceUtil.createEmpEducation(CounterLocalServiceUtil.increment());
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 education.setEmployeeId(empId);
+				 education.setInstitute(institute);
+				 education.setMajor(splization);
+				 education.setYear(year);
+				 education.setStartDate(from);
+				 education.setEndDate(to);
+				 try {
+					EmpEducationLocalServiceUtil.addEmpEducation(education);
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			 }
 			 if (cmd.equals("empSkills")) {
 				 log.info("updating employee skills");
 				 empId=ParamUtil.getLong(actionRequest, "empSkillId");
+				 String skill=ParamUtil.getString(actionRequest, "emp_skill");
+				 String exp=ParamUtil.getString(actionRequest, "skill_exp");
+				 String comments=ParamUtil.getString(actionRequest, "skill_comments");
+				 EmpSkill empSkill=null;
+				 try {
+					empSkill=EmpSkillLocalServiceUtil.createEmpSkill(CounterLocalServiceUtil.increment());
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 empSkill.setEmployeeId(empId);
+				 empSkill.setYears(exp);
+				 empSkill.setComments(comments);
+				 try {
+					EmpSkillLocalServiceUtil.addEmpSkill(empSkill);
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			 }
 			 if (cmd.equals("empLanguage")) {
 				 log.info("updating employee language");
 				 empId=ParamUtil.getLong(actionRequest, "empLanId");
+				 Long language=ParamUtil.getLong(actionRequest, "emp_language");
+				 String skill=ParamUtil.getString(actionRequest, "lan_skill");
+				 String fluency=ParamUtil.getString(actionRequest, "lan_fluency");
+				 EmpLanguage empLanguage=null;
+				 try {
+					empLanguage=EmpLanguageLocalServiceUtil.
+							 createEmpLanguage(CounterLocalServiceUtil.increment());
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 empLanguage.setEmployeeId(empId);
+				 empLanguage.setLanguageId(language);
+				 empLanguage.setLanguageSkill(skill);
+				 empLanguage.setLanguageFluency(fluency);
+				 try {
+					EmpLanguageLocalServiceUtil.addEmpLanguage(empLanguage);
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 			 }
 			if (cmd.equals("empLicense")) {
 				 log.info("updating employee license");
 				 empId=ParamUtil.getLong(actionRequest, "empLicId");
+				 long licenseId=ParamUtil.getLong(actionRequest, "emp_license_type");
+				 String licenseNo=ParamUtil.getString(actionRequest, "emp_license_no");
+				 Date issueDate=ParamUtil.getDate(actionRequest, "license_issue_date", dateFormat);
+				 Date expiryDate=ParamUtil.getDate(actionRequest, "license_exp_date", dateFormat);
+				 EmpLicense empLicense=null;
+				 try {
+					empLicense=EmpLicenseLocalServiceUtil.createEmpLicense(CounterLocalServiceUtil.increment());
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 empLicense.setEmpLicenseId(licenseId);
+				 empLicense.setEmployeeId(empId);
+				 empLicense.setExpiryDate(expiryDate);
+				 empLicense.setIssuedDate(issueDate);
+				 empLicense.setLicenseNumber(licenseNo);
+				 try {
+					EmpLicenseLocalServiceUtil.addEmpLicense(empLicense);
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 
 			 }
 			 Map map=new HashMap();
 				map.put("empId", empId);
 				map.put("jsp", "jsp7");
+				map.put("fileId", fileEntryId);
 				actionRequest.getPortletSession(true).setAttribute("empId",
 						 map,PortletSession.APPLICATION_SCOPE);
 			actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -417,9 +564,11 @@ public class EmployeeAction extends MVCPortlet {
 			{
 			System.out.println("in updateEmpSalaryDetails method");
 			long empId=ParamUtil.getLong(actionRequest, "empSalId");
+			long fileEntryId=ParamUtil.getLong(actionRequest, "SalFileId");
 			 Map map=new HashMap();
 				map.put("empId", empId);
 				map.put("jsp", "jsp10");
+				map.put("fileId", fileEntryId);
 				actionRequest.getPortletSession(true).setAttribute("empId",
 						 map,PortletSession.APPLICATION_SCOPE);
 				actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -429,9 +578,38 @@ public class EmployeeAction extends MVCPortlet {
 		{
 			System.out.println("in updateEmpDirectDeposits method ");
 			long empId=ParamUtil.getLong(actionRequest, "empDirId");
+			long fileEntryId=ParamUtil.getLong(actionRequest, "directFileId");
+			long amount=ParamUtil.getLong(actionRequest, "deposit_amount");
+			long acntNumber=ParamUtil.getLong(actionRequest, "deposit_acnt_number");
+			String finInst=ParamUtil.getString(actionRequest, "fin_institute");
+			String acntType=ParamUtil.getString(actionRequest, "acnt_type");
+			String brncLocation=ParamUtil.getString(actionRequest, "branch_location");
+			String routingNo=ParamUtil.getString(actionRequest, "routing_number");
+			EmpDirectDeposit empDirectDeposit=null;
+			try {
+				empDirectDeposit=EmpDirectDepositLocalServiceUtil.
+						createEmpDirectDeposit(CounterLocalServiceUtil.increment());
+				} catch (SystemException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			empDirectDeposit.setAccountNumber(acntNumber);
+			empDirectDeposit.setAccountType(acntType);
+			empDirectDeposit.setAmount(amount);
+			empDirectDeposit.setBankName(finInst);
+			empDirectDeposit.setBranchLocation(brncLocation);
+			empDirectDeposit.setEmployeeId(empId);
+			empDirectDeposit.setRoutingNumber(routingNo);
+			try {
+				EmpDirectDepositLocalServiceUtil.addEmpDirectDeposit(empDirectDeposit);
+				} catch (SystemException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			 Map map=new HashMap();
 				map.put("empId", empId);
 				map.put("jsp", "jsp11");
+				map.put("fileId", fileEntryId);
 				actionRequest.getPortletSession(true).setAttribute("empId",
 						 map,PortletSession.APPLICATION_SCOPE);
 			actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -441,12 +619,15 @@ public class EmployeeAction extends MVCPortlet {
 		{
 			System.out.println("in addImmigrationDetails method");
 			long empId=ParamUtil.getLong(actionRequest, "empImgId");
+			String docType=ParamUtil.getString(actionRequest, "document_type");
 			String number=ParamUtil.getString(actionRequest, "img_number");
-			String issuedDate=ParamUtil.getString(actionRequest, "img_issued_date");
-			String issuedBy=ParamUtil.getString(actionRequest, "img_exp_date");
+			Date issuedDate=ParamUtil.getDate(actionRequest, "img_issued_date",dateFormat);
+			String issuedBy=ParamUtil.getString(actionRequest, "issued_by");
 			String eligibleStatus=ParamUtil.getString(actionRequest, "eligible_status");
-			String reviewDate=ParamUtil.getString(actionRequest, "review_date");
+			Date reviewDate=ParamUtil.getDate(actionRequest, "review_date",dateFormat);
 			String comments=ParamUtil.getString(actionRequest, "img_comments");
+			Date expiryDate=ParamUtil.getDate(actionRequest, "img_exp_date",dateFormat);
+			long fileEntryId=ParamUtil.getLong(actionRequest, "immiFileId");
 			EmpImmigrationDocument empImmigrationDocument=null;
 				try {
 					empImmigrationDocument=
@@ -458,8 +639,12 @@ public class EmployeeAction extends MVCPortlet {
 			empImmigrationDocument.setEmployeeId(empId);
 			empImmigrationDocument.setDocNumber(number);
 			empImmigrationDocument.setIssuedBy(issuedBy);
-			empImmigrationDocument.setIssuedDate(new Date());
+			empImmigrationDocument.setIssuedDate(issuedDate);
+			empImmigrationDocument.setExpiryDate(expiryDate);
+			empImmigrationDocument.setEligibleStatus(eligibleStatus);
+			empImmigrationDocument.setEligibleReviewDate(reviewDate);
 			empImmigrationDocument.setComments(comments);
+			empImmigrationDocument.setDocType(docType);
 				try {
 					EmpImmigrationDocumentLocalServiceUtil.addEmpImmigrationDocument(empImmigrationDocument);
 				} catch (SystemException e) {
@@ -469,6 +654,7 @@ public class EmployeeAction extends MVCPortlet {
 				Map map=new HashMap();
 				map.put("empId", empImmigrationDocument.getEmployeeId());
 				map.put("jsp", "jsp5");
+				map.put("fileId", fileEntryId);
 				actionRequest.getPortletSession(true).setAttribute("empId",
 						 map,PortletSession.APPLICATION_SCOPE);
 			actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -478,9 +664,11 @@ public class EmployeeAction extends MVCPortlet {
 		{
 			System.out.println("in updateMembership method");
 			long empId=ParamUtil.getLong(actionRequest, "empMemId");
+			long fileEntryId=ParamUtil.getLong(actionRequest, "memFileId");
 			Map map=new HashMap();
 			map.put("empId", empId);
 			map.put("jsp", "jsp8");
+			map.put("fileId", fileEntryId);
 			actionRequest.getPortletSession(true).setAttribute("empId",
 					 map,PortletSession.APPLICATION_SCOPE);
 		actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -500,6 +688,7 @@ public class EmployeeAction extends MVCPortlet {
 			Date effectiveDate=ParamUtil.getDate(actionRequest, "effective_date", dateFormat);
 			long workshift=ParamUtil.getLong(actionRequest, "emp_workshift");
 			String comments=ParamUtil.getString(actionRequest, "job_comments");
+			long fileEntryId=ParamUtil.getLong(actionRequest, "jobFileId");
 			EmpJob empJob=null;
 			try
 			{
@@ -507,7 +696,7 @@ public class EmployeeAction extends MVCPortlet {
 			}
 			catch(Exception e)
 			{
-				
+				System.out.println("cannot add job details");
 			}
 			empJob.setCreateDate(new Date());
 			empJob.setEmployeeId(empId);
@@ -517,17 +706,22 @@ public class EmployeeAction extends MVCPortlet {
 			empJob.setEmploymentStatusId(employmentStatus);
 			empJob.setJobCategoryId(jobCategory);
 			empJob.setJobTitleId(jobTitle);
+			empJob.setSubUnitId(subUnit);
 			empJob.setLocationId(location);
+			empJob.setProbationEndDate(probationDte);
+			empJob.setComments(comments);
 			empJob.setShiftId(workshift);
 			try {
 				EmpJobLocalServiceUtil.addEmpJob(empJob);
 			} catch (SystemException e) {
 				// TODO Auto-generated catch block
+				System.out.println("cannot add job");
 				e.printStackTrace();
 			}
 			Map map=new HashMap();
 			map.put("empId", empId);
 			map.put("jsp", "jsp9");
+			map.put("fileId", fileEntryId);
 			actionRequest.getPortletSession(true).setAttribute("empId",
 					 map,PortletSession.APPLICATION_SCOPE);
 		actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
@@ -535,6 +729,41 @@ public class EmployeeAction extends MVCPortlet {
 	public void serveResource(ResourceRequest resourceRequest,ResourceResponse resourceResponse)
 	       throws IOException,PortletException
 	       {
+		if (resourceRequest.getResourceID().equals("displayImage"))
+		{  
+			long fileEntryId=ParamUtil.getLong(resourceRequest, "imageId");
+			DLFileEntry b=null;
+			try {
+				b = DLFileEntryLocalServiceUtil.
+						getFileEntry(fileEntryId);
+			} catch (PortalException e) {
+				e.printStackTrace();
+			} catch (SystemException e) {
+				e.printStackTrace();
+			}
+			InputStream is=null;
+			try {
+				is=b.getContentStream();
+			} catch (PortalException e1) {
+				e1.printStackTrace();
+			} catch (SystemException e1) {
+				e1.printStackTrace();
+			}
+			
+			if(is!=null)
+			{
+			byte[] imgData=null;
+			imgData=IOUtils.toByteArray(is);
+			if(imgData!=null)
+			{
+			resourceResponse.setContentType("image/jpg");
+			OutputStream o=resourceResponse.getPortletOutputStream();
+			o.write(imgData);
+			o.flush();
+			o.close();
+			}
+			}
+		}
 				if (resourceRequest.getResourceID().equals("supervisorsAutoComplete"))
 					{
 				List<EmpPersonalDetails> l=null;
@@ -547,17 +776,14 @@ public class EmployeeAction extends MVCPortlet {
 				String userEnteredText=ParamUtil.getString(resourceRequest, "userEnteredText");
 				 JSONArray usersJSONArray = JSONFactoryUtil.createJSONArray();
 				 ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
-				 System.out.println("=====00000========" + userEnteredText);
 				 DynamicQuery userQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class,
 				 PortletClassLoaderUtil.getClassLoader());
 				 Criterion criterion = RestrictionsFactoryUtil.like("firstName",
 				 StringPool.PERCENT + userEnteredText + StringPool.PERCENT);
 				 userQuery.add(criterion);
 				 JSONObject userJSON = null;
-				 System.out.println("=====1111========" + userQuery.toString());
 				 try {
 				 List<EmpPersonalDetails> userList = EmpPersonalDetailsLocalServiceUtil.dynamicQuery(userQuery);
-				 System.out.println("=====222========" + userList.size());
 				 for (EmpPersonalDetails personalDetails : userList) {
 				 userJSON = JSONFactoryUtil.createJSONObject();
 				 userJSON.put("firstName", personalDetails.getFirstName());
@@ -602,17 +828,25 @@ public class EmployeeAction extends MVCPortlet {
 public void addEmployee(ActionRequest actionRequest,ActionResponse actionResponse) 
 		throws IOException,PortletException, SystemException
 		{
-		String location = ParamUtil.getString(actionRequest, "location");
-		String firstName = ParamUtil.getString(actionRequest,
+		UploadPortletRequest uploadRequest = PortalUtil
+				.getUploadPortletRequest(actionRequest);
+		String location = ParamUtil.getString(uploadRequest , "location");
+		String firstName = ParamUtil.getString(uploadRequest ,
 				            EMPLOYEE_FIRST_NAME_COL_NAME);
-		String middleName = ParamUtil.getString(actionRequest,
+		System.out.println("location is"+location);
+		String middleName = ParamUtil.getString(uploadRequest ,
 				           EMPLOYEE_MIDDLE_NAME_COL_NAME);
-		String lastName = ParamUtil.getString(actionRequest,
+		String lastName = ParamUtil.getString(uploadRequest ,
 				           EMPLOYEE_LAST_NAME_COL_NAME);
-		String empNo=ParamUtil.getString(actionRequest, "employee_no");
-		String username=ParamUtil.getString(actionRequest, "user_name");
-		String password=ParamUtil.getString(actionRequest, "password");
-		String email=ParamUtil.getString(actionRequest,"email");
+		String empNo=ParamUtil.getString(uploadRequest , "employee_no");
+		String username=ParamUtil.getString(uploadRequest , "user_name");
+		String password=ParamUtil.getString(uploadRequest , "password");
+		File uploadPhoto=uploadRequest.getFile("emp_photograph");
+		String contentType = MimeTypesUtil.getContentType(uploadPhoto);
+		//String contentType = uploadRequest.getContentType("photograph");
+		System.out.println("content type is"+contentType);
+		String changeLog = ParamUtil.getString(actionRequest, "changeLog");
+		System.out.println("changeLog"+changeLog);
 		EmpContactDetails empContactDetails=null;
 		DynamicQuery locationDynamicQuery = DynamicQueryFactoryUtil.forClass(Location.class,
 				PortletClassLoaderUtil.getClassLoader());
@@ -647,6 +881,25 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		empPersonalDetails.setModifiedDate(date);
 		EmpPersonalDetailsLocalServiceUtil
 				.addEmpPersonalDetails(empPersonalDetails);
+		 ServiceContext serviceContext=null;
+		 FileEntry fileEntry=null;
+		try {
+			serviceContext = ServiceContextFactory.getInstance(DLFileEntry.class.getName(), actionRequest);
+		} catch (PortalException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+				try {
+					fileEntry = DLAppLocalServiceUtil.addFileEntry(themeDisplay.getUserId(),
+					themeDisplay.getScopeGroupId(),0,"img"+empPersonalDetails.getEmployeeId(),contentType,
+					"img"+empPersonalDetails.getEmployeeId(),
+					contentType," ",uploadPhoto, 
+					serviceContext);
+				} catch (PortalException e1) {
+					// TODO Auto-generated catch block
+					System.out.println("cannot upload file");
+					e1.printStackTrace();
+				}
 		if(username!=null || password!=null )
 		{
 			User user=null;
@@ -686,6 +939,7 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		Map map=new HashMap();
 		map.put("empId", employee.getEmployeeId());
 		map.put("jsp", "jsp0");
+		map.put("fileId", fileEntry.getFileEntryId());
 		actionRequest.getPortletSession(true).setAttribute("empId",
 				 map,PortletSession.APPLICATION_SCOPE);
 		
@@ -705,6 +959,8 @@ public void updatePersonalDetails(ActionRequest actionRequest,
 		String nationality=ParamUtil.getString(actionRequest, "emp_nationality");
 		Date dateOfB=ParamUtil.getDate(actionRequest, "date_of_birth", null);
 		long perEmpId = ParamUtil.getLong(actionRequest, "personalDetailsId");
+		long fileEntryId=ParamUtil.getLong(actionRequest, "fileIdemp");
+		System.out.println("file entry id is"+fileEntryId);
 		EmpPersonalDetails empPersonalDetails = null;
 		log.info("first name and last anme are" + " " + firstName
 				+ " " + lastName + " " + empId);
@@ -740,6 +996,7 @@ public void updatePersonalDetails(ActionRequest actionRequest,
 			Map map=new HashMap();
 			map.put("empId", empId);
 			map.put("jsp", "jsp2");
+			map.put("fileId", fileEntryId);
 			actionRequest.getPortletSession(true).setAttribute("empId",
 					map,PortletSession.APPLICATION_SCOPE);
 		}

@@ -34,6 +34,7 @@ A.ready(function()
 			"empId");
 	long employeeId = (Long)empId.get("empId");
 	String jsp=(String)empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 	String dependentName, dependentRelation, dependentDOB;
 	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpDependent.class,
@@ -51,6 +52,7 @@ A.ready(function()
 		<aui:form name="addDependent" id="addDependent"
 			action="<%=updateAssignedDependents%>" method="post">
 			<aui:input name="empDependentId" value="<%=employeeId %>" type="hidden" />
+			<aui:input name="dependentFileId" value="<%=fileEntryId %>" type="hidden" />
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="dependent_name" label="Name"
