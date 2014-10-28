@@ -31,6 +31,7 @@ A.ready(function()
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 %>
 <div id="addEmpMembership" class="panel">
 	<div class="panel-heading">
@@ -40,6 +41,7 @@ A.ready(function()
 		<aui:form name="addEmployeeMembership" id="addEmployeeMembership"
 			action="<%=updateMembership%>" method="post">
 			<aui:input name="empMemId" value="<%=employeeId%>" type="hidden"></aui:input>
+				<aui:input name="memFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:select name="emp_membership" label="Membership"

@@ -5,10 +5,12 @@
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 %>
 <aui:form name="empDirectDeposits" id="empDirectDeposits" method="post"
 	action="<%=updateEmpDirectDeposits %>">
 	<aui:input name="empDirId" value="<%=employeeId %>" type="hidden"></aui:input>
+	<aui:input name="directFileId" value="<%=fileEntryId %>" type="hidden"></aui:input>
 	<div id="empSalSummary" class="panel">
 		<div class="panel-heading">
 			<h3>Salary Summary</h3>
@@ -32,7 +34,10 @@
 			</div>
 			<div class="row-fluid">
 				<div class="span10">
-					<aui:input name="acnt_type" label="Account Type"></aui:input>
+					<aui:select name="acnt_type" label="Account Type">
+					<aui:option value="check" label="Check"></aui:option>
+					<aui:option value="saving" label="Saving"></aui:option>
+					</aui:select>
 				</div>
 			</div>
 			<div class="row-fluid">

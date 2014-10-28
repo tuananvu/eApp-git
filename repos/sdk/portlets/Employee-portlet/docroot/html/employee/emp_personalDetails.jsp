@@ -1,4 +1,3 @@
-<%@page import="java.util.Date"%>
 <%@ include file="/html/employee/init.jsp"%>
 <portlet:actionURL var="updateEmpPersonalDetails"
 	name="updateEmpPersonalDetails" />
@@ -23,6 +22,7 @@ Map empId = (Map) request.getSession(false).getAttribute(
 		"empId");
 long employeeId = (Long)empId.get("empId");
 String jsp=(String)empId.get("jsp");
+long fileEntryId=(Long)empId.get("fileId");
 	String firstName, middleName, lastName, empNo, otherId, licenseNumber,  gender, nationality, maritslStatus;
 	Long personalDetailsId;
 	Date dateOfB,licenseExpDate;
@@ -97,6 +97,8 @@ String jsp=(String)empId.get("jsp");
 				value="<%=personalDetailsId %>"></aui:input>
 				<aui:input name="perEmpId" type="hidden"
 				value="<%=employeeId%>"></aui:input>
+				<aui:input name="fileIdemp" type="hidden"
+				value="<%=fileEntryId%>"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
 					<label>Full Name</label>

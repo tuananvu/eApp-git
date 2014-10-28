@@ -5,6 +5,7 @@
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
+	long fileEntryId=(Long)empId.get("fileId");
 DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpJob.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -12,17 +13,6 @@ DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
 			.eq(employeeId));
 	List<EmpJob> empJob =EmpJobLocalServiceUtil
 			.dynamicQuery(jobDynamicQuery);
-	//EmpJob employeeJob; 
-	if(empJob.size()!=0)
-	{
-Collections.sort(empJob, new Comparator<EmpJob>() {
-		  public int compare(EmpJob o1, EmpJob o2) {
-		      if (o1.getCreateDate() == null || o2.getCreateDate() == null)
-		        return 0;
-		      return o1.getCreateDate().compareTo(o2.getCreateDate());
-		  }
-		});	 
-	}
 %>
 <div class="panel">
 	<div class="panel-heading">
@@ -32,6 +22,7 @@ Collections.sort(empJob, new Comparator<EmpJob>() {
 		<aui:form name="jobHistoryDetails" id="jobHistoryDetails"
 			method="post" action="<%=updateEmpJobHistory %>">
 			<aui:input name="empJId" value="<%=employeeId %>" type="hidden"></aui:input>
+			<aui:input name="jobFileId" value="<%=fileEntryId%>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span6">
 					<aui:input name="joined_date" id="joined_date" label="Joined Date"
@@ -195,7 +186,8 @@ Collections.sort(empJob, new Comparator<EmpJob>() {
 			rowChecker="<%= new RowChecker(renderResponse) %>">
 			<liferay-ui:search-container-results>
 				<%
-					List<EmpJob> empJobHistory = empJob;
+					List<EmpJob> empJobHistory = EmpJobLocalServiceUtil.findByEmpJobDetails(0, 2)!=null?EmpJobLocalServiceUtil.findByEmpJobDetails(0, 2):
+						EmpJobLocalServiceUtil.getEmpJobs(-1, -1);
 							results = empJobHistory;
 							total = empJobHistory.size();
 							pageContext.setAttribute("results", results);
@@ -205,14 +197,14 @@ Collections.sort(empJob, new Comparator<EmpJob>() {
 			<liferay-ui:search-container-row className="EmpJob" modelVar="id">
 				<liferay-ui:search-container-column-text name="Effective Date" property="effectiveDate"/>
 				<liferay-ui:search-container-column-text name="End Date" property="probationEndDate" />
-				<liferay-ui:search-container-column-text name="Job Title" />
+				<%-- <liferay-ui:search-container-column-text name="Job Title" property="jobTitle"/>
 				<liferay-ui:search-container-column-text name="Employment Status" />
 				<liferay-ui:search-container-column-text name="Job Category" />
 				<liferay-ui:search-container-column-text name="Sub Unit" />
 				<liferay-ui:search-container-column-text name="Location" />
 				<liferay-ui:search-container-column-text name="Comment" />
 				<liferay-ui:search-container-column-text name="Contract Start Date" />
-				<liferay-ui:search-container-column-text name="Contract End Date" />
+				<liferay-ui:search-container-column-text name="Contract End Date" /> --%>
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>

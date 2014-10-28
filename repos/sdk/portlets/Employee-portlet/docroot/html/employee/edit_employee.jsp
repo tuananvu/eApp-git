@@ -4,6 +4,7 @@ Map empId = (Map) request.getSession(false).getAttribute(
 		"empId");
 long employeeId = (Long)empId.get("empId");
 String jsp=(String)empId.get("jsp");
+long fileEntryId=(Long)empId.get("fileId");
 	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
 			.forClass(EmpPersonalDetails.class,
 					PortletClassLoaderUtil.getClassLoader());
@@ -17,6 +18,9 @@ String jsp=(String)empId.get("jsp");
 	empPersonalDetails = l.get(0);
 	}
 %>
+<portlet:resourceURL var="displayImage" id="displayImage">
+<portlet:param name="imageId" value="<%=String.valueOf(fileEntryId) %>"></portlet:param>
+</portlet:resourceURL>
 <aui:script>
 YUI().use(
   'aui-tabview',
@@ -52,15 +56,17 @@ AUI().use(
 );
 </aui:script>
 <div id="employeeDetails">
-	<c:choose>
-		<c:when test='<%= jsp.equals("jsp0") || jsp.equals("jsp1") %>'>
-	<ul class="span3" id="test">
+<ul class="span3" id="test">
 		<div id="employeeImage" class="panel">
 			<div class="panel-heading">
 				<h3><%=empPersonalDetails.getFirstName()%></h3>
 			</div>
-			<div class="panel-body"></div>
+			<div class="panel-body">
+			<img alt="upload an Image" src="<%=displayImage%>" >
+			</div>
 		</div>
+	<c:choose>
+		<c:when test='<%= jsp.equals("jsp0") || jsp.equals("jsp1") %>'>
 		<li class="active" ><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2" >Contact Details</a></li>
 		<li><a href="#tab-3" >Emergency Contacts</a></li>
@@ -72,16 +78,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp2") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li class="active" ><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -93,16 +91,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp3") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li class="active"><a href="#tab-3">Emergency Contacts</a></li>
@@ -114,16 +104,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp4") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -135,16 +117,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
-				<c:when test='<%=jsp.equals("jsp5") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
+		<c:when test='<%=jsp.equals("jsp5") %>' >
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -156,16 +130,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
-			<c:when test='<%=jsp.equals("jsp6") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
+		<c:when test='<%=jsp.equals("jsp6") %>' >
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -177,16 +143,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp7") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -198,16 +156,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp8") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -219,16 +169,8 @@ AUI().use(
 		<li><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp9") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -240,16 +182,8 @@ AUI().use(
 		<li class="active"><a href="#tab-9" >Job History</a></li>
 		<li><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp10") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -261,16 +195,8 @@ AUI().use(
 		<li ><a href="#tab-9" >Job History</a></li>
 		<li class="active"><a href="#tab-10">Salary History</a></li>
 		<li><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		<c:when test='<%=jsp.equals("jsp11") %>' >
-		<ul class="span3" id="test">
-		<div id="employeeImage" class="panel">
-			<div class="panel-heading">
-				<h3><%=empPersonalDetails.getFirstName()%></h3>
-			</div>
-			<div class="panel-body"></div>
-		</div>
 		<li><a href="#tab-1" >Personal Details</a></li>
 		<li><a href="#tab-2">Contact Details</a></li>
 		<li><a href="#tab-3">Emergency Contacts</a></li>
@@ -282,9 +208,9 @@ AUI().use(
 		<li ><a href="#tab-9" >Job History</a></li>
 		<li ><a href="#tab-10">Salary History</a></li>
 		<li class="active"><a href="#tab-11">Direct Deposit</a></li>
-		</ul>
 		</c:when>
 		</c:choose>
+		</ul>
 	<div class="tab-content">
 		<div id="tab-1" class="tab-pane">
 			<jsp:include page="/html/employee/emp_personalDetails.jsp" />

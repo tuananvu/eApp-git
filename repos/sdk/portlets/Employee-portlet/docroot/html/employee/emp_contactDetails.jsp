@@ -27,7 +27,7 @@ Map empId = (Map) request.getSession(false).getAttribute(
 			"empId");
 	long employeeId = (Long)empId.get("empId");
 	String jsp=(String)empId.get("jsp");
-
+	long fileEntryId=(Long)empId.get("fileId");
 	String adressStreet1, addressStreet2, city, state, zip, country, homeTel, workTel, mobile, workEmail, otherEmail;
 	Long contactDetailsId;
 	DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil
@@ -88,6 +88,8 @@ Map empId = (Map) request.getSession(false).getAttribute(
 			<aui:input name="conEmpId" type="hidden" value="<%=employeeId%>"></aui:input>
 			<aui:input name="conDetailsId" type="hidden"
 				value="<%=contactDetailsId %>"></aui:input>
+				<aui:input name="conFileId" type="hidden"
+				value="<%=fileEntryId %>"></aui:input>
 			<div class="row-fluid">
 				<div class="span10">
 					<aui:input name="address_street1" label="Address Street 1"
