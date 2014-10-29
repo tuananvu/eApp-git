@@ -159,7 +159,7 @@ List<EmpPersonalDetails> emplist = EmpPersonalDetailsLocalServiceUtil.getEmploye
     <%for(int i=0;i<emplist.size();i++){
     %>
      
-    <Option value="<%=emplist.get(i).getEmployeeId()%>"><%=emplist.get(i).getFirstName()+" "+emplist.get(i).getLastName()%></Option>
+    <Option selected="selected" value="<%=emplist.get(i).getEmployeeId()%>"><%=emplist.get(i).getFirstName()+" "+emplist.get(i).getLastName()%></Option>
     <%}%>
     </select>
 
@@ -175,7 +175,7 @@ List<EmpPersonalDetails> elist = EmpPersonalDetailsLocalServiceUtil.getEmployeeD
      <%for(int i=0;i<elist.size();i++){
     %>
      
-    <Option value="<%=elist.get(i).getEmployeeId()%>"><%=elist.get(i).getFirstName()+" "+elist.get(i).getLastName()%></Option>
+    <Option selected="selected" value="<%=elist.get(i).getEmployeeId()%>"><%=elist.get(i).getFirstName()+" "+elist.get(i).getLastName()%></Option>
     <%}%>
 
 </select> 
