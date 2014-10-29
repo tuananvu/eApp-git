@@ -6,7 +6,7 @@
 
 <section class="portlet" id="portlet_$portlet_id">
 
-	<!--<header class="portlet-topper">
+	<header class="portlet-topper">
 		<h1 class="portlet-title">
 			$theme.portletIconPortlet() <span class="portlet-title-text">$portlet_title</span>
 		</h1>
@@ -18,7 +18,7 @@
 				$theme.portletIconOptions()
 			#end
 		</menu>
-	</header>-->
+	</header>
 
 	<div class="portlet-content">
 		$portlet_display.writeContent($writer)
