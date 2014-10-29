@@ -1,3 +1,4 @@
+
 <nav class="$nav_css_class navbar site-navigation" id="navigation" role="navigation">
 	<div class="navbar-inner">
 		<div class="search-area">
@@ -6,7 +7,7 @@
 				<button class="btn" type="button">Search</button>
 			</div>
 		</div>
-		<div class="collapse nav-collapse">
+		<div class="collapse nav-collapse" id="myToggler">
 			<ul aria-label="#language ("site-pages")" class="nav nav-collapse custom-nav" role="menubar">
 				#foreach ($nav_item in $nav_items)
 						#set ($nav_item_attr_selected="")
@@ -17,14 +18,14 @@
 
 					#if ($nav_item.isSelected())
 						#set ($nav_item_attr_selected="aria-selected='true'")
-						#set ($nav_item_css_class="$nav_item_css_class selected active")
+						#set ($nav_item_css_class="$nav_item_css_class selected active") 
 					#end
 
 					#if ($nav_item.hasChildren())
 						#set ($nav_item_attr_has_popup="aria-haspopup='true'")
 						#set ($nav_item_caret='<b class="icon-caret-down menu-icon"></b>')
 						#set ($nav_item_css_class="$nav_item_css_class dropdown")
-						#set ($nav_item_link_css_class="dropdown-toggle")
+						#set ($nav_item_link_css_class="header toggler-header-collapsed")
 					#end
 
 					<li class="$nav_item_css_class" id="layout_$nav_item.getLayoutId()" $nav_item_attr_selected role="presentation">
@@ -33,7 +34,7 @@
 						</a>
 
 						#if ($nav_item.hasChildren())
-							<ul class="dropdown-menu child-menu" role="menu">
+							<ul class="child-menu content toggler-content-collapsed" role="menu">
 								#foreach ($nav_child in $nav_item.getChildren())
 									#set ($nav_child_attr_selected="")
 									#set ($nav_child_css_class="lfr-nav-item")
