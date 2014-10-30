@@ -14,6 +14,8 @@
 
 package com.rknowsys.eapp.hrm.service.impl;
 
+import java.util.List;
+
 import com.liferay.portal.kernel.exception.SystemException;
 import com.rknowsys.eapp.hrm.model.EmpJob;
 import com.rknowsys.eapp.hrm.service.base.EmpJobLocalServiceBaseImpl;
@@ -48,5 +50,15 @@ public class EmpJobLocalServiceImpl extends EmpJobLocalServiceBaseImpl {
 	 */
 	public EmpJob getEmpJobByEmpId(long empid){
 		return EmpJobFinderUtil.getEmpJobByEmployeeId(empid);
+	}
+	/** 
+	 * Returns EmpJob list based on the give shiftId.
+	 * @param shiftId
+	 * @return the empjob list
+	 * @throws SystemException if a system exception occurred
+	 * @author Laxminarayana 29 october 2014 6:38:55 PM
+	 */
+	public List<EmpJob> findEmpJobListByShiftId(long shiftId){
+		return EmpJobFinderUtil.getEmpJobListByShiftId(shiftId);
 	}
 }

@@ -3,9 +3,12 @@ package com.rknowsys.eapp;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletException;
+import javax.portlet.PortletSession;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
@@ -196,6 +199,9 @@ public class WorkshiftAction extends MVCPortlet {
 			ResourceResponse resourceResponse) throws IOException,
 			NumberFormatException {
 		if (resourceRequest.getResourceID().equals("deleteWorkshift")) {
+			
+			Workshift workshift;
+			
 
 			log.info("inside deleteWorkshift... serveResource");
 			
@@ -213,22 +219,35 @@ public class WorkshiftAction extends MVCPortlet {
 				if (selectedIds[i].equals("on")) {
 					log.info("All records selected...");
 				} else {
-					try {
-						
-						long id = Long.parseLong(selectedIds[i]);
-						Workshift workshift = WorkshiftLocalServiceUtil.createWorkshift(CounterLocalServiceUtil.increment());
-						workshift = WorkshiftLocalServiceUtil.deleteWorkshift(id);
-						System.out.println("deleted workshift..."+workshift);
-						log.info("end of try block in delete...");
-					} catch (PortalException e) {
-
-						e.printStackTrace();
-						log.info("portal exception...");
-					} catch (SystemException e) {
-
-						e.printStackTrace();
-						log.info("system exception...");
+					long id =Long.parseLong(selectedIds[i]);
+					List<EmpJob> empJoblist;
+					EmpJob empJob;
+					System.out.println("before getting list...");
+					empJoblist = EmpJobLocalServiceUtil.findEmpJobListByShiftId(id);
+					System.out.println("list size===" +empJoblist.size());
+					for(int j =0;j<empJoblist.size();j++){
+						System.out.println("for loop started..");
+						empJob = empJoblist.get(j);
+						System.out.println("empJob ==" +empJob);
+						empJob.setShiftId(Long.parseLong("0"));
+						try {
+							empJob = EmpJobLocalServiceUtil.updateEmpJob(empJob);
+						} catch (SystemException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
+					try {
+						System.out.println("try block....");
+						System.out.println("shiftId in try block...."+id);
+						
+						workshift = WorkshiftLocalServiceUtil.deleteWorkshift(id);
+					} catch (PortalException | SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					
 				}
 
 			}
@@ -267,7 +286,8 @@ public class WorkshiftAction extends MVCPortlet {
 
 		log.info(ws.getShiftId());
 		log.info(ws.getWorkshiftName());
-		actionRequest.setAttribute("editworkshift", ws);
+		PortletSession portletSession = actionRequest.getPortletSession();
+		portletSession.setAttribute("editworkshift", ws);
 		
 		actionResponse.setRenderParameter("jspPage",
 				"/html/workshift/editworkshift.jsp");

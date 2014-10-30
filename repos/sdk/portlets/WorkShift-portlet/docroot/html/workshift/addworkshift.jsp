@@ -35,9 +35,59 @@ font-size: 14px;
 font-weight: 200;
 font-family: sans-serif;
 font: small-caption;
+}
 </style>
 
 <aui:script>
+AUI().use(
+  'aui-node',
+  function(A) {
+    var node = A.one('#delete');
+    node.on(
+      'click',
+      function() {
+     
+     var idArray = [];
+      A.all('input[type=checkbox]:checked').each(function(object) {
+      idArray.push(object.get("value"));
+    
+        });
+       if(idArray==""){
+			  alert("Please select records!");
+		  }else{
+			  var d = confirm("Are you sure you want to delete the selected workshift ?");
+		  if(d){
+		   var url = '<%=deleteworkshift%>';
+          A.io.request(url,
+         {																																																			
+          data: {  
+                <portlet:namespace />workshiftIds: idArray,   
+                 },
+          on: {
+               success: function() { 
+                   alert('Deleted successfully.');
+                   window.location='<%=listview%>';
+              },
+               failure: function() {
+                  
+                 }
+                }
+                 }
+                );
+		  																		
+		  console.log(idArray);
+	  
+      return true;
+  }
+  else
+    return false;
+}             
+      }
+    );
+  }
+);
+
+
 
 AUI().use(
   'aui-node',
@@ -90,7 +140,7 @@ YUI().use(
       {
         trigger: '#fromWorkHours',
         popover: {
-          zIndex: 1
+          zIndex: 2
         },
         mask:'%H:%M',
         on: {
@@ -123,28 +173,28 @@ YUI().use(
 <body>
 	 
 <div id="addworkshiftForm" >
-	<aui:form name = "workshiftForm" action="<%=saveworkshift %>">
+	<aui:form 	 name = "workshiftForm" action="<%=saveworkshift %>">
 	
 	<div class="row-fluid">
 		<aui:input name="shiftId" type="hidden" id="shiftId" />
-		<aui:input name="workshiftName"
+		<aui:input name="workshiftName" showRequiredLabel="false"
 				type="text" label="Shift Name">
 				<aui:validator name="required" />
 			</aui:input>
 	</div>
 	<div class="row-fluid">
-	 <div class="span3">
+	 <div class="span4">
 			<label>From</label>
 			<input name="<portlet:namespace />fromWorkHours"
 				id="fromWorkHours" type="text" required="required"
 				placeholder="hh:mm" value="00:00"  />
 			</div>
-			<div class="span3">
+			<div class="span4">
 				<label>To</label>
 			<input name="<portlet:namespace />toWorkHours" id="toWorkHours"
 				type="text" required="required" placeholder="hh:mm" value="00:00"
 				/>
-		</div>
+		</div><div class="span4"></div>
 		
 </div>
   <div class="row-fluid">
@@ -183,7 +233,7 @@ YUI().use(
 				
 			   <aui:button type="submit" name="submit" value="Submit" id="submit"></aui:button>
 			   <aui:button type="reset" value="reset"></aui:button>
-			   <!-- <input type="button" class="btn" value="Delete" id="delete"> -->
+			   <input type="button" class="btn" value="Delete" id="delete">
 			
 		
 	</aui:form>
@@ -199,7 +249,7 @@ YUI().use(
 	PortletURL iteratorURL = renderResponse.createRenderURL();
 	iteratorURL.setParameter("mvcPath",
 			"/html/workshift/addworkshift.jsp");
-	
+	RowChecker rowChecker = new RowChecker(renderResponse);
 
 	PortalPreferences portalPrefs = PortletPreferencesFactoryUtil
 			.getPortalPreferences(request);
@@ -227,7 +277,7 @@ YUI().use(
 <%!com.liferay.portal.kernel.dao.search.SearchContainer<Workshift> searchContainer;%>
 <div>
 	<liferay-ui:search-container orderByCol="<%=sortByCol%>"
-		orderByType="<%=sortByType%>" 
+		orderByType="<%=sortByType%>" rowChecker="<%= new RowChecker(renderResponse) %>"
 		delta="5"
 		emptyResultsMessage="No records is available for Work Shifts."
 		deltaConfigurable="true" iteratorURL="<%=iteratorURL%>">

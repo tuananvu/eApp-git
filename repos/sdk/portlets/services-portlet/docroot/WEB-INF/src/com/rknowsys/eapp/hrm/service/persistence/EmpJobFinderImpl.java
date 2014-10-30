@@ -50,5 +50,44 @@ public class EmpJobFinderImpl extends BasePersistenceImpl<EmpJob> implements Emp
 		}
 		return null;
 	}
+	
+	/** 
+	 * Returns EmpJob list based on the give shiftId.
+	 * @param shiftId
+	 * @return the empjob list
+	 * @throws SystemException if a system exception occurred
+	 * @author Laxminarayana 29 october 2014 6:38:55 PM
+	 */
+	@SuppressWarnings({ "unchecked" })
+	public List<EmpJob> getEmpJobListByShiftId(long shiftId){
+		
+			
+		System.out.println("inside getEmpJobListByShiftId...");
+		Session session = null;
+		try{
+		session = openSession();
+		String sql = "SELECT * FROM emp_job WHERE shiftId="+shiftId;
+		SQLQuery q = session.createSQLQuery(sql);
+		q.setCacheable(false);
+		q.addEntity("EmpJob", EmpJobImpl.class);
+		System.out.println("before list...");
+		System.out.println("dialect == " +getDialect());
+		List<EmpJob> empjoblist = (List<EmpJob>) QueryUtil.list(q, getDialect(), -1, -1);
+		
+		 return empjoblist;
+		}
+		catch (Exception e) {
+			try {
+				throw new SystemException(e);
+			} catch (SystemException se) {
+				se.printStackTrace();
+			}
+		} finally {
+			closeSession(session);
+		}
+		
+		return null;
+				
+	}
 
 }
