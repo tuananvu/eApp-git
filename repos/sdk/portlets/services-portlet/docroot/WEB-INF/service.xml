@@ -256,6 +256,7 @@
 		<!-- Relationship fields -->
 		
 		<column name="holidays" type="Collection" entity="Holiday" mapping-table="locations_holidays"/>
+		<column name="nationalityId" type="long" />
 
 		<!-- Audit fields -->
 
@@ -282,6 +283,9 @@
 
 		<finder name="GroupId" return-type="Collection">
 			<finder-column name="groupId" />
+		</finder>
+		<finder name="NationalityId" return-type="Collection">
+			<finder-column name="nationalityId" />
 		</finder>
 	</entity>
 
@@ -1235,6 +1239,9 @@
 		session-factory="hrmSessionFactory" tx-manager="hrmTransactionManager"
 		remote-service="false">
 		<column name="holidayId" type="long" primary="true"></column>
+		<column name="holidayName" type="String"></column>
+		<column name="isAnnual" type="boolean"></column>
+		<column name="isFullDay" type="boolean"></column>
 		<column name="holidayDate" type="Date"></column>
 		<column name="nationalityId" type="long"></column>
 		<column name="locations" type="Collection" entity="Location"
@@ -1283,15 +1290,7 @@
     	<column name="userName" type="String"></column>
     	<column name="createDate" type="Date"></column>
     	<column name="modifiedDate" type="Date"></column>
-
-		<!-- Finder methods -->
-
-		<finder name="Nationality" return-type="Collection">
-			<finder-column name="nationalityId" />
-		</finder>
-
-
-		</entity>
+    </entity>
 
 
 </service-builder>
