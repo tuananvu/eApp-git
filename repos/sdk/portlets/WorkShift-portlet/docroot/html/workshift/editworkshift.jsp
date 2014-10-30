@@ -36,6 +36,55 @@ font: small-caption;
 </style>
 
 <aui:script>
+AUI().use(
+  'aui-node',
+  function(A) {
+    var node = A.one('#delete');
+    node.on(
+      'click',
+      function() {
+     
+     var idArray = [];
+      A.all('input[type=checkbox]:checked').each(function(object) {
+      idArray.push(object.get("value"));
+    
+        });
+       if(idArray==""){
+			  alert("Please select records!");
+		  }else{
+			  var d = confirm("Are you sure you want to delete the selected workshift ?");
+		  if(d){
+		   var url = '<%=deleteworkshift%>';
+          A.io.request(url,
+         {
+          data: {  
+                <portlet:namespace />workshiftIds: idArray,   
+                 },
+          on: {
+               success: function() { 
+                   alert('Deleted successfully.');
+                   window.location='<%=listview%>';
+              },
+               failure: function() {
+                  
+                 }
+                }
+                 }
+                );
+		  																		
+		  console.log(idArray);
+	  
+      return true;
+  }
+  else
+    return false;
+}             
+      }
+    );
+  }
+);
+
+
 
 AUI().use(
   'aui-node',
@@ -118,11 +167,11 @@ YUI().use(
 
 </head>
 <body>
-	<jsp:useBean id="editworkshift"
-		type="com.rknowsys.eapp.hrm.model.Workshift" scope="request" />
-			
+<%
+Workshift editworkshift = (Workshift) portletSession.getAttribute("editworkshift");
 
-	
+%>
+
 	<div id="editWorkshiftForm">
 		<aui:form name="workshiftForm" action="<%=saveworkshift.toString()%>">
 		<div class="row-fluid">
@@ -133,15 +182,15 @@ YUI().use(
 					    type="text" value="<%=editworkshift.getWorkshiftName() %>">
 			</div>
 			<div class="row-fluid">
-			<div class="span3">
+			<div class="span4">
 					<label>From</label>
 					<input name="<portlet:namespace/>fromWorkHours" id="fromWorkHours"
 						type="text" value="<%=workshiftExt.getFormattedFromWorkHoursStr() %>"></div>
-				<div class="span3">
+				<div class="span4">
                     <label>To</label>
 					<input name="<portlet:namespace/>toWorkHours" id="toWorkHours"
 						type="text" value="<%=workshiftExt.getFormattedToWorkHoursStr() %>"></div>
-				<div class="span6"></div>
+				<div class="span4"></div>
 			</div>
 			
 	<div class="row-fluid">
@@ -191,7 +240,7 @@ List<EmpPersonalDetails> elist = EmpPersonalDetailsLocalServiceUtil.getEmployeeD
 						
 			   <aui:button type="submit" name="submit" value="Submit" id="submit"></aui:button>
 			   <aui:button type="reset" value="reset"></aui:button>
-			   
+			   <input type="button" class="btn" value="Delete" id="delete">
 		
 		</aui:form>
 	</div>
@@ -203,7 +252,7 @@ List<EmpPersonalDetails> elist = EmpPersonalDetailsLocalServiceUtil.getEmployeeD
 <%
 PortletURL iteratorURL = renderResponse.createRenderURL();
 iteratorURL.setParameter("mvcPath", "/html/workshift/editworkshift.jsp");
-
+RowChecker rowChecker = new RowChecker(renderResponse);
 
 PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
 String sortByCol = ParamUtil.getString(request, "orderByCol"); 
@@ -225,7 +274,7 @@ System.out.println("sortByType == " +sortByType);
 <%!
   com.liferay.portal.kernel.dao.search.SearchContainer<Workshift> searchContainer;
 %>
-<liferay-ui:search-container orderByCol="<%=sortByCol %>" orderByType="<%=sortByType %>"  delta="5" emptyResultsMessage="No records is available for Workshift."   deltaConfigurable="true"   iteratorURL="<%=iteratorURL%>">
+<liferay-ui:search-container orderByCol="<%=sortByCol %>" orderByType="<%=sortByType %>" rowChecker="<%= new RowChecker(renderResponse) %>" delta="5" emptyResultsMessage="No records is available for Workshift."   deltaConfigurable="true"   iteratorURL="<%=iteratorURL%>">
 		<liferay-ui:search-container-results>
 				
 		<%
