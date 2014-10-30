@@ -106,7 +106,7 @@ AUI().use(
 			<aui:form name="myForm" action="<%=saveMemberships.toString()%>" >
 				<aui:input name="membershipId" type="hidden" id="membershipId" />
 				<div class="row-fluid">
-					<div class="span3">
+					<div class="span3 text-right">
 						<label>Membership Name</label>
 					</div>
 					<div class="span3">		
