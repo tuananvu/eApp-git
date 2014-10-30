@@ -592,7 +592,8 @@
 		<!-- Relationship fields -->
 		<column name="locationId" type="long"></column>
 		<column name="assignedUserId" type="long"></column>
-		<column name="workshift" type="Collection" entity="Workshift" mapping-table="emp_workshift"/>
+		<column name="imageId" type="long"></column>
+ 		<column name="workshift" type="Collection" entity="Workshift" mapping-table="emp_workshift"/>
 		<!-- Group instance -->
 		<column name="groupId" type="long"></column>
 		<!-- Audit fields -->
@@ -853,7 +854,7 @@
 		<column name="modifiedDate" type="Date" />
 		<column name="userId" type="long" />
 		<!-- Other fields -->
-		<column name="educationId" type="String" />
+		<column name="educationId" type="long" />
 		<column name="institute" type="String" />
 		<column name="major" type="String" />
 		<column name="year" type="String" />
@@ -881,7 +882,7 @@
 		<column name="modifiedDate" type="Date" />
 		<column name="userId" type="long" />
 		<!-- Other fields -->
-		<column name="skillId" type="String" />
+		<column name="skillId" type="long" />
 		<column name="years" type="String" />
 		<column name="comments" type="String" />
 		<!-- Order -->
@@ -1307,9 +1308,5 @@
 		<finder name="Nationality" return-type="Collection">
 			<finder-column name="nationalityId" />
 		</finder>
-
-
 		</entity>
-
-
 </service-builder>

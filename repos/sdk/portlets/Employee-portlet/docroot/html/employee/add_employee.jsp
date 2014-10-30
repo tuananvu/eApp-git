@@ -108,7 +108,7 @@ A.ready(function()
 										while (locations.hasNext()) {
 											Location locations2 = (Location) locations.next();
 							%>
-							<aui:option value="<%=locations2.getName()%>"><%=locations2.getName()%></aui:option>
+							<aui:option value="<%=locations2.getLocationId()%>"><%=locations2.getName()%></aui:option>
 							<%
 								}
 							%>
