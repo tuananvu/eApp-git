@@ -180,7 +180,7 @@
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="educationId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="educationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="institute" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="major" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="year" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -297,6 +297,7 @@
 		</id>
 		<property name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="assignedUserId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="imageId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
@@ -397,7 +398,7 @@
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
-		<property name="skillId" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="skillId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="years" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="comments" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
