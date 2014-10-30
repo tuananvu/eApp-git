@@ -7,7 +7,7 @@
 		<portlet-class>com.rknowsys.eapp.EmployeeAction</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/employee/add_employee.jsp</value>
+			<value>/html/employee/employeelist.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
