@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.PortalException"%>
+<%@page import="com.liferay.portal.kernel.exception.SystemException"%>
 <%@ include file="/html/employee/init.jsp"%>
 <portlet:actionURL name="addQualifications" var="addWorkExp">
 	<portlet:param name="<%=Constants.CMD%>" value="empExperience" />
@@ -14,6 +16,68 @@
 <portlet:actionURL name="addQualifications" var="addLicense">
 	<portlet:param name="<%=Constants.CMD%>" value="empLicense" />
 </portlet:actionURL>
+<%String skillValue,eduValue,licenseValue,lanValue=""; %>
+<%!public String getSkillName(long skiId) {
+	if(skiId!=0)
+	{
+		Skill skil = null;
+		try {
+			skil = SkillLocalServiceUtil.getSkill(skiId);
+		} catch (Exception p) {
+		}
+		return skil.getSkillName();
+	}
+	else
+	{
+		return "";	}
+	}
+	public String getEduLevel(long eduId)
+	{
+		if(eduId!=0)
+		{
+		Education eduLvl = null;
+		try {
+			eduLvl = EducationLocalServiceUtil.getEducation(eduId);
+		} catch (Exception p) {
+		}
+		return eduLvl.getEduLevel();
+		}
+		else
+		{
+			return "";		}
+	}
+	public String getLicnse(long licId)
+	{	
+		if(licId!=0)
+		{
+		License licType = null;
+		try {
+			licType = LicenseLocalServiceUtil.getLicense(licId);
+		} catch (Exception p) {
+		}
+		return licType.getLicenseName();
+		}
+		else
+		{
+			return "";
+		}
+	}
+	public String getLnguage(long lanId)
+	{	if(lanId!=0)
+		{
+		Language lan = null;
+		try {
+			lan = LanguageLocalServiceUtil.getLanguage(lanId);
+		} catch (Exception p) {
+		}
+		return lan.getLanguageName();
+		}
+	else
+	{
+		return "";	}
+	}
+	
+	%>
 <%
 	Map empId = (Map) request.getSession(false).getAttribute("empId");
 	long employeeId = (Long) empId.get("empId");
@@ -322,7 +386,7 @@ A.ready(function()
 			<liferay-ui:search-container-row className="EmpWorkExp"
 				modelVar="id">
 				<liferay-ui:search-container-column-text name="Company" property="company"/>
-				<liferay-ui:search-container-column-text name="Job Title" property="jobtitle" />
+				<liferay-ui:search-container-column-text name="Job Title" property="jobTitle" />
 				<liferay-ui:search-container-column-text name="From" property="fromDate"/>
 				<liferay-ui:search-container-column-text name="To" property="toDate"/>
 				<liferay-ui:search-container-column-text name="Comment" property="comment"/>
@@ -344,9 +408,18 @@ A.ready(function()
 				<div class="span8">
 					<aui:select name="edu_level" label="Level" inlineLabel="left"
 						showRequiredLabel="false">
-						<aui:option>Masters</aui:option>
-						<aui:option>Bachelors</aui:option>
-						<aui:option>UnderGraduate</aui:option>
+						<aui:option value="-1">--Select--</aui:option>
+							<%
+								List<Education> eduList = EducationLocalServiceUtil.getEducations(-1, -1);
+										Iterator eduLevels = eduList.iterator();
+										while (eduLevels.hasNext()) {
+											Education educationLevel = (Education) eduLevels.next();
+							%>
+							<aui:option value="<%=educationLevel.getEducationId()%>">
+							<%=educationLevel.getEduLevel()%></aui:option>
+							<%
+								}
+							%>
 					</aui:select>
 				</div>
 			</div>
@@ -417,7 +490,9 @@ A.ready(function()
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpEducation"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Level" />
+				<% eduValue=getEduLevel(id.getEducationId())!=null?getEduLevel(id.getEducationId()):""; %>
+				<liferay-ui:search-container-column-text name="Level" 
+				value='<%= eduValue %>' />
 				<liferay-ui:search-container-column-text name="Year" property="year"/>
 				<liferay-ui:search-container-column-text name="GPA/Score" />
 			</liferay-ui:search-container-row>
@@ -445,8 +520,8 @@ A.ready(function()
 									while (skillList2.hasNext()) {
 										Skill skill = (Skill) skillList2.next();
 						%>
-						<aui:option value="<%=skill.getSkillName()%>"
-							label="<%=skill.getSkillName()%>"></aui:option>
+						<aui:option value="<%=skill.getSkillId()%>"
+							><%=skill.getSkillName()%></aui:option>
 						<%
 							}
 						%>
@@ -497,7 +572,9 @@ A.ready(function()
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpSkill"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Skill" />
+				<%skillValue=getSkillName(id.getSkillId())!=null?getSkillName(id.getSkillId()):"" ; %>
+				<liferay-ui:search-container-column-text name="Skill" 
+				value='<%= skillValue %>'/>
 				<liferay-ui:search-container-column-text name="Years of Experience" property="years"/>
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
@@ -524,8 +601,8 @@ A.ready(function()
 									while (languageList2.hasNext()) {
 										Language language = (Language) languageList2.next();
 						%>
-						<aui:option value="<%=language.getLanguageName()%>"
-							label="<%=language.getLanguageName()%>"></aui:option>
+						<aui:option value="<%=language.getLanguageId()%>"
+							><%=language.getLanguageName()%></aui:option>
 						<%
 							}
 						%>
@@ -584,7 +661,9 @@ A.ready(function()
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpLanguage"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Language" />
+				<%lanValue=getLnguage(id.getLanguageId())!=null?getLnguage(id.getLanguageId()):"" ; %>
+				<liferay-ui:search-container-column-text name="Language" 
+				value='<%=lanValue %>'/>
 				<liferay-ui:search-container-column-text name="Skill" property="languageSkill" />
 				<liferay-ui:search-container-column-text name="Fluency Level" property="languageFluency"/>
 				<liferay-ui:search-container-column-text name="Comments" property="comments" />
@@ -613,8 +692,8 @@ A.ready(function()
 									while (licenseList2.hasNext()) {
 										License license = (License) licenseList2.next();
 						%>
-						<aui:option value="<%=license.getLicenseName()%>"
-							label="<%=license.getLicenseName()%>"></aui:option>
+						<aui:option value="<%=license.getLicenseId()%>"
+							><%=license.getLicenseName()%></aui:option>
 						<%
 							}
 						%>
@@ -672,7 +751,9 @@ A.ready(function()
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpLicense"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="License Type" />
+				<%licenseValue=getLicnse(id.getLicenseId())!=null?getLicnse(id.getLicenseId()):""; %>
+				<liferay-ui:search-container-column-text name="License Type" 
+				value='<%=licenseValue  %>'/>
 				<liferay-ui:search-container-column-text name="Issued Date" property="issuedDate"/>
 				<liferay-ui:search-container-column-text name="Expiry Date" property="expiryDate" />
 			</liferay-ui:search-container-row>
