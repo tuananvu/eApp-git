@@ -177,7 +177,7 @@ YUI().use(
 	
 	<div class="row-fluid">
 		<aui:input name="shiftId" type="hidden" id="shiftId" />
-		<aui:input name="workshiftName"
+		<aui:input name="workshiftName" showRequiredLabel="false"
 				type="text" label="Shift Name">
 				<aui:validator name="required" />
 			</aui:input>
