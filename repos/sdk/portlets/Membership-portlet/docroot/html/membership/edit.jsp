@@ -105,7 +105,7 @@ AUI().use(
   <aui:form name="myForm" action="<%=updateMemberships.toString()%>">
   <aui:input name="membershipId" type="hidden" id="membershipId"  value="<%=editMembership.getMembershipId()%>"/>
 		<div class="row-fluid">
-			<div class="span3">
+			<div class="span3 text-right">
 				<label>Membership Name</label>
 			</div>
 			<div class="span6">		
