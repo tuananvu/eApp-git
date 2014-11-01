@@ -14,6 +14,7 @@
 
 package com.rknowsys.eapp.hrm.service.persistence;
 
+import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.cache.CacheRegistryUtil;
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
@@ -38,6 +39,8 @@ import com.liferay.portal.kernel.util.UnmodifiableList;
 import com.liferay.portal.model.CacheModel;
 import com.liferay.portal.model.ModelListener;
 import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
+import com.liferay.portal.service.persistence.impl.TableMapper;
+import com.liferay.portal.service.persistence.impl.TableMapperFactory;
 
 import com.rknowsys.eapp.hrm.NoSuchLocationException;
 import com.rknowsys.eapp.hrm.model.Location;
@@ -48,6 +51,7 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -729,6 +733,8 @@ public class LocationPersistenceImpl extends BasePersistenceImpl<Location>
 	protected Location removeImpl(Location location) throws SystemException {
 		location = toUnwrappedModel(location);
 
+		locationToHolidayTableMapper.deleteLeftPrimaryKeyTableMappings(location.getPrimaryKey());
+
 		Session session = null;
 
 		try {
@@ -843,7 +849,6 @@ public class LocationPersistenceImpl extends BasePersistenceImpl<Location>
 		locationImpl.setPhone(location.getPhone());
 		locationImpl.setFax(location.getFax());
 		locationImpl.setNotes(location.getNotes());
-		locationImpl.setJobId(location.getJobId());
 
 		return locationImpl;
 	}
@@ -1119,6 +1124,291 @@ public class LocationPersistenceImpl extends BasePersistenceImpl<Location>
 		return count.intValue();
 	}
 
+	/**
+	 * Returns all the Holidaies associated with the location.
+	 *
+	 * @param pk the primary key of the location
+	 * @return the Holidaies associated with the location
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<com.rknowsys.eapp.hrm.model.Holiday> getHolidaies(long pk)
+		throws SystemException {
+		return getHolidaies(pk, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+	}
+
+	/**
+	 * Returns a range of all the Holidaies associated with the location.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LocationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param pk the primary key of the location
+	 * @param start the lower bound of the range of locations
+	 * @param end the upper bound of the range of locations (not inclusive)
+	 * @return the range of Holidaies associated with the location
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<com.rknowsys.eapp.hrm.model.Holiday> getHolidaies(long pk,
+		int start, int end) throws SystemException {
+		return getHolidaies(pk, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the Holidaies associated with the location.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LocationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param pk the primary key of the location
+	 * @param start the lower bound of the range of locations
+	 * @param end the upper bound of the range of locations (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of Holidaies associated with the location
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public List<com.rknowsys.eapp.hrm.model.Holiday> getHolidaies(long pk,
+		int start, int end, OrderByComparator orderByComparator)
+		throws SystemException {
+		return locationToHolidayTableMapper.getRightBaseModels(pk, start, end,
+			orderByComparator);
+	}
+
+	/**
+	 * Returns the number of Holidaies associated with the location.
+	 *
+	 * @param pk the primary key of the location
+	 * @return the number of Holidaies associated with the location
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public int getHolidaiesSize(long pk) throws SystemException {
+		long[] pks = locationToHolidayTableMapper.getRightPrimaryKeys(pk);
+
+		return pks.length;
+	}
+
+	/**
+	 * Returns <code>true</code> if the Holiday is associated with the location.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidayPK the primary key of the Holiday
+	 * @return <code>true</code> if the Holiday is associated with the location; <code>false</code> otherwise
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public boolean containsHoliday(long pk, long holidayPK)
+		throws SystemException {
+		return locationToHolidayTableMapper.containsTableMapping(pk, holidayPK);
+	}
+
+	/**
+	 * Returns <code>true</code> if the location has any Holidaies associated with it.
+	 *
+	 * @param pk the primary key of the location to check for associations with Holidaies
+	 * @return <code>true</code> if the location has any Holidaies associated with it; <code>false</code> otherwise
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public boolean containsHolidaies(long pk) throws SystemException {
+		if (getHolidaiesSize(pk) > 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	/**
+	 * Adds an association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidayPK the primary key of the Holiday
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addHoliday(long pk, long holidayPK) throws SystemException {
+		locationToHolidayTableMapper.addTableMapping(pk, holidayPK);
+	}
+
+	/**
+	 * Adds an association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holiday the Holiday
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addHoliday(long pk, com.rknowsys.eapp.hrm.model.Holiday holiday)
+		throws SystemException {
+		locationToHolidayTableMapper.addTableMapping(pk, holiday.getPrimaryKey());
+	}
+
+	/**
+	 * Adds an association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidayPKs the primary keys of the Holidaies
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addHolidaies(long pk, long[] holidayPKs)
+		throws SystemException {
+		for (long holidayPK : holidayPKs) {
+			locationToHolidayTableMapper.addTableMapping(pk, holidayPK);
+		}
+	}
+
+	/**
+	 * Adds an association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidaies the Holidaies
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void addHolidaies(long pk,
+		List<com.rknowsys.eapp.hrm.model.Holiday> holidaies)
+		throws SystemException {
+		for (com.rknowsys.eapp.hrm.model.Holiday holiday : holidaies) {
+			locationToHolidayTableMapper.addTableMapping(pk,
+				holiday.getPrimaryKey());
+		}
+	}
+
+	/**
+	 * Clears all associations between the location and its Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location to clear the associated Holidaies from
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void clearHolidaies(long pk) throws SystemException {
+		locationToHolidayTableMapper.deleteLeftPrimaryKeyTableMappings(pk);
+	}
+
+	/**
+	 * Removes the association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidayPK the primary key of the Holiday
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeHoliday(long pk, long holidayPK)
+		throws SystemException {
+		locationToHolidayTableMapper.deleteTableMapping(pk, holidayPK);
+	}
+
+	/**
+	 * Removes the association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holiday the Holiday
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeHoliday(long pk,
+		com.rknowsys.eapp.hrm.model.Holiday holiday) throws SystemException {
+		locationToHolidayTableMapper.deleteTableMapping(pk,
+			holiday.getPrimaryKey());
+	}
+
+	/**
+	 * Removes the association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidayPKs the primary keys of the Holidaies
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeHolidaies(long pk, long[] holidayPKs)
+		throws SystemException {
+		for (long holidayPK : holidayPKs) {
+			locationToHolidayTableMapper.deleteTableMapping(pk, holidayPK);
+		}
+	}
+
+	/**
+	 * Removes the association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidaies the Holidaies
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void removeHolidaies(long pk,
+		List<com.rknowsys.eapp.hrm.model.Holiday> holidaies)
+		throws SystemException {
+		for (com.rknowsys.eapp.hrm.model.Holiday holiday : holidaies) {
+			locationToHolidayTableMapper.deleteTableMapping(pk,
+				holiday.getPrimaryKey());
+		}
+	}
+
+	/**
+	 * Sets the Holidaies associated with the location, removing and adding associations as necessary. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidayPKs the primary keys of the Holidaies to be associated with the location
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void setHolidaies(long pk, long[] holidayPKs)
+		throws SystemException {
+		Set<Long> newHolidayPKsSet = SetUtil.fromArray(holidayPKs);
+		Set<Long> oldHolidayPKsSet = SetUtil.fromArray(locationToHolidayTableMapper.getRightPrimaryKeys(
+					pk));
+
+		Set<Long> removeHolidayPKsSet = new HashSet<Long>(oldHolidayPKsSet);
+
+		removeHolidayPKsSet.removeAll(newHolidayPKsSet);
+
+		for (long removeHolidayPK : removeHolidayPKsSet) {
+			locationToHolidayTableMapper.deleteTableMapping(pk, removeHolidayPK);
+		}
+
+		newHolidayPKsSet.removeAll(oldHolidayPKsSet);
+
+		for (long newHolidayPK : newHolidayPKsSet) {
+			locationToHolidayTableMapper.addTableMapping(pk, newHolidayPK);
+		}
+	}
+
+	/**
+	 * Sets the Holidaies associated with the location, removing and adding associations as necessary. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	 *
+	 * @param pk the primary key of the location
+	 * @param holidaies the Holidaies to be associated with the location
+	 * @throws SystemException if a system exception occurred
+	 */
+	@Override
+	public void setHolidaies(long pk,
+		List<com.rknowsys.eapp.hrm.model.Holiday> holidaies)
+		throws SystemException {
+		try {
+			long[] holidayPKs = new long[holidaies.size()];
+
+			for (int i = 0; i < holidaies.size(); i++) {
+				com.rknowsys.eapp.hrm.model.Holiday holiday = holidaies.get(i);
+
+				holidayPKs[i] = holiday.getPrimaryKey();
+			}
+
+			setHolidaies(pk, holidayPKs);
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			FinderCacheUtil.clearCache(LocationModelImpl.MAPPING_TABLE_HRM_LOCATIONS_HOLIDAYS_NAME);
+		}
+	}
+
 	@Override
 	protected Set<String> getBadColumnNames() {
 		return _badColumnNames;
@@ -1147,6 +1437,9 @@ public class LocationPersistenceImpl extends BasePersistenceImpl<Location>
 				_log.error(e);
 			}
 		}
+
+		locationToHolidayTableMapper = TableMapperFactory.getTableMapper("hrm_locations_holidays",
+				"locationId", "holidayId", this, holidayPersistence);
 	}
 
 	public void destroy() {
@@ -1156,6 +1449,9 @@ public class LocationPersistenceImpl extends BasePersistenceImpl<Location>
 		FinderCacheUtil.removeCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
 	}
 
+	@BeanReference(type = HolidayPersistence.class)
+	protected HolidayPersistence holidayPersistence;
+	protected TableMapper<Location, com.rknowsys.eapp.hrm.model.Holiday> locationToHolidayTableMapper;
 	private static final String _SQL_SELECT_LOCATION = "SELECT location FROM Location location";
 	private static final String _SQL_SELECT_LOCATION_WHERE = "SELECT location FROM Location location WHERE ";
 	private static final String _SQL_COUNT_LOCATION = "SELECT COUNT(location) FROM Location location";

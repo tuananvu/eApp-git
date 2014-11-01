@@ -2048,10 +2048,12 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   /* ---------- Extras ---------- */ }
   .aui body {
     color: #555;
-    font-weight: 200; }
+    font-weight: 200;
+    font-family: 'Open Sans', sans-serif; }
   .aui a {
     color: #009AE5;
-    font-weight: 200; }
+    font-weight: 200;
+    text-decoration: none; }
     .aui a:hover {
       color: #009AE5; }
     .aui a [class^="icon-"], .aui a [class*=" icon-"] {
@@ -2059,22 +2061,29 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   .aui .alert {
     word-wrap: break-word; }
   .aui .table {
-    font-size: 15px;
-    overflow: hidden; }
+    font-size: 14px;
+    overflow: hidden;
+    margin-bottom: 0px; }
     .aui .table td {
       background-color: #F9F9F9; }
     .aui .table thead th {
       background-color: #F0EFEF;
-      font-size: 15px;
-      font-weight: normal; }
+      font-size: 14px;
+      font-weight: bold; }
     .aui .table .table-sort-liner a {
       color: #555;
-      font-weight: normal;
+      font-weight: bold;
       text-decoration: underline; }
   .aui .table-striped tbody > tr:nth-child(odd) > td, .aui .table-striped tbody > tr:nth-child(odd) > th {
     background-color: #FFF; }
   .aui .table-hover tbody tr:hover > td, .aui .table-hover tbody tr:hover > th {
     background-color: #EDF8FD; }
+  .aui .table-bordered th {
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+    -ms-border-radius: 0px !important;
+    -o-border-radius: 0px !important;
+    border-radius: 0px !important; }
   .aui input[type="color"], .aui input[type="date"], .aui input[type="datetime"], .aui input[type="datetime-local"], .aui input[type="email"], .aui input[type="month"], .aui input[type="number"], .aui input[type="password"], .aui input[type="search"], .aui input[type="tel"], .aui input[type="text"], .aui input[type="time"], .aui input[type="url"], .aui input[type="week"], .aui select, .aui textarea, .aui .uneditable-input {
     border: 1px solid #DDD;
     color: #8D8D8D;
@@ -2089,8 +2098,9 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     margin-top: 0; }
   .aui label {
     color: #555;
-    font-size: 15px;
-    font-weight: 200; }
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 28px; }
   .aui li {
     line-height: 27px; }
   .aui select:focus {
@@ -2101,6 +2111,12 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     margin: 0; }
   .aui .field-wrapper .btn {
     margin-top: 0; }
+  .aui .btn {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px; }
   .aui .btn.disabled, .aui .btn[disabled] {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
     opacity: 0.4; }
@@ -2141,7 +2157,7 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   .aui .portlet-nested-portlets .portlet-body .portlet {
     border: 1px solid #E5E5E5; }
   .aui .portlet-borderless-container {
-    padding: 10px 0; }
+    padding: 15px; }
   .aui .portlet-options .dropdown-toggle .caret {
     display: none; }
   .aui .taglib-icon-help img {
@@ -2496,24 +2512,15 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     -moz-box-shadow: none;
     box-shadow: none; }
   .aui .table {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-    border-radius: 5px; }
-  .aui input[type="color"], .aui input[type="date"], .aui input[type="datetime"], .aui input[type="datetime-local"], .aui input[type="month"], .aui input[type="number"], .aui input[type="password"], .aui input[type="text"], .aui input[type="time"], .aui input[type="week"], .aui input[type="email"], .aui input[type="url"], .aui input[type="search"], .aui input[type="tel"], .aui textarea, .aui .uneditable-input {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    -ms-border-radius: 0;
-    -o-border-radius: 0;
-    border-radius: 0;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none; }
-    .aui input[type="color"]:focus, .aui input[type="date"]:focus, .aui input[type="datetime"]:focus, .aui input[type="datetime-local"]:focus, .aui input[type="month"]:focus, .aui input[type="number"]:focus, .aui input[type="password"]:focus, .aui input[type="text"]:focus, .aui input[type="time"]:focus, .aui input[type="week"]:focus, .aui input[type="email"]:focus, .aui input[type="url"]:focus, .aui input[type="search"]:focus, .aui input[type="tel"]:focus, .aui textarea:focus, .aui .uneditable-input:focus {
-      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6); }
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    border-radius: 0px; }
+  .aui input[type="color"]:focus, .aui input[type="date"]:focus, .aui input[type="datetime"]:focus, .aui input[type="datetime-local"]:focus, .aui input[type="month"]:focus, .aui input[type="number"]:focus, .aui input[type="password"]:focus, .aui input[type="text"]:focus, .aui input[type="time"]:focus, .aui input[type="week"]:focus, .aui input[type="email"]:focus, .aui input[type="url"]:focus, .aui input[type="search"]:focus, .aui input[type="tel"]:focus, .aui textarea:focus, .aui .uneditable-input:focus {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6); }
   .aui input.search-query {
     border-radius: 15px; }
   .aui .tagselector-focused .tagselector-content .textboxlistentry-holder {
@@ -3011,7 +3018,7 @@ body.blue, .blue .portlet {
     margin: 15px 0; }
   .aui #wrapper {
     position: relative;
-    padding: 0px 5em; }
+    padding: 10px 0em; }
   .aui .main-content {
     background: #f2f4f8; }
   .aui #content {
@@ -3033,12 +3040,7 @@ body.blue, .blue .portlet {
     right: 5px;
     z-index: 200; }
   .aui #sign-in {
-    background: url(@theme_image_path@/common/key.png) no-repeat 3px 50%;
-    font-weight: bold;
-    padding: 5px 5px 5px 25px;
-    position: absolute;
-    right: 0;
-    top: -1.2em; }
+    float: right; }
   .aui .redirected-to-message {
     margin-right: 10px; }
     .aui .redirected-to-message a {
@@ -3084,9 +3086,11 @@ body.blue, .blue .portlet {
       background: transparent;
       text-decoration: underline; }
   .aui .dockbar .navbar-inner, .aui .dockbar-split .dockbar .navbar-inner {
-    background: #4d90fd; }
+    background: #fff; }
     .aui .dockbar .navbar-inner .nav > li, .aui .dockbar-split .dockbar .navbar-inner .nav > li {
-      background: #4d90fd; }
+      background: #fff; }
+      .aui .dockbar .navbar-inner .nav > li a, .aui .dockbar-split .dockbar .navbar-inner .nav > li a {
+        color: #000; }
   .aui .dockbar-split .dockbar .info-button {
     top: 9px; }
   .aui .dockbar-split .dockbar .navbar-inner .nav-account-controls {
@@ -3174,6 +3178,19 @@ body.blue, .blue .portlet {
     .aui #navigation .custom-nav > li {
       border-bottom: 1px solid #1a1c20;
       border-top: 1px solid #32353e; }
+    .aui #navigation .custom-nav .child-menu {
+      background: #1a1c20;
+      margin-left: 0px !important; }
+      .aui #navigation .custom-nav .child-menu li {
+        list-style: none; }
+        .aui #navigation .custom-nav .child-menu li a {
+          padding: 5px 15px 5px 25px;
+          color: #c9d4f6;
+          display: block; }
+        .aui #navigation .custom-nav .child-menu li:hover {
+          background: #484d58; }
+      .aui #navigation .custom-nav .child-menu .selected {
+        background: #484d58; }
   .aui #navigation .search-area {
     height: 35px;
     padding: 15px 10px 10px;
@@ -3290,6 +3307,8 @@ body.blue, .blue .portlet {
     float: none; }
   .aui .portlet-journal-content .lfr-icon-actions {
     margin-bottom: 3px; }
+  .aui .lfr-search-container {
+    margin-top: 10px; }
   .aui #navigation .nav li.open > a {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;

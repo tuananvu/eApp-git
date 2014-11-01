@@ -1,6 +1,6 @@
 @import "compass";
 @import "mixins";
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
 @import url(custom_common.css);
 @import url(color_schemes/common.css);
 @import url(color_schemes/dark.css);
@@ -8,7 +8,6 @@
 @import url(color_schemes/orange.css);
 @import url(color_schemes/green.css);
 @import url(color_schemes/blue.css);
-
 
 $dockbarGradientEnd: #1273C7;
 $dockbarGradientStart: #118ADE;
@@ -76,7 +75,7 @@ $dockbarOpenGradientStart: #0EA6F9;
 	}
 	#wrapper {
 		position: relative;
-		padding: 0px 5em;
+		padding: 10px 0em;
 	}
 	.main-content {
 		background:#f2f4f8;
@@ -113,12 +112,7 @@ $dockbarOpenGradientStart: #0EA6F9;
 	}
 
 	#sign-in {
-		background: url(@theme_image_path@/common/key.png) no-repeat 3px 50%;
-		font-weight: bold;
-		padding: 5px 5px 5px 25px;
-		position: absolute;
-		right: 0;
-		top: -1.2em;
+		float:right;
 	}
 
 	.redirected-to-message {
@@ -141,6 +135,8 @@ $dockbarOpenGradientStart: #0EA6F9;
 	.taglib-portal-message {
 		margin-bottom: 0;
 	}
+	
+	
 
 	/* ---------- Dockbar ---------- */
 
@@ -219,10 +215,13 @@ $dockbarOpenGradientStart: #0EA6F9;
 
 	.dockbar, .dockbar-split .dockbar {
 		.navbar-inner {
-			background:#4d90fd;
+			background:#fff;
 			.nav {
 				> li {
-					background:#4d90fd;
+					background:#fff;
+					a {
+						color:#000;
+					}
 				}
 			}
 		}
@@ -388,6 +387,24 @@ $dockbarOpenGradientStart: #0EA6F9;
 			> li {
 				border-bottom: 1px solid #1a1c20;
 				border-top: 1px solid #32353e;
+			}
+			.child-menu {
+				background:#1a1c20;
+				margin-left:0px !important;
+				li {
+					list-style:none;
+					a {
+						padding:5px 15px 5px 25px;
+						color:#c9d4f6;
+						display:block;
+					}
+					&:hover {
+						background:lighten(#1a1c20,20%);
+					}
+				}
+				.selected {
+						background:lighten(#1a1c20,20%);
+					}
 			}
 		}
 		
@@ -609,6 +626,10 @@ $dockbarOpenGradientStart: #0EA6F9;
 
 	.portlet-journal-content .lfr-icon-actions {
 		margin-bottom: 3px;
+	}
+	
+	.lfr-search-container {
+		margin-top:10px;
 	}
 
 	/* ---------- Extras ---------- */

@@ -10,12 +10,13 @@
 	body {
 		color: #555;
 		font-weight: 200;
+		font-family: 'Open Sans', sans-serif;
 	}
 
 	a {
 		color: #009AE5;
 		font-weight: 200;
-
+		text-decoration:none;
 		&:hover {
 			color: #009AE5;
 		}
@@ -30,8 +31,9 @@
 	}
 
 	.table {
-		font-size: 15px;
+		font-size: 14px;
 		overflow: hidden;
+		margin-bottom:0px;
 
 		td {
 			background-color: #F9F9F9;
@@ -39,13 +41,13 @@
 
 		thead th {
 			background-color: #F0EFEF;
-			font-size: 15px;
-			font-weight: normal;
+			font-size: 14px;
+			font-weight: bold;
 		}
 
 		.table-sort-liner a {
 			color: #555;
-			font-weight: normal;
+			font-weight: bold;
 			text-decoration: underline;
 		}
 	}
@@ -59,6 +61,11 @@
 	.table-hover tbody tr:hover {
 		> td, > th {
 			background-color: #EDF8FD;
+		}
+	}
+	.table-bordered {
+		th {
+			@include border-radius(0px !important);
 		}
 	}
 
@@ -84,8 +91,10 @@
 
 	label {
 		color: #555;
-		font-size: 15px;
-		font-weight: 200;
+		font-size: 14px;
+		font-weight: bold;
+		line-height:28px;
+		
 	}
 
 	li {
@@ -106,6 +115,9 @@
 
 	.field-wrapper .btn {
 		margin-top: 0;
+	}
+	.btn {
+		@include border-radius(0px);
 	}
 
 	.btn.disabled, .btn[disabled] {
@@ -185,7 +197,7 @@
 	}
 
 	.portlet-borderless-container {
-		padding: 10px 0;
+		padding: 15px;
 	}
 
 	.portlet-options {
@@ -835,12 +847,10 @@
 	}
 
 	.table {
-		@include border-radius(5px);
+		@include border-radius(0px);
 	}
 
 	input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="number"], input[type="password"], input[type="text"], input[type="time"], input[type="week"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], textarea, .uneditable-input {
-		@include border-radius(0);
-		@include box-shadow(none);
 
 		&:focus {
 			@include box-shadow(inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6));

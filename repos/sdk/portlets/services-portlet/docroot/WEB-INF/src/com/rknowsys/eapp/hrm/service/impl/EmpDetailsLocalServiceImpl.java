@@ -41,6 +41,7 @@ public class EmpDetailsLocalServiceImpl extends EmpDetailsLocalServiceBaseImpl {
 	 *
 	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmpDetailsLocalServiceUtil} to access the emp details local service.
 	 */
+	
 	public List<EmpDetails> findEmpDetails(String empname,String empid,String empstatus,String supervisorname,String jobtitle,String subunit,int begin, int end)
 			throws SystemException {
 		      System.out.println("in empdetailslocalserviceimpl.....");

@@ -14,13 +14,9 @@
 	#set($site_logo = "$images_folder/hrm-logo1.png")
 	#set($logo_description = "HRM")
 	#set($site_name = "RK HRM")
-	<style type="text/css">
-		.logo.custom-logo img {
-			width:200px;
-			height:34px;
-		}
-	</style>
-	
+	#set($site_logo_height = "auto")
+	#set($site_logo_width = "auto")
+
 </head>
 
 <body class="$css_class">
@@ -29,16 +25,20 @@
 
 $theme.include($body_top_include)
 
- 	#dockbar()
+#if ($is_signed_in)
+	#dockbar()
+#end
 
-<div class="container-fluid" id="wrapper">
+<div class="container" id="wrapper">
 	<header id="banner" role="banner">
 		<div id="heading">
 			<h1 class="site-title">
 				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
 					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
 				</a>
-
+				 #if (!$is_signed_in)
+				<a href="$sign_in_url" class="btn btn-success" id="sign-in" rel="nofollow" alt="$sign_in_text"><i class="icon-user"></i> $sign_in_text </a>
+				#end
 			</h1>
 		</div>
 	</header>

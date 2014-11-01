@@ -1,3 +1,2 @@
-#set ($css_class = "${css_class} dockbar-split")
 
 #set($company_name = "RK HRM")
