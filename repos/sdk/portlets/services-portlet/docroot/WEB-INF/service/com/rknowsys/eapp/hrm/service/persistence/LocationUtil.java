@@ -418,6 +418,231 @@ public class LocationUtil {
 		return getPersistence().countAll();
 	}
 
+	/**
+	* Returns all the Holidaies associated with the location.
+	*
+	* @param pk the primary key of the location
+	* @return the Holidaies associated with the location
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getHolidaies(
+		long pk) throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().getHolidaies(pk);
+	}
+
+	/**
+	* Returns a range of all the Holidaies associated with the location.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LocationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param pk the primary key of the location
+	* @param start the lower bound of the range of locations
+	* @param end the upper bound of the range of locations (not inclusive)
+	* @return the range of Holidaies associated with the location
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getHolidaies(
+		long pk, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().getHolidaies(pk, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the Holidaies associated with the location.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.LocationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param pk the primary key of the location
+	* @param start the lower bound of the range of locations
+	* @param end the upper bound of the range of locations (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of Holidaies associated with the location
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getHolidaies(
+		long pk, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().getHolidaies(pk, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns the number of Holidaies associated with the location.
+	*
+	* @param pk the primary key of the location
+	* @return the number of Holidaies associated with the location
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int getHolidaiesSize(long pk)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().getHolidaiesSize(pk);
+	}
+
+	/**
+	* Returns <code>true</code> if the Holiday is associated with the location.
+	*
+	* @param pk the primary key of the location
+	* @param holidayPK the primary key of the Holiday
+	* @return <code>true</code> if the Holiday is associated with the location; <code>false</code> otherwise
+	* @throws SystemException if a system exception occurred
+	*/
+	public static boolean containsHoliday(long pk, long holidayPK)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().containsHoliday(pk, holidayPK);
+	}
+
+	/**
+	* Returns <code>true</code> if the location has any Holidaies associated with it.
+	*
+	* @param pk the primary key of the location to check for associations with Holidaies
+	* @return <code>true</code> if the location has any Holidaies associated with it; <code>false</code> otherwise
+	* @throws SystemException if a system exception occurred
+	*/
+	public static boolean containsHolidaies(long pk)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().containsHolidaies(pk);
+	}
+
+	/**
+	* Adds an association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidayPK the primary key of the Holiday
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void addHoliday(long pk, long holidayPK)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().addHoliday(pk, holidayPK);
+	}
+
+	/**
+	* Adds an association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holiday the Holiday
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void addHoliday(long pk,
+		com.rknowsys.eapp.hrm.model.Holiday holiday)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().addHoliday(pk, holiday);
+	}
+
+	/**
+	* Adds an association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidayPKs the primary keys of the Holidaies
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void addHolidaies(long pk, long[] holidayPKs)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().addHolidaies(pk, holidayPKs);
+	}
+
+	/**
+	* Adds an association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidaies the Holidaies
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void addHolidaies(long pk,
+		java.util.List<com.rknowsys.eapp.hrm.model.Holiday> holidaies)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().addHolidaies(pk, holidaies);
+	}
+
+	/**
+	* Clears all associations between the location and its Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location to clear the associated Holidaies from
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void clearHolidaies(long pk)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().clearHolidaies(pk);
+	}
+
+	/**
+	* Removes the association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidayPK the primary key of the Holiday
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeHoliday(long pk, long holidayPK)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeHoliday(pk, holidayPK);
+	}
+
+	/**
+	* Removes the association between the location and the Holiday. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holiday the Holiday
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeHoliday(long pk,
+		com.rknowsys.eapp.hrm.model.Holiday holiday)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeHoliday(pk, holiday);
+	}
+
+	/**
+	* Removes the association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidayPKs the primary keys of the Holidaies
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeHolidaies(long pk, long[] holidayPKs)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeHolidaies(pk, holidayPKs);
+	}
+
+	/**
+	* Removes the association between the location and the Holidaies. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidaies the Holidaies
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeHolidaies(long pk,
+		java.util.List<com.rknowsys.eapp.hrm.model.Holiday> holidaies)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeHolidaies(pk, holidaies);
+	}
+
+	/**
+	* Sets the Holidaies associated with the location, removing and adding associations as necessary. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidayPKs the primary keys of the Holidaies to be associated with the location
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void setHolidaies(long pk, long[] holidayPKs)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().setHolidaies(pk, holidayPKs);
+	}
+
+	/**
+	* Sets the Holidaies associated with the location, removing and adding associations as necessary. Also notifies the appropriate model listeners and clears the mapping table finder cache.
+	*
+	* @param pk the primary key of the location
+	* @param holidaies the Holidaies to be associated with the location
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void setHolidaies(long pk,
+		java.util.List<com.rknowsys.eapp.hrm.model.Holiday> holidaies)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().setHolidaies(pk, holidaies);
+	}
+
 	public static LocationPersistence getPersistence() {
 		if (_persistence == null) {
 			_persistence = (LocationPersistence)PortletBeanLocatorUtil.locate(com.rknowsys.eapp.hrm.service.ClpSerializer.getServletContextName(),

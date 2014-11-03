@@ -14,6 +14,104 @@ DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
 	List<EmpJob> empJob =EmpJobLocalServiceUtil
 			.dynamicQuery(jobDynamicQuery);
 %>
+<%!
+public String getJobTitleValue(long jobTId) {
+	if(jobTId!=0)
+	{
+	JobTitle jobT = null;
+	try {
+		jobT = JobTitleLocalServiceUtil.getJobTitle(jobTId);
+	} catch (Exception p) {
+	}
+	return jobT.getTitle();
+	}
+	return "";
+}
+public String getSubUnitValue(long suId)
+{	
+	if(suId!=0)
+	{
+	SubUnit subUt = null;
+	try {
+		subUt = SubUnitLocalServiceUtil.getSubUnit(suId);
+	} catch (Exception p) {
+	}
+	return subUt.getName();
+	}
+	else
+	{
+		return "";
+	}
+}
+public String getEmpStatusValue(long empStId)
+{	if(empStId!=0)
+	{
+	EmploymentStatus empStatus = null;
+	try {
+		empStatus = EmploymentStatusLocalServiceUtil.getEmploymentStatus(empStId);
+	} catch (Exception p) {
+	}
+	return empStatus.getEmploymentstatus();
+	}
+	else
+	{
+		return "";
+	}
+}
+public String getShiftValue(long shId)
+{	
+	if(shId!=0)
+	{
+	Workshift ws = null;
+	try {
+		ws = WorkshiftLocalServiceUtil.getWorkshift(shId);
+	} catch (Exception p) {
+	}
+	return ws.getWorkshiftName();
+	}
+	else
+	{
+		return "";
+	}
+}
+public String getLocationValue(long lId)
+{	
+	if(lId!=0)
+	{
+	Location loc = null;
+	try {
+		loc = LocationLocalServiceUtil.getLocation(lId);
+	} catch (Exception p) {
+	}
+	if(loc==null)
+		return "";
+	return loc.getName();
+	}
+	else
+	{
+		return "";
+	}
+}
+public String getCategoryValue(long jcId)
+{	
+	if(jcId!=0)
+	{
+	JobCategory jc = null;
+	try {
+		jc = JobCategoryLocalServiceUtil.getJobCategory(jcId);
+	} catch (Exception p) {
+	}
+	if(jc==null)
+		return "";
+	return jc.getJobcategory();
+	}
+	else
+	{
+		return "";
+	}
+}
+
+%>
 <div class="panel">
 	<div class="panel-heading">
 		<h3>Job</h3>
@@ -186,7 +284,7 @@ DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
 			rowChecker="<%= new RowChecker(renderResponse) %>">
 			<liferay-ui:search-container-results>
 				<%
-					List<EmpJob> empJobHistory = EmpJobLocalServiceUtil.findByEmpJobDetails(0, 2)!=null?EmpJobLocalServiceUtil.findByEmpJobDetails(0, 2):
+					List<EmpJob> empJobHistory = 
 						EmpJobLocalServiceUtil.getEmpJobs(-1, -1);
 							results = empJobHistory;
 							total = empJobHistory.size();
@@ -197,14 +295,19 @@ DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
 			<liferay-ui:search-container-row className="EmpJob" modelVar="id">
 				<liferay-ui:search-container-column-text name="Effective Date" property="effectiveDate"/>
 				<liferay-ui:search-container-column-text name="End Date" property="probationEndDate" />
-				<%-- <liferay-ui:search-container-column-text name="Job Title" property="jobTitle"/>
-				<liferay-ui:search-container-column-text name="Employment Status" />
-				<liferay-ui:search-container-column-text name="Job Category" />
-				<liferay-ui:search-container-column-text name="Sub Unit" />
-				<liferay-ui:search-container-column-text name="Location" />
-				<liferay-ui:search-container-column-text name="Comment" />
+				<liferay-ui:search-container-column-text name="Job Title" value='<%= 
+				getJobTitleValue(id.getJobTitleId())!=null?getJobTitleValue(id.getJobTitleId()):"" %>'/>
+				<liferay-ui:search-container-column-text name="Employment Status"
+				value='<%= getEmpStatusValue(id.getEmploymentStatusId())!=null?getEmpStatusValue(id.getEmploymentStatusId()):"" %>' />
+				<liferay-ui:search-container-column-text name="Job Category" 
+				value='<%= getCategoryValue(id.getJobCategoryId())!=null?getCategoryValue(id.getJobCategoryId()):"" %>'/>
+				<liferay-ui:search-container-column-text name="Sub Unit" 
+				value='<%= getSubUnitValue(id.getSubUnitId())!=null?getSubUnitValue(id.getSubUnitId()):"" %>'/>
+				<liferay-ui:search-container-column-text name="Location" 
+				value='<%= getLocationValue(id.getLocationId())!=null?getLocationValue(id.getLocationId()):""%>'/>
+				<liferay-ui:search-container-column-text name="Comment" property="comments"/>
 				<liferay-ui:search-container-column-text name="Contract Start Date" />
-				<liferay-ui:search-container-column-text name="Contract End Date" /> --%>
+				<liferay-ui:search-container-column-text name="Contract End Date" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>

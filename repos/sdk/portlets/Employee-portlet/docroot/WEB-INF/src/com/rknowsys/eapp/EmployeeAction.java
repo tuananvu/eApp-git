@@ -111,6 +111,31 @@ public class EmployeeAction extends MVCPortlet {
 	 * @throws PortletException
 	 * @throws SystemException
 	 */
+	public void renderEmployeeDetails(ActionRequest actionRequest,ActionResponse actionResponse)
+			throws IOException,PortletException,SystemException
+			{  long empId=ParamUtil.getLong(actionRequest, "prk");
+				Employee emp=null;
+				try {
+					emp = EmployeeLocalServiceUtil.getEmployee(empId);
+				} catch (PortalException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(emp!=null)
+				{
+				Map map=new HashMap();
+				map.put("empId", empId);
+				map.put("jsp", "jsp1");
+				map.put("fileId", emp.getImageId());
+			actionRequest.getPortletSession(true).setAttribute("empId",
+				map,PortletSession.APPLICATION_SCOPE);
+				}
+				else
+				{
+					System.out.println("This employee is no longer available");
+				}
+		    actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
+			}
 	public void saveEmpDetails(ActionRequest actionRequest,ActionResponse actionResponse) 
 			throws IOException,PortletException, SystemException {
 			log.info("saveEmployeeDetails method");
@@ -122,6 +147,8 @@ public class EmployeeAction extends MVCPortlet {
 			ActionResponse actionResponse) {
 			long fileEntryId=ParamUtil.getLong(actionRequest, "fileIdemp");
 			Long empId=ParamUtil.getLong(actionRequest, "perEmpId");
+			Date date=new Date();
+			 ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 			String firstName = ParamUtil.getString(actionRequest,EMPLOYEE_FIRST_NAME_COL_NAME);
 			String middleName = ParamUtil.getString(actionRequest,EMPLOYEE_MIDDLE_NAME_COL_NAME);
 			String lastName = ParamUtil.getString(actionRequest,EMPLOYEE_LAST_NAME_COL_NAME);
@@ -157,6 +184,9 @@ public class EmployeeAction extends MVCPortlet {
 			empPersonalDetails.setLicenseNo(driverLicenseNo);
 			empPersonalDetails.setOtherId(otherId);
 			empPersonalDetails.setMaritalStatus(1);
+			empPersonalDetails.setCompanyId(themeDisplay.getCompanyId());
+			empPersonalDetails.setUserId(themeDisplay.getUserId());
+			empPersonalDetails.setModifiedDate(date);
 				try {
 					EmpPersonalDetailsLocalServiceUtil
 							.updateEmpPersonalDetails(empPersonalDetails);
@@ -188,6 +218,8 @@ public class EmployeeAction extends MVCPortlet {
 					"address_street1");
 			String addressStreet2 = ParamUtil.getString(actionRequest,
 					"address_street2");
+			 ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+			Date date=new Date();
 			String city=ParamUtil.getString(actionRequest, "city");
 			String state=ParamUtil.getString(actionRequest, "state");
 			String zip=ParamUtil.getString(actionRequest, "zip");
@@ -232,6 +264,10 @@ public class EmployeeAction extends MVCPortlet {
 				empContactDetails.setWorkEmail(workMail);
 				empContactDetails.setWorkTelephone(workTele);
 				empContactDetails.setEmployeeId(empId);
+				empContactDetails.setCreateDate(date);
+				empContactDetails.setUserId(themeDisplay.getUserId());
+				empContactDetails.setCompanyId(themeDisplay.getCompanyId());
+				empContactDetails.setGroupId(themeDisplay.getCompanyGroupId());
 				try {
 					EmpContactDetailsLocalServiceUtil
 							.addEmpContactDetails(empContactDetails);
@@ -261,6 +297,10 @@ public class EmployeeAction extends MVCPortlet {
 				empContactDetails.setPostalCode(zip);
 				empContactDetails.setWorkEmail(workMail);
 				empContactDetails.setWorkTelephone(workTele);
+				empContactDetails.setUserId(themeDisplay.getUserId());
+				empContactDetails.setCompanyId(themeDisplay.getCompanyId());
+				empContactDetails.setGroupId(themeDisplay.getCompanyGroupId());
+				empContactDetails.setModifiedDate(date);
 				try {
 					EmpContactDetailsLocalServiceUtil
 							.updateEmpContactDetails(empContactDetails);
@@ -285,6 +325,8 @@ public class EmployeeAction extends MVCPortlet {
 	public void updateContactDetails(ActionRequest actionRequest,ActionResponse actionResponse)
 	throws PortletException,IOException
 			{
+		    ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		    Date date=new Date();
 			System.out.println("updating emegergency contact details:updateContactDetails method");
 			long empId=ParamUtil.getLong(actionRequest, "emgEmpId");
 			long fileEntryId=ParamUtil.getLong(actionRequest, "conFileId");
@@ -302,12 +344,16 @@ public class EmployeeAction extends MVCPortlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			empEmergencyContact.setCompanyId(themeDisplay.getCompanyId());
+			empEmergencyContact.setGroupId(themeDisplay.getCompanyGroupId());
+			empEmergencyContact.setCreateDate(date);
 			empEmergencyContact.setEmployeeId(empId);
 			empEmergencyContact.setHomeTelephone(homeTele);
 			empEmergencyContact.setMobile(mobile);
 			empEmergencyContact.setRelationship(relationship);
 			empEmergencyContact.setName(emergencyName);
 			empEmergencyContact.setWorkTelephone(workTele);
+			empEmergencyContact.setModifiedDate(date);
 			try {
 				EmpEmergencyContactLocalServiceUtil.addEmpEmergencyContact(empEmergencyContact);
 			} catch (SystemException e) {
@@ -329,7 +375,9 @@ public class EmployeeAction extends MVCPortlet {
 	* </p>*/
 	public void updateAssignedDependents(ActionRequest actionRequest,
 		ActionResponse actionResponse)throws PortletException,IOException
-		{
+		{	
+		    ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+	        Date date=new Date();
 			System.out.println("updating dependents");
 			System.out.println("dependent name is"+ParamUtil.getString(actionRequest, "dependent_name"));
 			long fileEntryId=ParamUtil.getLong(actionRequest, "dependentFileId");
@@ -344,6 +392,11 @@ public class EmployeeAction extends MVCPortlet {
 					e.printStackTrace();
 				}
 			empDependent.setEmployeeId(empId);
+			empDependent.setCompanyId(themeDisplay.getCompanyId());
+			empDependent.setGroupId(themeDisplay.getCompanyGroupId());
+			empDependent.setUserId(themeDisplay.getUserId());
+			empDependent.setCreateDate(date);
+			empDependent.setModifiedDate(date);
 			empDependent.setName(name);
 			empDependent.setRelationship(relation);
 				try {
@@ -369,6 +422,8 @@ public class EmployeeAction extends MVCPortlet {
 	{		 
 		    long fileEntryId=ParamUtil.getLong(actionRequest, "reportFileId");
 			 String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
+			 ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		     Date date=new Date();
 			 System.out.println("Constants.CMD: " + cmd);
 			 String reportTo="",reportingMethod="";
 			 Long empId=0l;
@@ -377,13 +432,26 @@ public class EmployeeAction extends MVCPortlet {
 		     empId=ParamUtil.getLong(actionRequest, "empSupId");
 			 reportTo=ParamUtil.getString(actionRequest, "report_sup_name");
 			 reportingMethod=ParamUtil.getString(actionRequest, "reporting_sup_method");
+			 long supervisorId=ParamUtil.getLong(actionRequest, "supervisorId");
 			 EmpSupervisor empSupervisor=null;
 				 try {
-					empSupervisor=EmpSupervisorLocalServiceUtil.createEmpSupervisor(CounterLocalServiceUtil.increment());
-				} catch (SystemException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+						empSupervisor=EmpSupervisorLocalServiceUtil.createEmpSupervisor(CounterLocalServiceUtil.increment());
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				 empSupervisor.setEmployeeId(empId);
+				 empSupervisor.setReporterEmployeeId(supervisorId);
+				 empSupervisor.setCreateDate(date);
+				 empSupervisor.setCompanyId(themeDisplay.getCompanyId());
+				 empSupervisor.setGroupId(themeDisplay.getCompanyGroupId());
+				 empSupervisor.setUserId(themeDisplay.getUserId());
+					 try {
+						EmpSupervisorLocalServiceUtil.addEmpSupervisor(empSupervisor);
+						} catch (SystemException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 				 Map map=new HashMap();
 					map.put("empId", empId);
 					map.put("jsp", "jsp6");
@@ -416,6 +484,8 @@ public class EmployeeAction extends MVCPortlet {
 		{
 			String cmd = ParamUtil.getString(actionRequest, Constants.CMD);
 			long fileEntryId=ParamUtil.getLong(actionRequest, "QualFileId");
+			 ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		     Date date=new Date();
 			Long empId=0l;
 			 System.out.println("Constants.CMD: " + cmd);
 			 if (cmd.equals("empExperience")) {
@@ -439,6 +509,11 @@ public class EmployeeAction extends MVCPortlet {
 				 empWorkExp.setFromDate(fromDate);
 				 empWorkExp.setToDate(toDate);
 				 empWorkExp.setJobTitle(jobTitle);
+				 empWorkExp.setCreateDate(date);
+				 empWorkExp.setModifiedDate(date);
+				 empWorkExp.setUserId(themeDisplay.getUserId());
+				 empWorkExp.setCompanyId(themeDisplay.getCompanyId());
+				 empWorkExp.setGroupId(themeDisplay.getCompanyGroupId());
 				 try {
 					EmpWorkExpLocalServiceUtil.addEmpWorkExp(empWorkExp);
 					} catch (SystemException e) {
@@ -449,7 +524,7 @@ public class EmployeeAction extends MVCPortlet {
 			if (cmd.equals("empEducation")) {
 				 log.info("updating employee education");
 				 empId=ParamUtil.getLong(actionRequest, "empEduId");
-				 String level=ParamUtil.getString(actionRequest, "edu_level");
+				 long level=ParamUtil.getLong(actionRequest, "edu_level");
 				 String institute=ParamUtil.getString(actionRequest, "edu_institute");
 				 String splization=ParamUtil.getString(actionRequest, "edu_major");
 				 String year=ParamUtil.getString(actionRequest, "edu_year");
@@ -469,6 +544,12 @@ public class EmployeeAction extends MVCPortlet {
 				 education.setYear(year);
 				 education.setStartDate(from);
 				 education.setEndDate(to);
+				 education.setEducationId(level);
+				 education.setCreateDate(date);
+				 education.setModifiedDate(date);
+				 education.setCompanyId(themeDisplay.getCompanyId());
+				 education.setGroupId(themeDisplay.getCompanyGroupId());
+				 education.setUserId(themeDisplay.getUserId());
 				 try {
 					EmpEducationLocalServiceUtil.addEmpEducation(education);
 					} catch (SystemException e) {
@@ -479,7 +560,7 @@ public class EmployeeAction extends MVCPortlet {
 			 if (cmd.equals("empSkills")) {
 				 log.info("updating employee skills");
 				 empId=ParamUtil.getLong(actionRequest, "empSkillId");
-				 String skill=ParamUtil.getString(actionRequest, "emp_skill");
+				 long skill=ParamUtil.getLong(actionRequest, "emp_skill");
 				 String exp=ParamUtil.getString(actionRequest, "skill_exp");
 				 String comments=ParamUtil.getString(actionRequest, "skill_comments");
 				 EmpSkill empSkill=null;
@@ -492,6 +573,12 @@ public class EmployeeAction extends MVCPortlet {
 				 empSkill.setEmployeeId(empId);
 				 empSkill.setYears(exp);
 				 empSkill.setComments(comments);
+				 empSkill.setSkillId(skill);
+				 empSkill.setCreateDate(date);
+				 empSkill.setModifiedDate(date);
+				 empSkill.setCompanyId(themeDisplay.getCompanyId());
+				 empSkill.setGroupId(themeDisplay.getCompanyGroupId());
+				 empSkill.setUserId(themeDisplay.getUserId());
 				 try {
 					EmpSkillLocalServiceUtil.addEmpSkill(empSkill);
 					} catch (SystemException e) {
@@ -517,6 +604,11 @@ public class EmployeeAction extends MVCPortlet {
 				 empLanguage.setLanguageId(language);
 				 empLanguage.setLanguageSkill(skill);
 				 empLanguage.setLanguageFluency(fluency);
+				 empLanguage.setCreateDate(date);
+				 empLanguage.setModifiedDate(date);
+				 empLanguage.setCompanyId(themeDisplay.getCompanyId());
+				 empLanguage.setGroupId(themeDisplay.getCompanyGroupId());
+				 empLanguage.setUserId(themeDisplay.getUserId());
 				 try {
 					EmpLanguageLocalServiceUtil.addEmpLanguage(empLanguage);
 					} catch (SystemException e) {
@@ -538,11 +630,16 @@ public class EmployeeAction extends MVCPortlet {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				 empLicense.setEmpLicenseId(licenseId);
 				 empLicense.setEmployeeId(empId);
 				 empLicense.setExpiryDate(expiryDate);
 				 empLicense.setIssuedDate(issueDate);
 				 empLicense.setLicenseNumber(licenseNo);
+				 empLicense.setLicenseId(licenseId);
+				 empLicense.setCreateDate(date);
+				 empLicense.setModifiedDate(date);
+				 empLicense.setCompanyId(themeDisplay.getCompanyId());
+				 empLicense.setGroupId(themeDisplay.getCompanyGroupId());
+				 empLicense.setUserId(themeDisplay.getUserId());
 				 try {
 					EmpLicenseLocalServiceUtil.addEmpLicense(empLicense);
 					} catch (SystemException e) {
@@ -565,6 +662,9 @@ public class EmployeeAction extends MVCPortlet {
 			System.out.println("in updateEmpSalaryDetails method");
 			long empId=ParamUtil.getLong(actionRequest, "empSalId");
 			long fileEntryId=ParamUtil.getLong(actionRequest, "SalFileId");
+			ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		     Date date=new Date();
+			String payGradeCurrency=ParamUtil.getString(actionRequest, "emp_paygrade_currency");
 			 Map map=new HashMap();
 				map.put("empId", empId);
 				map.put("jsp", "jsp10");
@@ -578,6 +678,8 @@ public class EmployeeAction extends MVCPortlet {
 		{
 			System.out.println("in updateEmpDirectDeposits method ");
 			long empId=ParamUtil.getLong(actionRequest, "empDirId");
+			ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		     Date date=new Date();
 			long fileEntryId=ParamUtil.getLong(actionRequest, "directFileId");
 			long amount=ParamUtil.getLong(actionRequest, "deposit_amount");
 			long acntNumber=ParamUtil.getLong(actionRequest, "deposit_acnt_number");
@@ -600,6 +702,11 @@ public class EmployeeAction extends MVCPortlet {
 			empDirectDeposit.setBranchLocation(brncLocation);
 			empDirectDeposit.setEmployeeId(empId);
 			empDirectDeposit.setRoutingNumber(routingNo);
+			empDirectDeposit.setCreateDate(date);
+			empDirectDeposit.setModifiedDate(date);
+			empDirectDeposit.setCompanyId(themeDisplay.getCompanyId());
+			empDirectDeposit.setGroupId(themeDisplay.getCompanyGroupId());
+			empDirectDeposit.setUserId(themeDisplay.getUserId());
 			try {
 				EmpDirectDepositLocalServiceUtil.addEmpDirectDeposit(empDirectDeposit);
 				} catch (SystemException e) {
@@ -617,6 +724,8 @@ public class EmployeeAction extends MVCPortlet {
 	public void addImmigrationDetails(ActionRequest actionRequest,ActionResponse actionResponse)
 		throws IOException,PortletException
 		{
+			ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+			Date date=new Date();
 			System.out.println("in addImmigrationDetails method");
 			long empId=ParamUtil.getLong(actionRequest, "empImgId");
 			String docType=ParamUtil.getString(actionRequest, "document_type");
@@ -645,6 +754,11 @@ public class EmployeeAction extends MVCPortlet {
 			empImmigrationDocument.setEligibleReviewDate(reviewDate);
 			empImmigrationDocument.setComments(comments);
 			empImmigrationDocument.setDocType(docType);
+			empImmigrationDocument.setCreateDate(date);
+			 empImmigrationDocument.setModifiedDate(date);
+			 empImmigrationDocument.setCompanyId(themeDisplay.getCompanyId());
+			 empImmigrationDocument.setGroupId(themeDisplay.getCompanyGroupId());
+			 empImmigrationDocument.setUserId(themeDisplay.getUserId());
 				try {
 					EmpImmigrationDocumentLocalServiceUtil.addEmpImmigrationDocument(empImmigrationDocument);
 				} catch (SystemException e) {
@@ -661,7 +775,9 @@ public class EmployeeAction extends MVCPortlet {
 		}
 	public void updateMembership(ActionRequest actionRequest,ActionResponse actionResponse)
 		throws IOException,PortletException
-		{
+		{   
+			ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		     Date date=new Date();
 			System.out.println("in updateMembership method");
 			long empId=ParamUtil.getLong(actionRequest, "empMemId");
 			long fileEntryId=ParamUtil.getLong(actionRequest, "memFileId");
@@ -674,7 +790,9 @@ public class EmployeeAction extends MVCPortlet {
 		actionResponse.setRenderParameter("jspPage","/html/employee/edit_employee.jsp");
 		}
 	public void updateEmpJobHistory(ActionRequest actionRequest,ActionResponse actionResponse)
-		{
+		{	
+			ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+		     Date date=new Date();
 			System.out.println("in updateEmpJobHistory method");
 			long empId=ParamUtil.getLong(actionRequest, "empJId");
 			Date joinedDate=ParamUtil.getDate(actionRequest, "joined_date", dateFormat);
@@ -691,14 +809,13 @@ public class EmployeeAction extends MVCPortlet {
 			long fileEntryId=ParamUtil.getLong(actionRequest, "jobFileId");
 			EmpJob empJob=null;
 			try
-			{
-			empJob=EmpJobLocalServiceUtil.createEmpJob(CounterLocalServiceUtil.increment());
+				{
+				empJob=EmpJobLocalServiceUtil.createEmpJob(CounterLocalServiceUtil.increment());
+				}
+				catch(Exception e)
+				{
+					System.out.println("cannot add job details");
 			}
-			catch(Exception e)
-			{
-				System.out.println("cannot add job details");
-			}
-			empJob.setCreateDate(new Date());
 			empJob.setEmployeeId(empId);
 			empJob.setJoinedDate(joinedDate);
 			empJob.setEffectiveDate(effectiveDate);
@@ -711,6 +828,11 @@ public class EmployeeAction extends MVCPortlet {
 			empJob.setProbationEndDate(probationDte);
 			empJob.setComments(comments);
 			empJob.setShiftId(workshift);
+			empJob.setCreateDate(date);
+			 empJob.setModifiedDate(date);
+			 empJob.setCompanyId(themeDisplay.getCompanyId());
+			 empJob.setGroupId(themeDisplay.getCompanyGroupId());
+			 empJob.setUserId(themeDisplay.getUserId());
 			try {
 				EmpJobLocalServiceUtil.addEmpJob(empJob);
 			} catch (SystemException e) {
@@ -787,7 +909,9 @@ public class EmployeeAction extends MVCPortlet {
 				 for (EmpPersonalDetails personalDetails : userList) {
 				 userJSON = JSONFactoryUtil.createJSONObject();
 				 userJSON.put("firstName", personalDetails.getFirstName());
+				 userJSON.put("id", personalDetails.getEmployeeId());
 				 System.out.println(personalDetails.getFirstName());
+				 System.out.println(personalDetails.getEmployeeId());
 				 usersJSONArray.put(userJSON);
 				 }} catch (Exception e) {
 				 }
@@ -828,9 +952,11 @@ public class EmployeeAction extends MVCPortlet {
 public void addEmployee(ActionRequest actionRequest,ActionResponse actionResponse) 
 		throws IOException,PortletException, SystemException
 		{
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+	    Date date=new Date();
 		UploadPortletRequest uploadRequest = PortalUtil
 				.getUploadPortletRequest(actionRequest);
-		String location = ParamUtil.getString(uploadRequest , "location");
+		Long location = ParamUtil.getLong(uploadRequest , "location");
 		String firstName = ParamUtil.getString(uploadRequest ,
 				            EMPLOYEE_FIRST_NAME_COL_NAME);
 		System.out.println("location is"+location);
@@ -848,21 +974,11 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		String changeLog = ParamUtil.getString(actionRequest, "changeLog");
 		System.out.println("changeLog"+changeLog);
 		EmpContactDetails empContactDetails=null;
-		DynamicQuery locationDynamicQuery = DynamicQueryFactoryUtil.forClass(Location.class,
-				PortletClassLoaderUtil.getClassLoader());
-		locationDynamicQuery.add(PropertyFactoryUtil.forName("name").eq(location));
-		List<Location> l = LocationLocalServiceUtil.dynamicQuery(locationDynamicQuery);
-		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest
-				.getAttribute(WebKeys.THEME_DISPLAY);
-		Date date = new Date();
 		Employee employee = null;
 		EmpPersonalDetails empPersonalDetails = null;
-		
 		employee = EmployeeLocalServiceUtil
 				.createEmployee(CounterLocalServiceUtil.increment());
-		if (l.size() != 0) {
-			employee.setLocationId(l.get(0).getLocationId());
-		}
+			employee.setLocationId(location);
 		employee.setUserId(themeDisplay.getUserId());
 		employee.setCompanyId(themeDisplay.getCompanyId());
 		employee.setCreateDate(date);
@@ -927,13 +1043,28 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 			}
 			if(user!=null)
 			{
-		empContactDetails=
-				EmpContactDetailsLocalServiceUtil.createEmpContactDetails(CounterLocalServiceUtil.increment());
-		empContactDetails.setUserId(user.getUserId());
-		empContactDetails.setUserName(user.getFirstName());
-		empContactDetails.setCreateDate(new Date());
-		empContactDetails.setEmployeeId(employee.getGroupId());
-		EmpContactDetailsLocalServiceUtil.addEmpContactDetails(empContactDetails);
+		     Employee employee2=null;
+		     try {
+					employee2=EmployeeLocalServiceUtil.getEmployee(employee.getEmployeeId());
+				} catch (PortalException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		      employee2.setAssignedUserId(user.getUserId());
+		      EmployeeLocalServiceUtil.updateEmployee(employee2);
+			}
+			if(fileEntry!=null)
+			{
+				Employee employee3=null;
+			     try {
+						employee3=EmployeeLocalServiceUtil.getEmployee(employee.getEmployeeId());
+					} catch (PortalException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			      employee3.setImageId(fileEntry.getFileEntryId());
+			      EmployeeLocalServiceUtil.updateEmployee(employee3);
+				
 			}
 		}	
 		Map map=new HashMap();
