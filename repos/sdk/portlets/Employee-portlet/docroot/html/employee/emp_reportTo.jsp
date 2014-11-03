@@ -158,7 +158,7 @@ A.all('input[type=text]').set('disabled',true);
 	}%>
 <div id="assignedSupervisorAdd" class="panel">
 	<div class="panel-heading">
-		<h3>Add Supervisor</h3>
+		<h3><liferay-ui:message key="01_add-supervisor" /></h3>
 	</div>
 	<div class="panel-body">
 		<aui:form name="addSupervisor" id="addSupervisor"
@@ -178,7 +178,7 @@ A.all('input[type=text]').set('disabled',true);
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:select name="reporting_sup_method" label="Reporting Method"
+					<aui:select name="reporting_sup_method" label="01_reporting-method"
 						inlineLabel="left" showRequiredLabel="false">
 						<aui:option name="direct">Direct</aui:option>
 						<aui:option name="direct">Indirect</aui:option>
@@ -195,7 +195,7 @@ A.all('input[type=text]').set('disabled',true);
 </div>
 <div id="assignedSubordinateAdd" class="panel">
 	<div class="panel-heading">
-		<h3>Add Subordinate</h3>
+		<h3><liferay-ui:message key="01_add-subordinate" /></h3>
 	</div>
 	<div class="panel-body">
 		<aui:form name="addSubordinate" id="addSubordinate"
@@ -206,7 +206,7 @@ A.all('input[type=text]').set('disabled',true);
 			type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="report_sub_name" label="Name" inlineLabel="left"
+					<aui:input name="report_sub_name" label="01_name" inlineLabel="left"
 						showRequiredLabel="false">
 						<aui:validator name="required"></aui:validator>
 					</aui:input>
@@ -214,7 +214,7 @@ A.all('input[type=text]').set('disabled',true);
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:select name="reporting_sub_method" label="Reporting Method"
+					<aui:select name="reporting_sub_method" label="01_reporting-method"
 						inlineLabel="left" showRequiredLabel="false">
 						<aui:option name="direct">Direct</aui:option>
 						<aui:option name="direct">Indirect</aui:option>
@@ -231,7 +231,7 @@ A.all('input[type=text]').set('disabled',true);
 </div>
 <div id="supervisorAddDelete" class="panel">
 	<div class="panel-heading">
-		<h3>Assigned Supervisors</h3>
+		<h3><liferay-ui:message key="01_assigned-supervisors" /></h3>
 	</div>
 	<div class="panel-body">
 		<aui:button id="supervisorAdd" name="supervisorAdd" value="Add" 
@@ -252,9 +252,9 @@ A.all('input[type=text]').set('disabled',true);
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpSupervisor"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Assigned Supervisor"
+				<liferay-ui:search-container-column-text name="01_assigned-supervisor"
 				value="<%=supervisorValue(id.getReporterEmployeeId()) %>" />
-				<liferay-ui:search-container-column-text name="Reporting Method"
+				<liferay-ui:search-container-column-text name="01_reporting-method"
 					property="reportingMethod" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
@@ -263,7 +263,7 @@ A.all('input[type=text]').set('disabled',true);
 </div>
 <div id="subordinateAddDelete" class="panel">
 	<div class="panel-heading">
-		<h3>Assigned Subordinates</h3>
+		<h3><liferay-ui:message key="01_assigned-subordinates" /></h3>
 	</div>
 	<div class="panel-body">
 		<aui:button id="subordinateAdd" name="subordinateAdd" value="Add" 
@@ -284,8 +284,8 @@ A.all('input[type=text]').set('disabled',true);
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpSubordinate"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Assigned Subordinate"  />
-				<liferay-ui:search-container-column-text name="Reporting Method"
+				<liferay-ui:search-container-column-text name="01_assigned-subordinate"  />
+				<liferay-ui:search-container-column-text name="01_reporting-method"
 					property="reportingMethod" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
