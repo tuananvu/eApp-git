@@ -15,7 +15,7 @@
 <portlet:actionURL var="savepaygradecurrency" name="savePayGradeCurrency">
 </portlet:actionURL>
 <portlet:renderURL var="paygrade">
-	<portlet:param name="mvcPath" value="/html/paygrade/addpaygrade.jsp" />
+	<portlet:param name="mvcPath" value="/html/paygrade/paygradelist.jsp" />
 </portlet:renderURL>
 <portlet:resourceURL var="deletepaygradecurreny" id="deletePayGradeCurrency"/>
 <portlet:renderURL var="listview">
@@ -109,21 +109,13 @@ AUI().use(
 
 AUI().use(
   'aui-autocomplete',
-  function(A) {
-    var states = [
-      ['AL', 'Alabama', 'The Heart of Dixie'],
-      ['MA', 'Massachusetts', 'The Spirit of America'],
-      ['WY', 'Wyoming', 'Like No Place on Earth']
-    ];
+  function (A) {
+    var continents = ['Doller', 'Euro', 'Dinar', 'Africa', 'Rupie', 'Indian Rupee'];
 
     new A.AutoComplete(
       {
         contentBox: '#myAutoComplete',
-        dataSource: states,
-        matchKey: 'name',
-        schema: {
-          resultFields: ['key', 'name', 'description']
-        }
+        dataSource: continents
       }
     ).render();
   }
