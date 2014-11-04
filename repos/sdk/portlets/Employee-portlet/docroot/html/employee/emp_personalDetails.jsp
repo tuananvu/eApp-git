@@ -88,7 +88,7 @@ long fileEntryId=(Long)empId.get("fileId");
 %>
 <div id="search_form" class="panel">
 	<div class="panel-heading">
-		<h3>Personal Details</h3>
+		<h3><liferay-ui:message key="01_emp-personal-details"/></h3>
 	</div>
 	<div class="panel-body">
 		<aui:form name="empPersonalDetailsSave" id="empPersonalDetailsSave"
@@ -99,27 +99,22 @@ long fileEntryId=(Long)empId.get("fileId");
 				value="<%=employeeId%>"></aui:input>
 				<aui:input name="fileIdemp" type="hidden"
 				value="<%=fileEntryId%>"></aui:input>
-			<div class="row-fluid">
+						<div class="row-fluid">
 				<div class="span8">
-					<label>Full Name</label>
-				</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span8">
-					<aui:input name="firstName" label="First Name"
+					<aui:input name="firstName" label="01_firstName"
 						showRequiredLabel="false" disabled="true" value="<%=firstName%>">
 						<aui:validator name="required"></aui:validator>
 					</aui:input>
 				</div>
 				<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="middleName" label="Middle Name"
+					<aui:input name="middleName" label="01_middleName"
 						showRequiredLabel="false" disabled="true" value="<%=middleName%>"></aui:input>
 				</div>
 				</div>
 				<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="lastName" label="Last Name"
+					<aui:input name="lastName" label="01_lastName"
 						showRequiredLabel="false" disabled="true" value="<%=lastName%>">
 						<aui:validator name="required"></aui:validator>
 					</aui:input>
@@ -128,26 +123,26 @@ long fileEntryId=(Long)empId.get("fileId");
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="employee_no" label="EmployeeNo" disabled="true"
+					<aui:input name="employee_no" label="01_emp-no" disabled="true"
 						inlineLabel="left" value="<%=empNo%>"></aui:input>
 				</div>
 				</div>
 				<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="other_id" label="Other Id" inlineLabel="left"
+					<aui:input name="other_id" label="01_other-id" inlineLabel="left"
 						disabled="true" value="<%=otherId%>">
 					</aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="driver_license_no" label="Driver License No"
+					<aui:input name="driver_license_no" label="01_driver-license-no"
 						inlineLabel="left" disabled="true" value="<%=licenseNumber%>"></aui:input>
 				</div>
 				</div>
 				<div class="row-fluid">
 				<div class="span8">
-					<aui:input name="expiry_date" label="Expiry Date"
+					<aui:input name="expiry_date" label="01_expiry-date"
 						inlineLabel="left" disabled="true" value='<%=licenseExpDate%>'
 						cssClass="dateEmployee"></aui:input>
 				</div>
@@ -155,32 +150,32 @@ long fileEntryId=(Long)empId.get("fileId");
 			<div class="row-fluid">
 				<div class="span7">
 					<div class="span3">
-						<label>Gender</label>
+						<label><liferay-ui:message key="01_gender"/></label>
 					</div>
 					<div class="span2">
 						<aui:input inlineLabel="right" name="gender" type="radio"
-							value="1" label="male" disabled="true" />
+							value="1" label="01_male" disabled="true" />
 					</div>
 					<div class="span2">
 						<aui:input checked="<%=true%>" inlineLabel="right" name="gender"
-							type="radio" value="2" label="female" disabled="true" />
+							type="radio" value="2" label="01_female" disabled="true" />
 					</div>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:select name="marital_status" label="Marital Status"
+					<aui:select name="marital_status" label="01_marital-status"
 						inlineLabel="left" disabled="true">
-						<aui:option selected="selected" value="Select" label="select"></aui:option>
-						<aui:option value="single" label="Single"></aui:option>
-						<aui:option value="married" label="Married"></aui:option>
-						<aui:option value="other" label="Other"></aui:option>
+						<aui:option selected="selected" value="Select" label="01_select"></aui:option>
+						<aui:option value="single" label="01_single"></aui:option>
+						<aui:option value="married" label="01_married"></aui:option>
+						<aui:option value="other" label="01_other"></aui:option>
 					</aui:select>
 				</div>
 					</div>
 				<div class="row-fluid">
 				<div class="span8">
-					<aui:select name="emp_nationality" label="Nationality"
+					<aui:select name="emp_nationality" label="01_nationality"
 						disabled="true">
 						<aui:option value="-1">--Select--</aui:option>
 						<%
@@ -200,7 +195,7 @@ long fileEntryId=(Long)empId.get("fileId");
 				</div>
 				<div class="row-fluid">
 				<div class="span8">
-				<aui:input name="date_of_birth" label="Date of Birth" inlineLabel="left" cssClass="dateEmployee"
+				<aui:input name="date_of_birth" label="01_date-of-birth" inlineLabel="left" cssClass="dateEmployee"
 				 value='<%=dateOfB %>'> </aui:input>
 				</div>
 			</div>

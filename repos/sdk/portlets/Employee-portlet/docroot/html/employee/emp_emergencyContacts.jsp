@@ -55,30 +55,30 @@ long fileEntryId=(Long)empId.get("fileId");
 			 <aui:input name="conFileId" value="<%=fileEntryId %>" type="hidden"></aui:input>
 			<div class="row-fluid">
 				<div class="span10">
-					<aui:input name="emg_name" label="Name" inlineLabel="left"></aui:input>
+					<aui:input name="emg_name" label="01_name" inlineLabel="left"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span10">
-					<aui:input name="emg_relationship" label="Relationship"
+					<aui:input name="emg_relationship" label="01_relationship"
 						inlineLabel="left"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span10">
-					<aui:input name="emg_hm_telephone" label="Home Telephone"
+					<aui:input name="emg_hm_telephone" label="01_home-tele"
 						inlineLabel="left">
 					</aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span10">
-					<aui:input name="emg_mobile" label="Mobile" inlineLabel="left"></aui:input>
+					<aui:input name="emg_mobile" label="01_mobile" inlineLabel="left"></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span10">
-					<aui:input name="emg_work_telephone" label="Work Telephone"
+					<aui:input name="emg_work_telephone" label="01_work-tele"
 						inlineLabel="left"></aui:input>
 				</div>
 			</div>
@@ -112,14 +112,14 @@ long fileEntryId=(Long)empId.get("fileId");
 			</liferay-ui:search-container-results>
 			<liferay-ui:search-container-row className="EmpEmergencyContact"
 				modelVar="id">
-				<liferay-ui:search-container-column-text name="Name" property="name" />
-				<liferay-ui:search-container-column-text name="Relation"
+				<liferay-ui:search-container-column-text name="01_name" property="name" />
+				<liferay-ui:search-container-column-text name="01_relation"
 					property="relationship" />
-				<liferay-ui:search-container-column-text name="Home Telephone"
+				<liferay-ui:search-container-column-text name="01_home-tele"
 					property="homeTelephone" />
-				<liferay-ui:search-container-column-text name="Mobile"
+				<liferay-ui:search-container-column-text name="01_mobile"
 					property="mobile" />
-				<liferay-ui:search-container-column-text name="Work Telephone"
+				<liferay-ui:search-container-column-text name="01_work-tele"
 					property="workTelephone" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />

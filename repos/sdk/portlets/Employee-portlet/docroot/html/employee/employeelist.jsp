@@ -20,6 +20,8 @@
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
 <%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
 <%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+<%@ taglib uri="http://liferay.com/tld/theme" prefix="theme"%>
+<theme:defineObjects/>
 <portlet:defineObjects/>
 <liferay-portlet:renderURL varImpl="employeeSearchURL">
 <portlet:param name="mvcPath" value="/html/employee/employeelist.jsp" />
@@ -43,21 +45,20 @@ font: small-caption;
 </style>
 </head>
 <body>
-
 <aui:form action="<%=employeeSearchURL %>" method="get" name="proposalForm">
 <div class="row-fluid">
 		<div class="span3">
-			<aui:input name="firstName" label="Employee Name" inlineLabel="left"></aui:input>
+			<aui:input name="firstName" label="01_emp-name" inlineLabel="left"></aui:input>
 			
 		</div>
 		<div class="span3">
-			<aui:input name="employeeNo" label="Id"></aui:input>
+			<aui:input name="employeeNo" label="01_id"></aui:input>
 		</div>
 		<div class="span6">
 			<div class="span8">
 				<%-- <aui:input name="" label="Employment Status"></aui:input> --%>
 	  
-	   <aui:select name="employmentstatus" label="Employment Status">
+	   <aui:select name="employmentstatus" label="01_emp-status">
 	     <aui:option value="" selected="true">--select--</aui:option>
                         <%
                         List<EmploymentStatus> empstatuslist = EmploymentStatusLocalServiceUtil.getEmploymentStatuses(-1, -1);
@@ -79,12 +80,12 @@ font: small-caption;
 		</div>
 		 <div class="row-fluid">
 			<div class="span3">
-				<aui:input name="supervisorname" label="Supervisor Name"
+				<aui:input name="supervisorname" label="01_sup-name"
 					  id="supervisorname"/>
 			</div>
 			<div class="span3">
 				
-				 <aui:select name="jobtitle" label="Job Title">
+				 <aui:select name="jobtitle001" label="01_jobtitle">
 				 <aui:option value="" selected="true">--select--</aui:option>
                         <%
                         List<JobTitle> jobtitlelist = JobTitleLocalServiceUtil.getJobTitles(-1,-1);
@@ -102,7 +103,7 @@ font: small-caption;
 			</div>
 			<div class="span6">
 				
-			 <aui:select name="subunit" label="Sub Unit">
+			 <aui:select name="subunit" label="01_sub-unit">
 			 <aui:option value="" selected="true">--select--</aui:option>
                         <%
                         List<SubUnit> subunitlist =  SubUnitLocalServiceUtil.getSubUnits(-1, -1);
@@ -124,12 +125,12 @@ font: small-caption;
 		<aui:button type="submit" id="toggleColor" value="search"
 			cssClass="btn btn-success" />
 		<aui:button type="reset" id=""
-			value="Reset" cssClass="btn btn-danger">
+			value="reset" cssClass="btn btn-danger">
 		</aui:button>
 	</aui:button-row>
 	<div class="row-fluid">
 	<div class="span3">
-	<aui:button cssClass="button btn-success" name="addNewEmp" id="addNewEmp" value="Add"
+	<aui:button cssClass="button btn-success" name="addNewEmp" id="addNewEmp" value="add"
 	onClick="<%=addNewEmployee %>"></aui:button>
 	</div>
 	<div class="span3"></div>
@@ -144,7 +145,7 @@ font: small-caption;
   com.liferay.portal.kernel.dao.search.SearchContainer<EmpDetails> searchContainer;
 %>
 
-<liferay-ui:search-container delta="5" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="No records is available for Employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
+<liferay-ui:search-container delta="5" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="no-records-available-for-employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
 		<liferay-ui:search-container-results>
 		<%
 		DisplayTerms displayTerms =searchContainer.getDisplayTerms();
@@ -163,15 +164,20 @@ font: small-caption;
 		%>
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row  className="EmpDetails" modelVar="EmpDetails"  rowVar="curRow" escapedModel="<%= true %>">
-	    <liferay-ui:search-container-column-text orderable="true" name="Id" property="employeeNo" />
-	    <liferay-ui:search-container-column-text orderable="true" name="First Name" property="firstName"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="Last Name" property="lastName"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="Job Title" property="title"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="Sub Unit" />
-	    <liferay-ui:search-container-column-text orderable="true" name="supervisor"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="Employement Status" property="employmentstatus"/>
-	    <liferay-ui:search-container-column-jsp name="Edit"
-			path="/html/employee/editClick.jsp" />
+	    <liferay-ui:search-container-column-text orderable="true" name="01_id"
+	     property="employeeNo" />
+	    <liferay-ui:search-container-column-text orderable="true" name="01_firstName"
+	    property="firstName"/>
+	    <liferay-ui:search-container-column-text orderable="true" name="01_lastName"
+	    property="lastName"/>
+	    <liferay-ui:search-container-column-text orderable="true" name="01_jobtitle"
+	     property="title"/>
+	    <liferay-ui:search-container-column-text orderable="true" name="01_sub-unit" />
+	    <liferay-ui:search-container-column-text orderable="true" name="01_sup-name"/>
+	    <liferay-ui:search-container-column-text orderable="true" name="01_emp-status" 
+	    property="employmentstatus"/>
+	    <liferay-ui:search-container-column-jsp name="edit"
+		path="/html/employee/editClick.jsp" />
 	</liferay-ui:search-container-row>
 	<liferay-ui:search-iterator/>
 	
