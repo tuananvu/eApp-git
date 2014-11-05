@@ -3,6 +3,7 @@
 	<name>Dependent-portlet</name>
 	<comment></comment>
 	<projects>
+		<project>hrm-common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
