@@ -76,63 +76,6 @@ public interface HolidayModel extends BaseModel<Holiday>, GroupedModel {
 	public void setHolidayId(long holidayId);
 
 	/**
-	 * Returns the holiday name of this Holiday.
-	 *
-	 * @return the holiday name of this Holiday
-	 */
-	@AutoEscape
-	public String getHolidayName();
-
-	/**
-	 * Sets the holiday name of this Holiday.
-	 *
-	 * @param holidayName the holiday name of this Holiday
-	 */
-	public void setHolidayName(String holidayName);
-
-	/**
-	 * Returns the is annual of this Holiday.
-	 *
-	 * @return the is annual of this Holiday
-	 */
-	public boolean getIsAnnual();
-
-	/**
-	 * Returns <code>true</code> if this Holiday is is annual.
-	 *
-	 * @return <code>true</code> if this Holiday is is annual; <code>false</code> otherwise
-	 */
-	public boolean isIsAnnual();
-
-	/**
-	 * Sets whether this Holiday is is annual.
-	 *
-	 * @param isAnnual the is annual of this Holiday
-	 */
-	public void setIsAnnual(boolean isAnnual);
-
-	/**
-	 * Returns the is full day of this Holiday.
-	 *
-	 * @return the is full day of this Holiday
-	 */
-	public boolean getIsFullDay();
-
-	/**
-	 * Returns <code>true</code> if this Holiday is is full day.
-	 *
-	 * @return <code>true</code> if this Holiday is is full day; <code>false</code> otherwise
-	 */
-	public boolean isIsFullDay();
-
-	/**
-	 * Sets whether this Holiday is is full day.
-	 *
-	 * @param isFullDay the is full day of this Holiday
-	 */
-	public void setIsFullDay(boolean isFullDay);
-
-	/**
 	 * Returns the holiday date of this Holiday.
 	 *
 	 * @return the holiday date of this Holiday

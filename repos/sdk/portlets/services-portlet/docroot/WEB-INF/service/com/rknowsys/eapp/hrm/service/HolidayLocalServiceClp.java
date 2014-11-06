@@ -184,12 +184,6 @@ public class HolidayLocalServiceClp implements HolidayLocalService {
 		_methodName33 = "setBeanIdentifier";
 
 		_methodParameterTypes33 = new String[] { "java.lang.String" };
-
-		_methodName35 = "getSearchHolidays";
-
-		_methodParameterTypes35 = new String[] {
-				"java.util.Date", "java.util.Date", "long", "java.util.List"
-			};
 	}
 
 	@Override
@@ -1186,40 +1180,6 @@ public class HolidayLocalServiceClp implements HolidayLocalService {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getSearchHolidays(
-		java.util.Date fromDate, java.util.Date toDate, long nationalityId,
-		java.util.List<java.lang.Long> locationIds) {
-		Object returnObj = null;
-
-		try {
-			returnObj = _invokableLocalService.invokeMethod(_methodName35,
-					_methodParameterTypes35,
-					new Object[] {
-						ClpSerializer.translateInput(fromDate),
-						
-					ClpSerializer.translateInput(toDate),
-						
-					nationalityId,
-						
-					ClpSerializer.translateInput(locationIds)
-					});
-		}
-		catch (Throwable t) {
-			t = ClpSerializer.translateThrowable(t);
-
-			if (t instanceof RuntimeException) {
-				throw (RuntimeException)t;
-			}
-			else {
-				throw new RuntimeException(t.getClass().getName() +
-					" is not a valid exception");
-			}
-		}
-
-		return (java.util.List<com.rknowsys.eapp.hrm.model.Holiday>)ClpSerializer.translateOutput(returnObj);
-	}
-
 	private InvokableLocalService _invokableLocalService;
 	private String _methodName0;
 	private String[] _methodParameterTypes0;
@@ -1289,6 +1249,4 @@ public class HolidayLocalServiceClp implements HolidayLocalService {
 	private String[] _methodParameterTypes32;
 	private String _methodName33;
 	private String[] _methodParameterTypes33;
-	private String _methodName35;
-	private String[] _methodParameterTypes35;
 }

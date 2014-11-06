@@ -31,9 +31,6 @@ public class HolidaySoap implements Serializable {
 		HolidaySoap soapModel = new HolidaySoap();
 
 		soapModel.setHolidayId(model.getHolidayId());
-		soapModel.setHolidayName(model.getHolidayName());
-		soapModel.setIsAnnual(model.getIsAnnual());
-		soapModel.setIsFullDay(model.getIsFullDay());
 		soapModel.setHolidayDate(model.getHolidayDate());
 		soapModel.setNationalityId(model.getNationalityId());
 		soapModel.setGroupId(model.getGroupId());
@@ -102,38 +99,6 @@ public class HolidaySoap implements Serializable {
 		_holidayId = holidayId;
 	}
 
-	public String getHolidayName() {
-		return _holidayName;
-	}
-
-	public void setHolidayName(String holidayName) {
-		_holidayName = holidayName;
-	}
-
-	public boolean getIsAnnual() {
-		return _isAnnual;
-	}
-
-	public boolean isIsAnnual() {
-		return _isAnnual;
-	}
-
-	public void setIsAnnual(boolean isAnnual) {
-		_isAnnual = isAnnual;
-	}
-
-	public boolean getIsFullDay() {
-		return _isFullDay;
-	}
-
-	public boolean isIsFullDay() {
-		return _isFullDay;
-	}
-
-	public void setIsFullDay(boolean isFullDay) {
-		_isFullDay = isFullDay;
-	}
-
 	public Date getHolidayDate() {
 		return _holidayDate;
 	}
@@ -199,9 +164,6 @@ public class HolidaySoap implements Serializable {
 	}
 
 	private long _holidayId;
-	private String _holidayName;
-	private boolean _isAnnual;
-	private boolean _isFullDay;
 	private Date _holidayDate;
 	private long _nationalityId;
 	private long _groupId;

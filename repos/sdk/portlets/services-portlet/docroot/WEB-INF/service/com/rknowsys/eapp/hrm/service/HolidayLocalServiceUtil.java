@@ -413,14 +413,6 @@ public class HolidayLocalServiceUtil {
 		return getService().invokeMethod(name, parameterTypes, arguments);
 	}
 
-	public static java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getSearchHolidays(
-		java.util.Date fromDate, java.util.Date toDate, long nationalityId,
-		java.util.List<java.lang.Long> locationIds) {
-		return getService()
-				   .getSearchHolidays(fromDate, toDate, nationalityId,
-			locationIds);
-	}
-
 	public static void clearService() {
 		_service = null;
 	}

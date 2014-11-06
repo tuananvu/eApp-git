@@ -433,14 +433,6 @@ public class HolidayLocalServiceWrapper implements HolidayLocalService,
 		return _holidayLocalService.invokeMethod(name, parameterTypes, arguments);
 	}
 
-	@Override
-	public java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getSearchHolidays(
-		java.util.Date fromDate, java.util.Date toDate, long nationalityId,
-		java.util.List<java.lang.Long> locationIds) {
-		return _holidayLocalService.getSearchHolidays(fromDate, toDate,
-			nationalityId, locationIds);
-	}
-
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

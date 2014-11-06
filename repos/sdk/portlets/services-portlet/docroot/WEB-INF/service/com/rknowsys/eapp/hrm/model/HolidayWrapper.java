@@ -50,9 +50,6 @@ public class HolidayWrapper implements Holiday, ModelWrapper<Holiday> {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("holidayId", getHolidayId());
-		attributes.put("holidayName", getHolidayName());
-		attributes.put("isAnnual", getIsAnnual());
-		attributes.put("isFullDay", getIsFullDay());
 		attributes.put("holidayDate", getHolidayDate());
 		attributes.put("nationalityId", getNationalityId());
 		attributes.put("groupId", getGroupId());
@@ -71,24 +68,6 @@ public class HolidayWrapper implements Holiday, ModelWrapper<Holiday> {
 
 		if (holidayId != null) {
 			setHolidayId(holidayId);
-		}
-
-		String holidayName = (String)attributes.get("holidayName");
-
-		if (holidayName != null) {
-			setHolidayName(holidayName);
-		}
-
-		Boolean isAnnual = (Boolean)attributes.get("isAnnual");
-
-		if (isAnnual != null) {
-			setIsAnnual(isAnnual);
-		}
-
-		Boolean isFullDay = (Boolean)attributes.get("isFullDay");
-
-		if (isFullDay != null) {
-			setIsFullDay(isFullDay);
 		}
 
 		Date holidayDate = (Date)attributes.get("holidayDate");
@@ -178,86 +157,6 @@ public class HolidayWrapper implements Holiday, ModelWrapper<Holiday> {
 	@Override
 	public void setHolidayId(long holidayId) {
 		_holiday.setHolidayId(holidayId);
-	}
-
-	/**
-	* Returns the holiday name of this Holiday.
-	*
-	* @return the holiday name of this Holiday
-	*/
-	@Override
-	public java.lang.String getHolidayName() {
-		return _holiday.getHolidayName();
-	}
-
-	/**
-	* Sets the holiday name of this Holiday.
-	*
-	* @param holidayName the holiday name of this Holiday
-	*/
-	@Override
-	public void setHolidayName(java.lang.String holidayName) {
-		_holiday.setHolidayName(holidayName);
-	}
-
-	/**
-	* Returns the is annual of this Holiday.
-	*
-	* @return the is annual of this Holiday
-	*/
-	@Override
-	public boolean getIsAnnual() {
-		return _holiday.getIsAnnual();
-	}
-
-	/**
-	* Returns <code>true</code> if this Holiday is is annual.
-	*
-	* @return <code>true</code> if this Holiday is is annual; <code>false</code> otherwise
-	*/
-	@Override
-	public boolean isIsAnnual() {
-		return _holiday.isIsAnnual();
-	}
-
-	/**
-	* Sets whether this Holiday is is annual.
-	*
-	* @param isAnnual the is annual of this Holiday
-	*/
-	@Override
-	public void setIsAnnual(boolean isAnnual) {
-		_holiday.setIsAnnual(isAnnual);
-	}
-
-	/**
-	* Returns the is full day of this Holiday.
-	*
-	* @return the is full day of this Holiday
-	*/
-	@Override
-	public boolean getIsFullDay() {
-		return _holiday.getIsFullDay();
-	}
-
-	/**
-	* Returns <code>true</code> if this Holiday is is full day.
-	*
-	* @return <code>true</code> if this Holiday is is full day; <code>false</code> otherwise
-	*/
-	@Override
-	public boolean isIsFullDay() {
-		return _holiday.isIsFullDay();
-	}
-
-	/**
-	* Sets whether this Holiday is is full day.
-	*
-	* @param isFullDay the is full day of this Holiday
-	*/
-	@Override
-	public void setIsFullDay(boolean isFullDay) {
-		_holiday.setIsFullDay(isFullDay);
 	}
 
 	/**

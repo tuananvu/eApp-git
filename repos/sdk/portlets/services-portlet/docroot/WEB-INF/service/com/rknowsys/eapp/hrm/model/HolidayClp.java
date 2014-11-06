@@ -75,9 +75,6 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 		Map<String, Object> attributes = new HashMap<String, Object>();
 
 		attributes.put("holidayId", getHolidayId());
-		attributes.put("holidayName", getHolidayName());
-		attributes.put("isAnnual", getIsAnnual());
-		attributes.put("isFullDay", getIsFullDay());
 		attributes.put("holidayDate", getHolidayDate());
 		attributes.put("nationalityId", getNationalityId());
 		attributes.put("groupId", getGroupId());
@@ -96,24 +93,6 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 
 		if (holidayId != null) {
 			setHolidayId(holidayId);
-		}
-
-		String holidayName = (String)attributes.get("holidayName");
-
-		if (holidayName != null) {
-			setHolidayName(holidayName);
-		}
-
-		Boolean isAnnual = (Boolean)attributes.get("isAnnual");
-
-		if (isAnnual != null) {
-			setIsAnnual(isAnnual);
-		}
-
-		Boolean isFullDay = (Boolean)attributes.get("isFullDay");
-
-		if (isFullDay != null) {
-			setIsFullDay(isFullDay);
 		}
 
 		Date holidayDate = (Date)attributes.get("holidayDate");
@@ -181,85 +160,6 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 				Method method = clazz.getMethod("setHolidayId", long.class);
 
 				method.invoke(_holidayRemoteModel, holidayId);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public String getHolidayName() {
-		return _holidayName;
-	}
-
-	@Override
-	public void setHolidayName(String holidayName) {
-		_holidayName = holidayName;
-
-		if (_holidayRemoteModel != null) {
-			try {
-				Class<?> clazz = _holidayRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setHolidayName", String.class);
-
-				method.invoke(_holidayRemoteModel, holidayName);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public boolean getIsAnnual() {
-		return _isAnnual;
-	}
-
-	@Override
-	public boolean isIsAnnual() {
-		return _isAnnual;
-	}
-
-	@Override
-	public void setIsAnnual(boolean isAnnual) {
-		_isAnnual = isAnnual;
-
-		if (_holidayRemoteModel != null) {
-			try {
-				Class<?> clazz = _holidayRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setIsAnnual", boolean.class);
-
-				method.invoke(_holidayRemoteModel, isAnnual);
-			}
-			catch (Exception e) {
-				throw new UnsupportedOperationException(e);
-			}
-		}
-	}
-
-	@Override
-	public boolean getIsFullDay() {
-		return _isFullDay;
-	}
-
-	@Override
-	public boolean isIsFullDay() {
-		return _isFullDay;
-	}
-
-	@Override
-	public void setIsFullDay(boolean isFullDay) {
-		_isFullDay = isFullDay;
-
-		if (_holidayRemoteModel != null) {
-			try {
-				Class<?> clazz = _holidayRemoteModel.getClass();
-
-				Method method = clazz.getMethod("setIsFullDay", boolean.class);
-
-				method.invoke(_holidayRemoteModel, isFullDay);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -531,9 +431,6 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 		HolidayClp clone = new HolidayClp();
 
 		clone.setHolidayId(getHolidayId());
-		clone.setHolidayName(getHolidayName());
-		clone.setIsAnnual(getIsAnnual());
-		clone.setIsFullDay(getIsFullDay());
 		clone.setHolidayDate(getHolidayDate());
 		clone.setNationalityId(getNationalityId());
 		clone.setGroupId(getGroupId());
@@ -590,16 +487,10 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(25);
+		StringBundler sb = new StringBundler(19);
 
 		sb.append("{holidayId=");
 		sb.append(getHolidayId());
-		sb.append(", holidayName=");
-		sb.append(getHolidayName());
-		sb.append(", isAnnual=");
-		sb.append(getIsAnnual());
-		sb.append(", isFullDay=");
-		sb.append(getIsFullDay());
 		sb.append(", holidayDate=");
 		sb.append(getHolidayDate());
 		sb.append(", nationalityId=");
@@ -623,7 +514,7 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 
 	@Override
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(40);
+		StringBundler sb = new StringBundler(31);
 
 		sb.append("<model><model-name>");
 		sb.append("com.rknowsys.eapp.hrm.model.Holiday");
@@ -632,18 +523,6 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 		sb.append(
 			"<column><column-name>holidayId</column-name><column-value><![CDATA[");
 		sb.append(getHolidayId());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>holidayName</column-name><column-value><![CDATA[");
-		sb.append(getHolidayName());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>isAnnual</column-name><column-value><![CDATA[");
-		sb.append(getIsAnnual());
-		sb.append("]]></column-value></column>");
-		sb.append(
-			"<column><column-name>isFullDay</column-name><column-value><![CDATA[");
-		sb.append(getIsFullDay());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>holidayDate</column-name><column-value><![CDATA[");
@@ -684,9 +563,6 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 	}
 
 	private long _holidayId;
-	private String _holidayName;
-	private boolean _isAnnual;
-	private boolean _isFullDay;
 	private Date _holidayDate;
 	private long _nationalityId;
 	private long _groupId;

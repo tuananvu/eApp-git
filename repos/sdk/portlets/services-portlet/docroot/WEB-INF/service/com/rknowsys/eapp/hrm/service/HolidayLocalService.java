@@ -354,9 +354,4 @@ public interface HolidayLocalService extends BaseLocalService,
 	public java.lang.Object invokeMethod(java.lang.String name,
 		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
 		throws java.lang.Throwable;
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<com.rknowsys.eapp.hrm.model.Holiday> getSearchHolidays(
-		java.util.Date fromDate, java.util.Date toDate, long nationalityId,
-		java.util.List<java.lang.Long> locationIds);
 }

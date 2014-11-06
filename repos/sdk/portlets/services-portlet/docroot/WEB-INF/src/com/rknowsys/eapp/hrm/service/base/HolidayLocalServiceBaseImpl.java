@@ -44,14 +44,17 @@ import com.rknowsys.eapp.hrm.service.persistence.EmpDirectDepositPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpEducationPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpEmergencyContactPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpImmigrationDocumentPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.EmpJobFinder;
 import com.rknowsys.eapp.hrm.service.persistence.EmpJobPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpLanguagePersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpLicensePersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpMembershipPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.EmpPersonalDetailsFinder;
 import com.rknowsys.eapp.hrm.service.persistence.EmpPersonalDetailsPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpSalaryComponentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpSalaryPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpSkillPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.EmpSubordinatePersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpSupervisorPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmpWorkExpPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.EmployeePersistence;
@@ -897,6 +900,24 @@ public abstract class HolidayLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * Returns the emp job finder.
+	 *
+	 * @return the emp job finder
+	 */
+	public EmpJobFinder getEmpJobFinder() {
+		return empJobFinder;
+	}
+
+	/**
+	 * Sets the emp job finder.
+	 *
+	 * @param empJobFinder the emp job finder
+	 */
+	public void setEmpJobFinder(EmpJobFinder empJobFinder) {
+		this.empJobFinder = empJobFinder;
+	}
+
+	/**
 	 * Returns the emp language local service.
 	 *
 	 * @return the emp language local service
@@ -1124,6 +1145,25 @@ public abstract class HolidayLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+	 * Returns the EmpPersonalDetails finder.
+	 *
+	 * @return the EmpPersonalDetails finder
+	 */
+	public EmpPersonalDetailsFinder getEmpPersonalDetailsFinder() {
+		return empPersonalDetailsFinder;
+	}
+
+	/**
+	 * Sets the EmpPersonalDetails finder.
+	 *
+	 * @param empPersonalDetailsFinder the EmpPersonalDetails finder
+	 */
+	public void setEmpPersonalDetailsFinder(
+		EmpPersonalDetailsFinder empPersonalDetailsFinder) {
+		this.empPersonalDetailsFinder = empPersonalDetailsFinder;
+	}
+
+	/**
 	 * Returns the emp salary local service.
 	 *
 	 * @return the emp salary local service
@@ -1234,6 +1274,44 @@ public abstract class HolidayLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 */
 	public void setEmpSkillPersistence(EmpSkillPersistence empSkillPersistence) {
 		this.empSkillPersistence = empSkillPersistence;
+	}
+
+	/**
+	 * Returns the EmpSubordinate local service.
+	 *
+	 * @return the EmpSubordinate local service
+	 */
+	public com.rknowsys.eapp.hrm.service.EmpSubordinateLocalService getEmpSubordinateLocalService() {
+		return empSubordinateLocalService;
+	}
+
+	/**
+	 * Sets the EmpSubordinate local service.
+	 *
+	 * @param empSubordinateLocalService the EmpSubordinate local service
+	 */
+	public void setEmpSubordinateLocalService(
+		com.rknowsys.eapp.hrm.service.EmpSubordinateLocalService empSubordinateLocalService) {
+		this.empSubordinateLocalService = empSubordinateLocalService;
+	}
+
+	/**
+	 * Returns the EmpSubordinate persistence.
+	 *
+	 * @return the EmpSubordinate persistence
+	 */
+	public EmpSubordinatePersistence getEmpSubordinatePersistence() {
+		return empSubordinatePersistence;
+	}
+
+	/**
+	 * Sets the EmpSubordinate persistence.
+	 *
+	 * @param empSubordinatePersistence the EmpSubordinate persistence
+	 */
+	public void setEmpSubordinatePersistence(
+		EmpSubordinatePersistence empSubordinatePersistence) {
+		this.empSubordinatePersistence = empSubordinatePersistence;
 	}
 
 	/**
@@ -2302,6 +2380,8 @@ public abstract class HolidayLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.EmpJobLocalService empJobLocalService;
 	@BeanReference(type = EmpJobPersistence.class)
 	protected EmpJobPersistence empJobPersistence;
+	@BeanReference(type = EmpJobFinder.class)
+	protected EmpJobFinder empJobFinder;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.EmpLanguageLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.EmpLanguageLocalService empLanguageLocalService;
 	@BeanReference(type = EmpLanguagePersistence.class)
@@ -2326,6 +2406,8 @@ public abstract class HolidayLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalService empPersonalDetailsLocalService;
 	@BeanReference(type = EmpPersonalDetailsPersistence.class)
 	protected EmpPersonalDetailsPersistence empPersonalDetailsPersistence;
+	@BeanReference(type = EmpPersonalDetailsFinder.class)
+	protected EmpPersonalDetailsFinder empPersonalDetailsFinder;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.EmpSalaryLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.EmpSalaryLocalService empSalaryLocalService;
 	@BeanReference(type = EmpSalaryPersistence.class)
@@ -2338,6 +2420,10 @@ public abstract class HolidayLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.rknowsys.eapp.hrm.service.EmpSkillLocalService empSkillLocalService;
 	@BeanReference(type = EmpSkillPersistence.class)
 	protected EmpSkillPersistence empSkillPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.EmpSubordinateLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.EmpSubordinateLocalService empSubordinateLocalService;
+	@BeanReference(type = EmpSubordinatePersistence.class)
+	protected EmpSubordinatePersistence empSubordinatePersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.EmpSupervisorLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.EmpSupervisorLocalService empSupervisorLocalService;
 	@BeanReference(type = EmpSupervisorPersistence.class)

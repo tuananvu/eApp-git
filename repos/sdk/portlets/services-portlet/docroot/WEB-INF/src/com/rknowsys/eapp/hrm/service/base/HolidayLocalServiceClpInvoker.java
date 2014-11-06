@@ -177,19 +177,13 @@ public class HolidayLocalServiceClpInvoker {
 
 		_methodParameterTypes31 = new String[] { "long", "long[][]" };
 
-		_methodName216 = "getBeanIdentifier";
+		_methodName224 = "getBeanIdentifier";
 
-		_methodParameterTypes216 = new String[] {  };
+		_methodParameterTypes224 = new String[] {  };
 
-		_methodName217 = "setBeanIdentifier";
+		_methodName225 = "setBeanIdentifier";
 
-		_methodParameterTypes217 = new String[] { "java.lang.String" };
-
-		_methodName222 = "getSearchHolidays";
-
-		_methodParameterTypes222 = new String[] {
-				"java.util.Date", "java.util.Date", "long", "java.util.List"
-			};
+		_methodParameterTypes225 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -396,23 +390,16 @@ public class HolidayLocalServiceClpInvoker {
 			return null;
 		}
 
-		if (_methodName216.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes216, parameterTypes)) {
+		if (_methodName224.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes224, parameterTypes)) {
 			return HolidayLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName217.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes217, parameterTypes)) {
+		if (_methodName225.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes225, parameterTypes)) {
 			HolidayLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
-		}
-
-		if (_methodName222.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes222, parameterTypes)) {
-			return HolidayLocalServiceUtil.getSearchHolidays((java.util.Date)arguments[0],
-				(java.util.Date)arguments[1], ((Long)arguments[2]).longValue(),
-				(java.util.List<java.lang.Long>)arguments[3]);
 		}
 
 		throw new UnsupportedOperationException();
@@ -482,10 +469,8 @@ public class HolidayLocalServiceClpInvoker {
 	private String[] _methodParameterTypes30;
 	private String _methodName31;
 	private String[] _methodParameterTypes31;
-	private String _methodName216;
-	private String[] _methodParameterTypes216;
-	private String _methodName217;
-	private String[] _methodParameterTypes217;
-	private String _methodName222;
-	private String[] _methodParameterTypes222;
+	private String _methodName224;
+	private String[] _methodParameterTypes224;
+	private String _methodName225;
+	private String[] _methodParameterTypes225;
 }
