@@ -18,12 +18,12 @@ body.html-editor {
   hyphens: auto;
   word-wrap: break-word; }
   .html-editor.portlet-message-boards blockquote {
-    background: #eef0f2 url(@base_url@/css/../images/message_boards/quoteleft.png) no-repeat 5px 5px;
+    background: #eef0f2 url(@base_url@/html/themes/classic/css/../images/message_boards/quoteleft.png) no-repeat 5px 5px;
     border: 1px solid #777;
     position: relative;
     padding: 5px 45px; }
     .html-editor.portlet-message-boards blockquote:after {
-      background: url(@base_url@/css/../images/message_boards/quoteright.png) no-repeat 50%;
+      background: url(@base_url@/html/themes/classic/css/../images/message_boards/quoteright.png) no-repeat 50%;
       bottom: 5px;
       content: '';
       display: block;
@@ -50,7 +50,7 @@ body.html-editor {
 
 /* ---------- Loading animation ---------- */
 .loading-animation {
-  background: url(@base_url@/css/../images/progress_bar/loading_animation.gif) no-repeat top center;
+  background: url(@base_url@/html/themes/classic/css/../images/progress_bar/loading_animation.gif) no-repeat top center;
   margin-top: 10px;
   padding-top: 40px;
   text-align: left; }
@@ -109,7 +109,7 @@ body.html-editor {
     .proxy.generic-portlet .portlet-title {
       padding: 10px; }
   .proxy.not-intersecting .forbidden-action {
-    background: url(@base_url@/css/../images/application/forbidden_action.png) no-repeat;
+    background: url(@base_url@/html/themes/classic/css/../images/application/forbidden_action.png) no-repeat;
     display: block;
     height: 32px;
     position: absolute;
@@ -223,7 +223,7 @@ body.html-editor {
   display: none; }
 
 .underlay-content {
-  background: #f4f3f3 url(@base_url@/css/../images/common/message_panel_shadow.png) repeat-x 0 0;
+  background: #f4f3f3 url(@base_url@/html/themes/classic/css/../images/common/message_panel_shadow.png) repeat-x 0 0;
   border: 0 solid #AEAFB1;
   border-width: 0 1px 1px; }
 
@@ -261,7 +261,7 @@ body.html-editor {
   padding: 5px; }
 
 .panel-hd {
-  background: #c0c2c5 url(@base_url@/css/../images/application/panel_header_bg.png) repeat-x 0 0;
+  background: #c0c2c5 url(@base_url@/html/themes/classic/css/../images/application/panel_header_bg.png) repeat-x 0 0;
   border: 1px solid;
   border-color: #C8C9CA #AEB2B8 #AEB2B8 #C8C9CA;
   padding-left: 10px;
@@ -315,7 +315,7 @@ body.html-editor {
       color: #999; }
 
 .menu-content {
-  background: #ccc9c9 url(@base_url@/css/../images/application/menu_bg.png) repeat-x 0 0;
+  background: #ccc9c9 url(@base_url@/html/themes/classic/css/../images/application/menu_bg.png) repeat-x 0 0;
   border: 1px solid;
   border-color: #AEAFB1 #777879 #777879 #AEAFB1;
   padding: 2px 0; }
@@ -358,7 +358,7 @@ body.html-editor {
   background: #CCC; }
 
 .loadingmask-message {
-  background: #d4d4d4 url(@base_url@/css/../images/portlet/header_bg.png) repeat-x 0 0; }
+  background: #d4d4d4 url(@base_url@/html/themes/classic/css/../images/portlet/header_bg.png) repeat-x 0 0; }
 
 /* ---------- Tree view ---------- */
 .tree-node .icon-check {
@@ -431,22 +431,22 @@ body.html-editor {
   text-indent: 0; }
 
 .paginator-current-page {
-  background: #0083bd url(@base_url@/css/../images/application/paginator_link_current_bg.png) 0 0 repeat-x;
+  background: #0083bd url(@base_url@/html/themes/classic/css/../images/application/paginator_link_current_bg.png) 0 0 repeat-x;
   border-color: #38B6EF #006D9E #006D9E #46B4E6;
   color: #FFF;
   text-shadow: -1px -1px #003C57; }
 
 .paginator-first-link {
-  background-image: url(@base_url@/css/../images/arrows/paging_first.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/arrows/paging_first.png); }
 
 .paginator-prev-link {
-  background-image: url(@base_url@/css/../images/arrows/paging_previous.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/arrows/paging_previous.png); }
 
 .paginator-last-link {
-  background-image: url(@base_url@/css/../images/arrows/paging_last.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/arrows/paging_last.png); }
 
 .paginator-next-link {
-  background-image: url(@base_url@/css/../images/arrows/paging_next.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/arrows/paging_next.png); }
 
 .paginator-current-page-report, .paginator-total {
   color: #555;
@@ -464,7 +464,7 @@ body.html-editor {
   outline-offset: 2px;
   position: relative; }
   .lfr-editable:after {
-    background: #68bb30 url(@base_url@/css/../images/common/edit_white.png) no-repeat 50%;
+    background: #68bb30 url(@base_url@/html/themes/classic/css/../images/common/edit_white.png) no-repeat 50%;
     content: '';
     display: block;
     height: 20px;
@@ -1015,7 +1015,7 @@ body.html-editor {
   text-decoration: none; }
 
 .nav-menu-style-arrows ul {
-  list-style-image: url(@base_url@/css/../images/arrows/04_right.png); }
+  list-style-image: url(@base_url@/html/themes/classic/css/../images/arrows/04_right.png); }
 
 /* ---------- Page template selector ---------- */
 .form-options {
@@ -1031,7 +1031,7 @@ body.html-editor {
   float: left; }
 
 .form-trigger {
-  background: #c4c4c4 url(@base_url@/css/../images/application/button_bg.png) repeat-x 0 0;
+  background: #c4c4c4 url(@base_url@/html/themes/classic/css/../images/application/button_bg.png) repeat-x 0 0;
   border-left: 1px solid #BBB;
   display: inline-block;
   float: left; }
@@ -1043,20 +1043,20 @@ body.html-editor {
     width: 16px; }
   .form-trigger:focus, .form-trigger:hover {
     background-color: #83B0CA;
-    background-image: url(@base_url@/css/../images/application/button_bg_over.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/application/button_bg_over.png); }
 
 .trigger-selected {
   background-color: #EBEBEB;
-  background-image: url(@base_url@/css/../images/application/button_bg_selected.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/application/button_bg_selected.png); }
   .trigger-selected:focus, .trigger-selected:hover {
     background-color: #B7DEF4;
-    background-image: url(@base_url@/css/../images/application/button_bg_selected_over.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/application/button_bg_selected_over.png); }
 
 .options-trigger img {
-  background-image: url(@base_url@/css/../images/common/configuration.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/configuration.png); }
 
 .save-trigger img {
-  background-image: url(@base_url@/css/../images/common/check.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/check.png); }
 
 /* ---------- Portlet wrapper and icons ---------- */
 .freeform .portlet {
@@ -1086,7 +1086,7 @@ body.portlet {
       float: left;
       padding: 1px; }
     .portlet-topper .portlet-topper-toolbar .portlet-icon-back {
-      background: url(@base_url@/css/../images/arrows/12_left.png) no-repeat 0 50%;
+      background: url(@base_url@/html/themes/classic/css/../images/arrows/12_left.png) no-repeat 0 50%;
       color: #FFF;
       font-weight: bold;
       padding: 5px 5px 5px 18px; }
@@ -1165,13 +1165,13 @@ body.portlet {
     .portlet-content .lfr-icon-actions .lfr-icon-action a img {
       visibility: hidden; }
   .portlet-content .lfr-icon-actions .lfr-icon-action-add a {
-    background-image: url(@base_url@/css/../images/common/add_white.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/common/add_white.png); }
   .portlet-content .lfr-icon-actions .lfr-icon-action-edit a {
-    background-image: url(@base_url@/css/../images/common/edit_white.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/common/edit_white.png); }
   .portlet-content .lfr-icon-actions .lfr-icon-action-edit-template a {
-    background-image: url(@base_url@/css/../images/common/edit_template_white.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/common/edit_template_white.png); }
   .portlet-content .lfr-icon-actions .lfr-icon-action-configuration a {
-    background-image: url(@base_url@/css/../images/common/configuration_white.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/common/configuration_white.png); }
 .portlet-content .lfr-url-error {
   display: inline-block;
   white-space: normal; }
@@ -1213,9 +1213,9 @@ body.portlet {
     text-indent: 0;
     width: auto; }
   .portlet-borderless-bar .portlet-close a {
-    background-image: url(@base_url@/css/../images/portlet/close_borderless.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/portlet/close_borderless.png); }
   .portlet-borderless-bar .portlet-options li.lfr-trigger strong a {
-    background-image: url(@base_url@/css/../images/portlet/options_borderless.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/portlet/options_borderless.png); }
 
 .lfr-configurator-visibility .portlet-borderless-bar {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
@@ -1240,7 +1240,7 @@ body.portlet {
 .portlet-draggable .portlet-topper {
   cursor: move; }
 .portlet-draggable .portlet-title-default {
-  background: url(@base_url@/css/../images/portlet/draggable_borderless.png) no-repeat 0 50%;
+  background: url(@base_url@/html/themes/classic/css/../images/portlet/draggable_borderless.png) no-repeat 0 50%;
   cursor: move;
   padding-left: 20px; }
 
@@ -1272,25 +1272,25 @@ body.portlet {
   padding: 3px 3px 3px 20px; }
 
 .lfr-status-alert-label {
-  background-image: url(@base_url@/css/../images/messages/alert.png);
+  background-image: url(@base_url@/html/themes/classic/css/../images/messages/alert.png);
   color: #663; }
 
 .lfr-status-error-label {
-  background-image: url(@base_url@/css/../images/messages/error.png);
+  background-image: url(@base_url@/html/themes/classic/css/../images/messages/error.png);
   color: #900; }
 
 .lfr-status-help-label, .lfr-status-info-label, .lfr-status-progress-label {
-  background-image: url(@base_url@/css/../images/messages/info.png);
+  background-image: url(@base_url@/html/themes/classic/css/../images/messages/info.png);
   color: #34404F; }
 
 .lfr-status-help-label {
-  background-image: url(@base_url@/css/../images/portlet/help.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/portlet/help.png); }
 
 .lfr-status-progress-label {
-  background-image: url(@base_url@/css/../images/aui/loading_indicator.gif); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/aui/loading_indicator.gif); }
 
 .lfr-status-success-label {
-  background-image: url(@base_url@/css/../images/messages/success.png);
+  background-image: url(@base_url@/html/themes/classic/css/../images/messages/success.png);
   color: #384F34; }
 
 /* ---------- Liferay messages ---------- */
@@ -1307,7 +1307,7 @@ body.portlet {
     top: 50%;
     z-index: 10; }
   .lfr-message .lfr-message-close {
-    background-image: url(@base_url@/css/../images/portlet/close_borderless.png);
+    background-image: url(@base_url@/html/themes/classic/css/../images/portlet/close_borderless.png);
     background-position: 0 0;
     background-repeat: no-repeat; }
   .lfr-message .lfr-message-close-all {
@@ -1323,7 +1323,7 @@ body.portlet {
   .lfr-message .lfr-message-controls-hover .lfr-message-close-all {
     display: inline-block; }
   .lfr-message.pending {
-    background-image: url(@base_url@/css/../images/common/time.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/common/time.png); }
 
 .lfr-message-content.alert {
   margin-bottom: 0; }
@@ -1379,7 +1379,7 @@ body.portlet {
   background-color: #D3BDC0; }
 
 .alt.restricted td.first, .restricted td.first {
-  background-image: url(@base_url@/css/../images/messages/error.png);
+  background-image: url(@base_url@/html/themes/classic/css/../images/messages/error.png);
   background-position: 5px 50%;
   background-repeat: no-repeat;
   padding-left: 28px; }
@@ -1391,15 +1391,15 @@ body.portlet {
   background-repeat: no-repeat;
   padding-left: 30px; }
 .table-data tr.lfr-role-guest .first {
-  background-image: url(@base_url@/css/../images/common/guest_icon.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/guest_icon.png); }
 .table-data tr.lfr-role-regular .first {
-  background-image: url(@base_url@/css/../images/common/user_icon.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/user_icon.png); }
 .table-data tr.lfr-role-site .first {
-  background-image: url(@base_url@/css/../images/common/site_icon.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/site_icon.png); }
 .table-data tr.lfr-role-organization .first {
-  background-image: url(@base_url@/css/../images/common/organization_icon.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/organization_icon.png); }
 .table-data tr.lfr-role-team .first {
-  background-image: url(@base_url@/css/../images/common/team_icon.png); }
+  background-image: url(@base_url@/html/themes/classic/css/../images/common/team_icon.png); }
 
 /* ---------- Miscellaneous component styles ---------- */
 /* ---------- Add content dialog ---------- */
@@ -2036,6 +2036,129 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   -o-animation: lfr-drop-active 1s ease 0.2s infinite;
   animation: lfr-drop-active 1s ease 0.2s infinite; }
 
+/* ---------- Dockbar ---------- */
+@media (max-width: 979px) {
+  .aui * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  .aui #heading {
+    bottom: 100%;
+    position: absolute; }
+    .aui #heading .site-title {
+      font-size: 26px; }
+      .aui #heading .site-title img {
+        width: 35px; }
+  .aui #navigation {
+    display: none; }
+    .aui #navigation.open {
+      display: block; }
+      .aui #navigation.open .navbar-inner {
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        padding: 10px; }
+        .aui #navigation.open .navbar-inner .nav-collapse {
+          height: auto;
+          overflow: visible; }
+    .aui #navigation .nav {
+      margin: 0; }
+  .aui .dockbar-split .dockbar, .aui .dockbar {
+    float: right;
+    height: auto;
+    position: relative;
+    z-index: 401; }
+    .aui .dockbar-split .dockbar .info-items, .aui .dockbar .info-items {
+      height: auto;
+      position: static;
+      width: 300px; }
+    .aui .dockbar-split .dockbar .navbar-inner, .aui .dockbar .navbar-inner {
+      width: auto; }
+      .aui .dockbar-split .dockbar .navbar-inner .btn-navbar, .aui .dockbar .navbar-inner .btn-navbar {
+        background: transparent;
+        border: none;
+        float: left;
+        font-size: 24px;
+        padding: 12px 15px; }
+        .aui .dockbar-split .dockbar .navbar-inner .btn-navbar:hover, .aui .dockbar .navbar-inner .btn-navbar:hover {
+          background-color: #5BBAE8; }
+        .aui .dockbar-split .dockbar .navbar-inner .btn-navbar.open, .aui .dockbar .navbar-inner .btn-navbar.open {
+          background-color: #F5AF45; }
+      .aui .dockbar-split .dockbar .navbar-inner .nav-account-controls, .aui .dockbar .navbar-inner .nav-account-controls {
+        padding: 0 5px; }
+        .aui .dockbar-split .dockbar .navbar-inner .nav-account-controls .user-avatar-image, .aui .dockbar .navbar-inner .nav-account-controls .user-avatar-image {
+          display: none; }
+      .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls, .aui .dockbar .navbar-inner .nav-add-controls {
+        background: transparent;
+        border-top-width: 0;
+        position: static;
+        z-index: 350;
+        padding: 0 5px; }
+        .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li, .aui .dockbar .navbar-inner .nav-add-controls > li {
+          float: none;
+          margin: 0;
+          position: relative; }
+          .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li.toggle-controls a, .aui .dockbar .navbar-inner .nav-add-controls > li.toggle-controls a {
+            clip: rect(auto auto auto auto);
+            position: static;
+            visibility: visible; }
+          .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li .page-preview-controls, .aui .dockbar .navbar-inner .nav-add-controls > li .page-preview-controls {
+            display: none; }
+          .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a, .aui .dockbar .navbar-inner .nav-add-controls > li > a {
+            background: transparent;
+            text-align: left;
+            white-space: nowrap; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a:hover, .aui .dockbar .navbar-inner .nav-add-controls > li > a:hover {
+              background: #F3f3f3; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a [class^="icon-"], .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a [class^="icon-"], .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a [class*=" icon-"], .aui .dockbar .navbar-inner .nav-add-controls > li > a [class^="icon-"], .aui .dockbar .navbar-inner .nav-add-controls > li > a [class^="icon-"], .aui .dockbar .navbar-inner .nav-add-controls > li > a [class*=" icon-"] {
+              font-size: 22px;
+              margin-top: 0; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link, .aui .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link {
+              background: transparent; }
+              .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link [class^="icon-"], .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link [class^="icon-"], .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link [class*=" icon-"], .aui .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link [class^="icon-"], .aui .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link [class^="icon-"], .aui .dockbar .navbar-inner .nav-add-controls > li > a.toggle-controls-link [class*=" icon-"] {
+                color: #FFF; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a .nav-item-label, .aui .dockbar .navbar-inner .nav-add-controls > li > a .nav-item-label {
+              background: transparent;
+              display: inline;
+              left: 0;
+              margin-left: 0;
+              margin-top: 0;
+              padding: 0;
+              position: relative; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a:hover .nav-item-label, .aui .dockbar .navbar-inner .nav-add-controls > li > a:hover .nav-item-label {
+              display: inline; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-add-controls > li > a .icon-caret-down, .aui .dockbar .navbar-inner .nav-add-controls > li > a .icon-caret-down {
+              display: none; }
+      .aui .dockbar-split .dockbar .navbar-inner .nav-collapse, .aui .dockbar .navbar-inner .nav-collapse {
+        z-index: 400; }
+        .aui .dockbar-split .dockbar .navbar-inner .nav-collapse.open, .aui .dockbar .navbar-inner .nav-collapse.open {
+          overflow: visible; }
+        .aui .dockbar-split .dockbar .navbar-inner .nav-collapse > .nav, .aui .dockbar .navbar-inner .nav-collapse > .nav {
+          background: #009AE5;
+          border-width: 0;
+          left: auto;
+          margin: 0;
+          min-width: 160px;
+          position: absolute;
+          right: 0;
+          z-index: 400; }
+          .aui .dockbar-split .dockbar .navbar-inner .nav-collapse > .nav > li.dropdown .dropdown-menu li a, .aui .dockbar .navbar-inner .nav-collapse > .nav > li.dropdown .dropdown-menu li a {
+            font-size: 16px;
+            line-height: 32px; }
+          .aui .dockbar-split .dockbar .navbar-inner .nav-collapse > .nav > li.dropdown.open > .dropdown-toggle, .aui .dockbar .navbar-inner .nav-collapse > .nav > li.dropdown.open > .dropdown-toggle {
+            color: #FFFFFF; }
+          .aui .dockbar-split .dockbar .navbar-inner .nav-collapse > .nav > li > a, .aui .dockbar .navbar-inner .nav-collapse > .nav > li > a {
+            color: #FFF;
+            font-size: 16px;
+            margin: 5px 0;
+            padding: 6px 15px; }
+            .aui .dockbar-split .dockbar .navbar-inner .nav-collapse > .nav > li > a:focus, .aui .dockbar-split .dockbar .navbar-inner .nav-collapse > .nav > li > a:hover, .aui .dockbar .navbar-inner .nav-collapse > .nav > li > a:focus, .aui .dockbar .navbar-inner .nav-collapse > .nav > li > a:hover {
+              background-color: #5BBAE8; }
+  .aui .portlet-dockbar {
+    display: inline-block;
+    width: 100%; }
+  .aui .signed-out #_145_navAddControlsNavbarBtn {
+    display: none; } }
 .aui {
   /* ---------- Main ---------- */
   /* ---------- Help icon ---------- */
@@ -2048,12 +2171,10 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   /* ---------- Extras ---------- */ }
   .aui body {
     color: #555;
-    font-weight: 200;
-    font-family: 'Open Sans', sans-serif; }
+    font-weight: 200; }
   .aui a {
     color: #009AE5;
-    font-weight: 200;
-    text-decoration: none; }
+    font-weight: 200; }
     .aui a:hover {
       color: #009AE5; }
     .aui a [class^="icon-"], .aui a [class*=" icon-"] {
@@ -2061,29 +2182,22 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   .aui .alert {
     word-wrap: break-word; }
   .aui .table {
-    font-size: 14px;
-    overflow: hidden;
-    margin-bottom: 0px; }
+    font-size: 15px;
+    overflow: hidden; }
     .aui .table td {
       background-color: #F9F9F9; }
     .aui .table thead th {
       background-color: #F0EFEF;
-      font-size: 14px;
-      font-weight: bold; }
+      font-size: 15px;
+      font-weight: normal; }
     .aui .table .table-sort-liner a {
       color: #555;
-      font-weight: bold;
+      font-weight: normal;
       text-decoration: underline; }
   .aui .table-striped tbody > tr:nth-child(odd) > td, .aui .table-striped tbody > tr:nth-child(odd) > th {
     background-color: #FFF; }
   .aui .table-hover tbody tr:hover > td, .aui .table-hover tbody tr:hover > th {
     background-color: #EDF8FD; }
-  .aui .table-bordered th {
-    -webkit-border-radius: 0px !important;
-    -moz-border-radius: 0px !important;
-    -ms-border-radius: 0px !important;
-    -o-border-radius: 0px !important;
-    border-radius: 0px !important; }
   .aui input[type="color"], .aui input[type="date"], .aui input[type="datetime"], .aui input[type="datetime-local"], .aui input[type="email"], .aui input[type="month"], .aui input[type="number"], .aui input[type="password"], .aui input[type="search"], .aui input[type="tel"], .aui input[type="text"], .aui input[type="time"], .aui input[type="url"], .aui input[type="week"], .aui select, .aui textarea, .aui .uneditable-input {
     border: 1px solid #DDD;
     color: #8D8D8D;
@@ -2098,9 +2212,8 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     margin-top: 0; }
   .aui label {
     color: #555;
-    font-size: 14px;
-    font-weight: bold;
-    line-height: 28px; }
+    font-size: 15px;
+    font-weight: 200; }
   .aui li {
     line-height: 27px; }
   .aui select:focus {
@@ -2111,12 +2224,6 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     margin: 0; }
   .aui .field-wrapper .btn {
     margin-top: 0; }
-  .aui .btn {
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px; }
   .aui .btn.disabled, .aui .btn[disabled] {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
     opacity: 0.4; }
@@ -2157,7 +2264,7 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   .aui .portlet-nested-portlets .portlet-body .portlet {
     border: 1px solid #E5E5E5; }
   .aui .portlet-borderless-container {
-    padding: 15px; }
+    padding: 10px 0; }
   .aui .portlet-options .dropdown-toggle .caret {
     display: none; }
   .aui .taglib-icon-help img {
@@ -2178,7 +2285,7 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   .aui .dockbar.navbar .navbar-inner {
     min-height: 40px; }
   .aui .dockbar .navbar-inner {
-    background: none; }
+    background: #333; }
     .aui .dockbar .navbar-inner .container .btn-navbar {
       color: #FFF; }
       .aui .dockbar .navbar-inner .container .btn-navbar .user-avatar-image {
@@ -2254,16 +2361,13 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     .aui .navbar .container .btn-navbar .icon-bar {
       background: #656565; }
   .aui .navbar .icon-caret-down {
-    background: none;
+    background: #27A7EB;
+    background: rgba(255, 255, 255, 0.2);
     font-size: 14px;
     height: auto;
     margin-left: 5px;
     padding: 1px 4px;
     width: auto; }
-  .aui .navbar .menu-icon {
-    position: absolute;
-    right: 10px;
-    top: 10px; }
   .aui .navbar .nav > li.open > a {
     background-color: #FFF;
     color: #555;
@@ -2284,14 +2388,12 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
       -moz-box-shadow: 0 1px 1px -1px black;
       box-shadow: 0 1px 1px -1px black; }
   .aui .breadcrumb {
-    padding: 0;
-    background: none; }
+    padding: 3px 15px 2px; }
     .aui .breadcrumb li span.divider {
       color: #999;
       font-weight: bold; }
     .aui .breadcrumb li.last a {
-      color: #ff5454;
-      font-weight: bold; }
+      color: #676767; }
     .aui .breadcrumb li.last span.divider {
       display: none; }
     .aui .breadcrumb .only .divider {
@@ -2417,9 +2519,9 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
   .aui.ie6 .accordion-group .accordion-heading, .aui.ie7 .accordion-group .accordion-heading {
     background: none no-repeat 0 50%; }
     .aui.ie6 .accordion-group .accordion-heading.toggler-header-collapsed, .aui.ie7 .accordion-group .accordion-heading.toggler-header-collapsed {
-      background-image: url(@base_url@/css/../images/arrows/05_right.png); }
+      background-image: url(@base_url@/html/themes/classic/css/../images/arrows/05_right.png); }
     .aui.ie6 .accordion-group .accordion-heading.toggler-header-expanded, .aui.ie7 .accordion-group .accordion-heading.toggler-header-expanded {
-      background-image: url(@base_url@/css/../images/arrows/05_down.png); }
+      background-image: url(@base_url@/html/themes/classic/css/../images/arrows/05_down.png); }
   .aui .add-content-menu .accordion, .aui .lfr-edit-layout-panel .accordion, .aui .panel-page-menu .portlet-borderless-container .accordion {
     background: #FFF;
     border: 1px solid #D3D3D3;
@@ -2446,7 +2548,7 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
         -moz-user-select: none;
         user-select: none; }
         .aui .add-content-menu .accordion .accordion-group .toggler-header .accordion-toggle, .aui .lfr-edit-layout-panel .accordion .accordion-group .toggler-header .accordion-toggle, .aui .panel-page-menu .portlet-borderless-container .accordion .accordion-group .toggler-header .accordion-toggle {
-          background: #f2f2f2 url(@base_url@/css/../images/arrows/13_left.png) no-repeat 100% -20px; }
+          background: #f2f2f2 url(@base_url@/html/themes/classic/css/../images/arrows/13_left.png) no-repeat 100% -20px; }
       .aui .add-content-menu .accordion .accordion-group .toggler-header-collapsed, .aui .lfr-edit-layout-panel .accordion .accordion-group .toggler-header-collapsed, .aui .panel-page-menu .portlet-borderless-container .accordion .accordion-group .toggler-header-collapsed {
         border-bottom-width: 0; }
         .aui .add-content-menu .accordion .accordion-group .toggler-header-collapsed .accordion-toggle, .aui .lfr-edit-layout-panel .accordion .accordion-group .toggler-header-collapsed .accordion-toggle, .aui .panel-page-menu .portlet-borderless-container .accordion .accordion-group .toggler-header-collapsed .accordion-toggle {
@@ -2512,15 +2614,24 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     -moz-box-shadow: none;
     box-shadow: none; }
   .aui .table {
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    -ms-border-radius: 0px;
-    -o-border-radius: 0px;
-    border-radius: 0px; }
-  .aui input[type="color"]:focus, .aui input[type="date"]:focus, .aui input[type="datetime"]:focus, .aui input[type="datetime-local"]:focus, .aui input[type="month"]:focus, .aui input[type="number"]:focus, .aui input[type="password"]:focus, .aui input[type="text"]:focus, .aui input[type="time"]:focus, .aui input[type="week"]:focus, .aui input[type="email"]:focus, .aui input[type="url"]:focus, .aui input[type="search"]:focus, .aui input[type="tel"]:focus, .aui textarea:focus, .aui .uneditable-input:focus {
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6); }
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    border-radius: 5px; }
+  .aui input[type="color"], .aui input[type="date"], .aui input[type="datetime"], .aui input[type="datetime-local"], .aui input[type="month"], .aui input[type="number"], .aui input[type="password"], .aui input[type="text"], .aui input[type="time"], .aui input[type="week"], .aui input[type="email"], .aui input[type="url"], .aui input[type="search"], .aui input[type="tel"], .aui textarea, .aui .uneditable-input {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+    .aui input[type="color"]:focus, .aui input[type="date"]:focus, .aui input[type="datetime"]:focus, .aui input[type="datetime-local"]:focus, .aui input[type="month"]:focus, .aui input[type="number"]:focus, .aui input[type="password"]:focus, .aui input[type="text"]:focus, .aui input[type="time"]:focus, .aui input[type="week"]:focus, .aui input[type="email"]:focus, .aui input[type="url"]:focus, .aui input[type="search"]:focus, .aui input[type="tel"]:focus, .aui textarea:focus, .aui .uneditable-input:focus {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6); }
   .aui input.search-query {
     border-radius: 15px; }
   .aui .tagselector-focused .tagselector-content .textboxlistentry-holder {
@@ -2566,432 +2677,196 @@ body:first-of-type .portlet-content:hover .lfr-icon-actions .taglib-text {
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
     opacity: 0.8; }
 
-body.orange, .orange .portlet {
-  background-color: #ff8400; }
-
-.orange {
-  /* ---------- Links ---------- */
-  /* ---------- Application styling ---------- */
-  /* ---------- Portlet wrapper and icons ---------- */
-  /* ---------- Calendar portlet ---------- */
-  /* ---------- Miscellaneous portlet styles ---------- */
-  /* This CSS sets the default styles for forms. */ }
-  .orange .icon {
-    background-image: url(@theme_image_path@/color_schemes/orange/aui/icon_sprite.png); }
-  .orange a {
-    color: #7D745B; }
-    .orange a:hover {
-      color: #CD7700; }
-  .orange .resizable-proxy {
-    border-color: #968A83; }
-  .orange .sortable-proxy {
-    background-color: #827972; }
-  .orange .menugroup-content h4 {
-    background-color: #DFDCD3;
-    color: #7D745B; }
-  .orange .menu-content li a {
-    color: #34322C; }
-  .orange .menu-content li a.focus, .orange .lfr-menu-expanded li a:focus {
-    background-color: #7D745B;
-    color: #FFF;
-    text-shadow: -1px -1px #34322C; }
-  .orange .tab {
-    background: none; }
-  .orange .tab-active {
-    background-color: #333; }
-    .orange .tab-active, .orange .tab-active a {
-      color: #FFF; }
-  .orange .portlet-communities .lfr-current-theme, .orange .portlet-communities .lfr-current-theme, .orange .portlet-enterprise-admin .lfr-current-theme, .orange .portlet-enterprise-admin .lfr-current-theme {
-    background-color: #F8F4F1;
-    border-color: #968A83; }
-  .orange .portlet-communities .theme-entry .theme-title, .orange .portlet-enterprise-admin .theme-entry .theme-title {
-    background-color: #948D88;
-    border-color: #968A83; }
-  .orange .portlet-communities .lfr-theme-list h3, .orange .portlet-enterprise-admin .lfr-theme-list h3 {
-    background-color: #DED8D4; }
-  .orange .portlet-communities .selected-color-scheme .theme-entry, .orange .portlet-enterprise-admin .selected-color-scheme .theme-entry {
-    border-color: #9A6F33; }
-  .orange .portlet-communities .lfr-theme-list .theme-entry:hover, .orange .portlet-enterprise-admin .lfr-theme-list .theme-entry:hover {
-    background-color: #FFEEE0;
-    border-color: #E0BDA8;
-    color: #C9B09F; }
-  .orange .portlet-communities .theme-entry:hover .theme-thumbnail, .orange .portlet-enterprise-admin .theme-entry:hover .theme-thumbnail {
-    border-color: #E0BDA8; }
-  .orange .portlet-document-library .detail-column-last {
-    background-color: #FFE9D8; }
-    .orange .portlet-document-library .detail-column-last .detail-column-content {
-      border-color: #DAA489; }
-  .orange .dockbar {
-    background-color: #AFA798;
-    background-image: url(@theme_image_path@/color_schemes/orange/dockbar/dockbar_bg.png); }
-    .orange .dockbar .menu-button-active {
-      background-color: #DBAC5C;
-      background-image: url(@theme_image_path@/color_schemes/orange/dockbar/button_active_bg.png); }
-      .orange .dockbar .menu-button-active a {
+.aui .dark, .aui .light {
+  /* ---------- Breadcrumbs ---------- */
+  /* ---------- Portlet ---------- */
+  /* ---------- Portlet hover styles ---------- */
+  /* ---------- Extras ---------- */ }
+  .aui .dark #navigation .navbar-inner, .aui .light #navigation .navbar-inner {
+    border-width: 0; }
+    .aui .dark #navigation .navbar-inner .nav > li, .aui .light #navigation .navbar-inner .nav > li {
+      margin-right: 5px; }
+    .aui .dark #navigation .navbar-inner .nav li, .aui .light #navigation .navbar-inner .nav li {
+      padding: 8px 0; }
+      .aui .dark #navigation .navbar-inner .nav li.active > a, .aui .dark #navigation .navbar-inner .nav li.open > a, .aui .light #navigation .navbar-inner .nav li.active > a, .aui .light #navigation .navbar-inner .nav li.open > a {
+        background: #00CAFF;
         color: #FFF; }
-  .orange .sortable-layout-drag-indicator {
-    background-color: #B6A63C; }
-  .orange .autocomplete-results-content {
-    border-color: #F5D599; }
-  .orange .autocomplete-selected {
-    background-color: #F7F0E0;
-    border-color: #EAD8A4; }
-  .orange .textboxlistentry {
-    background-color: #F4EACB;
-    border-color: #EAD8A4; }
-  .orange .textboxlistentry-focused {
-    background-color: #B6A63C;
-    border-color: #4F4534; }
-  .orange .textboxlistentry-close-hover {
-    background-color: #EAD8A4; }
-  .orange .portlet {
-    border-color: #968A83; }
-  .orange .portlet-topper {
-    background-color: #D9DDD3;
-    border-bottom-color: #B7BCAE; }
-  .orange .panel-page .portlet-topper {
-    border-bottom-color: #968A83; }
-  .orange .portlet-section-selected, .orange .portlet-section-selected a {
-    background-color: #968A83; }
-  .orange .portlet-section-selected a:focus, .orange .portlet-section-selected a:hover {
-    background-color: #968A83; }
-  .orange .portlet-calendar .calendar-day .day-text {
-    background-color: #968A83; }
-  .orange .portlet-calendar .taglib-calendar tr td.calendar-current-day a:focus, .orange .portlet-calendar .taglib-calendar tr td.calendar-current-day a:hover {
-    background-color: #F2FFDF;
-    border-color: #B7BCAE;
-    color: #5BCC00; }
-  .orange .taglib-calendar tr td a {
-    background-color: #EFF3EA; }
-    .orange .taglib-calendar tr td a:hover {
-      background-color: #968A83; }
-  .orange .taglib-calendar .calendar-current-day a {
-    border-color: #968A83;
-    color: #5F9930; }
-  .orange .taglib-calendar .calendar-current-day, .orange .taglib-calendar .calendar-current-day a {
-    background-color: #FFF; }
-  .orange .taglib-calendar tr td.calendar-inactive {
-    color: #BEC4B5; }
-  .orange .journal-template-error .scroll-pane pre span {
-    background-color: #BEC4B5; }
-  .orange .restricted * {
-    color: #968A83; }
-  .orange .lfr-tag-selector-popup .textfield-content {
-    background-color: #DED8D4;
-    border-color: #BDB4AF; }
-  .orange button, .orange input[type="button"], .orange input[type="reset"], .orange input[type="submit"] {
-    color: #4F4534; }
-  .orange button:hover, .orange input[type="button"]:hover, .orange input[type="reset"]:hover, .orange input[type="submit"]:hover {
-    background-color: #DAC8BA;
-    background-image: url(@theme_image_path@/color_schemes/orange/application/state_hover_bg.png);
-    border-color: #837062;
-    color: #9A6F33; }
-  .orange button:focus, .orange input[type="button"]:focus, .orange input[type="reset"]:focus, .orange input[type="submit"]:focus {
-    background-color: #ECECEC;
-    background-image: url(@theme_image_path@/application/state_active_bg.png); }
-
-/* ---------- IE6 chokes on attribute selectors in a chain, so we separate them into their own rule ---------- */
-.ie6 .orange button, .ie6 .orange input.button, .ie6 .orange input.submit, .ie6 .orange .button-disabled button, .ie6 .orange .button-disabled input.button, .ie6 .orange .button-disabled input.submit {
-  color: #4F4534; }
-
-body.green, .green .portlet {
-  background-color: #4a9400; }
-
-.green {
-  /* ---------- Links ---------- */
-  /* ---------- Application styling ---------- */
-  /* ---------- Portlet wrapper and icons ---------- */
-  /* ---------- Calendar portlet ---------- */
-  /* ---------- Miscellaneous portlet styles ---------- */
-  /* This CSS sets the default styles for forms. */ }
-  .green .icon {
-    background-image: url(@theme_image_path@/color_schemes/green/aui/icon_sprite.png); }
-  .green a {
-    color: #677D5B; }
-    .green a:hover {
-      color: #66CD00; }
-  .green .drop-area {
-    background-color: #DBDED4; }
-  .green .resizable-proxy {
-    border-color: #909683; }
-  .green .sortable-proxy {
-    background-color: #7C8272; }
-  .green .menugroup-content h4 {
-    background-color: #D7DFD3;
-    color: #677D5B; }
-  .green .menu-content li a {
-    color: #2F342C; }
-  .green .menu-content li a.focus, .green .lfr-menu-expanded li a:focus {
-    background-color: #677D5B;
-    color: #FFF;
-    text-shadow: -1px -1px #2F342C; }
-  .green .tab {
-    background: none; }
-  .green .tab-active {
-    background-color: #333; }
-  .green .tab-active, .green .tab-active a {
-    color: #FFF; }
-  .green .portlet-communities .portlet-enterprise-admin .lfr-current-theme {
-    background-color: #F6F8F1;
-    border-color: #909683; }
-  .green .portlet-communities .portlet-enterprise-admin .theme-entry .theme-title {
-    background-color: #909488;
-    border-color: #909683; }
-  .green .portlet-communities .portlet-enterprise-admin .lfr-theme-list h3 {
-    background-color: #DBDED4; }
-  .green .portlet-communities .portlet-enterprise-admin .selected-color-scheme .theme-entry {
-    border-color: #669A33; }
-  .green .portlet-communities .portlet-enterprise-admin .lfr-theme-list .theme-entry:hover {
-    background-color: #F5FFE0;
-    border-color: #CFE0A8;
-    color: #BBC99F; }
-  .green .portlet-communities .portlet-enterprise-admin .theme-entry:hover .theme-thumbnail {
-    border-color: #CFE0A8; }
-  .green .portlet-document-library .detail-column-last {
-    background-color: #F2FFD8; }
-    .green .portlet-document-library .detail-column-last .detail-column-content {
-      border-color: #C6DA89; }
-  .green .dockbar {
-    background-color: #A2AF98;
-    background-image: url(@theme_image_path@/color_schemes/green/dockbar/dockbar_bg.png); }
-    .green .dockbar .menu-button-active {
-      background-color: #95DB5C;
-      background-image: url(@theme_image_path@/color_schemes/green/dockbar/button_active_bg.png); }
-      .green .dockbar .menu-button-active a {
+      .aui .dark #navigation .navbar-inner .nav li.open > .dropdown-toggle, .aui .light #navigation .navbar-inner .nav li.open > .dropdown-toggle {
+        background: #00CAFF;
         color: #FFF; }
-  .green .sortable-layout-drag-indicator {
-    background-color: #57B63C; }
-  .green .autocomplete-results-content {
-    border-color: #C1F599; }
-  .green .autocomplete-selected {
-    background-color: #E9F7E0;
-    border-color: #BBEAA4; }
-  .green .textboxlistentry {
-    background-color: #D9F4CB;
-    border-color: #BBEAA4; }
-  .green .textboxlistentry-focused {
-    background-color: #57B63C;
-    border-color: #404F34; }
-  .green .textboxlistentry-close-hover {
-    background-color: #BBEAA4; }
-  .green .portlet {
-    border-color: #909683; }
-  .green .portlet-topper {
-    background-color: #D9DDD3;
-    border-bottom-color: #B7BCAE; }
-  .green .panel-page .portlet-topper {
-    border-bottom-color: #909683; }
-  .green .portlet-section-selected, .green .portlet-section-selected a {
-    background-color: #909683; }
-  .green .portlet-section-selected a:focus, .green .portlet-section-selected a:hover {
-    background-color: #909683; }
-  .green .portlet-calendar .calendar-day .day-text {
-    background-color: #909683; }
-  .green .portlet-calendar .taglib-calendar tr td.calendar-current-day a:focus, .green .portlet-calendar .taglib-calendar tr td.calendar-current-day a:hover {
-    background-color: #F2FFDF;
-    border-color: #B7BCAE;
-    color: #5BCC00; }
-  .green .taglib-calendar tr td a {
-    background-color: #EFF3EA; }
-    .green .taglib-calendar tr td a:hover {
-      background-color: #909683; }
-  .green .taglib-calendar .calendar-current-day a {
-    border-color: #909683;
-    color: #5F9930; }
-  .green .taglib-calendar .calendar-current-day, .green .taglib-calendar .calendar-current-day a {
-    background-color: #FFF; }
-  .green .taglib-calendar tr td.calendar-inactive {
-    color: #BEC4B5; }
-  .green .journal-template-error .scroll-pane pre span {
-    background-color: #BEC4B5; }
-  .green .restricted * {
-    color: #909683; }
-  .green .lfr-tag-selector-popup .textfield-content {
-    background-color: #DBDED4;
-    border-color: #B9BDAF; }
-  .green button, .green input[type="button"], .green input[type="reset"], .green input[type="submit"] {
-    color: #404F34; }
-  .green button:hover, .green input[type="button"]:hover, .green input[type="reset"]:hover, .green input[type="submit"]:hover {
-    background-color: #CFDABA;
-    background-image: url(@theme_image_path@/color_schemes/green/application/state_hover_bg.png);
-    border-color: #778362;
-    color: #669A33; }
-  .green button:focus, .green input[type="button"]:focus, .green input[type="reset"]:focus, .green input[type="submit"]:focus {
-    background-color: #ECECEC;
-    background-image: url(@theme_image_path@/application/state_active_bg.png); }
+    .aui .dark #navigation .navbar-inner .nav .dropdown-menu, .aui .light #navigation .navbar-inner .nav .dropdown-menu {
+      background-color: #FFF;
+      border: 1px solid #CCC;
+      border-color: rgba(0, 0, 0, 0.2); }
+      .aui .dark #navigation .navbar-inner .nav .dropdown-menu:after, .aui .light #navigation .navbar-inner .nav .dropdown-menu:after {
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid #FFF; }
+      .aui .dark #navigation .navbar-inner .nav .dropdown-menu:before, .aui .light #navigation .navbar-inner .nav .dropdown-menu:before {
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #CCC; }
+      .aui .dark #navigation .navbar-inner .nav .dropdown-menu a, .aui .light #navigation .navbar-inner .nav .dropdown-menu a {
+        color: #555; }
+        .aui .dark #navigation .navbar-inner .nav .dropdown-menu a:focus, .aui .dark #navigation .navbar-inner .nav .dropdown-menu a:hover, .aui .light #navigation .navbar-inner .nav .dropdown-menu a:focus, .aui .light #navigation .navbar-inner .nav .dropdown-menu a:hover {
+          background: #00CAFF;
+          color: #FFF;
+          text-decoration: none; }
+  .aui .dark .modify-pages .delete-tab, .aui .light .modify-pages .delete-tab {
+    top: 10px; }
+  .aui .dark .breadcrumb, .aui .light .breadcrumb {
+    background: transparent; }
+  .aui .dark .portlet-content, .aui .light .portlet-content {
+    border-width: 0; }
+  .aui .dark .portlet-topper, .aui .light .portlet-topper {
+    background: transparent; }
+    .aui .dark .portlet-topper .portlet-title, .aui .light .portlet-topper .portlet-title {
+      font-size: 22px;
+      font-weight: lighter; }
+  .aui .dark .lfr-configurator-visibility .portlet-topper, .aui .light .lfr-configurator-visibility .portlet-topper {
+    background: transparent; }
+  .aui .dark .portlet-borderless-container, .aui .light .portlet-borderless-container {
+    background: transparent; }
+  .aui .dark section.portlet, .aui .light section.portlet {
+    border: 2px solid transparent; }
+    .aui .dark section.portlet menu.portlet-topper-toolbar, .aui .light section.portlet menu.portlet-topper-toolbar {
+      color: #00CAFF;
+      display: none; }
+  .aui .dark.signed-in section.portlet:hover, .aui .light.signed-in section.portlet:hover {
+    border-color: #00CAFF; }
+    .aui .dark.signed-in section.portlet:hover menu.portlet-topper-toolbar, .aui .light.signed-in section.portlet:hover menu.portlet-topper-toolbar {
+      display: block; }
+  .aui .dark section.portlet#portlet_new-password menu.portlet-topper-toolbar, .aui .light section.portlet#portlet_new-password menu.portlet-topper-toolbar {
+    background: transparent; }
+    .aui .dark section.portlet#portlet_new-password menu.portlet-topper-toolbar:after, .aui .light section.portlet#portlet_new-password menu.portlet-topper-toolbar:after {
+      content: ""; }
+  .aui .dark section.portlet#portlet_new-password:hover, .aui .light section.portlet#portlet_new-password:hover {
+    border: 2px solid transparent; }
+    .aui .dark section.portlet#portlet_new-password:hover menu.portlet-topper-toolbar, .aui .light section.portlet#portlet_new-password:hover menu.portlet-topper-toolbar {
+      background: transparent; }
+  .aui .dark.controls-hidden section.portlet:hover, .aui .light.controls-hidden section.portlet:hover {
+    border-color: transparent; }
+    .aui .dark.controls-hidden section.portlet:hover menu.portlet-topper-toolbar, .aui .light.controls-hidden section.portlet:hover menu.portlet-topper-toolbar {
+      display: none; }
+  .aui .dark .columns-max section.portlet .portlet-topper-toolbar, .aui .light .columns-max section.portlet .portlet-topper-toolbar {
+    background: transparent;
+    height: auto;
+    width: auto; }
+    .aui .dark .columns-max section.portlet .portlet-topper-toolbar:after, .aui .light .columns-max section.portlet .portlet-topper-toolbar:after {
+      content: ""; }
+    .aui .dark .columns-max section.portlet .portlet-topper-toolbar .portlet-icon-back, .aui .light .columns-max section.portlet .portlet-topper-toolbar .portlet-icon-back {
+      padding-right: 0; }
+  .aui .dark .columns-max section.portlet:focus, .aui .dark .columns-max section.portlet:hover, .aui .light .columns-max section.portlet:focus, .aui .light .columns-max section.portlet:hover {
+    border: 2px solid transparent; }
+    .aui .dark .columns-max section.portlet:focus .portlet-topper-toolbar, .aui .dark .columns-max section.portlet:hover .portlet-topper-toolbar, .aui .light .columns-max section.portlet:focus .portlet-topper-toolbar, .aui .light .columns-max section.portlet:hover .portlet-topper-toolbar {
+      background: transparent; }
+  .aui .dark a, .aui .light a {
+    text-shadow: none; }
+  .aui .dark #navigation .navbar-inner, .aui .light #navigation .navbar-inner {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none; }
+    .aui .dark #navigation .navbar-inner .nav li.active > a, .aui .dark #navigation .navbar-inner .nav li.open > a, .aui .light #navigation .navbar-inner .nav li.active > a, .aui .light #navigation .navbar-inner .nav li.open > a {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      text-shadow: none; }
+    .aui .dark #navigation .navbar-inner .nav li.open > .dropdown-toggle, .aui .light #navigation .navbar-inner .nav li.open > .dropdown-toggle {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      -ms-border-radius: 3px;
+      -o-border-radius: 3px;
+      border-radius: 3px;
+      text-shadow: none; }
+    .aui .dark #navigation .navbar-inner .nav .dropdown-menu, .aui .light #navigation .navbar-inner .nav .dropdown-menu {
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+      border-radius: 6px; }
+  .aui .dark section.portlet .admin.portlet-topper-toolbar:before, .aui .light section.portlet .admin.portlet-topper-toolbar:before {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px; }
+  .aui .dark section.portlet.active, .aui .light section.portlet.active {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px; }
+  .aui .dark.signed-in section.portlet, .aui .light.signed-in section.portlet {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px; }
+    .aui .dark.signed-in section.portlet:hover, .aui .light.signed-in section.portlet:hover {
+      -webkit-transition: border-color 0.2s ease-in;
+      -moz-transition: border-color 0.2s ease-in;
+      -o-transition: border-color 0.2s ease-in;
+      transition: border-color 0.2s ease-in; }
 
-/* ---------- IE6 chokes on attribute selectors in a chain, so we separate them into their own rule ---------- */
-.ie6 .green button, .ie6 .green input.button, .ie6 .green input.submit, .ie6 .green .button-disabled button, .ie6 .green .button-disabled input.button, .ie6 .green .button-disabled input.submit {
-  color: #404F34; }
-.ie6 .green .nav-item-label {
-  background-color: green; }
+.aui .dark {
+  background: #363636;
+  color: #E3E3E3;
+  /* ---------- Dockbar ---------- */
+  /* ---------- Nav#Navigation ---------- */
+  /* ---------- Breadcrumbs ---------- */
+  /* ---------- Portlet ---------- */
+  /* ---------- Tables ---------- */ }
+  .aui .dark.portal-popup {
+    background-color: transparent;
+    color: #555; }
+    .aui .dark.portal-popup legend {
+      color: #555; }
+  .aui .dark.yui3-skin-sam .yui3-widget-mask {
+    background-color: #111; }
+  .aui .dark a {
+    color: #009CEB; }
+  .aui .dark legend, .aui .dark .portlet-wiki .portlet-body h3, .aui .dark .taglib-header {
+    color: #E3E3E3; }
+  .aui .dark .modal-content, .aui .dark .modal-content legend {
+    color: #555; }
+  .aui .dark .dockbar .nav li.dropdown .dropdown-menu {
+    background: #007BB3; }
+  .aui .dark #breadcrumbs {
+    padding-left: 10px; }
+  .aui .dark #navigation .navbar-inner {
+    background: #2F2F2F; }
+    .aui .dark #navigation .navbar-inner .nav > li > a {
+      color: #E3E3E3; }
+  .aui .dark .breadcrumb li a {
+    color: #E3E3E3; }
+  .aui .dark .lfr-header-row-content {
+    padding: 3px 0 0; }
+  .aui .dark .portlet {
+    background: #363636; }
+  .aui .dark .portlet-title {
+    color: #00CAFF; }
+  .aui .dark .table {
+    color: #555; }
 
-body.blue, .blue .portlet {
-  background-color: #fff; }
-
-.blue {
-  /* ---------- Links ---------- */
-  /* ---------- Application styling ---------- */
-  /* ---------- Portlet wrapper and icons ---------- */
-  /* ---------- Calendar portlet ---------- */
-  /* ---------- Miscellaneous portlet styles ---------- */
-  /* This CSS sets the default styles for forms. */ }
-  .blue .icon {
-    background-image: url(@theme_image_path@/color_schemes/blue/aui/icon_sprite.png); }
-  .blue a {
-    color: #7D745B; }
-    .blue a:hover {
-      color: #CD7700; }
-  .blue .resizable-proxy {
-    border-color: #968A83; }
-  .blue .sortable-proxy {
-    background-color: #827972; }
-  .blue .menugroup-content h4 {
-    background-color: #DFDCD3;
-    color: #7D745B; }
-  .blue .menu-content li a {
-    color: #34322C; }
-  .blue .menu-content li a.focus, .blue .lfr-menu-expanded li a:focus {
-    background-color: #7D745B;
-    color: #FFF;
-    text-shadow: -1px -1px #34322C; }
-  .blue .tab {
-    background: none; }
-  .blue .tab-active {
-    background-color: #333; }
-    .blue .tab-active, .blue .tab-active a {
-      color: #FFF; }
-  .blue .portlet-communities .lfr-current-theme, .blue .portlet-communities .lfr-current-theme, .blue .portlet-enterprise-admin .lfr-current-theme, .blue .portlet-enterprise-admin .lfr-current-theme {
-    background-color: #F8F4F1;
-    border-color: #968A83; }
-  .blue .portlet-communities .theme-entry .theme-title, .blue .portlet-enterprise-admin .theme-entry .theme-title {
-    background-color: #948D88;
-    border-color: #968A83; }
-  .blue .portlet-communities .lfr-theme-list h3, .blue .portlet-enterprise-admin .lfr-theme-list h3 {
-    background-color: #DED8D4; }
-  .blue .portlet-communities .selected-color-scheme .theme-entry, .blue .portlet-enterprise-admin .selected-color-scheme .theme-entry {
-    border-color: #9A6F33; }
-  .blue .portlet-communities .lfr-theme-list .theme-entry:hover, .blue .portlet-enterprise-admin .lfr-theme-list .theme-entry:hover {
-    background-color: #FFEEE0;
-    border-color: #E0BDA8;
-    color: #C9B09F; }
-  .blue .portlet-communities .theme-entry:hover .theme-thumbnail, .blue .portlet-enterprise-admin .theme-entry:hover .theme-thumbnail {
-    border-color: #E0BDA8; }
-  .blue .portlet-document-library .detail-column-last {
-    background-color: #FFE9D8; }
-    .blue .portlet-document-library .detail-column-last .detail-column-content {
-      border-color: #DAA489; }
-  .blue .dockbar {
-    background-color: #AFA798;
-    background-image: url(@theme_image_path@/color_schemes/blue/dockbar/dockbar_bg.png); }
-    .blue .dockbar .menu-button-active {
-      background-color: #DBAC5C;
-      background-image: url(@theme_image_path@/color_schemes/blue/dockbar/button_active_bg.png); }
-      .blue .dockbar .menu-button-active a {
-        color: #FFF; }
-  .blue .sortable-layout-drag-indicator {
-    background-color: #B6A63C; }
-  .blue .autocomplete-results-content {
-    border-color: #F5D599; }
-  .blue .autocomplete-selected {
-    background-color: #F7F0E0;
-    border-color: #EAD8A4; }
-  .blue .textboxlistentry {
-    background-color: #F4EACB;
-    border-color: #EAD8A4; }
-  .blue .textboxlistentry-focused {
-    background-color: #B6A63C;
-    border-color: #4F4534; }
-  .blue .textboxlistentry-close-hover {
-    background-color: #EAD8A4; }
-  .blue .portlet {
-    border-color: #968A83; }
-  .blue .portlet-topper {
-    background-color: #D9DDD3;
-    border-bottom-color: #B7BCAE; }
-  .blue .panel-page .portlet-topper {
-    border-bottom-color: #968A83; }
-  .blue .portlet-section-selected, .blue .portlet-section-selected a {
-    background-color: #968A83; }
-  .blue .portlet-section-selected a:focus, .blue .portlet-section-selected a:hover {
-    background-color: #968A83; }
-  .blue .portlet-calendar .calendar-day .day-text {
-    background-color: #968A83; }
-  .blue .portlet-calendar .taglib-calendar tr td.calendar-current-day a:focus, .blue .portlet-calendar .taglib-calendar tr td.calendar-current-day a:hover {
-    background-color: #F2FFDF;
-    border-color: #B7BCAE;
-    color: #5BCC00; }
-  .blue .taglib-calendar tr td a {
-    background-color: #EFF3EA; }
-    .blue .taglib-calendar tr td a:hover {
-      background-color: #968A83; }
-  .blue .taglib-calendar .calendar-current-day a {
-    border-color: #968A83;
-    color: #5F9930; }
-  .blue .taglib-calendar .calendar-current-day, .blue .taglib-calendar .calendar-current-day a {
-    background-color: #FFF; }
-  .blue .taglib-calendar tr td.calendar-inactive {
-    color: #BEC4B5; }
-  .blue .journal-template-error .scroll-pane pre span {
-    background-color: #BEC4B5; }
-  .blue .restricted * {
-    color: #968A83; }
-  .blue .lfr-tag-selector-popup .textfield-content {
-    background-color: #DED8D4;
-    border-color: #BDB4AF; }
-  .blue button, .blue input[type="button"], .blue input[type="reset"], .blue input[type="submit"] {
-    color: #4F4534; }
-  .blue button:hover, .blue input[type="button"]:hover, .blue input[type="reset"]:hover, .blue input[type="submit"]:hover {
-    background-color: #DAC8BA;
-    background-image: url(@theme_image_path@/color_schemes/blue/application/state_hover_bg.png);
-    border-color: #837062;
-    color: #9A6F33; }
-  .blue button:focus, .blue input[type="button"]:focus, .blue input[type="reset"]:focus, .blue input[type="submit"]:focus {
-    background-color: #ECECEC;
-    background-image: url(@theme_image_path@/application/state_active_bg.png); }
-
-/* ---------- IE6 chokes on attribute selectors in a chain, so we separate them into their own rule ---------- */
-.ie6 .blue button, .ie6 .blue input.button, .ie6 .blue input.submit, .ie6 .blue .button-disabled button, .ie6 .blue .button-disabled input.button, .ie6 .blue .button-disabled input.submit {
-  color: #4F4534; }
-
-/* ---------- common styles ---------- */
-.mar-right {
-  margin-right: 15px !important; }
-
-.mar-left {
-  margin-right: 15px !important; }
-
-.no-mr-bottom {
-  margin-bottom: 0 !important; }
-
-.no-mr-top {
-  margin-top: 0 !important; }
-
-.no-margin {
-  margin: 0 !important; }
-
-.text-left {
-  text-align: left; }
-
-.text-right {
-  text-align: right; }
-
-.text-center {
-  text-align: center; }
-
-.text-justify {
-  text-align: justify; }
-
-.pull-left {
-  float: left !important; }
-
-.pull-right {
-  float: right !important; }
-
-.center-block {
-  display: block;
-  margin-left: auto;
-  margin-right: auto; }
+.aui .light {
+  background: #FAFAFA;
+  /* ---------- Portlet ---------- */
+  /* ---------- Portlet hover styles ---------- */ }
+  .aui .light #navigation .navbar-inner {
+    background: #F6F6F6; }
+    .aui .light #navigation .navbar-inner .nav > li a {
+      color: #777; }
+  .aui .light .portlet {
+    background: transparent; }
+  .aui .light .portlet-title {
+    color: #29B23E; }
+  .aui .light .columns-max .portlet .portlet-topper-toolbar a {
+    color: #555; }
 
 /* ---------- Base styles ---------- */
 .aui {
@@ -3010,26 +2885,8 @@ body.blue, .blue .portlet {
     border-color: #BFBFBF transparent #FFF;
     border-style: solid;
     border-width: 1px 0; }
-  .aui .common-divider {
-    display: block;
-    height: 0;
-    border-top: solid 1px #d9d9da;
-    border-bottom: solid 1px #fefeff;
-    margin: 15px 0; }
   .aui #wrapper {
-    position: relative;
-    padding: 10px 0em; }
-  .aui .main-content {
-    background: #f2f4f8; }
-  .aui #content {
-    padding-right: 20px; }
-  .aui #heading {
-    background: #4d90fd;
-    padding: 10px 20px; }
-    .aui #heading h1 {
-      margin: 0;
-      line-height: 0;
-      font-size: 0px; }
+    position: relative; }
   .aui .site-title a:hover {
     text-decoration: none; }
   .aui .site-title .site-name {
@@ -3040,7 +2897,12 @@ body.blue, .blue .portlet {
     right: 5px;
     z-index: 200; }
   .aui #sign-in {
-    float: right; }
+    background: url(@theme_image_path@/common/key.png) no-repeat 3px 50%;
+    font-weight: bold;
+    padding: 5px 5px 5px 25px;
+    position: absolute;
+    right: 0;
+    top: -1.2em; }
   .aui .redirected-to-message {
     margin-right: 10px; }
     .aui .redirected-to-message a {
@@ -3049,9 +2911,7 @@ body.blue, .blue .portlet {
       color: #8D8D8D;
       padding: 5px; }
   .aui .site-navigation {
-    margin-bottom: 6px;
-    height: 800px;
-    background: #272930; }
+    margin-bottom: 6px; }
   .aui .taglib-portal-message {
     margin-bottom: 0; }
   .aui .dockbar.navbar .nav li.dropdown.active .dropdown-toggle {
@@ -3086,16 +2946,23 @@ body.blue, .blue .portlet {
       background: transparent;
       text-decoration: underline; }
   .aui .dockbar .navbar-inner, .aui .dockbar-split .dockbar .navbar-inner {
-    background: #fff; }
+    background-color: #118ade;
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #118ade), color-stop(47%, #118ade), color-stop(100%, #1273c7));
+    background-image: -webkit-linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%);
+    background-image: -moz-linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%);
+    background-image: -o-linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%);
+    background-image: linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%); }
     .aui .dockbar .navbar-inner .nav > li, .aui .dockbar-split .dockbar .navbar-inner .nav > li {
-      background: #fff; }
-      .aui .dockbar .navbar-inner .nav > li a, .aui .dockbar-split .dockbar .navbar-inner .nav > li a {
-        color: #000; }
+      background-color: #118ade;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #118ade), color-stop(47%, #118ade), color-stop(100%, #1273c7));
+      background-image: -webkit-linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%);
+      background-image: -moz-linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%);
+      background-image: -o-linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%);
+      background-image: linear-gradient(#118ade 0%, #118ade 47%, #1273c7 100%); }
   .aui .dockbar-split .dockbar .info-button {
     top: 9px; }
   .aui .dockbar-split .dockbar .navbar-inner .nav-account-controls {
-    border: none;
-    margin-top: 5px; }
+    border-top: 1px solid #00AEFF; }
     .aui .dockbar-split .dockbar .navbar-inner .nav-account-controls.nav-account-controls-notice {
       margin-top: 10px;
       top: 50px; }
@@ -3153,10 +3020,7 @@ body.blue, .blue .portlet {
   .aui #navigation .nav .dropdown-menu {
     background: #00ACFF;
     border-width: 0;
-    margin: 0;
-    position: absolute;
-    left: 100%;
-    top: 0; }
+    margin: 0; }
     .aui #navigation .nav .dropdown-menu:after, .aui #navigation .nav .dropdown-menu:before {
       border-width: 0; }
     .aui #navigation .nav .dropdown-menu a {
@@ -3165,37 +3029,11 @@ body.blue, .blue .portlet {
         background: none;
         text-decoration: underline; }
   .aui #navigation .navbar-inner {
-    background: #272930;
+    background: #555;
     border-width: 0;
-    min-height: 36px;
-    padding: 0; }
+    min-height: 36px; }
     .aui #navigation .navbar-inner li a {
       color: #FFF; }
-  .aui #navigation .custom-nav {
-    width: 100%; }
-    .aui #navigation .custom-nav li {
-      float: none; }
-    .aui #navigation .custom-nav > li {
-      border-bottom: 1px solid #1a1c20;
-      border-top: 1px solid #32353e; }
-    .aui #navigation .custom-nav .child-menu {
-      background: #1a1c20;
-      margin-left: 0px !important; }
-      .aui #navigation .custom-nav .child-menu li {
-        list-style: none; }
-        .aui #navigation .custom-nav .child-menu li a {
-          padding: 5px 15px 5px 25px;
-          color: #c9d4f6;
-          display: block; }
-        .aui #navigation .custom-nav .child-menu li:hover {
-          background: #484d58; }
-      .aui #navigation .custom-nav .child-menu .selected {
-        background: #484d58; }
-  .aui #navigation .search-area {
-    height: 35px;
-    padding: 15px 10px 10px;
-    text-align: center;
-    border-bottom: solid 1px #1a1c20; }
   .aui .modify-pages .delete-tab {
     background: #555;
     border: 2px solid #FFF;
@@ -3206,13 +3044,13 @@ body.blue, .blue .portlet {
     top: 0;
     z-index: 300; }
   .aui .breadcrumb {
-    background-color: none; }
+    background-color: #FAFAFA; }
   .aui #breadcrumbs {
-    margin-top: 20px; }
+    margin-bottom: 45px; }
     .aui #breadcrumbs .breadcrumb {
       margin-bottom: 0; }
   .aui .portlet-content, .aui .portlet-minimized .portlet-content-container {
-    border: none;
+    border: 1px solid #EAEAEA;
     border-top-width: 0;
     padding: 12px 10px 10px; }
   .aui .portlet-topper {
@@ -3235,7 +3073,7 @@ body.blue, .blue .portlet {
   .aui .lfr-configurator-visibility .portlet-topper {
     background-color: #A9A9A9; }
   .aui .portlet-borderless-bar .portlet-options .dropdown-toggle {
-    background-image: url(@base_url@/css/../images/portlet/options_borderless.png); }
+    background-image: url(@base_url@/html/themes/classic/css/../images/portlet/options_borderless.png); }
   .aui .signed-in.controls-visible .portlet-title {
     padding-right: 80px; }
   .aui .portlet-asset-publisher .asset-content, .aui .portlet-asset-publisher .asset-summary, .aui .portlet-asset-publisher .asset-title, .aui .portlet-asset-publisher .header-title, .aui .portlet-asset-publisher li.title-list, .aui .portlet-blogs .entry-body, .aui .portlet-blogs .entry-title, .aui .portlet-blogs .header-title, .aui .portlet-journal-content .journal-content-article, .aui .portlet-message-boards .header-title, .aui .portlet-message-boards .thread-body {
@@ -3284,17 +3122,11 @@ body.blue, .blue .portlet {
     .aui .portlet-staging-bar .page-variations-options .lfr-icon-menu .icon-globe, .aui .portlet-staging-bar .page-variations-options .lfr-icon-menu .icon-file, .aui .portlet-staging-bar .site-pages-variation-options .lfr-icon-menu .icon-globe, .aui .portlet-staging-bar .site-pages-variation-options .lfr-icon-menu .icon-file {
       background-color: #469DE3; }
   .aui #footer {
-    text-align: center;
-    background: #272930; }
-    .aui #footer p {
-      padding: 10px;
-      margin: 0;
-      color: #fff; }
+    text-align: right; }
   .aui .lfr-hudcrumbs {
     position: fixed;
     top: 0;
-    z-index: 300;
-    display: none; }
+    z-index: 300; }
     .aui .lfr-hudcrumbs .breadcrumb {
       background: #414445;
       background: rgba(0, 0, 0, 0.8); }
@@ -3307,8 +3139,6 @@ body.blue, .blue .portlet {
     float: none; }
   .aui .portlet-journal-content .lfr-icon-actions {
     margin-bottom: 3px; }
-  .aui .lfr-search-container {
-    margin-top: 10px; }
   .aui #navigation .nav li.open > a {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -3414,6 +3244,12 @@ body.blue, .blue .portlet {
         background-image: -o-linear-gradient(#118ade, #1273c7);
         background-image: linear-gradient(#118ade, #1273c7); } }
     .aui .dockbar-split .dockbar .navbar-inner .nav li.dropdown.open > .dropdown-toggle {
+      background-color: #0ea6f9;
+      background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0ea6f9), color-stop(100%, #0993dd));
+      background-image: -webkit-linear-gradient(#0ea6f9, #0993dd);
+      background-image: -moz-linear-gradient(#0ea6f9, #0993dd);
+      background-image: -o-linear-gradient(#0ea6f9, #0993dd);
+      background-image: linear-gradient(#0ea6f9, #0993dd);
       -webkit-box-shadow: none;
       -moz-box-shadow: none;
       box-shadow: none; }
