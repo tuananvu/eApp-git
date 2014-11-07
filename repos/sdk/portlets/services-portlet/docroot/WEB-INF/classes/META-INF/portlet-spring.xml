@@ -247,6 +247,11 @@
 		<property name="dataSource" ref="hrmDataSource" />
 		<property name="sessionFactory" ref="hrmSessionFactory" />
 	</bean>
+	<bean id="com.rknowsys.eapp.hrm.service.TerminationReasonsLocalService" class="com.rknowsys.eapp.hrm.service.impl.TerminationReasonsLocalServiceImpl" />
+	<bean id="com.rknowsys.eapp.hrm.service.persistence.TerminationReasonsPersistence" class="com.rknowsys.eapp.hrm.service.persistence.TerminationReasonsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="hrmDataSource" />
+		<property name="sessionFactory" ref="hrmSessionFactory" />
+	</bean>
 	<bean id="com.rknowsys.eapp.hrm.service.WorkshiftLocalService" class="com.rknowsys.eapp.hrm.service.impl.WorkshiftLocalServiceImpl" />
 	<bean id="com.rknowsys.eapp.hrm.service.persistence.WorkshiftPersistence" class="com.rknowsys.eapp.hrm.service.persistence.WorkshiftPersistenceImpl" parent="basePersistence">
 		<property name="dataSource" ref="hrmDataSource" />

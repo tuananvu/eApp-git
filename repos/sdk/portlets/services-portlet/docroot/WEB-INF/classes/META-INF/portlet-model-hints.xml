@@ -597,6 +597,15 @@
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 	</model>
+	<model name="com.rknowsys.eapp.hrm.model.TerminationReasons">
+		<field name="terminationreasonsId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="terminationreasonsName" type="String" />
+	</model>
 	<model name="com.rknowsys.eapp.hrm.model.Workshift">
 		<field name="shiftId" type="long" />
 		<field name="companyId" type="long" />

@@ -83,6 +83,7 @@ import com.rknowsys.eapp.hrm.service.persistence.ReportingMethodsPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.SalaryComponentPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.SkillPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.SubUnitPersistence;
+import com.rknowsys.eapp.hrm.service.persistence.TerminationReasonsPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.WorkWeekPersistence;
 import com.rknowsys.eapp.hrm.service.persistence.WorkshiftPersistence;
 
@@ -2141,6 +2142,44 @@ public abstract class EmpWorkExpLocalServiceBaseImpl
 	}
 
 	/**
+	 * Returns the termination reasons local service.
+	 *
+	 * @return the termination reasons local service
+	 */
+	public com.rknowsys.eapp.hrm.service.TerminationReasonsLocalService getTerminationReasonsLocalService() {
+		return terminationReasonsLocalService;
+	}
+
+	/**
+	 * Sets the termination reasons local service.
+	 *
+	 * @param terminationReasonsLocalService the termination reasons local service
+	 */
+	public void setTerminationReasonsLocalService(
+		com.rknowsys.eapp.hrm.service.TerminationReasonsLocalService terminationReasonsLocalService) {
+		this.terminationReasonsLocalService = terminationReasonsLocalService;
+	}
+
+	/**
+	 * Returns the termination reasons persistence.
+	 *
+	 * @return the termination reasons persistence
+	 */
+	public TerminationReasonsPersistence getTerminationReasonsPersistence() {
+		return terminationReasonsPersistence;
+	}
+
+	/**
+	 * Sets the termination reasons persistence.
+	 *
+	 * @param terminationReasonsPersistence the termination reasons persistence
+	 */
+	public void setTerminationReasonsPersistence(
+		TerminationReasonsPersistence terminationReasonsPersistence) {
+		this.terminationReasonsPersistence = terminationReasonsPersistence;
+	}
+
+	/**
 	 * Returns the workshift local service.
 	 *
 	 * @return the workshift local service
@@ -2583,6 +2622,10 @@ public abstract class EmpWorkExpLocalServiceBaseImpl
 	protected com.rknowsys.eapp.hrm.service.SubUnitLocalService subUnitLocalService;
 	@BeanReference(type = SubUnitPersistence.class)
 	protected SubUnitPersistence subUnitPersistence;
+	@BeanReference(type = com.rknowsys.eapp.hrm.service.TerminationReasonsLocalService.class)
+	protected com.rknowsys.eapp.hrm.service.TerminationReasonsLocalService terminationReasonsLocalService;
+	@BeanReference(type = TerminationReasonsPersistence.class)
+	protected TerminationReasonsPersistence terminationReasonsPersistence;
 	@BeanReference(type = com.rknowsys.eapp.hrm.service.WorkshiftLocalService.class)
 	protected com.rknowsys.eapp.hrm.service.WorkshiftLocalService workshiftLocalService;
 	@BeanReference(type = WorkshiftPersistence.class)

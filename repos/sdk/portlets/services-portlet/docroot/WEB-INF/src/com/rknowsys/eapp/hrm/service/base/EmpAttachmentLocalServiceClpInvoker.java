@@ -110,13 +110,13 @@ public class EmpAttachmentLocalServiceClpInvoker {
 
 		_methodParameterTypes16 = new String[] { "java.io.Serializable" };
 
-		_methodName229 = "getBeanIdentifier";
+		_methodName233 = "getBeanIdentifier";
 
-		_methodParameterTypes229 = new String[] {  };
+		_methodParameterTypes233 = new String[] {  };
 
-		_methodName230 = "setBeanIdentifier";
+		_methodName234 = "setBeanIdentifier";
 
-		_methodParameterTypes230 = new String[] { "java.lang.String" };
+		_methodParameterTypes234 = new String[] { "java.lang.String" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -213,13 +213,13 @@ public class EmpAttachmentLocalServiceClpInvoker {
 			return EmpAttachmentLocalServiceUtil.getFileBlobModel((java.io.Serializable)arguments[0]);
 		}
 
-		if (_methodName229.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes229, parameterTypes)) {
+		if (_methodName233.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes233, parameterTypes)) {
 			return EmpAttachmentLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName230.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes230, parameterTypes)) {
+		if (_methodName234.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes234, parameterTypes)) {
 			EmpAttachmentLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
@@ -262,8 +262,8 @@ public class EmpAttachmentLocalServiceClpInvoker {
 	private String[] _methodParameterTypes15;
 	private String _methodName16;
 	private String[] _methodParameterTypes16;
-	private String _methodName229;
-	private String[] _methodParameterTypes229;
-	private String _methodName230;
-	private String[] _methodParameterTypes230;
+	private String _methodName233;
+	private String[] _methodParameterTypes233;
+	private String _methodName234;
+	private String[] _methodParameterTypes234;
 }

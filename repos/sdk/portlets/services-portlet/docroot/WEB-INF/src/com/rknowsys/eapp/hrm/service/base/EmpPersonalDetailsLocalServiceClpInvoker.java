@@ -106,17 +106,17 @@ public class EmpPersonalDetailsLocalServiceClpInvoker {
 				"com.rknowsys.eapp.hrm.model.EmpPersonalDetails"
 			};
 
-		_methodName228 = "getBeanIdentifier";
+		_methodName232 = "getBeanIdentifier";
 
-		_methodParameterTypes228 = new String[] {  };
+		_methodParameterTypes232 = new String[] {  };
 
-		_methodName229 = "setBeanIdentifier";
+		_methodName233 = "setBeanIdentifier";
 
-		_methodParameterTypes229 = new String[] { "java.lang.String" };
+		_methodParameterTypes233 = new String[] { "java.lang.String" };
 
-		_methodName234 = "getEmployeeDetailsByShiftId";
+		_methodName238 = "getEmployeeDetailsByShiftId";
 
-		_methodParameterTypes234 = new String[] { "long" };
+		_methodParameterTypes238 = new String[] { "long" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -208,20 +208,20 @@ public class EmpPersonalDetailsLocalServiceClpInvoker {
 			return EmpPersonalDetailsLocalServiceUtil.updateEmpPersonalDetails((com.rknowsys.eapp.hrm.model.EmpPersonalDetails)arguments[0]);
 		}
 
-		if (_methodName228.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes228, parameterTypes)) {
+		if (_methodName232.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes232, parameterTypes)) {
 			return EmpPersonalDetailsLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName229.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes229, parameterTypes)) {
+		if (_methodName233.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes233, parameterTypes)) {
 			EmpPersonalDetailsLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
-		if (_methodName234.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes234, parameterTypes)) {
+		if (_methodName238.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes238, parameterTypes)) {
 			return EmpPersonalDetailsLocalServiceUtil.getEmployeeDetailsByShiftId(((Long)arguments[0]).longValue());
 		}
 
@@ -260,10 +260,10 @@ public class EmpPersonalDetailsLocalServiceClpInvoker {
 	private String[] _methodParameterTypes14;
 	private String _methodName15;
 	private String[] _methodParameterTypes15;
-	private String _methodName228;
-	private String[] _methodParameterTypes228;
-	private String _methodName229;
-	private String[] _methodParameterTypes229;
-	private String _methodName234;
-	private String[] _methodParameterTypes234;
+	private String _methodName232;
+	private String[] _methodParameterTypes232;
+	private String _methodName233;
+	private String[] _methodParameterTypes233;
+	private String _methodName238;
+	private String[] _methodParameterTypes238;
 }

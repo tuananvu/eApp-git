@@ -1128,6 +1128,25 @@
 			<transient name="userUuid" />
 		</attributes>
 	</mapped-superclass>
+	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.TerminationReasonsModelImpl">
+		<attributes>
+			<id name="terminationreasonsId" />
+			<basic name="companyId" />
+			<basic name="groupId" />
+			<basic name="createDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="modifiedDate">
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="userId" />
+			<basic name="terminationreasonsName" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
 	<mapped-superclass class="com.rknowsys.eapp.hrm.model.impl.WorkshiftModelImpl">
 		<attributes>
 			<id name="shiftId" />
@@ -1362,6 +1381,10 @@
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.SubUnitImpl" name="SubUnit">
 		<table name="sub_unit" />
+		<attributes />
+	</entity>
+	<entity class="com.rknowsys.eapp.hrm.model.impl.TerminationReasonsImpl" name="TerminationReasons">
+		<table name="terminationreasons" />
 		<attributes />
 	</entity>
 	<entity class="com.rknowsys.eapp.hrm.model.impl.WorkshiftImpl" name="Workshift">

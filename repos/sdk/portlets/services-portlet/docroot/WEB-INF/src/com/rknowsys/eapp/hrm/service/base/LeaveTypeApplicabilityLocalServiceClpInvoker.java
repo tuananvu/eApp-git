@@ -248,17 +248,17 @@ public class LeaveTypeApplicabilityLocalServiceClpInvoker {
 
 		_methodParameterTypes47 = new String[] { "long", "long[][]" };
 
-		_methodName260 = "getBeanIdentifier";
+		_methodName264 = "getBeanIdentifier";
 
-		_methodParameterTypes260 = new String[] {  };
+		_methodParameterTypes264 = new String[] {  };
 
-		_methodName261 = "setBeanIdentifier";
+		_methodName265 = "setBeanIdentifier";
 
-		_methodParameterTypes261 = new String[] { "java.lang.String" };
+		_methodParameterTypes265 = new String[] { "java.lang.String" };
 
-		_methodName266 = "findByLeaveTypeId";
+		_methodName270 = "findByLeaveTypeId";
 
-		_methodParameterTypes266 = new String[] { "long" };
+		_methodParameterTypes270 = new String[] { "long" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -580,20 +580,20 @@ public class LeaveTypeApplicabilityLocalServiceClpInvoker {
 			return null;
 		}
 
-		if (_methodName260.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes260, parameterTypes)) {
+		if (_methodName264.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes264, parameterTypes)) {
 			return LeaveTypeApplicabilityLocalServiceUtil.getBeanIdentifier();
 		}
 
-		if (_methodName261.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes261, parameterTypes)) {
+		if (_methodName265.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes265, parameterTypes)) {
 			LeaveTypeApplicabilityLocalServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
 
 			return null;
 		}
 
-		if (_methodName266.equals(name) &&
-				Arrays.deepEquals(_methodParameterTypes266, parameterTypes)) {
+		if (_methodName270.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes270, parameterTypes)) {
 			return LeaveTypeApplicabilityLocalServiceUtil.findByLeaveTypeId(((Long)arguments[0]).longValue());
 		}
 
@@ -696,10 +696,10 @@ public class LeaveTypeApplicabilityLocalServiceClpInvoker {
 	private String[] _methodParameterTypes46;
 	private String _methodName47;
 	private String[] _methodParameterTypes47;
-	private String _methodName260;
-	private String[] _methodParameterTypes260;
-	private String _methodName261;
-	private String[] _methodParameterTypes261;
-	private String _methodName266;
-	private String[] _methodParameterTypes266;
+	private String _methodName264;
+	private String[] _methodParameterTypes264;
+	private String _methodName265;
+	private String[] _methodParameterTypes265;
+	private String _methodName270;
+	private String[] _methodParameterTypes270;
 }

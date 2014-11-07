@@ -48,6 +48,7 @@
 	<import class="com.rknowsys.eapp.hrm.model.SalaryComponent" />
 	<import class="com.rknowsys.eapp.hrm.model.Skill" />
 	<import class="com.rknowsys.eapp.hrm.model.SubUnit" />
+	<import class="com.rknowsys.eapp.hrm.model.TerminationReasons" />
 	<import class="com.rknowsys.eapp.hrm.model.Workshift" />
 	<import class="com.rknowsys.eapp.hrm.model.WorkWeek" />
 	<class name="com.rknowsys.eapp.hrm.model.impl.DocCategoryImpl" table="doc_category">
@@ -799,6 +800,18 @@
 		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.rknowsys.eapp.hrm.model.impl.TerminationReasonsImpl" table="terminationreasons">
+		<cache usage="read-write" />
+		<id name="terminationreasonsId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="companyId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="terminationreasonsName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>
 	<class name="com.rknowsys.eapp.hrm.model.impl.WorkshiftImpl" table="workshift">
 		<cache usage="read-write" />
