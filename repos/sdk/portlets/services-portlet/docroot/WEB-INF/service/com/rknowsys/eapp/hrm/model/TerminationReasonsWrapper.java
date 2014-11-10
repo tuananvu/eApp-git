@@ -354,7 +354,8 @@ public class TerminationReasonsWrapper implements TerminationReasons,
 	}
 
 	@Override
-	public int compareTo(TerminationReasons terminationReasons) {
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.TerminationReasons terminationReasons) {
 		return _terminationReasons.compareTo(terminationReasons);
 	}
 
@@ -364,17 +365,17 @@ public class TerminationReasonsWrapper implements TerminationReasons,
 	}
 
 	@Override
-	public com.liferay.portal.model.CacheModel<TerminationReasons> toCacheModel() {
+	public com.liferay.portal.model.CacheModel<com.rknowsys.eapp.hrm.model.TerminationReasons> toCacheModel() {
 		return _terminationReasons.toCacheModel();
 	}
 
 	@Override
-	public TerminationReasons toEscapedModel() {
+	public com.rknowsys.eapp.hrm.model.TerminationReasons toEscapedModel() {
 		return new TerminationReasonsWrapper(_terminationReasons.toEscapedModel());
 	}
 
 	@Override
-	public TerminationReasons toUnescapedModel() {
+	public com.rknowsys.eapp.hrm.model.TerminationReasons toUnescapedModel() {
 		return new TerminationReasonsWrapper(_terminationReasons.toUnescapedModel());
 	}
 
