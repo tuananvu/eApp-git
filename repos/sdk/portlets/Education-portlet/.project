@@ -3,7 +3,6 @@
 	<name>Education-portlet</name>
 	<comment></comment>
 	<projects>
-		<project>services-portlet</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
