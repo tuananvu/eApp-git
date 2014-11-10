@@ -466,7 +466,10 @@ public class SetupLeaveTypesAction extends MVCPortlet {
 			setLeaveTypeListUI(leaveTypeList, leaveTypeListUI);
 
 			renderRequest.setAttribute("leaveTypeList", leaveTypeListUI);
-		} catch (SystemException | PortalException e) {
+		} catch (SystemException e) {
+			e.printStackTrace();
+		}
+		catch (PortalException e) {
 			e.printStackTrace();
 		}
 
