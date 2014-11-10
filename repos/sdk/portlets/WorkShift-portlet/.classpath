@@ -14,7 +14,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="com.liferay.ide.eclipse.server.plugin.container/portlet"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/services-portlet"/>
 	<classpathentry exported="true" kind="con" path="com.liferay.ide.eclipse.server.plugin.container/web"/>
 	<classpathentry kind="output" path="docroot/WEB-INF/classes"/>
 </classpath>
