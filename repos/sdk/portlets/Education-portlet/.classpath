@@ -18,6 +18,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="com.liferay.ide.eclipse.server.plugin.container/web"/>
-	<classpathentry kind="lib" path="/services-portlet/docroot/WEB-INF/lib/services-portlet-service.jar"/>
 	<classpathentry kind="output" path="docroot/WEB-INF/classes"/>
 </classpath>
