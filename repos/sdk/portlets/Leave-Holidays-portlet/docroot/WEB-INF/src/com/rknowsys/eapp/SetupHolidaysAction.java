@@ -223,9 +223,11 @@ public class SetupHolidaysAction extends MVCPortlet {
 			actionRequest.getPortletSession().setAttribute("holidaySearch", holidayUI, PortletSession.APPLICATION_SCOPE);
 			//actionRequest.setAttribute("holidayList", holidayListUI);
 			actionRequest.getPortletSession().setAttribute("holidayList", holidayListUI, PortletSession.APPLICATION_SCOPE);
-		} catch (SystemException | PortalException e) {
+		} catch (SystemException e){
 			e.printStackTrace();
-		}
+		}catch (PortalException e) {
+				e.printStackTrace();
+			}
 		actionResponse.setRenderParameter("jspPage", "/html/holiday/list_holidays.jsp");
 		//PortalUtil.copyRequestParameters(actionRequest, actionResponse);
 		log.info("end of the searchHolidays method");
@@ -326,9 +328,11 @@ public class SetupHolidaysAction extends MVCPortlet {
 			renderRequest.getPortletSession().setAttribute("holidaySearch", holidayUI, PortletSession.APPLICATION_SCOPE);
 			renderRequest.getPortletSession().setAttribute("holidayList", holidayListUI, PortletSession.APPLICATION_SCOPE);
 			//renderRequest.setAttribute("holidayList", holidayListUI);
-		} catch (SystemException | PortalException e) {
+		} catch (SystemException e){
 			e.printStackTrace();
-		}
+		}catch (PortalException e) {
+				e.printStackTrace();
+			}
 
 		super.doView(renderRequest, renderResponse);
 	}
