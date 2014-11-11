@@ -11,13 +11,9 @@ A.ready(function()
    addButton.on('click',
    function()
    {
-   alert("adding contact details");
    A.one('#<portlet:namespace/>emgContactAdd').hide();
    A.one('#<portlet:namespace/>emgContactDelete').hide();
    A.one('#emergencyContactAdd').show();
-   A.all('input[type=text]').set('disabled',false);
-   A.all('input[type=select]').set('disabled',false);
-   A.all('input[type=radio]').set('disabled',false);
    });
    var cancelButton=A.one('#<portlet:namespace />cancelEmgContacts');
    cancelButton.on('click',

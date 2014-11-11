@@ -14,10 +14,6 @@ A.ready(function()
    A.one('#<portlet:namespace />empMembershipAdd').hide();
    A.one('#<portlet:namespace />empMembershipDelete').hide();
    A.one('#addEmpMembership').show();
-   
-   A.all('input[type=text]').set('disabled',false);
-   A.all('select').set('disabled',false);
-   A.all('input[type=radio]').set('disabled',false);
    });
    var cancelButton=A.one('#<portlet:namespace />cancelMembership');
    cancelButton.on('click',function()

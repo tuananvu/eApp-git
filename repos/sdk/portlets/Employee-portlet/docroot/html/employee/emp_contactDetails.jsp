@@ -7,18 +7,17 @@ var A=new AUI();
 A.ready(function()
 {
 A.one('#<portlet:namespace />saveContactDetails').hide();
-A.all('input[type=text]').set('disabled',true);
-	A.all('input[type=select]').set('disabled',true);
-	A.all('input[type=radio]').set('disabled',true);
+A.all('#<portlet:namespace/>empContactDetailsEdit input[type=text]').set('disabled',true);
+	A.all('#<portlet:namespace/>empContactDetailsEdit input[type=select]').set('disabled',true);
+	A.all('#<portlet:namespace/>empContactDetailsEdit input[type=radio]').set('disabled',true);
 });
 	var node=A.one('#<portlet:namespace />editContactDetails');
 	node.on('click',function()
 	{
 	A.one('#<portlet:namespace />editContactDetails').hide();
-	alert(A.all('input[type=text]'));
-	A.all('input[type=text]').set('disabled',false);
-	A.all('input[type=select]').set('disabled',false);
-	A.all('input[type=radio]').set('disabled',false);
+	A.all('#<portlet:namespace/>empContactDetailsEdit input[type=text]').set('disabled',false);
+	A.all('#<portlet:namespace/>empContactDetailsEdit input[type=select]').set('disabled',false);
+	A.all('#<portlet:namespace/>empContactDetailsEdit input[type=radio]').set('disabled',false);
 	A.one('#<portlet:namespace />saveContactDetails').show();
 	});
 </aui:script>

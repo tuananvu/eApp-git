@@ -128,13 +128,13 @@ public String getCategoryValue(long jcId)
 				</div>
 				<div class="span6">
 					<aui:input name="probation_date" label="01_probation-date"
-						cssClass="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
+						cssClass="dateEmployee" inlineLabel="left" ></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span6">
 					<aui:input name="date_permanency" label="01_date-of-permanency"
-						cssClass="dateEmployee" inlineLabel="left" disabled="true"></aui:input>
+						cssClass="dateEmployee" inlineLabel="left" ></aui:input>
 				</div>
 			</div>
 			<div class="row-fluid">

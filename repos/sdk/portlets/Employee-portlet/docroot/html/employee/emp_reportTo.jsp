@@ -12,39 +12,28 @@ A.ready(function()
 {
 A.one('#assignedSupervisorAdd').hide();
 A.one('#assignedSubordinateAdd').hide();
-A.all('input[type=text]').set('disabled',true);
-	A.all('select]').set('disabled',true);
-	A.all('input[type=radio]').set('disabled',true);
 });
    var addSupButton=A.one('#<portlet:namespace />supervisorAdd');
    addSupButton.on('click',
    function()
    {
-   alert("adding supervisor details");
    A.one('#assignedSubordinateAdd').hide();
    A.one('#<portlet:namespace/>supervisorAdd').hide();
    A.one('#<portlet:namespace/>supervisorDelete').hide();
    A.one('#<portlet:namespace/>subordinateAdd').hide();
    A.one('#<portlet:namespace/>subordinateDelete').hide();
    A.one('#assignedSupervisorAdd').show();
-   A.all('input[type=text]').set('disabled',false);
-   A.all('select').set('disabled',false);
-   A.all('input[type=radio]').set('disabled',false);
    });
    var addSubButton=A.one('#<portlet:namespace />subordinateAdd');
    addSubButton.on('click',
    function()
    {
-   alert("adding subordinate details");
     A.one('#assignedSupervisorAdd').hide();
     A.one('#<portlet:namespace/>supervisorAdd').hide();
     A.one('#<portlet:namespace/>supervisorDelete').hide();
     A.one('#<portlet:namespace/>subordinateAdd').hide();
     A.one('#<portlet:namespace/>subordinateDelete').hide();
     A.one('#assignedSubordinateAdd').show();
-   A.all('input[type=text]').set('disabled',false);
-   A.all('select').set('disabled',false);
-   A.all('input[type=radio]').set('disabled',false);
    });
    var cancelButton=A.one('#<portlet:namespace/>cancelReportTo');
    cancelButton.on('click',function()
@@ -102,12 +91,8 @@ A.all('input[type=text]').set('disabled',true);
 		});
 		node1.on('select',function(e)
 		{
-		alert(testData);
-		alert(A.one("#<portlet:namespace />report_sup_name").get('value'));
 		var selected_node = e.itemNode,
         selected_data = e.result;
-        alert(selected_data);
-        alert(selected_data.raw.firstName);
         A.one("#<portlet:namespace />supervisorId").set("value",selected_data.raw.id);
 		});
 	});
