@@ -16,7 +16,6 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
-
 import org.apache.log4j.Logger;
 
 import com.liferay.counter.service.CounterLocalServiceUtil;
@@ -91,8 +90,15 @@ public class SetupHolidaysAction extends MVCPortlet {
 				setHoliday(actionRequest, holiday);
 
 				holiday = HolidayLocalServiceUtil.addHoliday(holiday);
-
+                log.info("holiday id is"+ holiday.getHolidayId());
+                try
+                {
 				LocationLocalServiceUtil.addHolidayLocations(holiday.getHolidayId(), locationsList);
+                }
+                catch(Exception e)
+                {
+                	log.info("cannot update locations");
+                }
 				holidayUI.setHolidayId(String.valueOf(holiday.getHolidayId()));
 				initializeHolidayUI(holidayUI);
 
@@ -247,23 +253,23 @@ public class SetupHolidaysAction extends MVCPortlet {
 		holidayUI.setSearchToDate((DateUtils.format(yearEndDay)));
 		List<IdNamePair> orgCountriesList = setHolidayUIOrgCountries(holidayUI);
 		log.info("orgCountriesList = " + orgCountriesList.size());
-		// List<Location> orgLocations =
-		// LocationLocalServiceUtil.getLocations(0,
-		// LocationLocalServiceUtil.getLocationsCount());
+		 List<Location> orgLocations =
+		 LocationLocalServiceUtil.getLocations(0,
+		 LocationLocalServiceUtil.getLocationsCount());
 		List<IdNamePair> orgLocationsList = new ArrayList<IdNamePair>();
-		// if (orgLocations != null && orgLocations.size() > 0) {
-		// for (Location orgLocation : orgLocations) {
-		// if (orgLocation.getCountry().equalsIgnoreCase(
-		// NationalityLocalServiceUtil
-		// .getNationalities(0,
-		// NationalityLocalServiceUtil.getNationalitiesCount()).get(0)
-		// .getName())) {
-		// orgLocationsList.add(new
-		// IdNamePair(String.valueOf(orgLocation.getLocationId()), orgLocation
-		// .getName()));
-		// }
-		// }
-		// }
+		 if (orgLocations != null && orgLocations.size() > 0) {
+		 for (Location orgLocation : orgLocations) {
+		 if (orgLocation.getCountry().equalsIgnoreCase(
+		 NationalityLocalServiceUtil
+		 .getNationalities(0,
+		 NationalityLocalServiceUtil.getNationalitiesCount()).get(0)
+		 .getName())) {
+		 orgLocationsList.add(new
+		 IdNamePair(String.valueOf(orgLocation.getLocationId()), orgLocation
+		 .getName()));
+		 }
+		 }
+		 }
 		holidayUI.setOrgLocations(orgLocationsList);
 
 	}
@@ -283,7 +289,8 @@ public class SetupHolidaysAction extends MVCPortlet {
 		}
 
 		String isFullDay = ParamUtil.getString(actionRequest, "isFullDay");
-
+		/* code changed by swetha */
+	
 		if (isFullDay.equals("true")) {
 			log.info("in if of fullday");
 			holiday.setIsFullDay(true);
@@ -302,8 +309,9 @@ public class SetupHolidaysAction extends MVCPortlet {
 			locationIds[i] = Long.parseLong(locationId);
 			i++;
 		}
-		LocationLocalServiceUtil.setHolidayLocations(ParamUtil.getInteger(actionRequest, HOLIDAY_ID), locationIds);
-
+		//LocationLocalServiceUtil.setHolidayLocations(ParamUtil.getInteger(actionRequest, HOLIDAY_ID), locationIds);
+	
+		/* code changed by swetha */
 	}
 
 	private void setAuditFields(ThemeDisplay themeDisplay, Holiday leavePeriod) {
@@ -478,7 +486,15 @@ public class SetupHolidaysAction extends MVCPortlet {
 		List<IdNamePair> chkdLocationsList = new ArrayList<IdNamePair>();
 		List<String> locationIds = new ArrayList<String>();
 		log.info("before getHolidayLOcations = holidayId = " + holiday.getHolidayId());
-		List<Location> locations = LocationLocalServiceUtil.getHolidayLocations(holiday.getHolidayId());
+		List<Location> locations=null;
+		try
+		{
+		 locations = LocationLocalServiceUtil.getHolidayLocations(holiday.getHolidayId());
+		}
+		catch(Exception e)
+		{
+			log.info("cannot get mapped locations to the holidays");
+		}
 		if (locations != null) {
 			for (Location location : locations) {
 				if (location != null) {
@@ -514,7 +530,7 @@ public class SetupHolidaysAction extends MVCPortlet {
 
 		log.info("inside addEditHoliday...");
 		String s = ParamUtil.getString(actionRequest, "holidayId");
-		
+		log.info(s);
 		com.rknowsys.eapp.ui.Holiday holidayUI = new com.rknowsys.eapp.ui.Holiday();
 
 		if (s == null || s.isEmpty()) {
@@ -528,8 +544,8 @@ public class SetupHolidaysAction extends MVCPortlet {
 		log.info("holidayId == " + s);
 		// holidayUI.setHolidayDate("04/04/2014");
 		log.info(holidayUI.getHolidayName());
-		actionRequest.setAttribute("editHoliday", holidayUI);
-		//actionRequest.getPortletSession().setAttribute("editHoliday", holidayUI, PortletSession.APPLICATION_SCOPE);
+		//actionRequest.setAttribute("editHoliday", holidayUI);
+		actionRequest.getPortletSession().setAttribute("editHoliday", holidayUI, PortletSession.APPLICATION_SCOPE);
 		actionResponse.setRenderParameter("jspPage", "/html/holiday/add_edit_holiday.jsp");
 	}
 
