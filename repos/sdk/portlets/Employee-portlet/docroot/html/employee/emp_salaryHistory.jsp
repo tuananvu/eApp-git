@@ -104,7 +104,6 @@ var basicPay=A.one("#<portlet:namespace />annual_basic_pay");
 	costToCompany=Number(A.one("#<portlet:namespace />annual_basic_pay").get('value'))+
 	         Number(A.one("#<portlet:namespace />car_allowance").get('value'))+
 	         Number(A.one("#<portlet:namespace />living_allowance").get('value'));
-	         alert("cost to company is"+costToCompany);
 	
 	A.one("#<portlet:namespace/>cost_to_company").set("value",costToCompany);
 	A.one("#<portlet:namespace/>tot_deductions").set("value",totalDeductions);
@@ -156,7 +155,6 @@ var basicPay=A.one("#<portlet:namespace />annual_basic_pay");
          {
 		var currencyDropDown=nodeValue;
 		var targetElement = A.one("#<portlet:namespace />emp_paygrade_currency");
-		alert("selected value is"+currencyDropDown);
 		var url = '<%=dependencyDropdown%>';
          A.io.request(url,
         	 {
@@ -171,10 +169,8 @@ var basicPay=A.one("#<portlet:namespace />annual_basic_pay");
 		          for (var j=0; j < currencyArray.length; j++) {
 		          targetElement.append("<option value='" + currencyArray[j] + "'>" + currencyArray[j] + "</option>");
 		                    }
-                         alert('submitted successfully');
                            },
                       failure: function() {
-                         alert("cannot submit");
                           }
                }
              });

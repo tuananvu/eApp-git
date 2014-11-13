@@ -11,13 +11,9 @@ A.ready(function()
    addButton.on('click',
    function()
    {
-   alert("adding immigration details");
    A.one('#<portlet:namespace/>immigrationAdd').hide();
    A.one('#<portlet:namespace/>immigrationDelete').hide();
    A.one('#empImmigrationAdd').show();
-   A.all('input[type=text]').set('disabled',false);
-   A.all('select').set('disabled',false);
-   A.all('input[type=radio]').set('disabled',false);
    });
    var cancelButton=A.one('#<portlet:namespace/>cancelImmigrationDetails');
    cancelButton.on('click',function()

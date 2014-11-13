@@ -35,8 +35,9 @@ width: 10%;
 width: 15%;
 }
 </style>
-<jsp:useBean id="editHoliday" type="com.rknowsys.eapp.ui.Holiday" scope="request" />
-
+<%-- <jsp:useBean id="editHoliday" type="com.rknowsys.eapp.ui.Holiday" scope="request" /> --%>
+ <% com.rknowsys.eapp.ui.Holiday editHoliday =  (Holiday)portletSession.getAttribute("editHoliday", javax.portlet.PortletSession.APPLICATION_SCOPE);
+    %>
 <aui:script>
 AUI().ready('event', 'node', function(A){
 //alert("ready!");
