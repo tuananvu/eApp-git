@@ -837,8 +837,8 @@
 		<column name="licenseNo" type="String"></column>
 		<column name="licenseExpDate" type="Date"></column>
 		<column name="gender" type="long"></column>
-		<column name="maritalStatus" type="long"></column>
-		<column name="nationalityId" type="long"></column>
+		<column name="maritalStatus" type="String"></column>
+		<column name="nationalityId" type="String"></column>
 		<column name="dateOfBirth" type="Date"></column>
 		
 		
