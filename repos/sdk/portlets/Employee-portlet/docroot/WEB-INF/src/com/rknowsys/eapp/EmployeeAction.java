@@ -158,7 +158,7 @@ public class EmployeeAction extends MVCPortlet {
 			Date expiryDate=ParamUtil.getDate(actionRequest, "expiry_date", dateFormat);
 			String gender=ParamUtil.getString(actionRequest, "gender");
 			String maritalStatus=ParamUtil.getString(actionRequest, "marital_status");
-			String nationality=ParamUtil.getString(actionRequest, "emp_nationality");
+			long nationality=ParamUtil.getLong(actionRequest, "emp_nationality");
 			Date dateOfB=ParamUtil.getDate(actionRequest, "date_of_birth", dateFormat);
 			long perEmpId = ParamUtil.getLong(actionRequest, "personalDetailsId");
 			EmpPersonalDetails empPersonalDetails = null;
@@ -179,14 +179,15 @@ public class EmployeeAction extends MVCPortlet {
 			empPersonalDetails.setDateOfBirth(dateOfB);
 			empPersonalDetails.setEmployeeId(empId);
 			empPersonalDetails.setEmployeeNo(empNo);
-			empPersonalDetails.setGender(Long.parseLong(gender));
 			empPersonalDetails.setLicenseExpDate(expiryDate);
 			empPersonalDetails.setLicenseNo(driverLicenseNo);
 			empPersonalDetails.setOtherId(otherId);
-			empPersonalDetails.setMaritalStatus(1);
 			empPersonalDetails.setCompanyId(themeDisplay.getCompanyId());
 			empPersonalDetails.setUserId(themeDisplay.getUserId());
 			empPersonalDetails.setModifiedDate(date);
+			empPersonalDetails.setNationalityId(nationality);
+			empPersonalDetails.setMaritalStatus(maritalStatus);
+			empPersonalDetails.setGender(gender);
 				try {
 					EmpPersonalDetailsLocalServiceUtil
 							.updateEmpPersonalDetails(empPersonalDetails);
@@ -851,7 +852,50 @@ public class EmployeeAction extends MVCPortlet {
 	public void serveResource(ResourceRequest resourceRequest,ResourceResponse resourceResponse)
 	       throws IOException,PortletException
 	       {
-		if (resourceRequest.getResourceID().equals("displayImage"))
+		ThemeDisplay themeDisplay = (ThemeDisplay)resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
+	     Date date=new Date();
+		if (resourceRequest.getResourceID().equals("updateImage9"))
+		{ 
+			System.out.println("upadateImage9");
+			UploadPortletRequest uploadRequest = PortalUtil
+					.getUploadPortletRequest(resourceRequest);
+			File newImage=uploadRequest.getFile("newImage");
+			long fileEntryId2=ParamUtil.getLong(uploadRequest, "imageIdtoUpdate");
+			String changeLog = ParamUtil.getString(resourceRequest, "changeLog");
+	        ServiceContext serviceContext=null;
+				try {
+						try {
+							serviceContext = ServiceContextFactory.getInstance(DLFileEntry.class.getName(), resourceRequest);
+						} catch (SystemException e) {
+							e.printStackTrace();
+						}
+					} catch (PortalException e1) {
+						System.out.println(e1.getMessage());
+					}
+			DLFileEntry updateImage=null;
+			try {
+					updateImage=DLFileEntryLocalServiceUtil.getDLFileEntry(fileEntryId2);
+				} catch (PortalException e) {
+					e.printStackTrace();
+				} catch (SystemException e) {
+					e.printStackTrace();
+				}
+			if(updateImage!=null)
+			{
+				try {
+					DLAppLocalServiceUtil.updateFileEntry(themeDisplay.getUserId(), fileEntryId2,newImage.getName(), 
+							"image/jpeg", "", "", changeLog, true, newImage, serviceContext);
+					} catch (PortalException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (SystemException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			      }
+		}
+	       
+		else if (resourceRequest.getResourceID().equals("displayImage"))
 		{  
 			long fileEntryId=ParamUtil.getLong(resourceRequest, "imageId");
 			DLFileEntry b=null;
@@ -886,7 +930,7 @@ public class EmployeeAction extends MVCPortlet {
 			}
 			}
 		}
-				if (resourceRequest.getResourceID().equals("supervisorsAutoComplete"))
+		else if (resourceRequest.getResourceID().equals("supervisorsAutoComplete"))
 					{
 				List<EmpPersonalDetails> l=null;
 					 try {
@@ -897,7 +941,6 @@ public class EmployeeAction extends MVCPortlet {
 					}
 				String userEnteredText=ParamUtil.getString(resourceRequest, "userEnteredText");
 				 JSONArray usersJSONArray = JSONFactoryUtil.createJSONArray();
-				 ThemeDisplay themeDisplay = (ThemeDisplay) resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
 				 DynamicQuery userQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class,
 				 PortletClassLoaderUtil.getClassLoader());
 				 Criterion criterion = RestrictionsFactoryUtil.like("firstName",
@@ -918,35 +961,39 @@ public class EmployeeAction extends MVCPortlet {
 				 PrintWriter out = resourceResponse.getWriter();
 				 out.println(usersJSONArray.toString());
 					}
-			if (resourceRequest.getResourceID().equals("dependencyDropdown"))
+		else if (resourceRequest.getResourceID().equals("dependencyDropdown"))
 			{
-			System.out.println("dependencyDropDowns");
-			String currency=ParamUtil.getString(resourceRequest,"dropDownValue");
-			System.out.println(currency);
-			DynamicQuery currencyDynamicQuery = DynamicQueryFactoryUtil
-					.forClass(PayGradeCurrency.class,
-							PortletClassLoaderUtil.getClassLoader());
-			currencyDynamicQuery.add(PropertyFactoryUtil
-					.forName("payGradeId").eq(Long.parseLong(currency)));
-			List<PayGradeCurrency> list = null;
-			try {
-				list = PayGradeCurrencyLocalServiceUtil.dynamicQuery(currencyDynamicQuery);
-			} catch (SystemException e) {
-				e.printStackTrace();
+				System.out.println("dependencyDropDowns");
+				String currency=ParamUtil.getString(resourceRequest,"dropDownValue");
+				System.out.println(currency);
+				DynamicQuery currencyDynamicQuery = DynamicQueryFactoryUtil
+						.forClass(PayGradeCurrency.class,
+								PortletClassLoaderUtil.getClassLoader());
+				currencyDynamicQuery.add(PropertyFactoryUtil
+						.forName("payGradeId").eq(Long.parseLong(currency)));
+				List<PayGradeCurrency> list = null;
+				try {
+					list = PayGradeCurrencyLocalServiceUtil.dynamicQuery(currencyDynamicQuery);
+				} catch (SystemException e) {
+					e.printStackTrace();
+				}
+				 JSONArray currencyJsonArray=null;
+				if(list!=null)
+				{
+					 currencyJsonArray=JSONFactoryUtil.createJSONArray();
+					 for(int i=0;i<list.size();i++)
+					 {
+						 PayGradeCurrency currencyObj=list.get(i);
+					 currencyJsonArray.put(currencyObj.getCurrency());
+					 }
+				}
+				 PrintWriter out=resourceResponse.getWriter();
+				 System.out.println(currencyJsonArray.toString());
+				 out.write(currencyJsonArray.toString());
 			}
-			 JSONArray currencyJsonArray=null;
-			if(list!=null)
-			{
-				 currencyJsonArray=JSONFactoryUtil.createJSONArray();
-				 for(int i=0;i<list.size();i++)
-				 {
-					 PayGradeCurrency currencyObj=list.get(i);
-				 currencyJsonArray.put(currencyObj.getCurrency());
-				 }
-			}
-			 PrintWriter out=resourceResponse.getWriter();
-			 System.out.println(currencyJsonArray.toString());
-			 out.write(currencyJsonArray.toString());
+		else
+		{
+			System.out.println("resource id not matched");
 		}
 	       }
 public void addEmployee(ActionRequest actionRequest,ActionResponse actionResponse) 
@@ -1111,11 +1158,9 @@ public void updatePersonalDetails(ActionRequest actionRequest,
 			empPersonalDetails.setLastName(lastName);
 			empPersonalDetails.setDateOfBirth(dateOfB);
 			empPersonalDetails.setEmployeeNo(empNo);
-			empPersonalDetails.setGender(Long.parseLong(gender));
 			empPersonalDetails.setLicenseExpDate(expiryDate);
 			empPersonalDetails.setLicenseNo(driverLicenseNo);
 			empPersonalDetails.setOtherId(otherId);
-			empPersonalDetails.setMaritalStatus(1);
 			
 			try {
 				EmpPersonalDetailsLocalServiceUtil
@@ -1132,6 +1177,11 @@ public void updatePersonalDetails(ActionRequest actionRequest,
 					map,PortletSession.APPLICATION_SCOPE);
 		}
       }
+public void updateEmpDocuments(ActionRequest actionRequest, ActionResponse actionResponse)
+		throws IOException,PortletException,SystemException
+		{
+	
+		}
 public void addContactDetails(ActionRequest actionRequest,ActionResponse actionResponse) 
 		throws IOException,PortletException, SystemException
 		{

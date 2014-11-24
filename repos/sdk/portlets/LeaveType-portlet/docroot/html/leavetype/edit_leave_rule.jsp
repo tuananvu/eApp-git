@@ -282,13 +282,13 @@ AUI().use(
 <div>
 	<aui:form name="myForm2" action="<%=editLeaveRestriction.toString()%>">
 			<aui:button type="submit" id="save" value="Go To Leave Restriction" />
-	</aui:form>>
+	</aui:form>
 	<aui:form name="myForm3" action="<%=editLeaveCarryForwardPolicy.toString()%>">
 			<aui:button type="submit" id="save" value="Go To Leave Carry Forward" />
-	</aui:form>>
+	</aui:form>
 	<aui:form name="myForm4" action="<%=editLeaveTypeApplicability.toString()%>">
 			<aui:button type="submit" id="save" value="Go To Type Applicability" />
-	</aui:form>>
+	</aui:form>
 </div>
 
  </body>

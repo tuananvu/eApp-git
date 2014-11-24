@@ -30,11 +30,6 @@ A.ready(function()
 			<div class="container-fluid">
 				<aui:input name="employeeId" type="hidden" />
 				<div class="row-fluid">
-					<div class="span12">
-						<label><b><liferay-ui:message key="01_fullName"></liferay-ui:message></b></label>
-					</div>
-				</div>
-				<div class="row-fluid">
 					<div class="span6">
 						<aui:input name="firstName" type="text" showRequiredLabel="false"
 							inlineLabel="left" label="01_firstName">
