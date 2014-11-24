@@ -24,6 +24,7 @@
 	</entity>
 	
 	
+	
 <entity name="LeaveType" table="leave_type" data-source="hrmDataSource"
 		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
 		tx-manager="hrmTransactionManager">
@@ -56,13 +57,13 @@
 
 	</entity>
 
-	<entity name="LeaveRule" table="leave_rule" data-source="hrmDataSource"
+	<entity name="LeaveGeneral" table="leave_general" data-source="hrmDataSource"
 		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
 		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
 
-		<column name="leaveRuleId" type="long" primary="true" />
+		<column name="leaveGeneralId" type="long" primary="true" />
 
 		<!-- Audit fields -->
 		<column name="companyId" type="long" />
@@ -82,6 +83,10 @@
 		<column name="ifAdminCanManageEntitlements" type="boolean" />
 		<column name="ifLeaveAccruable" type="boolean" />
 		<column name="ifCarryForwardable" type="boolean" />
+		
+		<column name="showProjectBalance" type="boolean"></column>
+		<column name="enableAttachment" type="boolean"></column>
+		<column name="isAttachmentMandatory" type="boolean"></column>
 
 		<!-- Order -->
 
@@ -94,12 +99,12 @@
 		</finder>
 	</entity>
 
-		<entity name="LeaveTypeApplicability" table="leave_type_applicability" data-source="hrmDataSource"
+		<entity name="LeaveRuleApplicable" table="leave_rule_applicable" data-source="hrmDataSource"
 		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
 		tx-manager="hrmTransactionManager">
 
 		<!-- PK fields -->
-		<column name="leaveTypeApplicabilityId" type="long" primary="true" />
+		<column name="leaveRuleApplicableId" type="long" primary="true" />
 
 		<!-- Audit fields -->
 		<column name="companyId" type="long" />
@@ -110,16 +115,18 @@
 
 		<!-- Other fields -->
 		<column name="leaveTypeId" type="long" />
-		<column name="ifYearsOfServiceCriterionApplicable" type="boolean" />
-		<column name="minYearsOfService" type="String" />
-		<column name="maxYearsOfService" type="String" />
+		<column name="forFemale" type="boolean"></column>
+		<column name="forMale" type="boolean"></column>
+		<column name="forYearsOfService" type="boolean" />
+		<column name="fromYears" type="String" />
+		<column name="toYears" type="String" />
+		
 
 		<!-- Order -->
 		<!-- Relationship fields -->
-		
-		<column name="jobTitles" type="Collection" entity="JobTitle" mapping-table="applicable_job_titles" />
-		<column name="employmentStatuses" type="Collection" entity="EmploymentStatus" mapping-table="applicable_employment_statuses" />
-		
+		<column name="jobCategories" type="Collection" entity="JobCategory" mapping-table="lra_jobCategories"/>
+		<column name="jobTitles" type="Collection" entity="JobTitle" mapping-table="lra_jobTitles"/>
+		<column name="employmentStatus" type="Collection" entity="EmploymentStatus" mapping-table="lra_employmentStatus"/>
 		<!-- Finder methods -->
 		<finder name="GroupId" return-type="Collection">
 			<finder-column name="groupId" />
@@ -129,7 +136,6 @@
 		</finder>
 
 	</entity>
-	
 	<entity name="LeaveRestriction" table="leave_restriction" data-source="hrmDataSource"
 		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
 		tx-manager="hrmTransactionManager">
@@ -291,11 +297,6 @@
 			<finder-column name="groupId" />
 		</finder>
 	</entity>
-
-
-
-	
-
 
 	<entity name="News" table="news" data-source="hrmDataSource"
 		local-service="true" remote-service="false" session-factory="hrmSessionFactory"
@@ -541,8 +542,7 @@
 		<column name="specification" type="String" />
 
 		<!-- Relationship fields -->
-		<column name="leaveTypeApplicabilities" type="Collection" entity="LeaveTypeApplicability" mapping-table="applicable_job_titles" />
-		
+		<column name="leaveRuleApplicabilities" type="Collection" entity="LeaveRuleApplicable" mapping-table="lra_jobTitles"/>
 		<!-- Finder methods -->
 
 		<finder name="GroupId" return-type="Collection">
@@ -572,7 +572,7 @@
 		<column name="jobcategory" type="String" />
 
 		<!-- Order -->
-
+		<column name="leaveRuleApplicabilities" type="Collection" entity="LeaveRuleApplicable" mapping-table="lra_jobCategories"/>
 		<!-- Finder methods -->
 
 		<finder name="GroupId" return-type="Collection">
@@ -599,7 +599,7 @@
 		<column name="createDate" type="Date"></column>
 		<column name="modifiedDate" type="Date"></column>
 		<column name="employmentstatus" type="String"></column>
-		<column name="leaveTypeApplicabilities" type="Collection" entity="LeaveTypeApplicability" mapping-table="applicable_employment_statuses" />
+		<column name="leaveRuleApplicabilities" type="Collection" entity="LeaveRuleApplicable" mapping-table="lra_employmentStatus"/>
 	</entity>
 
 	<entity name="PayGrade" table="pay_grade" data-source="hrmDataSource"
@@ -836,9 +836,9 @@
 		<column name="otherId" type="String"></column>
 		<column name="licenseNo" type="String"></column>
 		<column name="licenseExpDate" type="Date"></column>
-		<column name="gender" type="long"></column>
+		<column name="gender" type="String"></column>
 		<column name="maritalStatus" type="String"></column>
-		<column name="nationalityId" type="String"></column>
+		<column name="nationalityId" type="long"></column>
 		<column name="dateOfBirth" type="Date"></column>
 		
 		

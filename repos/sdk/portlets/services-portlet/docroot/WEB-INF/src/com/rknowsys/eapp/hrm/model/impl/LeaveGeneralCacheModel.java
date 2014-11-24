@@ -18,7 +18,7 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.model.CacheModel;
 
-import com.rknowsys.eapp.hrm.model.LeaveRule;
+import com.rknowsys.eapp.hrm.model.LeaveGeneral;
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -28,20 +28,20 @@ import java.io.ObjectOutput;
 import java.util.Date;
 
 /**
- * The cache model class for representing LeaveRule in entity cache.
+ * The cache model class for representing LeaveGeneral in entity cache.
  *
  * @author rknowsys
- * @see LeaveRule
+ * @see LeaveGeneral
  * @generated
  */
-public class LeaveRuleCacheModel implements CacheModel<LeaveRule>,
+public class LeaveGeneralCacheModel implements CacheModel<LeaveGeneral>,
 	Externalizable {
 	@Override
 	public String toString() {
-		StringBundler sb = new StringBundler(33);
+		StringBundler sb = new StringBundler(39);
 
-		sb.append("{leaveRuleId=");
-		sb.append(leaveRuleId);
+		sb.append("{leaveGeneralId=");
+		sb.append(leaveGeneralId);
 		sb.append(", companyId=");
 		sb.append(companyId);
 		sb.append(", groupId=");
@@ -72,60 +72,69 @@ public class LeaveRuleCacheModel implements CacheModel<LeaveRule>,
 		sb.append(ifLeaveAccruable);
 		sb.append(", ifCarryForwardable=");
 		sb.append(ifCarryForwardable);
+		sb.append(", showProjectBalance=");
+		sb.append(showProjectBalance);
+		sb.append(", enableAttachment=");
+		sb.append(enableAttachment);
+		sb.append(", isAttachmentMandatory=");
+		sb.append(isAttachmentMandatory);
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	@Override
-	public LeaveRule toEntityModel() {
-		LeaveRuleImpl leaveRuleImpl = new LeaveRuleImpl();
+	public LeaveGeneral toEntityModel() {
+		LeaveGeneralImpl leaveGeneralImpl = new LeaveGeneralImpl();
 
-		leaveRuleImpl.setLeaveRuleId(leaveRuleId);
-		leaveRuleImpl.setCompanyId(companyId);
-		leaveRuleImpl.setGroupId(groupId);
+		leaveGeneralImpl.setLeaveGeneralId(leaveGeneralId);
+		leaveGeneralImpl.setCompanyId(companyId);
+		leaveGeneralImpl.setGroupId(groupId);
 
 		if (createDate == Long.MIN_VALUE) {
-			leaveRuleImpl.setCreateDate(null);
+			leaveGeneralImpl.setCreateDate(null);
 		}
 		else {
-			leaveRuleImpl.setCreateDate(new Date(createDate));
+			leaveGeneralImpl.setCreateDate(new Date(createDate));
 		}
 
 		if (modifiedDate == Long.MIN_VALUE) {
-			leaveRuleImpl.setModifiedDate(null);
+			leaveGeneralImpl.setModifiedDate(null);
 		}
 		else {
-			leaveRuleImpl.setModifiedDate(new Date(modifiedDate));
+			leaveGeneralImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
-		leaveRuleImpl.setUserId(userId);
-		leaveRuleImpl.setLeaveTypeId(leaveTypeId);
-		leaveRuleImpl.setLeavePeriodTypeId(leavePeriodTypeId);
-		leaveRuleImpl.setStartMonth(startMonth);
-		leaveRuleImpl.setStartDayOfMonth(startDayOfMonth);
+		leaveGeneralImpl.setUserId(userId);
+		leaveGeneralImpl.setLeaveTypeId(leaveTypeId);
+		leaveGeneralImpl.setLeavePeriodTypeId(leavePeriodTypeId);
+		leaveGeneralImpl.setStartMonth(startMonth);
+		leaveGeneralImpl.setStartDayOfMonth(startDayOfMonth);
 
 		if (duration == null) {
-			leaveRuleImpl.setDuration(StringPool.BLANK);
+			leaveGeneralImpl.setDuration(StringPool.BLANK);
 		}
 		else {
-			leaveRuleImpl.setDuration(duration);
+			leaveGeneralImpl.setDuration(duration);
 		}
 
-		leaveRuleImpl.setIfEmployeesCanApply(ifEmployeesCanApply);
-		leaveRuleImpl.setIfAdminCanAssign(ifAdminCanAssign);
-		leaveRuleImpl.setIfAdminCanManageEntitlements(ifAdminCanManageEntitlements);
-		leaveRuleImpl.setIfLeaveAccruable(ifLeaveAccruable);
-		leaveRuleImpl.setIfCarryForwardable(ifCarryForwardable);
+		leaveGeneralImpl.setIfEmployeesCanApply(ifEmployeesCanApply);
+		leaveGeneralImpl.setIfAdminCanAssign(ifAdminCanAssign);
+		leaveGeneralImpl.setIfAdminCanManageEntitlements(ifAdminCanManageEntitlements);
+		leaveGeneralImpl.setIfLeaveAccruable(ifLeaveAccruable);
+		leaveGeneralImpl.setIfCarryForwardable(ifCarryForwardable);
+		leaveGeneralImpl.setShowProjectBalance(showProjectBalance);
+		leaveGeneralImpl.setEnableAttachment(enableAttachment);
+		leaveGeneralImpl.setIsAttachmentMandatory(isAttachmentMandatory);
 
-		leaveRuleImpl.resetOriginalValues();
+		leaveGeneralImpl.resetOriginalValues();
 
-		return leaveRuleImpl;
+		return leaveGeneralImpl;
 	}
 
 	@Override
 	public void readExternal(ObjectInput objectInput) throws IOException {
-		leaveRuleId = objectInput.readLong();
+		leaveGeneralId = objectInput.readLong();
 		companyId = objectInput.readLong();
 		groupId = objectInput.readLong();
 		createDate = objectInput.readLong();
@@ -141,12 +150,15 @@ public class LeaveRuleCacheModel implements CacheModel<LeaveRule>,
 		ifAdminCanManageEntitlements = objectInput.readBoolean();
 		ifLeaveAccruable = objectInput.readBoolean();
 		ifCarryForwardable = objectInput.readBoolean();
+		showProjectBalance = objectInput.readBoolean();
+		enableAttachment = objectInput.readBoolean();
+		isAttachmentMandatory = objectInput.readBoolean();
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
-		objectOutput.writeLong(leaveRuleId);
+		objectOutput.writeLong(leaveGeneralId);
 		objectOutput.writeLong(companyId);
 		objectOutput.writeLong(groupId);
 		objectOutput.writeLong(createDate);
@@ -169,9 +181,12 @@ public class LeaveRuleCacheModel implements CacheModel<LeaveRule>,
 		objectOutput.writeBoolean(ifAdminCanManageEntitlements);
 		objectOutput.writeBoolean(ifLeaveAccruable);
 		objectOutput.writeBoolean(ifCarryForwardable);
+		objectOutput.writeBoolean(showProjectBalance);
+		objectOutput.writeBoolean(enableAttachment);
+		objectOutput.writeBoolean(isAttachmentMandatory);
 	}
 
-	public long leaveRuleId;
+	public long leaveGeneralId;
 	public long companyId;
 	public long groupId;
 	public long createDate;
@@ -187,4 +202,7 @@ public class LeaveRuleCacheModel implements CacheModel<LeaveRule>,
 	public boolean ifAdminCanManageEntitlements;
 	public boolean ifLeaveAccruable;
 	public boolean ifCarryForwardable;
+	public boolean showProjectBalance;
+	public boolean enableAttachment;
+	public boolean isAttachmentMandatory;
 }

@@ -4,10 +4,10 @@
 	<portlet>
 		<portlet-name>LeaveType</portlet-name>
 		<display-name>LeaveType</display-name>
-		<portlet-class>com.rknowsys.eapp.SetupLeaveTypesAction</portlet-class>
+		<portlet-class>com.rknowsys.eapp.LeaveTypeAction</portlet-class>
 		<init-param>
 			<name>view-template</name>
-			<value>/html/leavetype/list_leave_types.jsp</value>
+			<value>/html/leavetype/list_leaveType.jsp</value>
 		</init-param>
 		<expiration-cache>0</expiration-cache>
 		<supports>
