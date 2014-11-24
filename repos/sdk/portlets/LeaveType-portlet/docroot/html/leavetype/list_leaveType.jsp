@@ -1,31 +1,10 @@
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="com.rknowsys.eapp.hrm.util.IdNamePair"%>
-<%@page import="com.rknowsys.eapp.hrm.service.HolidayLocalServiceUtil"%>
-<%@page import="com.rknowsys.eapp.SetupLeaveTypesAction"%>
-<%@page import="javax.portlet.PortletURL"%>
-<%@page import="com.liferay.portal.kernel.util.ParamUtil"%>
-<%@page import="com.liferay.portal.kernel.dao.search.SearchContainer"%>
-<%@page import="com.liferay.portal.kernel.util.Validator"%>
-<%@page import="com.liferay.portal.kernel.dao.search.DisplayTerms"%>
-<%@ include file="/html/leavetype/init.jsp"%>
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
-<%@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %>
-<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
-
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Leave Types List</title>
-<portlet:defineObjects/>
-
-<portlet:actionURL var="addEditLeaveType" name="addEditLeaveType">
-</portlet:actionURL>
-
+<%@ include file="/html/leavetype/init.jsp" %>
 <portlet:resourceURL var="deleteLeaveType" id="deleteLeaveType"/>
 <portlet:renderURL var="listview">
-	<portlet:param name="mvcPath" value="/html/leavetype/list_leave_types.jsp" />
+	<portlet:param name="mvcPath" value="/html/leavetype/list_leaveType.jsp" />
+</portlet:renderURL>
+<portlet:renderURL var="addLeaveType">
+<portlet:param name="mvcPath" value="/html/leavetype/add_edit_leaveType.jsp"/>
 </portlet:renderURL>
 
 <style type="text/css">
@@ -38,26 +17,21 @@
 </style>
 
 <aui:script>
-AUI().use(
-  'aui-node',
-  function(A) {
-    var node = A.one('#delete');
-    node.on(
-      'click',
-      function() {
-     var idArray = [];
-      A.all('input[type=checkbox]:checked').each(function(object) {
-      alert('1111 val = ' + object.get("value"));
-      idArray.push(object.get("value"));
-        });
+AUI().use('aui-node',function(A) {
+    var node = A.one('#<portlet:namespace/>deleteLeaveType');
+node.on('click',function() {
+      var idArray = [];
+	      A.all('input[name=<portlet:namespace/>rowIds]:checked').each(function(object) {
+	      idArray.push(object.get("value"));
+	      });
        if(idArray==""){
 			  alert("Please select records!");
-		  }else{
-			  var d = confirm("Are you sure you want to delete the selected Leave Types ?");
-		  if(d){
-		   var url = '<%=deleteLeaveType%>';
-          A.io.request(url,
-         {
+	   }else{
+		 var d = confirm("Are you sure you want to delete the selected Leave Types ?");
+		 
+		 if(d){
+          A.io.request('<%=deleteLeaveType%>',
+          {
           data: {  
                 <portlet:namespace />leaveTypeIds: idArray,  
                  },
@@ -65,56 +39,54 @@ AUI().use(
                success: function() { 
                    alert('deleted successfully');
                    window.location='<%=listview%>';
-              },
+                 },
                failure: function() {
                   
                  }
-                }
-                 }
-                );
-		  																		
-		  console.log(idArray);
-	  
-      return true;
-  }
-  else
-    return false;
-}
+               }
+           });
+             console.log(idArray);
+           return true;
+        }
+          else
+            return false;
       }
-    );
-  }
-);
+      });
+  });
 </aui:script>
-</head>
-
-<body>
-<%
-System.out.println("in list leave types jsp");
+<%!
+public String getNationalityValue(long nationId) {
+	if(nationId!=0)
+	{
+		Nationality nation = null;
+		try {
+		nation = NationalityLocalServiceUtil.getNationality(nationId);
+		} catch (Exception p) {
+		}
+	return nation.getName();
+	}
+	return "";
+}
 %>
-
-<div>
-
-	<div class="span12">
-	    <div class="span3">
-			<aui:form action="<%=addEditLeaveType.toString() %>" name="addForm">
-				<aui:button type="submit" id="add" value="Add" />
-			</aui:form>
-		</div>
-		<div class="span3">
-			<aui:form action="<%=deleteLeaveType.toString() %>" name="deleteForm">
-				<aui:button type="submit" id="delete" value="Delete" />
-			</aui:form>
-		</div>			
+<div class="panel">
+	<div class="panel-heading">
+		<h3>Leave Type</h3>
 	</div>
-
-</div>
-<div>&nbsp;</div>
-
-
+	<div class="panel-body">
+		<div class="row-fluid">
+			<div class="span3">
+				<aui:button id="addLeaveType" value="Add"
+					onClick="<%=addLeaveType.toString()%>" />
+			</div>
+			<div class="span3">
+				<aui:button id="deleteLeaveType" name="deleteLeaveType"
+					value="Delete" />
+			</div>
+		</div>
 <%
 
 	PortletURL iteratorURL = renderResponse.createRenderURL();
-	iteratorURL.setParameter("mvcPath", "/html/leavetype/list_leave_types.jsp");
+	iteratorURL.setParameter("mvcPath", "/html/leavetype/list_leaveType.jsp.jsp");
 	RowChecker rowChecker = new RowChecker(renderResponse);
 	
 	PortalPreferences portalPrefs = PortletPreferencesFactoryUtil.getPortalPreferences(request); 
@@ -138,7 +110,11 @@ System.out.println("in list leave types jsp");
 	System.out.println("sortByType == " +sortByType);
 
 %>
-<jsp:useBean id="leaveTypeList" type="java.util.List<LeaveType>" scope="request" />
+<%
+java.util.List<LeaveType> leaveTypeList=LeaveTypeLocalServiceUtil.getLeaveTypes(-1, -1);
+		System.out.println("leave type list is"+leaveTypeList);
+		%>
+		
 <%!
   com.liferay.portal.kernel.dao.search.SearchContainer<LeaveType> searchContainer;
 %>
@@ -157,7 +133,7 @@ System.out.println("in list leave types jsp");
 		
 		  System.out.println("results == " +results);
 		
-		  total = leaveTypeList.size();
+		  total = leaveTypeList!=null?leaveTypeList.size():0;
 		  System.out.println("total == " +total);
 		  pageContext.setAttribute("results", results);
 		  pageContext.setAttribute("total", total);
@@ -165,7 +141,7 @@ System.out.println("in list leave types jsp");
 
 	</liferay-ui:search-container-results>
 
-	<liferay-ui:search-container-row className="LeaveType"
+	<liferay-ui:search-container-row className="com.rknowsys.eapp.hrm.model.LeaveType"
 		keyProperty="leaveTypeId" modelVar="leaveType" rowVar="curRow"
 		escapedModel="<%= true %>">
 		
@@ -176,12 +152,12 @@ System.out.println("in list leave types jsp");
 		<liferay-ui:search-container-column-text orderable="<%=false %>"
 			name="Name" property="leaveTypeName" />
 		<liferay-ui:search-container-column-text orderable="<%=false %>" 
-			name="Country"  property="countryName" />
+			name="Country"  value="<%=getNationalityValue(leaveType.getNationalityId()) %>" />
 			
 		<liferay-ui:search-container-column-jsp name="Leave Rule"
-			path="/html/leavetype/edit2.jsp" />	
+			path="/html/leavetype/editLeaveRule.jsp" />	
 		<liferay-ui:search-container-column-jsp name="Edit"
-			path="/html/leavetype/edit.jsp" />	
+			path="/html/leavetype/editClick.jsp" />	
 
 	</liferay-ui:search-container-row>
 
@@ -190,5 +166,5 @@ System.out.println("in list leave types jsp");
 </liferay-ui:search-container>
 </div>
 
-</body>
-</html>
+</div>
+</div>
