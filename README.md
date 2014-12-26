@@ -22,7 +22,8 @@ Enthusiastic Developers of R-Knowsys Technologies, which uses best of breed Open
 
 ###How to contribute?
 1.       Fork eApp v1.0 branch where the actual development commits go.
-2.       Set up your development environment. ]
+2.       Set up your development environment.
+
 ```
 a) In eclipse(preferably LiferayIDE), launch a new workspace. For example: D:/eApp/workspace_eApp
 
@@ -57,7 +58,7 @@ l)   Deploy the services-portlet. The database will get generated.
 ```    
 
 3.       Configure remotes
-4.       Pick up an issue from the list of open issues ()
+4.       Pick up an issue from the list of open issues.
 5.       Start sending pull requests to the v1.0 branch.
 
 ###What is v1.0 branch means?
