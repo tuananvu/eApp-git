@@ -511,6 +511,10 @@ public class EmpSkillClp extends BaseModelImpl<EmpSkill> implements EmpSkill {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -611,4 +615,5 @@ public class EmpSkillClp extends BaseModelImpl<EmpSkill> implements EmpSkill {
 	private String _years;
 	private String _comments;
 	private BaseModel<?> _empSkillRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

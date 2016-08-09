@@ -565,6 +565,10 @@ public class LeaveCarryForwardPolicyClp extends BaseModelImpl<LeaveCarryForwardP
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -672,4 +676,5 @@ public class LeaveCarryForwardPolicyClp extends BaseModelImpl<LeaveCarryForwardP
 	private boolean _isMaxCarryForwardLimitApplicable;
 	private String _maxCarryForwardLimit;
 	private BaseModel<?> _leaveCarryForwardPolicyRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

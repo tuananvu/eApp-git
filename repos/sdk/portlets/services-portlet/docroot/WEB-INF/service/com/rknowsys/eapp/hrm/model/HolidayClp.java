@@ -583,6 +583,10 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -697,4 +701,5 @@ public class HolidayClp extends BaseModelImpl<Holiday> implements Holiday {
 	private Date _createDate;
 	private Date _modifiedDate;
 	private BaseModel<?> _holidayRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

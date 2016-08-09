@@ -256,19 +256,19 @@ public interface JobTitleModel extends BaseModel<JobTitle> {
 	public Object clone();
 
 	@Override
-	public int compareTo(JobTitle jobTitle);
+	public int compareTo(com.rknowsys.eapp.hrm.model.JobTitle jobTitle);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<JobTitle> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.JobTitle> toCacheModel();
 
 	@Override
-	public JobTitle toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.JobTitle toEscapedModel();
 
 	@Override
-	public JobTitle toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.JobTitle toUnescapedModel();
 
 	@Override
 	public String toString();

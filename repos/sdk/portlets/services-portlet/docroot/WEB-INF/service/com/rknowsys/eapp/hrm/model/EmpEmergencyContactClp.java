@@ -579,6 +579,10 @@ public class EmpEmergencyContactClp extends BaseModelImpl<EmpEmergencyContact>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -693,4 +697,5 @@ public class EmpEmergencyContactClp extends BaseModelImpl<EmpEmergencyContact>
 	private String _mobile;
 	private String _workTelephone;
 	private BaseModel<?> _empEmergencyContactRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

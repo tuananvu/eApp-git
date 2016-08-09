@@ -418,6 +418,10 @@ public class LicenseClp extends BaseModelImpl<License> implements License {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -497,4 +501,5 @@ public class LicenseClp extends BaseModelImpl<License> implements License {
 	private String _userUuid;
 	private String _licenseName;
 	private BaseModel<?> _licenseRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

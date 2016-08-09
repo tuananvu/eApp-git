@@ -90,8 +90,8 @@ public class HolidayModelImpl extends BaseModelImpl<Holiday>
 	public static final boolean COLUMN_BITMASK_ENABLED = false;
 	public static final String MAPPING_TABLE_HRM_LOCATIONS_HOLIDAYS_NAME = "hrm_locations_holidays";
 	public static final Object[][] MAPPING_TABLE_HRM_LOCATIONS_HOLIDAYS_COLUMNS = {
-			{ "locationId", Types.BIGINT },
-			{ "holidayId", Types.BIGINT }
+			{ "holidayId", Types.BIGINT },
+			{ "locationId", Types.BIGINT }
 		};
 	public static final String MAPPING_TABLE_HRM_LOCATIONS_HOLIDAYS_SQL_CREATE = "create table hrm_locations_holidays (holidayId LONG not null,locationId LONG not null,primary key (holidayId, locationId))";
 	public static final boolean FINDER_CACHE_ENABLED_HRM_LOCATIONS_HOLIDAYS = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(

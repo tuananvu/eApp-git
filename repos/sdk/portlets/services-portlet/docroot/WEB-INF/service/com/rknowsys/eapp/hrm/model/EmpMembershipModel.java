@@ -296,19 +296,20 @@ public interface EmpMembershipModel extends BaseModel<EmpMembership> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpMembership empMembership);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpMembership empMembership);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpMembership> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpMembership> toCacheModel();
 
 	@Override
-	public EmpMembership toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpMembership toEscapedModel();
 
 	@Override
-	public EmpMembership toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpMembership toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -211,19 +211,20 @@ public interface EmploymentStatusModel extends BaseModel<EmploymentStatus> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmploymentStatus employmentStatus);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmploymentStatus employmentStatus);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmploymentStatus> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmploymentStatus> toCacheModel();
 
 	@Override
-	public EmploymentStatus toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus toEscapedModel();
 
 	@Override
-	public EmploymentStatus toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmploymentStatus toUnescapedModel();
 
 	@Override
 	public String toString();

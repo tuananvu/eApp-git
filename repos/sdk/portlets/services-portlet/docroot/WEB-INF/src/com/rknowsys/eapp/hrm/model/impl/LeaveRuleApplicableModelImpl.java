@@ -95,16 +95,16 @@ public class LeaveRuleApplicableModelImpl extends BaseModelImpl<LeaveRuleApplica
 	public static long LEAVERULEAPPLICABLEID_COLUMN_BITMASK = 4L;
 	public static final String MAPPING_TABLE_HRM_LRA_JOBCATEGORIES_NAME = "hrm_lra_jobCategories";
 	public static final Object[][] MAPPING_TABLE_HRM_LRA_JOBCATEGORIES_COLUMNS = {
-			{ "leaveRuleApplicableId", Types.BIGINT },
-			{ "jobCategoryId", Types.BIGINT }
+			{ "jobCategoryId", Types.BIGINT },
+			{ "leaveRuleApplicableId", Types.BIGINT }
 		};
 	public static final String MAPPING_TABLE_HRM_LRA_JOBCATEGORIES_SQL_CREATE = "create table hrm_lra_jobCategories (jobCategoryId LONG not null,leaveRuleApplicableId LONG not null,primary key (jobCategoryId, leaveRuleApplicableId))";
 	public static final boolean FINDER_CACHE_ENABLED_HRM_LRA_JOBCATEGORIES = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
 				"value.object.finder.cache.enabled.hrm_lra_jobCategories"), true);
 	public static final String MAPPING_TABLE_HRM_LRA_JOBTITLES_NAME = "hrm_lra_jobTitles";
 	public static final Object[][] MAPPING_TABLE_HRM_LRA_JOBTITLES_COLUMNS = {
-			{ "leaveRuleApplicableId", Types.BIGINT },
-			{ "jobTitleId", Types.BIGINT }
+			{ "jobTitleId", Types.BIGINT },
+			{ "leaveRuleApplicableId", Types.BIGINT }
 		};
 	public static final String MAPPING_TABLE_HRM_LRA_JOBTITLES_SQL_CREATE = "create table hrm_lra_jobTitles (jobTitleId LONG not null,leaveRuleApplicableId LONG not null,primary key (jobTitleId, leaveRuleApplicableId))";
 	public static final boolean FINDER_CACHE_ENABLED_HRM_LRA_JOBTITLES = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(
@@ -112,8 +112,8 @@ public class LeaveRuleApplicableModelImpl extends BaseModelImpl<LeaveRuleApplica
 	public static final String MAPPING_TABLE_HRM_LRA_EMPLOYMENTSTATUS_NAME = "hrm_lra_employmentStatus";
 	public static final Object[][] MAPPING_TABLE_HRM_LRA_EMPLOYMENTSTATUS_COLUMNS =
 		{
-			{ "leaveRuleApplicableId", Types.BIGINT },
-			{ "employmentStatusId", Types.BIGINT }
+			{ "employmentStatusId", Types.BIGINT },
+			{ "leaveRuleApplicableId", Types.BIGINT }
 		};
 	public static final String MAPPING_TABLE_HRM_LRA_EMPLOYMENTSTATUS_SQL_CREATE =
 		"create table hrm_lra_employmentStatus (employmentStatusId LONG not null,leaveRuleApplicableId LONG not null,primary key (employmentStatusId, leaveRuleApplicableId))";

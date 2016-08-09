@@ -512,6 +512,10 @@ public class EmpSalaryClp extends BaseModelImpl<EmpSalary> implements EmpSalary 
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -612,4 +616,5 @@ public class EmpSalaryClp extends BaseModelImpl<EmpSalary> implements EmpSalary 
 	private long _payGradeCurrencyId;
 	private String _comment;
 	private BaseModel<?> _empSalaryRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

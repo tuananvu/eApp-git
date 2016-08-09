@@ -345,19 +345,19 @@ public interface LocationModel extends BaseModel<Location> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Location location);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Location location);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Location> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Location> toCacheModel();
 
 	@Override
-	public Location toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Location toEscapedModel();
 
 	@Override
-	public Location toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Location toUnescapedModel();
 
 	@Override
 	public String toString();

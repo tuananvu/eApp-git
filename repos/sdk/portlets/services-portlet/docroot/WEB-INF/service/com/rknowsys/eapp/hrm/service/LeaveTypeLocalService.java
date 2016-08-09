@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface LeaveTypeLocalService extends BaseLocalService,
 	* @return the leave type that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.LeaveType addLeaveType(
 		com.rknowsys.eapp.hrm.model.LeaveType leaveType)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -73,6 +75,7 @@ public interface LeaveTypeLocalService extends BaseLocalService,
 	* @throws PortalException if a leave type with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.LeaveType deleteLeaveType(
 		long leaveTypeId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -85,6 +88,7 @@ public interface LeaveTypeLocalService extends BaseLocalService,
 	* @return the leave type that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.LeaveType deleteLeaveType(
 		com.rknowsys.eapp.hrm.model.LeaveType leaveType)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -225,6 +229,7 @@ public interface LeaveTypeLocalService extends BaseLocalService,
 	* @return the leave type that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.LeaveType updateLeaveType(
 		com.rknowsys.eapp.hrm.model.LeaveType leaveType)
 		throws com.liferay.portal.kernel.exception.SystemException;

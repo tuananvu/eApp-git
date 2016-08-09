@@ -269,19 +269,19 @@ public interface EmpLanguageModel extends BaseModel<EmpLanguage> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpLanguage empLanguage);
+	public int compareTo(com.rknowsys.eapp.hrm.model.EmpLanguage empLanguage);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpLanguage> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpLanguage> toCacheModel();
 
 	@Override
-	public EmpLanguage toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpLanguage toEscapedModel();
 
 	@Override
-	public EmpLanguage toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpLanguage toUnescapedModel();
 
 	@Override
 	public String toString();

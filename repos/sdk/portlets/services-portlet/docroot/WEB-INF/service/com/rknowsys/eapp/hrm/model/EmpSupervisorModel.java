@@ -237,19 +237,20 @@ public interface EmpSupervisorModel extends BaseModel<EmpSupervisor> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpSupervisor empSupervisor);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpSupervisor empSupervisor);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpSupervisor> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpSupervisor> toCacheModel();
 
 	@Override
-	public EmpSupervisor toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpSupervisor toEscapedModel();
 
 	@Override
-	public EmpSupervisor toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpSupervisor toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -267,19 +267,19 @@ public interface EmpLicenseModel extends BaseModel<EmpLicense> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpLicense empLicense);
+	public int compareTo(com.rknowsys.eapp.hrm.model.EmpLicense empLicense);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpLicense> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpLicense> toCacheModel();
 
 	@Override
-	public EmpLicense toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpLicense toEscapedModel();
 
 	@Override
-	public EmpLicense toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpLicense toUnescapedModel();
 
 	@Override
 	public String toString();

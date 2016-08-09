@@ -255,19 +255,19 @@ public interface NewsModel extends BaseModel<News> {
 	public Object clone();
 
 	@Override
-	public int compareTo(News news);
+	public int compareTo(com.rknowsys.eapp.hrm.model.News news);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<News> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.News> toCacheModel();
 
 	@Override
-	public News toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.News toEscapedModel();
 
 	@Override
-	public News toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.News toUnescapedModel();
 
 	@Override
 	public String toString();

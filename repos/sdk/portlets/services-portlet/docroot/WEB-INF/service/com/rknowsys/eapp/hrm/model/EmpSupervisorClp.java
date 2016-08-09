@@ -483,6 +483,10 @@ public class EmpSupervisorClp extends BaseModelImpl<EmpSupervisor>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -576,4 +580,5 @@ public class EmpSupervisorClp extends BaseModelImpl<EmpSupervisor>
 	private long _reporterEmployeeId;
 	private long _reportingMethod;
 	private BaseModel<?> _empSupervisorRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

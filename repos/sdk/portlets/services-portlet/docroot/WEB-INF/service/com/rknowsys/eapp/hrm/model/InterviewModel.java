@@ -211,19 +211,19 @@ public interface InterviewModel extends BaseModel<Interview> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Interview interview);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Interview interview);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Interview> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Interview> toCacheModel();
 
 	@Override
-	public Interview toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Interview toEscapedModel();
 
 	@Override
-	public Interview toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Interview toUnescapedModel();
 
 	@Override
 	public String toString();

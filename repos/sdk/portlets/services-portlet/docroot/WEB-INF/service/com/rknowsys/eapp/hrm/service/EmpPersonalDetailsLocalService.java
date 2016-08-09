@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface EmpPersonalDetailsLocalService extends BaseLocalService,
 	* @return the EmpPersonalDetails that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpPersonalDetails addEmpPersonalDetails(
 		com.rknowsys.eapp.hrm.model.EmpPersonalDetails empPersonalDetails)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -73,6 +75,7 @@ public interface EmpPersonalDetailsLocalService extends BaseLocalService,
 	* @throws PortalException if a EmpPersonalDetails with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpPersonalDetails deleteEmpPersonalDetails(
 		long empPersonalDetailsId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -85,6 +88,7 @@ public interface EmpPersonalDetailsLocalService extends BaseLocalService,
 	* @return the EmpPersonalDetails that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpPersonalDetails deleteEmpPersonalDetails(
 		com.rknowsys.eapp.hrm.model.EmpPersonalDetails empPersonalDetails)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -226,6 +230,7 @@ public interface EmpPersonalDetailsLocalService extends BaseLocalService,
 	* @return the EmpPersonalDetails that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpPersonalDetails updateEmpPersonalDetails(
 		com.rknowsys.eapp.hrm.model.EmpPersonalDetails empPersonalDetails)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -260,4 +265,12 @@ public interface EmpPersonalDetailsLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> getEmployeeDetailsByShiftId(
 		long shiftId);
+
+	public java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> findEmpPersonalDetails(
+		long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> findEmpPersonalDetails(
+		long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
 }

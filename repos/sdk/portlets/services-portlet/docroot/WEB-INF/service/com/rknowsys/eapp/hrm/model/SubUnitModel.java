@@ -226,19 +226,19 @@ public interface SubUnitModel extends BaseModel<SubUnit> {
 	public Object clone();
 
 	@Override
-	public int compareTo(SubUnit subUnit);
+	public int compareTo(com.rknowsys.eapp.hrm.model.SubUnit subUnit);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<SubUnit> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.SubUnit> toCacheModel();
 
 	@Override
-	public SubUnit toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.SubUnit toEscapedModel();
 
 	@Override
-	public SubUnit toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.SubUnit toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -426,6 +426,10 @@ public class TerminationReasonsClp extends BaseModelImpl<TerminationReasons>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -505,4 +509,5 @@ public class TerminationReasonsClp extends BaseModelImpl<TerminationReasons>
 	private String _userUuid;
 	private String _terminationreasonsName;
 	private BaseModel<?> _terminationReasonsRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

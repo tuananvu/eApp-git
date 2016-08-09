@@ -211,19 +211,19 @@ public interface NationalityModel extends BaseModel<Nationality> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Nationality nationality);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Nationality nationality);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Nationality> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Nationality> toCacheModel();
 
 	@Override
-	public Nationality toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Nationality toEscapedModel();
 
 	@Override
-	public Nationality toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Nationality toUnescapedModel();
 
 	@Override
 	public String toString();

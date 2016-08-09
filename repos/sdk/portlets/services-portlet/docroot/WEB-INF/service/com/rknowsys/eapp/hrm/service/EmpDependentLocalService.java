@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface EmpDependentLocalService extends BaseLocalService,
 	* @return the emp dependent that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpDependent addEmpDependent(
 		com.rknowsys.eapp.hrm.model.EmpDependent empDependent)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -73,6 +75,7 @@ public interface EmpDependentLocalService extends BaseLocalService,
 	* @throws PortalException if a emp dependent with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpDependent deleteEmpDependent(
 		long empDependentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -85,6 +88,7 @@ public interface EmpDependentLocalService extends BaseLocalService,
 	* @return the emp dependent that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpDependent deleteEmpDependent(
 		com.rknowsys.eapp.hrm.model.EmpDependent empDependent)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -226,6 +230,7 @@ public interface EmpDependentLocalService extends BaseLocalService,
 	* @return the emp dependent that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpDependent updateEmpDependent(
 		com.rknowsys.eapp.hrm.model.EmpDependent empDependent)
 		throws com.liferay.portal.kernel.exception.SystemException;

@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface EmpSubordinateLocalService extends BaseLocalService,
 	* @return the EmpSubordinate that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpSubordinate addEmpSubordinate(
 		com.rknowsys.eapp.hrm.model.EmpSubordinate empSubordinate)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -73,6 +75,7 @@ public interface EmpSubordinateLocalService extends BaseLocalService,
 	* @throws PortalException if a EmpSubordinate with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpSubordinate deleteEmpSubordinate(
 		long empSubordinateId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -85,6 +88,7 @@ public interface EmpSubordinateLocalService extends BaseLocalService,
 	* @return the EmpSubordinate that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpSubordinate deleteEmpSubordinate(
 		com.rknowsys.eapp.hrm.model.EmpSubordinate empSubordinate)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -226,6 +230,7 @@ public interface EmpSubordinateLocalService extends BaseLocalService,
 	* @return the EmpSubordinate that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpSubordinate updateEmpSubordinate(
 		com.rknowsys.eapp.hrm.model.EmpSubordinate empSubordinate)
 		throws com.liferay.portal.kernel.exception.SystemException;

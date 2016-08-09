@@ -211,19 +211,19 @@ public interface JobCategoryModel extends BaseModel<JobCategory> {
 	public Object clone();
 
 	@Override
-	public int compareTo(JobCategory jobCategory);
+	public int compareTo(com.rknowsys.eapp.hrm.model.JobCategory jobCategory);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<JobCategory> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.JobCategory> toCacheModel();
 
 	@Override
-	public JobCategory toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.JobCategory toEscapedModel();
 
 	@Override
-	public JobCategory toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.JobCategory toUnescapedModel();
 
 	@Override
 	public String toString();

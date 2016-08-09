@@ -211,19 +211,19 @@ public interface EducationModel extends BaseModel<Education> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Education education);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Education education);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Education> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Education> toCacheModel();
 
 	@Override
-	public Education toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Education toEscapedModel();
 
 	@Override
-	public Education toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Education toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -827,6 +827,10 @@ public class OrganizationClp extends BaseModelImpl<Organization>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -997,4 +1001,5 @@ public class OrganizationClp extends BaseModelImpl<Organization>
 	private long _nationalityId;
 	private String _note;
 	private BaseModel<?> _organizationRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

@@ -110,6 +110,40 @@ A.ready(function()
 						</aui:select>
 					</div>
 				</div>
+				<div class="row-fluid">
+					<div class="span6">
+						<aui:select name="jobTitle" label="01_jobTitle" inlineLabel="left">
+						<aui:option value="-1">--Select--</aui:option>
+							<%
+								List l = JobTitleLocalServiceUtil.getJobTitles(-1, -1);
+										Iterator jobTitles = l.iterator();
+										while (jobTitles.hasNext()) {
+											JobTitle jobTitles2  = (JobTitle) jobTitles.next();
+							%>
+							<aui:option value="<%=jobTitles2.getJobTitleId()%>"><%=jobTitles2.getTitle()%></aui:option>
+							<%
+								}
+							%>
+						</aui:select>
+					</div>
+				</div>
+				<div class="row-fluid">
+					<div class="span6">
+						<aui:select name="emp-status" label="01_emp-status" inlineLabel="left">
+						<aui:option value="-1">--Select--</aui:option>
+							<%
+								List l = EmploymentStatusLocalServiceUtil.getEmploymentStatuses(-1, -1);
+										Iterator empStatuses = l.iterator();
+										while (empStatuses.hasNext()) {
+											EmploymentStatus empStatuses2  = (EmploymentStatus) empStatuses.next();
+							%>
+							<aui:option value="<%=empStatuses2.getEmploymentStatusId()%>"><%=empStatuses2.getEmploymentstatus()%></aui:option>
+							<%
+								}
+							%>
+						</aui:select>
+					</div>
+				</div>
 				<aui:button type="submit" value="Submit"
 					cssClass="button btn-primary" id="submitEmployee" />
 				<aui:button type="reset" value="Cancel" id="cancel"

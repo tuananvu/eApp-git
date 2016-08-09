@@ -481,6 +481,10 @@ public class LeavePeriodClp extends BaseModelImpl<LeavePeriod>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -574,4 +578,5 @@ public class LeavePeriodClp extends BaseModelImpl<LeavePeriod>
 	private int _startDate;
 	private String _endDate;
 	private BaseModel<?> _leavePeriodRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

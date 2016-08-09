@@ -544,6 +544,10 @@ public class EmpLanguageClp extends BaseModelImpl<EmpLanguage>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -651,4 +655,5 @@ public class EmpLanguageClp extends BaseModelImpl<EmpLanguage>
 	private String _languageFluency;
 	private String _comments;
 	private BaseModel<?> _empLanguageRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

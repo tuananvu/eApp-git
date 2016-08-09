@@ -211,19 +211,19 @@ public interface LanguageModel extends BaseModel<Language> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Language language);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Language language);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Language> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Language> toCacheModel();
 
 	@Override
-	public Language toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Language toEscapedModel();
 
 	@Override
-	public Language toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Language toUnescapedModel();
 
 	@Override
 	public String toString();

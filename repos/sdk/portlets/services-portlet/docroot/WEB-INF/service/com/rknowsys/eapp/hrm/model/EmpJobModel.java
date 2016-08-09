@@ -409,19 +409,19 @@ public interface EmpJobModel extends BaseModel<EmpJob> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpJob empJob);
+	public int compareTo(com.rknowsys.eapp.hrm.model.EmpJob empJob);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpJob> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpJob> toCacheModel();
 
 	@Override
-	public EmpJob toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpJob toEscapedModel();
 
 	@Override
-	public EmpJob toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpJob toUnescapedModel();
 
 	@Override
 	public String toString();

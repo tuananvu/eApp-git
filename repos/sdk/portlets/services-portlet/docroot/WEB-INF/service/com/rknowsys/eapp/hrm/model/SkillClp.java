@@ -449,6 +449,10 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -535,4 +539,5 @@ public class SkillClp extends BaseModelImpl<Skill> implements Skill {
 	private String _skillName;
 	private String _description;
 	private BaseModel<?> _skillRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

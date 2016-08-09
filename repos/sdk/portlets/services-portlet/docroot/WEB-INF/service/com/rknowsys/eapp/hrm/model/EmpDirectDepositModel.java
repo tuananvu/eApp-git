@@ -298,19 +298,20 @@ public interface EmpDirectDepositModel extends BaseModel<EmpDirectDeposit> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpDirectDeposit empDirectDeposit);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpDirectDeposit empDirectDeposit);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpDirectDeposit> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpDirectDeposit> toCacheModel();
 
 	@Override
-	public EmpDirectDeposit toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpDirectDeposit toEscapedModel();
 
 	@Override
-	public EmpDirectDeposit toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpDirectDeposit toUnescapedModel();
 
 	@Override
 	public String toString();

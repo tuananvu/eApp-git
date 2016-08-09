@@ -211,19 +211,19 @@ public interface PayGradeModel extends BaseModel<PayGrade> {
 	public Object clone();
 
 	@Override
-	public int compareTo(PayGrade payGrade);
+	public int compareTo(com.rknowsys.eapp.hrm.model.PayGrade payGrade);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<PayGrade> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.PayGrade> toCacheModel();
 
 	@Override
-	public PayGrade toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.PayGrade toEscapedModel();
 
 	@Override
-	public PayGrade toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.PayGrade toUnescapedModel();
 
 	@Override
 	public String toString();

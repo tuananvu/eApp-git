@@ -511,6 +511,10 @@ public class NewsClp extends BaseModelImpl<News> implements News {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -611,4 +615,5 @@ public class NewsClp extends BaseModelImpl<News> implements News {
 	private String _publishTo;
 	private Date _publishDate;
 	private BaseModel<?> _newsRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

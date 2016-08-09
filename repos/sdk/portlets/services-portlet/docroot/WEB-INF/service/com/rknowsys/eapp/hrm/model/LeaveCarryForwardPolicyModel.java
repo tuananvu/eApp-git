@@ -276,19 +276,20 @@ public interface LeaveCarryForwardPolicyModel extends BaseModel<LeaveCarryForwar
 	public Object clone();
 
 	@Override
-	public int compareTo(LeaveCarryForwardPolicy leaveCarryForwardPolicy);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy leaveCarryForwardPolicy);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<LeaveCarryForwardPolicy> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy> toCacheModel();
 
 	@Override
-	public LeaveCarryForwardPolicy toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy toEscapedModel();
 
 	@Override
-	public LeaveCarryForwardPolicy toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy toUnescapedModel();
 
 	@Override
 	public String toString();

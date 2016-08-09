@@ -491,6 +491,10 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -585,4 +589,5 @@ public class EmployeeClp extends BaseModelImpl<Employee> implements Employee {
 	private Date _createDate;
 	private Date _modifiedDate;
 	private BaseModel<?> _employeeRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

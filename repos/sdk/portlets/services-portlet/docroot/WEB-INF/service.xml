@@ -706,7 +706,7 @@
 
 	<entity name="Organization" local-service="true" remote-service="false"
 		data-source="hrmDataSource" session-factory="hrmSessionFactory"
-		tx-manager="hrmTransactionManager">
+		tx-manager="hrmTransactionManager" human-name="Organization" table="hrm_organization">
 
 		<!-- PK fields -->
 
@@ -845,6 +845,9 @@
 		<finder name="employeeId" return-type="Collection">
 			<finder-column name="employeeId" />
 		</finder>
+        <finder name="groupId" return-type="Collection">
+            <finder-column name="groupId"></finder-column>
+        </finder>
 	</entity>
 
 	<entity name="EmpContactDetails" remote-service="false"
@@ -910,7 +913,7 @@
 
 	<entity name="EmpDependent" local-service="true" remote-service="false"
 		data-source="hrmDataSource" session-factory="hrmSessionFactory"
-		tx-manager="hrmTransactionManager">
+		tx-manager="hrmTransactionManager" table="hrm_empdependent">
 		<!-- PK fields -->
 		<column name="empDependentId" type="long" primary="true"></column>
 		<!-- Relationship fields -->
@@ -1403,7 +1406,7 @@
 	</entity>
   
   
-    <entity name="EmpDetails" local-service="true" remote-service="false"
+    <entity name="EmpDetails" table="empdetails" local-service="true" remote-service="false"
 		data-source="hrmDataSource" session-factory="hrmSessionFactory"
 		tx-manager="hrmTransactionManager">
 		

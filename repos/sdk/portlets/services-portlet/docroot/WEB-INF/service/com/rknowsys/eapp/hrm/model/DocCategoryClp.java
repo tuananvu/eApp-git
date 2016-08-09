@@ -419,6 +419,10 @@ public class DocCategoryClp extends BaseModelImpl<DocCategory>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -498,4 +502,5 @@ public class DocCategoryClp extends BaseModelImpl<DocCategory>
 	private String _userUuid;
 	private String _docName;
 	private BaseModel<?> _docCategoryRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

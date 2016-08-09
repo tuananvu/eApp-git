@@ -211,19 +211,20 @@ public interface ReportingMethodsModel extends BaseModel<ReportingMethods> {
 	public Object clone();
 
 	@Override
-	public int compareTo(ReportingMethods reportingMethods);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.ReportingMethods reportingMethods);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<ReportingMethods> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.ReportingMethods> toCacheModel();
 
 	@Override
-	public ReportingMethods toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.ReportingMethods toEscapedModel();
 
 	@Override
-	public ReportingMethods toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.ReportingMethods toUnescapedModel();
 
 	@Override
 	public String toString();

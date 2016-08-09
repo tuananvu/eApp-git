@@ -246,19 +246,19 @@ public interface LeaveTypeModel extends BaseModel<LeaveType> {
 	public Object clone();
 
 	@Override
-	public int compareTo(LeaveType leaveType);
+	public int compareTo(com.rknowsys.eapp.hrm.model.LeaveType leaveType);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<LeaveType> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.LeaveType> toCacheModel();
 
 	@Override
-	public LeaveType toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.LeaveType toEscapedModel();
 
 	@Override
-	public LeaveType toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.LeaveType toUnescapedModel();
 
 	@Override
 	public String toString();

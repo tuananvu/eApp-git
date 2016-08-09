@@ -419,6 +419,10 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -498,4 +502,5 @@ public class NationalityClp extends BaseModelImpl<Nationality>
 	private Date _modifiedDate;
 	private String _name;
 	private BaseModel<?> _nationalityRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

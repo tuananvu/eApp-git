@@ -418,6 +418,10 @@ public class LanguageClp extends BaseModelImpl<Language> implements Language {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -497,4 +501,5 @@ public class LanguageClp extends BaseModelImpl<Language> implements Language {
 	private String _userUuid;
 	private String _languageName;
 	private BaseModel<?> _languageRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

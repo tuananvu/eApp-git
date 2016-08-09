@@ -418,6 +418,10 @@ public class PayGradeClp extends BaseModelImpl<PayGrade> implements PayGrade {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -497,4 +501,5 @@ public class PayGradeClp extends BaseModelImpl<PayGrade> implements PayGrade {
 	private String _userUuid;
 	private String _payGradeName;
 	private BaseModel<?> _payGradeRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

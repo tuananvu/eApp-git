@@ -18,4 +18,4 @@
 
 <portlet:defineObjects />
 
-This is the <b>Services Portlet</b>.
+This is the <b>Services Portlet (HA)</b>.

@@ -211,19 +211,20 @@ public interface TerminationReasonsModel extends BaseModel<TerminationReasons> {
 	public Object clone();
 
 	@Override
-	public int compareTo(TerminationReasons terminationReasons);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.TerminationReasons terminationReasons);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<TerminationReasons> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.TerminationReasons> toCacheModel();
 
 	@Override
-	public TerminationReasons toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.TerminationReasons toEscapedModel();
 
 	@Override
-	public TerminationReasons toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.TerminationReasons toUnescapedModel();
 
 	@Override
 	public String toString();

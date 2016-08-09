@@ -89,8 +89,8 @@ public class EmployeeModelImpl extends BaseModelImpl<Employee>
 	public static long EMPLOYEEID_COLUMN_BITMASK = 1L;
 	public static final String MAPPING_TABLE_HRM_EMP_WORKSHIFT_NAME = "hrm_emp_workshift";
 	public static final Object[][] MAPPING_TABLE_HRM_EMP_WORKSHIFT_COLUMNS = {
-			{ "shiftId", Types.BIGINT },
-			{ "employeeId", Types.BIGINT }
+			{ "employeeId", Types.BIGINT },
+			{ "shiftId", Types.BIGINT }
 		};
 	public static final String MAPPING_TABLE_HRM_EMP_WORKSHIFT_SQL_CREATE = "create table hrm_emp_workshift (employeeId LONG not null,shiftId LONG not null,primary key (employeeId, shiftId))";
 	public static final boolean FINDER_CACHE_ENABLED_HRM_EMP_WORKSHIFT = GetterUtil.getBoolean(com.liferay.util.service.ServiceProps.get(

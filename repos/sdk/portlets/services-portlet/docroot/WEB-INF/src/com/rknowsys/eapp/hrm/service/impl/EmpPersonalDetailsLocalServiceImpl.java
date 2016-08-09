@@ -16,9 +16,13 @@ package com.rknowsys.eapp.hrm.service.impl;
 
 import java.util.List;
 
+import com.liferay.portal.kernel.exception.SystemException;
+import com.rknowsys.eapp.hrm.model.EmpDetails;
 import com.rknowsys.eapp.hrm.model.EmpPersonalDetails;
 import com.rknowsys.eapp.hrm.service.base.EmpPersonalDetailsLocalServiceBaseImpl;
+//import com.rknowsys.eapp.hrm.service.persistence.EmpDetailsFinderUtil;
 import com.rknowsys.eapp.hrm.service.persistence.EmpPersonalDetailsFinderUtil;
+import com.rknowsys.eapp.hrm.service.persistence.EmpPersonalDetailsPersistence;
 
 /**
  * The implementation of the EmpPersonalDetails local service.
@@ -51,5 +55,12 @@ public class EmpPersonalDetailsLocalServiceImpl
 	 */
 	public List<EmpPersonalDetails> getEmployeeDetailsByShiftId(long shiftId){
 		return EmpPersonalDetailsFinderUtil.getEmployeesByShiftId(shiftId);
+	}	
+	public List<EmpPersonalDetails> findEmpPersonalDetails(long groupId) throws SystemException {		
+		return empPersonalDetailsPersistence.findBygroupId(groupId);
+	}
+	
+	public List<EmpPersonalDetails> findEmpPersonalDetails(long groupId, int start, int end) throws SystemException {		
+		return empPersonalDetailsPersistence.findBygroupId(groupId, start, end);
 	}
 }

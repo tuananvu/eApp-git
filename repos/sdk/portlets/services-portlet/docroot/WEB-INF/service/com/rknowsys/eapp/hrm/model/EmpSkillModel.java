@@ -254,19 +254,19 @@ public interface EmpSkillModel extends BaseModel<EmpSkill> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpSkill empSkill);
+	public int compareTo(com.rknowsys.eapp.hrm.model.EmpSkill empSkill);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpSkill> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpSkill> toCacheModel();
 
 	@Override
-	public EmpSkill toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpSkill toEscapedModel();
 
 	@Override
-	public EmpSkill toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpSkill toUnescapedModel();
 
 	@Override
 	public String toString();

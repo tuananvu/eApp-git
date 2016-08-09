@@ -117,6 +117,14 @@ public class EmpPersonalDetailsLocalServiceClpInvoker {
 		_methodName238 = "getEmployeeDetailsByShiftId";
 
 		_methodParameterTypes238 = new String[] { "long" };
+
+		_methodName239 = "findEmpPersonalDetails";
+
+		_methodParameterTypes239 = new String[] { "long" };
+
+		_methodName240 = "findEmpPersonalDetails";
+
+		_methodParameterTypes240 = new String[] { "long", "int", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -225,6 +233,18 @@ public class EmpPersonalDetailsLocalServiceClpInvoker {
 			return EmpPersonalDetailsLocalServiceUtil.getEmployeeDetailsByShiftId(((Long)arguments[0]).longValue());
 		}
 
+		if (_methodName239.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes239, parameterTypes)) {
+			return EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName240.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes240, parameterTypes)) {
+			return EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(((Long)arguments[0]).longValue(),
+				((Integer)arguments[1]).intValue(),
+				((Integer)arguments[2]).intValue());
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -266,4 +286,8 @@ public class EmpPersonalDetailsLocalServiceClpInvoker {
 	private String[] _methodParameterTypes233;
 	private String _methodName238;
 	private String[] _methodParameterTypes238;
+	private String _methodName239;
+	private String[] _methodParameterTypes239;
+	private String _methodName240;
+	private String[] _methodParameterTypes240;
 }

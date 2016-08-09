@@ -211,19 +211,19 @@ public interface LicenseModel extends BaseModel<License> {
 	public Object clone();
 
 	@Override
-	public int compareTo(License license);
+	public int compareTo(com.rknowsys.eapp.hrm.model.License license);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<License> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.License> toCacheModel();
 
 	@Override
-	public License toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.License toEscapedModel();
 
 	@Override
-	public License toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.License toUnescapedModel();
 
 	@Override
 	public String toString();

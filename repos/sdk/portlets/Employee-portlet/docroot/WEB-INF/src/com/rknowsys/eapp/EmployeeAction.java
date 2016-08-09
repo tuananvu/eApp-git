@@ -52,6 +52,7 @@ import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import com.rknowsys.eapp.hrm.model.EmpContactDetails;
 import com.rknowsys.eapp.hrm.model.EmpDependent;
+import com.rknowsys.eapp.hrm.model.EmpDetails;
 import com.rknowsys.eapp.hrm.model.EmpDirectDeposit;
 import com.rknowsys.eapp.hrm.model.EmpEducation;
 import com.rknowsys.eapp.hrm.model.EmpEmergencyContact;
@@ -68,6 +69,7 @@ import com.rknowsys.eapp.hrm.model.Location;
 import com.rknowsys.eapp.hrm.model.PayGradeCurrency;
 import com.rknowsys.eapp.hrm.service.EmpContactDetailsLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpDependentLocalServiceUtil;
+import com.rknowsys.eapp.hrm.service.EmpDetailsLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpEducationLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpEmergencyContactLocalServiceUtil;
@@ -1004,6 +1006,9 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		UploadPortletRequest uploadRequest = PortalUtil
 				.getUploadPortletRequest(actionRequest);
 		Long location = ParamUtil.getLong(uploadRequest , "location");
+		Long jobTitle = ParamUtil.getLong(uploadRequest , "jobTitle");
+		Long empStatus = ParamUtil.getLong(uploadRequest , "empStatus");
+		
 		String firstName = ParamUtil.getString(uploadRequest ,
 				            EMPLOYEE_FIRST_NAME_COL_NAME);
 		System.out.println("location is"+location);
@@ -1022,18 +1027,25 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		System.out.println("changeLog"+changeLog);
 		EmpContactDetails empContactDetails=null;
 		Employee employee = null;
-		EmpPersonalDetails empPersonalDetails = null;
+		EmpPersonalDetails empPersonalDetails = null;		
+		EmpDetails empDetails = null;
+		
 		employee = EmployeeLocalServiceUtil
-				.createEmployee(CounterLocalServiceUtil.increment());
-			employee.setLocationId(location);
+				.createEmployee(CounterLocalServiceUtil.increment());		
+		employee.setLocationId(location);
 		employee.setUserId(themeDisplay.getUserId());
 		employee.setCompanyId(themeDisplay.getCompanyId());
 		employee.setCreateDate(date);
 		employee.setModifiedDate(date);
 		EmployeeLocalServiceUtil.addEmployee(employee);
+		//long incre = CounterLocalServiceUtil.increment();
 		empPersonalDetails = EmpPersonalDetailsLocalServiceUtil
 				.createEmpPersonalDetails(CounterLocalServiceUtil.increment());
+		//empPersonalDetails = EmpPersonalDetailsLocalServiceUtil.createEmpPersonalDetails(incre);
+
+		long testPK1 = employee.getPrimaryKey();
 		empPersonalDetails.setEmployeeId(employee.getPrimaryKey());
+		//empPersonalDetails.setEmployeeId(1);
 		empPersonalDetails.setFirstName(firstName);
 		empPersonalDetails.setMiddleName(middleName);
 		empPersonalDetails.setLastName(lastName);
@@ -1042,8 +1054,23 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		empPersonalDetails.setCompanyId(themeDisplay.getCompanyId());
 		empPersonalDetails.setCreateDate(date);
 		empPersonalDetails.setModifiedDate(date);
+		//empPersonalDetails.setGender("male");
 		EmpPersonalDetailsLocalServiceUtil
 				.addEmpPersonalDetails(empPersonalDetails);
+		
+		empDetails = EmpDetailsLocalServiceUtil.createEmpDetails(CounterLocalServiceUtil.increment());
+		empDetails.setEmpdetailsId(employee.getPrimaryKey());
+		empDetails.setFirstName(firstName);
+		empDetails.setLastName(lastName);
+		empDetails.setEmployeeNo(empNo);
+		empDetails.setTitle(jobTitle.toString());
+		empDetails.setEmploymentstatus(empStatus.toString());		
+		empDetails.setUserId(themeDisplay.getUserId());
+		empDetails.setCompanyId(themeDisplay.getCompanyId());
+		empDetails.setCreateDate(date);
+		empDetails.setModifiedDate(date);
+		EmpDetailsLocalServiceUtil.addEmpDetails(empDetails);
+		
 		 ServiceContext serviceContext=null;
 		 FileEntry fileEntry=null;
 		try {

@@ -75,12 +75,12 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 			{ "otherId", Types.VARCHAR },
 			{ "licenseNo", Types.VARCHAR },
 			{ "licenseExpDate", Types.TIMESTAMP },
-			{ "gender", Types.BIGINT },
-			{ "maritalStatus", Types.BIGINT },
+			{ "gender", Types.VARCHAR },
+			{ "maritalStatus", Types.VARCHAR },
 			{ "nationalityId", Types.BIGINT },
 			{ "dateOfBirth", Types.TIMESTAMP }
 		};
-	public static final String TABLE_SQL_CREATE = "create table emp_personal_details (empPersonalDetailsId LONG not null primary key,employeeId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,middleName VARCHAR(75) null,employeeNo VARCHAR(75) null,otherId VARCHAR(75) null,licenseNo VARCHAR(75) null,licenseExpDate DATE null,gender LONG,maritalStatus LONG,nationalityId LONG,dateOfBirth DATE null)";
+	public static final String TABLE_SQL_CREATE = "create table emp_personal_details (empPersonalDetailsId LONG not null primary key,employeeId LONG,groupId LONG,companyId LONG,userId LONG,createDate DATE null,modifiedDate DATE null,firstName VARCHAR(75) null,lastName VARCHAR(75) null,middleName VARCHAR(75) null,employeeNo VARCHAR(75) null,otherId VARCHAR(75) null,licenseNo VARCHAR(75) null,licenseExpDate DATE null,gender VARCHAR(75) null,maritalStatus VARCHAR(75) null,nationalityId LONG,dateOfBirth DATE null)";
 	public static final String TABLE_SQL_DROP = "drop table emp_personal_details";
 	public static final String ORDER_BY_JPQL = " ORDER BY empPersonalDetails.empPersonalDetailsId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY emp_personal_details.empPersonalDetailsId ASC";
@@ -97,7 +97,8 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 				"value.object.column.bitmask.enabled.com.rknowsys.eapp.hrm.model.EmpPersonalDetails"),
 			true);
 	public static long EMPLOYEEID_COLUMN_BITMASK = 1L;
-	public static long EMPPERSONALDETAILSID_COLUMN_BITMASK = 2L;
+	public static long GROUPID_COLUMN_BITMASK = 2L;
+	public static long EMPPERSONALDETAILSID_COLUMN_BITMASK = 4L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.util.service.ServiceProps.get(
 				"lock.expiration.time.com.rknowsys.eapp.hrm.model.EmpPersonalDetails"));
 
@@ -246,13 +247,13 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 			setLicenseExpDate(licenseExpDate);
 		}
 
-		Long gender = (Long)attributes.get("gender");
+		String gender = (String)attributes.get("gender");
 
 		if (gender != null) {
 			setGender(gender);
 		}
 
-		Long maritalStatus = (Long)attributes.get("maritalStatus");
+		String maritalStatus = (String)attributes.get("maritalStatus");
 
 		if (maritalStatus != null) {
 			setMaritalStatus(maritalStatus);
@@ -310,7 +311,19 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 
 	@Override
 	public void setGroupId(long groupId) {
+		_columnBitmask |= GROUPID_COLUMN_BITMASK;
+
+		if (!_setOriginalGroupId) {
+			_setOriginalGroupId = true;
+
+			_originalGroupId = _groupId;
+		}
+
 		_groupId = groupId;
+	}
+
+	public long getOriginalGroupId() {
+		return _originalGroupId;
 	}
 
 	@Override
@@ -464,22 +477,32 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 	}
 
 	@Override
-	public long getGender() {
-		return _gender;
+	public String getGender() {
+		if (_gender == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _gender;
+		}
 	}
 
 	@Override
-	public void setGender(long gender) {
+	public void setGender(String gender) {
 		_gender = gender;
 	}
 
 	@Override
-	public long getMaritalStatus() {
-		return _maritalStatus;
+	public String getMaritalStatus() {
+		if (_maritalStatus == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _maritalStatus;
+		}
 	}
 
 	@Override
-	public void setMaritalStatus(long maritalStatus) {
+	public void setMaritalStatus(String maritalStatus) {
 		_maritalStatus = maritalStatus;
 	}
 
@@ -608,6 +631,10 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 
 		empPersonalDetailsModelImpl._setOriginalEmployeeId = false;
 
+		empPersonalDetailsModelImpl._originalGroupId = empPersonalDetailsModelImpl._groupId;
+
+		empPersonalDetailsModelImpl._setOriginalGroupId = false;
+
 		empPersonalDetailsModelImpl._columnBitmask = 0;
 	}
 
@@ -702,7 +729,19 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 
 		empPersonalDetailsCacheModel.gender = getGender();
 
+		String gender = empPersonalDetailsCacheModel.gender;
+
+		if ((gender != null) && (gender.length() == 0)) {
+			empPersonalDetailsCacheModel.gender = null;
+		}
+
 		empPersonalDetailsCacheModel.maritalStatus = getMaritalStatus();
+
+		String maritalStatus = empPersonalDetailsCacheModel.maritalStatus;
+
+		if ((maritalStatus != null) && (maritalStatus.length() == 0)) {
+			empPersonalDetailsCacheModel.maritalStatus = null;
+		}
 
 		empPersonalDetailsCacheModel.nationalityId = getNationalityId();
 
@@ -858,6 +897,8 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 	private long _originalEmployeeId;
 	private boolean _setOriginalEmployeeId;
 	private long _groupId;
+	private long _originalGroupId;
+	private boolean _setOriginalGroupId;
 	private long _companyId;
 	private long _userId;
 	private String _userUuid;
@@ -870,8 +911,8 @@ public class EmpPersonalDetailsModelImpl extends BaseModelImpl<EmpPersonalDetail
 	private String _otherId;
 	private String _licenseNo;
 	private Date _licenseExpDate;
-	private long _gender;
-	private long _maritalStatus;
+	private String _gender;
+	private String _maritalStatus;
 	private long _nationalityId;
 	private Date _dateOfBirth;
 	private long _columnBitmask;

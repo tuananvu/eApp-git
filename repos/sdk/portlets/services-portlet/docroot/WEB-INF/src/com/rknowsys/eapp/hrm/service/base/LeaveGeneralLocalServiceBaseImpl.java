@@ -1879,18 +1879,18 @@ public abstract class LeaveGeneralLocalServiceBaseImpl
 	}
 
 	/**
-	 * Returns the organization local service.
+	 * Returns the Organization local service.
 	 *
-	 * @return the organization local service
+	 * @return the Organization local service
 	 */
 	public com.rknowsys.eapp.hrm.service.OrganizationLocalService getOrganizationLocalService() {
 		return organizationLocalService;
 	}
 
 	/**
-	 * Sets the organization local service.
+	 * Sets the Organization local service.
 	 *
-	 * @param organizationLocalService the organization local service
+	 * @param organizationLocalService the Organization local service
 	 */
 	public void setOrganizationLocalService(
 		com.rknowsys.eapp.hrm.service.OrganizationLocalService organizationLocalService) {
@@ -1898,18 +1898,18 @@ public abstract class LeaveGeneralLocalServiceBaseImpl
 	}
 
 	/**
-	 * Returns the organization persistence.
+	 * Returns the Organization persistence.
 	 *
-	 * @return the organization persistence
+	 * @return the Organization persistence
 	 */
 	public OrganizationPersistence getOrganizationPersistence() {
 		return organizationPersistence;
 	}
 
 	/**
-	 * Sets the organization persistence.
+	 * Sets the Organization persistence.
 	 *
-	 * @param organizationPersistence the organization persistence
+	 * @param organizationPersistence the Organization persistence
 	 */
 	public void setOrganizationPersistence(
 		OrganizationPersistence organizationPersistence) {

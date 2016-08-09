@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface WorkWeekLocalService extends BaseLocalService,
 	* @return the WorkWeek that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.WorkWeek addWorkWeek(
 		com.rknowsys.eapp.hrm.model.WorkWeek workWeek)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -72,6 +74,7 @@ public interface WorkWeekLocalService extends BaseLocalService,
 	* @throws PortalException if a WorkWeek with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.WorkWeek deleteWorkWeek(long workWeekId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
@@ -83,6 +86,7 @@ public interface WorkWeekLocalService extends BaseLocalService,
 	* @return the WorkWeek that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.WorkWeek deleteWorkWeek(
 		com.rknowsys.eapp.hrm.model.WorkWeek workWeek)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -222,6 +226,7 @@ public interface WorkWeekLocalService extends BaseLocalService,
 	* @return the WorkWeek that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.WorkWeek updateWorkWeek(
 		com.rknowsys.eapp.hrm.model.WorkWeek workWeek)
 		throws com.liferay.portal.kernel.exception.SystemException;

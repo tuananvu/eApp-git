@@ -311,19 +311,19 @@ public interface HolidayModel extends BaseModel<Holiday>, GroupedModel {
 	public Object clone();
 
 	@Override
-	public int compareTo(Holiday holiday);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Holiday holiday);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Holiday> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Holiday> toCacheModel();
 
 	@Override
-	public Holiday toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Holiday toEscapedModel();
 
 	@Override
-	public Holiday toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Holiday toUnescapedModel();
 
 	@Override
 	public String toString();

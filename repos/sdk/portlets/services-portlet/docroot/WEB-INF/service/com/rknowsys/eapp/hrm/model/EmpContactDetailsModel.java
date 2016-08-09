@@ -406,19 +406,20 @@ public interface EmpContactDetailsModel extends BaseModel<EmpContactDetails>,
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpContactDetails empContactDetails);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpContactDetails empContactDetails);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpContactDetails> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpContactDetails> toCacheModel();
 
 	@Override
-	public EmpContactDetails toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpContactDetails toEscapedModel();
 
 	@Override
-	public EmpContactDetails toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpContactDetails toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -239,19 +239,19 @@ public interface LeavePeriodModel extends BaseModel<LeavePeriod> {
 	public Object clone();
 
 	@Override
-	public int compareTo(LeavePeriod leavePeriod);
+	public int compareTo(com.rknowsys.eapp.hrm.model.LeavePeriod leavePeriod);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<LeavePeriod> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.LeavePeriod> toCacheModel();
 
 	@Override
-	public LeavePeriod toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.LeavePeriod toEscapedModel();
 
 	@Override
-	public LeavePeriod toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.LeavePeriod toUnescapedModel();
 
 	@Override
 	public String toString();

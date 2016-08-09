@@ -19,8 +19,7 @@ inlineLabel="left" >
 <aui:validator name="required" /> 
 </aui:input>
 <aui:select name="country" inlineLabel="left">
-<aui:option label="Afganisthan" value="Afganisthan"></aui:option>
-<aui:option label="China" value="China"></aui:option>
+<aui:option label="United States" value="United States"></aui:option>
 <aui:option label="India" value="India"></aui:option>
 </aui:select>
 <aui:input name="state" inlineLabel="left" />

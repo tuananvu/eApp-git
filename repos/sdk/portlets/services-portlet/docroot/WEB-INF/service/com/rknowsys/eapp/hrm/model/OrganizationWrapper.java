@@ -198,9 +198,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the primary key of this organization.
+	* Returns the primary key of this Organization.
 	*
-	* @return the primary key of this organization
+	* @return the primary key of this Organization
 	*/
 	@Override
 	public long getPrimaryKey() {
@@ -208,9 +208,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the primary key of this organization.
+	* Sets the primary key of this Organization.
 	*
-	* @param primaryKey the primary key of this organization
+	* @param primaryKey the primary key of this Organization
 	*/
 	@Override
 	public void setPrimaryKey(long primaryKey) {
@@ -218,9 +218,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the organization ID of this organization.
+	* Returns the organization ID of this Organization.
 	*
-	* @return the organization ID of this organization
+	* @return the organization ID of this Organization
 	*/
 	@Override
 	public long getOrganizationId() {
@@ -228,9 +228,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the organization ID of this organization.
+	* Sets the organization ID of this Organization.
 	*
-	* @param organizationId the organization ID of this organization
+	* @param organizationId the organization ID of this Organization
 	*/
 	@Override
 	public void setOrganizationId(long organizationId) {
@@ -238,9 +238,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the group ID of this organization.
+	* Returns the group ID of this Organization.
 	*
-	* @return the group ID of this organization
+	* @return the group ID of this Organization
 	*/
 	@Override
 	public long getGroupId() {
@@ -248,9 +248,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the group ID of this organization.
+	* Sets the group ID of this Organization.
 	*
-	* @param groupId the group ID of this organization
+	* @param groupId the group ID of this Organization
 	*/
 	@Override
 	public void setGroupId(long groupId) {
@@ -258,9 +258,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the company ID of this organization.
+	* Returns the company ID of this Organization.
 	*
-	* @return the company ID of this organization
+	* @return the company ID of this Organization
 	*/
 	@Override
 	public long getCompanyId() {
@@ -268,9 +268,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the company ID of this organization.
+	* Sets the company ID of this Organization.
 	*
-	* @param companyId the company ID of this organization
+	* @param companyId the company ID of this Organization
 	*/
 	@Override
 	public void setCompanyId(long companyId) {
@@ -278,9 +278,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the user ID of this organization.
+	* Returns the user ID of this Organization.
 	*
-	* @return the user ID of this organization
+	* @return the user ID of this Organization
 	*/
 	@Override
 	public long getUserId() {
@@ -288,9 +288,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the user ID of this organization.
+	* Sets the user ID of this Organization.
 	*
-	* @param userId the user ID of this organization
+	* @param userId the user ID of this Organization
 	*/
 	@Override
 	public void setUserId(long userId) {
@@ -298,9 +298,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the user uuid of this organization.
+	* Returns the user uuid of this Organization.
 	*
-	* @return the user uuid of this organization
+	* @return the user uuid of this Organization
 	* @throws SystemException if a system exception occurred
 	*/
 	@Override
@@ -310,9 +310,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the user uuid of this organization.
+	* Sets the user uuid of this Organization.
 	*
-	* @param userUuid the user uuid of this organization
+	* @param userUuid the user uuid of this Organization
 	*/
 	@Override
 	public void setUserUuid(java.lang.String userUuid) {
@@ -320,9 +320,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the create date of this organization.
+	* Returns the create date of this Organization.
 	*
-	* @return the create date of this organization
+	* @return the create date of this Organization
 	*/
 	@Override
 	public java.util.Date getCreateDate() {
@@ -330,9 +330,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the create date of this organization.
+	* Sets the create date of this Organization.
 	*
-	* @param createDate the create date of this organization
+	* @param createDate the create date of this Organization
 	*/
 	@Override
 	public void setCreateDate(java.util.Date createDate) {
@@ -340,9 +340,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the modified date of this organization.
+	* Returns the modified date of this Organization.
 	*
-	* @return the modified date of this organization
+	* @return the modified date of this Organization
 	*/
 	@Override
 	public java.util.Date getModifiedDate() {
@@ -350,9 +350,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the modified date of this organization.
+	* Sets the modified date of this Organization.
 	*
-	* @param modifiedDate the modified date of this organization
+	* @param modifiedDate the modified date of this Organization
 	*/
 	@Override
 	public void setModifiedDate(java.util.Date modifiedDate) {
@@ -360,9 +360,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the organization name of this organization.
+	* Returns the organization name of this Organization.
 	*
-	* @return the organization name of this organization
+	* @return the organization name of this Organization
 	*/
 	@Override
 	public java.lang.String getOrganizationName() {
@@ -370,9 +370,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the organization name of this organization.
+	* Sets the organization name of this Organization.
 	*
-	* @param organizationName the organization name of this organization
+	* @param organizationName the organization name of this Organization
 	*/
 	@Override
 	public void setOrganizationName(java.lang.String organizationName) {
@@ -380,9 +380,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the tax ID of this organization.
+	* Returns the tax ID of this Organization.
 	*
-	* @return the tax ID of this organization
+	* @return the tax ID of this Organization
 	*/
 	@Override
 	public java.lang.String getTaxId() {
@@ -390,9 +390,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the tax ID of this organization.
+	* Sets the tax ID of this Organization.
 	*
-	* @param taxId the tax ID of this organization
+	* @param taxId the tax ID of this Organization
 	*/
 	@Override
 	public void setTaxId(java.lang.String taxId) {
@@ -400,9 +400,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the number of employees of this organization.
+	* Returns the number of employees of this Organization.
 	*
-	* @return the number of employees of this organization
+	* @return the number of employees of this Organization
 	*/
 	@Override
 	public long getNumberOfEmployees() {
@@ -410,9 +410,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the number of employees of this organization.
+	* Sets the number of employees of this Organization.
 	*
-	* @param numberOfEmployees the number of employees of this organization
+	* @param numberOfEmployees the number of employees of this Organization
 	*/
 	@Override
 	public void setNumberOfEmployees(long numberOfEmployees) {
@@ -420,9 +420,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the registration number of this organization.
+	* Returns the registration number of this Organization.
 	*
-	* @return the registration number of this organization
+	* @return the registration number of this Organization
 	*/
 	@Override
 	public java.lang.String getRegistrationNumber() {
@@ -430,9 +430,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the registration number of this organization.
+	* Sets the registration number of this Organization.
 	*
-	* @param registrationNumber the registration number of this organization
+	* @param registrationNumber the registration number of this Organization
 	*/
 	@Override
 	public void setRegistrationNumber(java.lang.String registrationNumber) {
@@ -440,9 +440,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the phone of this organization.
+	* Returns the phone of this Organization.
 	*
-	* @return the phone of this organization
+	* @return the phone of this Organization
 	*/
 	@Override
 	public java.lang.String getPhone() {
@@ -450,9 +450,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the phone of this organization.
+	* Sets the phone of this Organization.
 	*
-	* @param phone the phone of this organization
+	* @param phone the phone of this Organization
 	*/
 	@Override
 	public void setPhone(java.lang.String phone) {
@@ -460,9 +460,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the fax of this organization.
+	* Returns the fax of this Organization.
 	*
-	* @return the fax of this organization
+	* @return the fax of this Organization
 	*/
 	@Override
 	public java.lang.String getFax() {
@@ -470,9 +470,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the fax of this organization.
+	* Sets the fax of this Organization.
 	*
-	* @param fax the fax of this organization
+	* @param fax the fax of this Organization
 	*/
 	@Override
 	public void setFax(java.lang.String fax) {
@@ -480,9 +480,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the email of this organization.
+	* Returns the email of this Organization.
 	*
-	* @return the email of this organization
+	* @return the email of this Organization
 	*/
 	@Override
 	public java.lang.String getEmail() {
@@ -490,9 +490,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the email of this organization.
+	* Sets the email of this Organization.
 	*
-	* @param email the email of this organization
+	* @param email the email of this Organization
 	*/
 	@Override
 	public void setEmail(java.lang.String email) {
@@ -500,9 +500,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the address street1 of this organization.
+	* Returns the address street1 of this Organization.
 	*
-	* @return the address street1 of this organization
+	* @return the address street1 of this Organization
 	*/
 	@Override
 	public java.lang.String getAddressStreet1() {
@@ -510,9 +510,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the address street1 of this organization.
+	* Sets the address street1 of this Organization.
 	*
-	* @param addressStreet1 the address street1 of this organization
+	* @param addressStreet1 the address street1 of this Organization
 	*/
 	@Override
 	public void setAddressStreet1(java.lang.String addressStreet1) {
@@ -520,9 +520,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the address street2 of this organization.
+	* Returns the address street2 of this Organization.
 	*
-	* @return the address street2 of this organization
+	* @return the address street2 of this Organization
 	*/
 	@Override
 	public java.lang.String getAddressStreet2() {
@@ -530,9 +530,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the address street2 of this organization.
+	* Sets the address street2 of this Organization.
 	*
-	* @param addressStreet2 the address street2 of this organization
+	* @param addressStreet2 the address street2 of this Organization
 	*/
 	@Override
 	public void setAddressStreet2(java.lang.String addressStreet2) {
@@ -540,9 +540,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the city of this organization.
+	* Returns the city of this Organization.
 	*
-	* @return the city of this organization
+	* @return the city of this Organization
 	*/
 	@Override
 	public java.lang.String getCity() {
@@ -550,9 +550,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the city of this organization.
+	* Sets the city of this Organization.
 	*
-	* @param city the city of this organization
+	* @param city the city of this Organization
 	*/
 	@Override
 	public void setCity(java.lang.String city) {
@@ -560,9 +560,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the state of this organization.
+	* Returns the state of this Organization.
 	*
-	* @return the state of this organization
+	* @return the state of this Organization
 	*/
 	@Override
 	public java.lang.String getState() {
@@ -570,9 +570,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the state of this organization.
+	* Sets the state of this Organization.
 	*
-	* @param state the state of this organization
+	* @param state the state of this Organization
 	*/
 	@Override
 	public void setState(java.lang.String state) {
@@ -580,9 +580,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the postal code of this organization.
+	* Returns the postal code of this Organization.
 	*
-	* @return the postal code of this organization
+	* @return the postal code of this Organization
 	*/
 	@Override
 	public java.lang.String getPostalCode() {
@@ -590,9 +590,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the postal code of this organization.
+	* Sets the postal code of this Organization.
 	*
-	* @param postalCode the postal code of this organization
+	* @param postalCode the postal code of this Organization
 	*/
 	@Override
 	public void setPostalCode(java.lang.String postalCode) {
@@ -600,9 +600,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the nationality ID of this organization.
+	* Returns the nationality ID of this Organization.
 	*
-	* @return the nationality ID of this organization
+	* @return the nationality ID of this Organization
 	*/
 	@Override
 	public long getNationalityId() {
@@ -610,9 +610,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the nationality ID of this organization.
+	* Sets the nationality ID of this Organization.
 	*
-	* @param nationalityId the nationality ID of this organization
+	* @param nationalityId the nationality ID of this Organization
 	*/
 	@Override
 	public void setNationalityId(long nationalityId) {
@@ -620,9 +620,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Returns the note of this organization.
+	* Returns the note of this Organization.
 	*
-	* @return the note of this organization
+	* @return the note of this Organization
 	*/
 	@Override
 	public java.lang.String getNote() {
@@ -630,9 +630,9 @@ public class OrganizationWrapper implements Organization,
 	}
 
 	/**
-	* Sets the note of this organization.
+	* Sets the note of this Organization.
 	*
-	* @param note the note of this organization
+	* @param note the note of this Organization
 	*/
 	@Override
 	public void setNote(java.lang.String note) {

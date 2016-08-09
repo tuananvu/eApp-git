@@ -211,19 +211,19 @@ public interface MembershipModel extends BaseModel<Membership> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Membership membership);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Membership membership);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Membership> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Membership> toCacheModel();
 
 	@Override
-	public Membership toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Membership toEscapedModel();
 
 	@Override
-	public Membership toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Membership toUnescapedModel();
 
 	@Override
 	public String toString();

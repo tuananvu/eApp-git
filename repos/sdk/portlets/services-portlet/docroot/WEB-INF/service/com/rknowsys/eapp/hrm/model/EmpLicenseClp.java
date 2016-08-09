@@ -543,6 +543,10 @@ public class EmpLicenseClp extends BaseModelImpl<EmpLicense>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -650,4 +654,5 @@ public class EmpLicenseClp extends BaseModelImpl<EmpLicense>
 	private Date _issuedDate;
 	private Date _expiryDate;
 	private BaseModel<?> _empLicenseRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

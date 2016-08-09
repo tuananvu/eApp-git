@@ -327,19 +327,20 @@ public interface EmpImmigrationDocumentModel extends BaseModel<EmpImmigrationDoc
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpImmigrationDocument empImmigrationDocument);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpImmigrationDocument empImmigrationDocument);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpImmigrationDocument> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpImmigrationDocument> toCacheModel();
 
 	@Override
-	public EmpImmigrationDocument toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpImmigrationDocument toEscapedModel();
 
 	@Override
-	public EmpImmigrationDocument toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpImmigrationDocument toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -418,6 +418,10 @@ public class EducationClp extends BaseModelImpl<Education> implements Education 
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -497,4 +501,5 @@ public class EducationClp extends BaseModelImpl<Education> implements Education 
 	private String _userUuid;
 	private String _eduLevel;
 	private BaseModel<?> _educationRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

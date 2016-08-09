@@ -19,7 +19,7 @@ import com.liferay.portal.service.persistence.BasePersistence;
 import com.rknowsys.eapp.hrm.model.Organization;
 
 /**
- * The persistence interface for the organization service.
+ * The persistence interface for the Organization service.
  *
  * <p>
  * Caching information and settings can be found in <code>portal.properties</code>
@@ -34,39 +34,39 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never modify or reference this interface directly. Always use {@link OrganizationUtil} to access the organization persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this interface.
+	 * Never modify or reference this interface directly. Always use {@link OrganizationUtil} to access the Organization persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this interface.
 	 */
 
 	/**
-	* Caches the organization in the entity cache if it is enabled.
+	* Caches the Organization in the entity cache if it is enabled.
 	*
-	* @param organization the organization
+	* @param organization the Organization
 	*/
 	public void cacheResult(
 		com.rknowsys.eapp.hrm.model.Organization organization);
 
 	/**
-	* Caches the organizations in the entity cache if it is enabled.
+	* Caches the Organizations in the entity cache if it is enabled.
 	*
-	* @param organizations the organizations
+	* @param organizations the Organizations
 	*/
 	public void cacheResult(
 		java.util.List<com.rknowsys.eapp.hrm.model.Organization> organizations);
 
 	/**
-	* Creates a new organization with the primary key. Does not add the organization to the database.
+	* Creates a new Organization with the primary key. Does not add the Organization to the database.
 	*
-	* @param organizationId the primary key for the new organization
-	* @return the new organization
+	* @param organizationId the primary key for the new Organization
+	* @return the new Organization
 	*/
 	public com.rknowsys.eapp.hrm.model.Organization create(long organizationId);
 
 	/**
-	* Removes the organization with the primary key from the database. Also notifies the appropriate model listeners.
+	* Removes the Organization with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param organizationId the primary key of the organization
-	* @return the organization that was removed
-	* @throws com.rknowsys.eapp.hrm.NoSuchOrganizationException if a organization with the primary key could not be found
+	* @param organizationId the primary key of the Organization
+	* @return the Organization that was removed
+	* @throws com.rknowsys.eapp.hrm.NoSuchOrganizationException if a Organization with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.rknowsys.eapp.hrm.model.Organization remove(long organizationId)
@@ -78,11 +78,11 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns the organization with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchOrganizationException} if it could not be found.
+	* Returns the Organization with the primary key or throws a {@link com.rknowsys.eapp.hrm.NoSuchOrganizationException} if it could not be found.
 	*
-	* @param organizationId the primary key of the organization
-	* @return the organization
-	* @throws com.rknowsys.eapp.hrm.NoSuchOrganizationException if a organization with the primary key could not be found
+	* @param organizationId the primary key of the Organization
+	* @return the Organization
+	* @throws com.rknowsys.eapp.hrm.NoSuchOrganizationException if a Organization with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.rknowsys.eapp.hrm.model.Organization findByPrimaryKey(
@@ -91,10 +91,10 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 			com.rknowsys.eapp.hrm.NoSuchOrganizationException;
 
 	/**
-	* Returns the organization with the primary key or returns <code>null</code> if it could not be found.
+	* Returns the Organization with the primary key or returns <code>null</code> if it could not be found.
 	*
-	* @param organizationId the primary key of the organization
-	* @return the organization, or <code>null</code> if a organization with the primary key could not be found
+	* @param organizationId the primary key of the Organization
+	* @return the Organization, or <code>null</code> if a Organization with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public com.rknowsys.eapp.hrm.model.Organization fetchByPrimaryKey(
@@ -102,24 +102,24 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns all the organizations.
+	* Returns all the Organizations.
 	*
-	* @return the organizations
+	* @return the Organizations
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.rknowsys.eapp.hrm.model.Organization> findAll()
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns a range of all the organizations.
+	* Returns a range of all the Organizations.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.OrganizationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of organizations
-	* @param end the upper bound of the range of organizations (not inclusive)
-	* @return the range of organizations
+	* @param start the lower bound of the range of Organizations
+	* @param end the upper bound of the range of Organizations (not inclusive)
+	* @return the range of Organizations
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.rknowsys.eapp.hrm.model.Organization> findAll(
@@ -127,16 +127,16 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns an ordered range of all the organizations.
+	* Returns an ordered range of all the Organizations.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.OrganizationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of organizations
-	* @param end the upper bound of the range of organizations (not inclusive)
+	* @param start the lower bound of the range of Organizations
+	* @param end the upper bound of the range of Organizations (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
-	* @return the ordered range of organizations
+	* @return the ordered range of Organizations
 	* @throws SystemException if a system exception occurred
 	*/
 	public java.util.List<com.rknowsys.eapp.hrm.model.Organization> findAll(
@@ -145,7 +145,7 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Removes all the organizations from the database.
+	* Removes all the Organizations from the database.
 	*
 	* @throws SystemException if a system exception occurred
 	*/
@@ -153,9 +153,9 @@ public interface OrganizationPersistence extends BasePersistence<Organization> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Returns the number of organizations.
+	* Returns the number of Organizations.
 	*
-	* @return the number of organizations
+	* @return the number of Organizations
 	* @throws SystemException if a system exception occurred
 	*/
 	public int countAll()

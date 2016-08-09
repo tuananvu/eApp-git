@@ -297,19 +297,19 @@ public interface EmpEducationModel extends BaseModel<EmpEducation> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpEducation empEducation);
+	public int compareTo(com.rknowsys.eapp.hrm.model.EmpEducation empEducation);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpEducation> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpEducation> toCacheModel();
 
 	@Override
-	public EmpEducation toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpEducation toEscapedModel();
 
 	@Override
-	public EmpEducation toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpEducation toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -605,6 +605,10 @@ public class EmpEducationClp extends BaseModelImpl<EmpEducation>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -726,4 +730,5 @@ public class EmpEducationClp extends BaseModelImpl<EmpEducation>
 	private Date _startDate;
 	private Date _endDate;
 	private BaseModel<?> _empEducationRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

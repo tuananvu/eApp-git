@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.model.PersistedModel;
 
 /**
- * The extended model interface for the EmpDependent service. Represents a row in the &quot;hrm_EmpDependent&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the EmpDependent service. Represents a row in the &quot;hrm_empdependent&quot; database table, with each column mapped to a property of this class.
  *
  * @author rknowsys
  * @see EmpDependentModel

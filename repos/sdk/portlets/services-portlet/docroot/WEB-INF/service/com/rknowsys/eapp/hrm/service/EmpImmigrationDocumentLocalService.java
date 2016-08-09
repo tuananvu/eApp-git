@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface EmpImmigrationDocumentLocalService extends BaseLocalService,
 	* @return the ImmigrationDocument that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpImmigrationDocument addEmpImmigrationDocument(
 		com.rknowsys.eapp.hrm.model.EmpImmigrationDocument empImmigrationDocument)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -73,6 +75,7 @@ public interface EmpImmigrationDocumentLocalService extends BaseLocalService,
 	* @throws PortalException if a ImmigrationDocument with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpImmigrationDocument deleteEmpImmigrationDocument(
 		long empImmigrationDocumentId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -85,6 +88,7 @@ public interface EmpImmigrationDocumentLocalService extends BaseLocalService,
 	* @return the ImmigrationDocument that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.EmpImmigrationDocument deleteEmpImmigrationDocument(
 		com.rknowsys.eapp.hrm.model.EmpImmigrationDocument empImmigrationDocument)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -226,6 +230,7 @@ public interface EmpImmigrationDocumentLocalService extends BaseLocalService,
 	* @return the ImmigrationDocument that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.EmpImmigrationDocument updateEmpImmigrationDocument(
 		com.rknowsys.eapp.hrm.model.EmpImmigrationDocument empImmigrationDocument)
 		throws com.liferay.portal.kernel.exception.SystemException;

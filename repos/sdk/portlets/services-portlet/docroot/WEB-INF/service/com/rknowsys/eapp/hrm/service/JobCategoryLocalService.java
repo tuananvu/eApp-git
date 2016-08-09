@@ -16,6 +16,7 @@ package com.rknowsys.eapp.hrm.service;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,6 +53,7 @@ public interface JobCategoryLocalService extends BaseLocalService,
 	* @return the job category that was added
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.JobCategory addJobCategory(
 		com.rknowsys.eapp.hrm.model.JobCategory jobCategory)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -73,6 +75,7 @@ public interface JobCategoryLocalService extends BaseLocalService,
 	* @throws PortalException if a job category with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(
 		long jobCategoryId)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -85,6 +88,7 @@ public interface JobCategoryLocalService extends BaseLocalService,
 	* @return the job category that was removed
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.DELETE)
 	public com.rknowsys.eapp.hrm.model.JobCategory deleteJobCategory(
 		com.rknowsys.eapp.hrm.model.JobCategory jobCategory)
 		throws com.liferay.portal.kernel.exception.SystemException;
@@ -226,8 +230,131 @@ public interface JobCategoryLocalService extends BaseLocalService,
 	* @return the job category that was updated
 	* @throws SystemException if a system exception occurred
 	*/
+	@com.liferay.portal.kernel.search.Indexable(type = IndexableType.REINDEX)
 	public com.rknowsys.eapp.hrm.model.JobCategory updateJobCategory(
 		com.rknowsys.eapp.hrm.model.JobCategory jobCategory)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void addLeaveRuleApplicableJobCategory(long leaveRuleApplicableId,
+		long jobCategoryId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void addLeaveRuleApplicableJobCategory(long leaveRuleApplicableId,
+		com.rknowsys.eapp.hrm.model.JobCategory jobCategory)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void addLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId, long[] jobCategoryIds)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void addLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId,
+		java.util.List<com.rknowsys.eapp.hrm.model.JobCategory> JobCategories)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void clearLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void deleteLeaveRuleApplicableJobCategory(
+		long leaveRuleApplicableId, long jobCategoryId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void deleteLeaveRuleApplicableJobCategory(
+		long leaveRuleApplicableId,
+		com.rknowsys.eapp.hrm.model.JobCategory jobCategory)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void deleteLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId, long[] jobCategoryIds)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void deleteLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId,
+		java.util.List<com.rknowsys.eapp.hrm.model.JobCategory> JobCategories)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.rknowsys.eapp.hrm.model.JobCategory> getLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.rknowsys.eapp.hrm.model.JobCategory> getLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public java.util.List<com.rknowsys.eapp.hrm.model.JobCategory> getLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getLeaveRuleApplicableJobCategoriesCount(
+		long leaveRuleApplicableId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public boolean hasLeaveRuleApplicableJobCategory(
+		long leaveRuleApplicableId, long jobCategoryId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public boolean hasLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* @throws SystemException if a system exception occurred
+	*/
+	public void setLeaveRuleApplicableJobCategories(
+		long leaveRuleApplicableId, long[] jobCategoryIds)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

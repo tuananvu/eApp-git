@@ -338,19 +338,19 @@ public interface WorkWeekModel extends BaseModel<WorkWeek>, GroupedModel {
 	public Object clone();
 
 	@Override
-	public int compareTo(WorkWeek workWeek);
+	public int compareTo(com.rknowsys.eapp.hrm.model.WorkWeek workWeek);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<WorkWeek> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.WorkWeek> toCacheModel();
 
 	@Override
-	public WorkWeek toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.WorkWeek toEscapedModel();
 
 	@Override
-	public WorkWeek toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.WorkWeek toUnescapedModel();
 
 	@Override
 	public String toString();

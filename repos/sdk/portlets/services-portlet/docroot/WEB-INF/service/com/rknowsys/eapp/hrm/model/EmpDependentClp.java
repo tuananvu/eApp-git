@@ -512,6 +512,10 @@ public class EmpDependentClp extends BaseModelImpl<EmpDependent>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -612,4 +616,5 @@ public class EmpDependentClp extends BaseModelImpl<EmpDependent>
 	private String _relationship;
 	private Date _dateOfBirth;
 	private BaseModel<?> _empDependentRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

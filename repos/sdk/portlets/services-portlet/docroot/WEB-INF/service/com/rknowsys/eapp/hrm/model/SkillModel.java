@@ -226,19 +226,19 @@ public interface SkillModel extends BaseModel<Skill> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Skill skill);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Skill skill);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Skill> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Skill> toCacheModel();
 
 	@Override
-	public Skill toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Skill toEscapedModel();
 
 	@Override
-	public Skill toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Skill toUnescapedModel();
 
 	@Override
 	public String toString();

@@ -288,6 +288,18 @@ public class EmpPersonalDetailsLocalServiceUtil {
 		return getService().getEmployeeDetailsByShiftId(shiftId);
 	}
 
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> findEmpPersonalDetails(
+		long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findEmpPersonalDetails(groupId);
+	}
+
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> findEmpPersonalDetails(
+		long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().findEmpPersonalDetails(groupId, start, end);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

@@ -253,19 +253,19 @@ public interface EmpSalaryModel extends BaseModel<EmpSalary> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpSalary empSalary);
+	public int compareTo(com.rknowsys.eapp.hrm.model.EmpSalary empSalary);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpSalary> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpSalary> toCacheModel();
 
 	@Override
-	public EmpSalary toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpSalary toEscapedModel();
 
 	@Override
-	public EmpSalary toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpSalary toUnescapedModel();
 
 	@Override
 	public String toString();

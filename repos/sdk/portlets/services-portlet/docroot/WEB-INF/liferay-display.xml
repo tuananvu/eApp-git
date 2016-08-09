@@ -4,9 +4,11 @@
 <display>
 	<category name="category.sample">
 		<portlet id="services" />
-		<portlet id="job-title"></portlet>
+		<!-- <portlet id="JobTitle"></portlet>-->
 	</category>
+	<!-- 
 	<category name="category.news">
 		<portlet id="new-porlet"></portlet>
 	</category>
+	-->
 </display>

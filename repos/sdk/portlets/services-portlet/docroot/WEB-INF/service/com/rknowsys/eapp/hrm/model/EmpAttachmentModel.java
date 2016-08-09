@@ -299,19 +299,20 @@ public interface EmpAttachmentModel extends BaseModel<EmpAttachment> {
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpAttachment empAttachment);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpAttachment empAttachment);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpAttachment> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpAttachment> toCacheModel();
 
 	@Override
-	public EmpAttachment toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpAttachment toEscapedModel();
 
 	@Override
-	public EmpAttachment toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpAttachment toUnescapedModel();
 
 	@Override
 	public String toString();

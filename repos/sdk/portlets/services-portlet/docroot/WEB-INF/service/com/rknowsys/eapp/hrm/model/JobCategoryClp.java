@@ -419,6 +419,10 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -498,4 +502,5 @@ public class JobCategoryClp extends BaseModelImpl<JobCategory>
 	private String _userUuid;
 	private String _jobcategory;
 	private BaseModel<?> _jobCategoryRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

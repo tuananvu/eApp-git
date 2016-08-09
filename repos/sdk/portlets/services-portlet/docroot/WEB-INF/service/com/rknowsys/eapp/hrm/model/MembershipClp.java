@@ -420,6 +420,10 @@ public class MembershipClp extends BaseModelImpl<Membership>
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -499,4 +503,5 @@ public class MembershipClp extends BaseModelImpl<Membership>
 	private String _userUuid;
 	private String _membershipName;
 	private BaseModel<?> _membershipRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

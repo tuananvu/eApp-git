@@ -697,6 +697,10 @@ public class LocationClp extends BaseModelImpl<Location> implements Location {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -839,4 +843,5 @@ public class LocationClp extends BaseModelImpl<Location> implements Location {
 	private String _fax;
 	private String _notes;
 	private BaseModel<?> _locationRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

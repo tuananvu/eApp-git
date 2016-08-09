@@ -680,6 +680,10 @@ public class WorkWeekClp extends BaseModelImpl<WorkWeek> implements WorkWeek {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -815,4 +819,5 @@ public class WorkWeekClp extends BaseModelImpl<WorkWeek> implements WorkWeek {
 	private Date _createDate;
 	private Date _modifiedDate;
 	private BaseModel<?> _workWeekRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

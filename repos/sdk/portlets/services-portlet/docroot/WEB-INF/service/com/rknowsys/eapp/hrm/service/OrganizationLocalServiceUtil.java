@@ -40,10 +40,10 @@ public class OrganizationLocalServiceUtil {
 	 */
 
 	/**
-	* Adds the organization to the database. Also notifies the appropriate model listeners.
+	* Adds the Organization to the database. Also notifies the appropriate model listeners.
 	*
-	* @param organization the organization
-	* @return the organization that was added
+	* @param organization the Organization
+	* @return the Organization that was added
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Organization addOrganization(
@@ -53,10 +53,10 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Creates a new organization with the primary key. Does not add the organization to the database.
+	* Creates a new Organization with the primary key. Does not add the Organization to the database.
 	*
-	* @param organizationId the primary key for the new organization
-	* @return the new organization
+	* @param organizationId the primary key for the new Organization
+	* @return the new Organization
 	*/
 	public static com.rknowsys.eapp.hrm.model.Organization createOrganization(
 		long organizationId) {
@@ -64,11 +64,11 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Deletes the organization with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the Organization with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param organizationId the primary key of the organization
-	* @return the organization that was removed
-	* @throws PortalException if a organization with the primary key could not be found
+	* @param organizationId the primary key of the Organization
+	* @return the Organization that was removed
+	* @throws PortalException if a Organization with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Organization deleteOrganization(
@@ -79,10 +79,10 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Deletes the organization from the database. Also notifies the appropriate model listeners.
+	* Deletes the Organization from the database. Also notifies the appropriate model listeners.
 	*
-	* @param organization the organization
-	* @return the organization that was removed
+	* @param organization the Organization
+	* @return the Organization that was removed
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Organization deleteOrganization(
@@ -188,11 +188,11 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Returns the organization with the primary key.
+	* Returns the Organization with the primary key.
 	*
-	* @param organizationId the primary key of the organization
-	* @return the organization
-	* @throws PortalException if a organization with the primary key could not be found
+	* @param organizationId the primary key of the Organization
+	* @return the Organization
+	* @throws PortalException if a Organization with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Organization getOrganization(
@@ -210,15 +210,15 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Returns a range of all the organizations.
+	* Returns a range of all the Organizations.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.rknowsys.eapp.hrm.model.impl.OrganizationModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
-	* @param start the lower bound of the range of organizations
-	* @param end the upper bound of the range of organizations (not inclusive)
-	* @return the range of organizations
+	* @param start the lower bound of the range of Organizations
+	* @param end the upper bound of the range of Organizations (not inclusive)
+	* @return the range of Organizations
 	* @throws SystemException if a system exception occurred
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.Organization> getOrganizations(
@@ -228,9 +228,9 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Returns the number of organizations.
+	* Returns the number of Organizations.
 	*
-	* @return the number of organizations
+	* @return the number of Organizations
 	* @throws SystemException if a system exception occurred
 	*/
 	public static int getOrganizationsCount()
@@ -239,10 +239,10 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
-	* Updates the organization in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	* Updates the Organization in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
-	* @param organization the organization
-	* @return the organization that was updated
+	* @param organization the Organization
+	* @return the Organization that was updated
 	* @throws SystemException if a system exception occurred
 	*/
 	public static com.rknowsys.eapp.hrm.model.Organization updateOrganization(

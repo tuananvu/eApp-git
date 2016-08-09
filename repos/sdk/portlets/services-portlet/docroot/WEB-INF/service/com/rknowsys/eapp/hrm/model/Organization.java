@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.model.PersistedModel;
 
 /**
- * The extended model interface for the Organization service. Represents a row in the &quot;hrm_Organization&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the Organization service. Represents a row in the &quot;hrm_organization&quot; database table, with each column mapped to a property of this class.
  *
  * @author rknowsys
  * @see OrganizationModel

@@ -414,19 +414,20 @@ public interface LeaveRestrictionModel extends BaseModel<LeaveRestriction> {
 	public Object clone();
 
 	@Override
-	public int compareTo(LeaveRestriction leaveRestriction);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.LeaveRestriction leaveRestriction);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<LeaveRestriction> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.LeaveRestriction> toCacheModel();
 
 	@Override
-	public LeaveRestriction toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.LeaveRestriction toEscapedModel();
 
 	@Override
-	public LeaveRestriction toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.LeaveRestriction toUnescapedModel();
 
 	@Override
 	public String toString();

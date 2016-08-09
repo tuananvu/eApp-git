@@ -211,19 +211,19 @@ public interface DocCategoryModel extends BaseModel<DocCategory> {
 	public Object clone();
 
 	@Override
-	public int compareTo(DocCategory docCategory);
+	public int compareTo(com.rknowsys.eapp.hrm.model.DocCategory docCategory);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<DocCategory> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.DocCategory> toCacheModel();
 
 	@Override
-	public DocCategory toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.DocCategory toEscapedModel();
 
 	@Override
-	public DocCategory toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.DocCategory toUnescapedModel();
 
 	@Override
 	public String toString();

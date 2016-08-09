@@ -1,3 +1,5 @@
+<%@page import="com.liferay.portal.service.ServiceContextFactory"%>
+<%@page import="com.liferay.portal.service.ServiceContext"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="com.rknowsys.eapp.hrm.service.SubUnitLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.service.JobTitleLocalServiceUtil"%>
@@ -150,32 +152,30 @@ font: small-caption;
 		<%
 		DisplayTerms displayTerms =searchContainer.getDisplayTerms();
 		String empname = ParamUtil.getString(renderRequest, "firstName");
-		String empid = ParamUtil.getString(renderRequest, "employeeNo");
+		String empid = ParamUtil.getString(renderRequest, "employeeId");
 		String empstatus = ParamUtil.getString(renderRequest, "employmentstatus");
 		String supervisorname = ParamUtil.getString(renderRequest, "supervisorname");
 		String jobtitle = ParamUtil.getString(renderRequest, "jobtitle");
 		String subunit = ParamUtil.getString(renderRequest, "subunit");
 		System.out.println("before results....parameters.." +empname+ ", "+empid+", "+empstatus+", "+supervisorname+", "+jobtitle+", " +subunit);
-	   
-		searchContainer.setResults(EmpDetailsLocalServiceUtil.findEmpDetails(empname, empid, empstatus, supervisorname, jobtitle, subunit, searchContainer.getStart(), searchContainer.getEnd()));
+		//long groupId = ser
+		//EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(groupId)
+		ServiceContext serviceContext = ServiceContextFactory.getInstance(EmpPersonalDetails.class.getName(), renderRequest);
+		long groupId = 0;//serviceContext.getScopeGroupId();
+		searchContainer.setResults(EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(groupId, searchContainer.getStart(), searchContainer.getEnd()));
+		//searchContainer.setResults(EmpDetailsLocalServiceUtil.findEmpDetails(empname, empid, empstatus, supervisorname, jobtitle, subunit, searchContainer.getStart(), searchContainer.getEnd()));
 	     total = results.size(); 
 	  	pageContext.setAttribute("results", results);
 		pageContext.setAttribute("total", total);
 		%>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row  className="EmpDetails" modelVar="EmpDetails"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row  className="EmpPersonalDetails" modelVar="EmpPersonalDetails"  rowVar="curRow" escapedModel="<%= true %>">
 	    <liferay-ui:search-container-column-text orderable="true" name="01_id"
 	     property="employeeNo" />
 	    <liferay-ui:search-container-column-text orderable="true" name="01_firstName"
 	    property="firstName"/>
 	    <liferay-ui:search-container-column-text orderable="true" name="01_lastName"
-	    property="lastName"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="01_jobtitle"
-	     property="title"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="01_sub-unit" />
-	    <liferay-ui:search-container-column-text orderable="true" name="01_sup-name"/>
-	    <liferay-ui:search-container-column-text orderable="true" name="01_emp-status" 
-	    property="employmentstatus"/>
+	    property="lastName"/>	    
 	    <liferay-ui:search-container-column-jsp name="edit"
 		path="/html/employee/editClick.jsp" />
 	</liferay-ui:search-container-row>

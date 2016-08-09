@@ -1,3 +1,4 @@
+<%@page import="com.rknowsys.eapp.hrm.model.EmpPersonalDetails"%>
 <%@page import="com.rknowsys.eapp.hrm.model.EmpDetails"%>
 <%@page import="com.liferay.portal.kernel.util.WebKeys"%>
 <%@page import="com.liferay.portal.kernel.dao.search.ResultRow"%>
@@ -5,9 +6,9 @@
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 <%ResultRow rslt=(ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 
-EmpDetails ed = (EmpDetails)rslt.getObject();
+EmpPersonalDetails ed = (EmpPersonalDetails)rslt.getObject();
 
-String prk=String.valueOf(ed.getEmployeeNo());
+String prk=String.valueOf(ed.getEmployeeId());
 %>
 <liferay-ui:icon-menu>
 <portlet:actionURL var="renderEmployeeDetails" name="renderEmployeeDetails">

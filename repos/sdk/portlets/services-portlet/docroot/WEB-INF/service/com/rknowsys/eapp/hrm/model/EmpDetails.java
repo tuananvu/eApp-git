@@ -17,7 +17,7 @@ package com.rknowsys.eapp.hrm.model;
 import com.liferay.portal.model.PersistedModel;
 
 /**
- * The extended model interface for the EmpDetails service. Represents a row in the &quot;hrm_EmpDetails&quot; database table, with each column mapped to a property of this class.
+ * The extended model interface for the EmpDetails service. Represents a row in the &quot;empdetails&quot; database table, with each column mapped to a property of this class.
  *
  * @author rknowsys
  * @see EmpDetailsModel

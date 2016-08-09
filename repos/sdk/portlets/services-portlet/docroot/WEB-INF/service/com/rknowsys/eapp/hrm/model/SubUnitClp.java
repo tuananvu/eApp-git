@@ -449,6 +449,10 @@ public class SubUnitClp extends BaseModelImpl<SubUnit> implements SubUnit {
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -535,4 +539,5 @@ public class SubUnitClp extends BaseModelImpl<SubUnit> implements SubUnit {
 	private Date _createDate;
 	private Date _modifiedDate;
 	private BaseModel<?> _subUnitRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

@@ -285,19 +285,20 @@ public interface EmpEmergencyContactModel extends BaseModel<EmpEmergencyContact>
 	public Object clone();
 
 	@Override
-	public int compareTo(EmpEmergencyContact empEmergencyContact);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.EmpEmergencyContact empEmergencyContact);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<EmpEmergencyContact> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.EmpEmergencyContact> toCacheModel();
 
 	@Override
-	public EmpEmergencyContact toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpEmergencyContact toEscapedModel();
 
 	@Override
-	public EmpEmergencyContact toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.EmpEmergencyContact toUnescapedModel();
 
 	@Override
 	public String toString();

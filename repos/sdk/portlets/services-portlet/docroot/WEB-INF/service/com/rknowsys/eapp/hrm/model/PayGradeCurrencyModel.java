@@ -253,19 +253,20 @@ public interface PayGradeCurrencyModel extends BaseModel<PayGradeCurrency> {
 	public Object clone();
 
 	@Override
-	public int compareTo(PayGradeCurrency payGradeCurrency);
+	public int compareTo(
+		com.rknowsys.eapp.hrm.model.PayGradeCurrency payGradeCurrency);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<PayGradeCurrency> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.PayGradeCurrency> toCacheModel();
 
 	@Override
-	public PayGradeCurrency toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.PayGradeCurrency toEscapedModel();
 
 	@Override
-	public PayGradeCurrency toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.PayGradeCurrency toUnescapedModel();
 
 	@Override
 	public String toString();

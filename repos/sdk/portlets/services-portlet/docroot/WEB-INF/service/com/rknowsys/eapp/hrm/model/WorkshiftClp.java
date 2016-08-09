@@ -480,6 +480,10 @@ public class WorkshiftClp extends BaseModelImpl<Workshift> implements Workshift 
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -573,4 +577,5 @@ public class WorkshiftClp extends BaseModelImpl<Workshift> implements Workshift 
 	private Date _fromWorkHours;
 	private Date _toWorkHours;
 	private BaseModel<?> _workshiftRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

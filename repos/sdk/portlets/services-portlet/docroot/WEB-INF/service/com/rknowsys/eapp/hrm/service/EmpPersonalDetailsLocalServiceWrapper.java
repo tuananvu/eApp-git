@@ -304,6 +304,21 @@ public class EmpPersonalDetailsLocalServiceWrapper
 		return _empPersonalDetailsLocalService.getEmployeeDetailsByShiftId(shiftId);
 	}
 
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> findEmpPersonalDetails(
+		long groupId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _empPersonalDetailsLocalService.findEmpPersonalDetails(groupId);
+	}
+
+	@Override
+	public java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> findEmpPersonalDetails(
+		long groupId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _empPersonalDetailsLocalService.findEmpPersonalDetails(groupId,
+			start, end);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

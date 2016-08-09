@@ -239,19 +239,19 @@ public interface WorkshiftModel extends BaseModel<Workshift> {
 	public Object clone();
 
 	@Override
-	public int compareTo(Workshift workshift);
+	public int compareTo(com.rknowsys.eapp.hrm.model.Workshift workshift);
 
 	@Override
 	public int hashCode();
 
 	@Override
-	public CacheModel<Workshift> toCacheModel();
+	public CacheModel<com.rknowsys.eapp.hrm.model.Workshift> toCacheModel();
 
 	@Override
-	public Workshift toEscapedModel();
+	public com.rknowsys.eapp.hrm.model.Workshift toEscapedModel();
 
 	@Override
-	public Workshift toUnescapedModel();
+	public com.rknowsys.eapp.hrm.model.Workshift toUnescapedModel();
 
 	@Override
 	public String toString();

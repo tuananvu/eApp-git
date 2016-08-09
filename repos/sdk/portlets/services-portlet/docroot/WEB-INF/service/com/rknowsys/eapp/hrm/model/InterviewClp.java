@@ -418,6 +418,10 @@ public class InterviewClp extends BaseModelImpl<Interview> implements Interview 
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -497,4 +501,5 @@ public class InterviewClp extends BaseModelImpl<Interview> implements Interview 
 	private String _userUuid;
 	private String _name;
 	private BaseModel<?> _interviewRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }

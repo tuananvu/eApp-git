@@ -486,6 +486,10 @@ public class LeaveTypeClp extends BaseModelImpl<LeaveType> implements LeaveType 
 		}
 	}
 
+	public Class<?> getClpSerializerClass() {
+		return _clpSerializerClass;
+	}
+
 	@Override
 	public int hashCode() {
 		return (int)getPrimaryKey();
@@ -579,4 +583,5 @@ public class LeaveTypeClp extends BaseModelImpl<LeaveType> implements LeaveType 
 	private String _leaveTypeName;
 	private boolean _isSituational;
 	private BaseModel<?> _leaveTypeRemoteModel;
+	private Class<?> _clpSerializerClass = com.rknowsys.eapp.hrm.service.ClpSerializer.class;
 }
