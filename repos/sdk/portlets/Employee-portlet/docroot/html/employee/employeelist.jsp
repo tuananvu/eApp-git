@@ -144,7 +144,7 @@ font: small-caption;
 		<portlet:param name="mvcPath" value="/html/emplist/employeelist.jsp" />
 	</liferay-portlet:renderURL>
 <%!
-  com.liferay.portal.kernel.dao.search.SearchContainer<EmpDetails> searchContainer;
+  com.liferay.portal.kernel.dao.search.SearchContainer<EmpPersonalDetails> searchContainer;
 %>
 
 <liferay-ui:search-container delta="5" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="no-records-available-for-employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
