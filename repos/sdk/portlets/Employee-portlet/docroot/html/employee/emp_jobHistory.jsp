@@ -6,9 +6,11 @@
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
 	long fileEntryId=(Long)empId.get("fileId");
-DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpJob.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpJob.class, classLoader);
+	//DynamicQuery jobDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpJob.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	jobDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpJob> empJob =EmpJobLocalServiceUtil
@@ -124,7 +126,7 @@ public String getCategoryValue(long jcId)
 			<div class="row-fluid">
 				<div class="span6">
 					<aui:input name="joined_date" id="joined_date" label="01_joined-date"
-						cssClass="dateEmployee" inlineLabel="left" type="date"></aui:input>
+						cssClass="dateEmployee" inlineLabel="left"></aui:input>
 				</div>
 				<div class="span6">
 					<aui:input name="probation_date" label="01_probation-date"
@@ -306,8 +308,8 @@ public String getCategoryValue(long jcId)
 				<liferay-ui:search-container-column-text name="01_location" 
 				value='<%= getLocationValue(id.getLocationId())!=null?getLocationValue(id.getLocationId()):""%>'/>
 				<liferay-ui:search-container-column-text name="01_comment" property="comments"/>
-				<liferay-ui:search-container-column-text name="01_contract-start-date" />
-				<liferay-ui:search-container-column-text name="01_contract-end-date" />
+				<liferay-ui:search-container-column-text name="01_contract-start-date" property="employmentContractStartDate"/>
+				<liferay-ui:search-container-column-text name="01_contract-end-date" property="employmentContractEndDate" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>

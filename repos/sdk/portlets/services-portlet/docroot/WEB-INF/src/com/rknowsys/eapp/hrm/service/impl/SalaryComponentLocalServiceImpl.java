@@ -20,21 +20,27 @@ import com.rknowsys.eapp.hrm.service.base.SalaryComponentLocalServiceBaseImpl;
  * The implementation of the salary component local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.SalaryComponentLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.SalaryComponentLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.SalaryComponentLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil
  */
-public class SalaryComponentLocalServiceImpl
-	extends SalaryComponentLocalServiceBaseImpl {
+public class SalaryComponentLocalServiceImpl extends
+		SalaryComponentLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil} to access the salary component local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.SalaryComponentLocalServiceUtil} to access
+	 * the salary component local service.
 	 */
 }

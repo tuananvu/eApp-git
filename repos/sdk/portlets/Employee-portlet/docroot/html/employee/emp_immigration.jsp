@@ -30,9 +30,11 @@ A.ready(function()
 	long employeeId = (Long)empId.get("empId");
 	String jsp=(String)empId.get("jsp");
 	long fileEntryId=(Long)empId.get("fileId");
-	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpImmigrationDocument.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpImmigrationDocument.class, classLoader);
+	//DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpImmigrationDocument.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	dependentDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpImmigrationDocument> empImmigrationDocument =EmpImmigrationDocumentLocalServiceUtil

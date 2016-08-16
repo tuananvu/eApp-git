@@ -26,9 +26,11 @@ var A=new AUI();
 	long nationalityId = 0;
 	//Date k = new Date();
 	//long employeeId = Long.parseLong(empId);
-	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpPersonalDetails.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class, classLoader);
+	//DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpPersonalDetails.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	personalDetailsDynamicQuery.add(PropertyFactoryUtil.forName(
 			"employeeId").eq(employeeId));
 	List<EmpPersonalDetails> l = EmpPersonalDetailsLocalServiceUtil
@@ -52,10 +54,11 @@ var A=new AUI();
 		gender = String.valueOf(empPersonalDetails.getGender()) != null ? String
 				.valueOf(empPersonalDetails.getGender()) : "";
 		Nationality empNationality2 = null;
-		if ((Long) empPersonalDetails.getNationalityId() != null) {
-			DynamicQuery nationalityDynamicQuery = DynamicQueryFactoryUtil
-					.forClass(Nationality.class,
-							PortletClassLoaderUtil.getClassLoader());
+		if ((Long) empPersonalDetails.getNationalityId() != null) {			
+			DynamicQuery nationalityDynamicQuery = DynamicQueryFactoryUtil.forClass(Nationality.class, classLoader);
+			//DynamicQuery nationalityDynamicQuery = DynamicQueryFactoryUtil
+				//	.forClass(Nationality.class,
+					//		PortletClassLoaderUtil.getClassLoader());
 			nationalityDynamicQuery.add(PropertyFactoryUtil.forName(
 					"nationalityId").eq(
 					empPersonalDetails.getNationalityId()));

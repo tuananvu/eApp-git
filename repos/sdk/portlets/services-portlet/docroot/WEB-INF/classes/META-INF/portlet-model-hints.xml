@@ -76,8 +76,8 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="firstName" type="String" />
 		<field name="lastName" type="String" />
-		<field name="title" type="String" />
-		<field name="employmentstatus" type="String" />
+		<field name="titleId" type="long" />
+		<field name="employmentstatusId" type="long" />
 		<field name="name" type="String" />
 		<field name="supervisor" type="String" />
 	</model>

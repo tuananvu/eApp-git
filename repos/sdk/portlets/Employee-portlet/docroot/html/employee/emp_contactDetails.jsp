@@ -29,9 +29,11 @@ Map empId = (Map) request.getSession(false).getAttribute(
 	long fileEntryId=(Long)empId.get("fileId");
 	String adressStreet1, addressStreet2, city, state, zip, country, homeTel, workTel, mobile, workEmail, otherEmail;
 	Long contactDetailsId;
-	DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpContactDetails.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpContactDetails.class, classLoader);
+	//DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil
+	//		.forClass(EmpContactDetails.class,
+	//				PortletClassLoaderUtil.getClassLoader());
 	contactDetailsDynamicQuery.add(PropertyFactoryUtil.forName(
 			"employeeId").eq(employeeId));
 	List<EmpContactDetails> contactDetailsList = EmpContactDetailsLocalServiceUtil

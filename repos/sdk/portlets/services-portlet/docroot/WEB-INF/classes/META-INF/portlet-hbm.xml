@@ -152,8 +152,8 @@
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
 		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" />
-		<property name="employmentstatus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="titleId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="employmentstatusId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="supervisor" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 	</class>

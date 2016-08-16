@@ -5,9 +5,11 @@ Map empId = (Map) request.getSession(false).getAttribute(
 long employeeId = (Long)empId.get("empId");
 String jsp=(String)empId.get("jsp");
 long fileEntryId=(Long)empId.get("fileId");
-	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpPersonalDetails.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class, classLoader);
+	//DynamicQuery personalDetailsDynamicQuery = DynamicQueryFactoryUtil
+	//		.forClass(EmpPersonalDetails.class,
+	//				PortletClassLoaderUtil.getClassLoader());
 	personalDetailsDynamicQuery.add(PropertyFactoryUtil.forName(
 			"employeeId").eq(employeeId));
 	List<EmpPersonalDetails> l = EmpPersonalDetailsLocalServiceUtil

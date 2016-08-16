@@ -20,21 +20,27 @@ import com.rknowsys.eapp.hrm.service.base.EmpEducationLocalServiceBaseImpl;
  * The implementation of the emp education local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.EmpEducationLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.EmpEducationLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.EmpEducationLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.EmpEducationLocalServiceUtil
  */
-public class EmpEducationLocalServiceImpl
-	extends EmpEducationLocalServiceBaseImpl {
+public class EmpEducationLocalServiceImpl extends
+		EmpEducationLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmpEducationLocalServiceUtil} to access the emp education local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.EmpEducationLocalServiceUtil} to access the
+	 * emp education local service.
 	 */
 }

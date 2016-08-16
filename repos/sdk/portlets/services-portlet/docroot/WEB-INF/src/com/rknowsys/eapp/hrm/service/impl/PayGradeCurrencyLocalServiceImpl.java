@@ -20,21 +20,27 @@ import com.rknowsys.eapp.hrm.service.base.PayGradeCurrencyLocalServiceBaseImpl;
  * The implementation of the pay grade currency local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.PayGradeCurrencyLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil
  */
-public class PayGradeCurrencyLocalServiceImpl
-	extends PayGradeCurrencyLocalServiceBaseImpl {
+public class PayGradeCurrencyLocalServiceImpl extends
+		PayGradeCurrencyLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil} to access the pay grade currency local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.PayGradeCurrencyLocalServiceUtil} to access
+	 * the pay grade currency local service.
 	 */
 }

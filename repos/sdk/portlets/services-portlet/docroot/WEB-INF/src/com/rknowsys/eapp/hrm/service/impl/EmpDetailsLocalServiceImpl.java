@@ -25,10 +25,14 @@ import com.rknowsys.eapp.hrm.service.persistence.EmpDetailsFinderUtil;
  * The implementation of the emp details local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.EmpDetailsLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.EmpDetailsLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
@@ -38,14 +42,22 @@ import com.rknowsys.eapp.hrm.service.persistence.EmpDetailsFinderUtil;
 public class EmpDetailsLocalServiceImpl extends EmpDetailsLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmpDetailsLocalServiceUtil} to access the emp details local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.EmpDetailsLocalServiceUtil} to access the
+	 * emp details local service.
 	 */
-	
-	public List<EmpDetails> findEmpDetails(String empname,String empid,String empstatus,String supervisorname,String jobtitle,String subunit,int begin, int end)
-			throws SystemException {
-		      System.out.println("in empdetailslocalserviceimpl.....");
 
-			    return EmpDetailsFinderUtil.findEmpDetails(empname,empid,empstatus,supervisorname,jobtitle,subunit,begin, end);
-		}
+	public List<EmpDetails> findEmpDetails(String empname, String empid,
+			String empstatus, String supervisorname, String jobtitle,
+			String subunit, int begin, int end) throws SystemException {
+		System.out.println("in empdetailslocalserviceimpl.....");
+
+		return EmpDetailsFinderUtil.findEmpDetails(empname, empid, empstatus,
+				supervisorname, jobtitle, subunit, begin, end);
+	}
+
+	public List findByAll(long employmentStatusId, int begin, int end) throws SystemException {
+		return EmpDetailsFinderUtil.findByAll(employmentStatusId, begin, end);
+	}
 }

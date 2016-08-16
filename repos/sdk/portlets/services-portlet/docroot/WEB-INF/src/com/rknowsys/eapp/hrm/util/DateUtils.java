@@ -18,14 +18,12 @@ public class DateUtils {
 		return dateStr;
 	}
 
-
 	public static String format(Calendar calendar) {
 		return format(calendar.getTime());
 	}
 
-	
 	public static void main(String args[]) {
-//		System.out.println(parse("29/10/2014"));
+		// System.out.println(parse("29/10/2014"));
 		System.out.println("date = " + format(Calendar.getInstance()));
 
 	}

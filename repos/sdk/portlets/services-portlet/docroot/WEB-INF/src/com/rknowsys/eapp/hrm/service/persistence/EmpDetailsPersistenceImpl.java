@@ -327,8 +327,8 @@ public class EmpDetailsPersistenceImpl extends BasePersistenceImpl<EmpDetails>
 		empDetailsImpl.setModifiedDate(empDetails.getModifiedDate());
 		empDetailsImpl.setFirstName(empDetails.getFirstName());
 		empDetailsImpl.setLastName(empDetails.getLastName());
-		empDetailsImpl.setTitle(empDetails.getTitle());
-		empDetailsImpl.setEmploymentstatus(empDetails.getEmploymentstatus());
+		empDetailsImpl.setTitleId(empDetails.getTitleId());
+		empDetailsImpl.setEmploymentstatusId(empDetails.getEmploymentstatusId());
 		empDetailsImpl.setName(empDetails.getName());
 		empDetailsImpl.setSupervisor(empDetails.getSupervisor());
 

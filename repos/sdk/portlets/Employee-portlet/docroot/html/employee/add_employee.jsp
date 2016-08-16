@@ -129,7 +129,7 @@ A.ready(function()
 				</div>
 				<div class="row-fluid">
 					<div class="span6">
-						<aui:select name="emp-status" label="01_emp-status" inlineLabel="left">
+						<aui:select name="empStatus" label="01_empStatus" inlineLabel="left">
 						<aui:option value="-1">--Select--</aui:option>
 							<%
 								List l = EmploymentStatusLocalServiceUtil.getEmploymentStatuses(-1, -1);

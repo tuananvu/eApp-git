@@ -21,30 +21,35 @@ import com.rknowsys.eapp.hrm.service.persistence.LeaveGeneralUtil;
  * The implementation of the leave general local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.LeaveGeneralLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.LeaveGeneralLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.LeaveGeneralLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.LeaveGeneralLocalServiceUtil
  */
-public class LeaveGeneralLocalServiceImpl
-	extends LeaveGeneralLocalServiceBaseImpl {
+public class LeaveGeneralLocalServiceImpl extends
+		LeaveGeneralLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.LeaveGeneralLocalServiceUtil} to access the leave general local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.LeaveGeneralLocalServiceUtil} to access the
+	 * leave general local service.
 	 */
-	 public  java.util.List<com.rknowsys.eapp.hrm.model.LeaveGeneral>
-	 findByLeaveTypeId(
-				long leaveTypeId)
+	public java.util.List<com.rknowsys.eapp.hrm.model.LeaveGeneral> findByLeaveTypeId(
+			long leaveTypeId)
 
 	throws com.liferay.portal.kernel.exception.SystemException {
 
-	return LeaveGeneralUtil.findByLeaveTypeId(leaveTypeId);
+		return LeaveGeneralUtil.findByLeaveTypeId(leaveTypeId);
 
 	}
 }

@@ -3,7 +3,7 @@ package com.rknowsys.eapp.hrm.util;
 public class IdNamePair {
 
 	private String id;
-	
+
 	private String name;
 
 	public String getId() {
@@ -27,7 +27,7 @@ public class IdNamePair {
 		this.id = id;
 		this.name = name;
 	}
-	
+
 	public IdNamePair() {
 	}
 
@@ -35,5 +35,5 @@ public class IdNamePair {
 	public String toString() {
 		return "IdNamePair [id=" + id + ", name=" + name + "]";
 	}
-	
+
 }

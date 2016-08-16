@@ -15,10 +15,14 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 /**
- * The extended model implementation for the EmpLanguage service. Represents a row in the &quot;emp_language&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the EmpLanguage service. Represents a
+ * row in the &quot;emp_language&quot; database table, with each column mapped
+ * to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.EmpLanguage} interface.
+ * Helper methods and all application logic should be put in this class.
+ * Whenever methods are added, rerun ServiceBuilder to copy their definitions
+ * into the {@link com.rknowsys.eapp.hrm.model.EmpLanguage} interface.
  * </p>
  *
  * @author rknowsys
@@ -26,8 +30,10 @@ package com.rknowsys.eapp.hrm.model.impl;
 public class EmpLanguageImpl extends EmpLanguageBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a emp language model instance should use the {@link com.rknowsys.eapp.hrm.model.EmpLanguage} interface instead.
+	 * 
+	 * Never reference this class directly. All methods that expect a emp
+	 * language model instance should use the {@link
+	 * com.rknowsys.eapp.hrm.model.EmpLanguage} interface instead.
 	 */
 	public EmpLanguageImpl() {
 	}

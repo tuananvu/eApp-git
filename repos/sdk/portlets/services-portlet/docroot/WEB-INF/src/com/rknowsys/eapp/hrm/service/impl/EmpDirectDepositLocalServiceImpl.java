@@ -20,21 +20,27 @@ import com.rknowsys.eapp.hrm.service.base.EmpDirectDepositLocalServiceBaseImpl;
  * The implementation of the emp direct deposit local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.EmpDirectDepositLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalServiceUtil
  */
-public class EmpDirectDepositLocalServiceImpl
-	extends EmpDirectDepositLocalServiceBaseImpl {
+public class EmpDirectDepositLocalServiceImpl extends
+		EmpDirectDepositLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalServiceUtil} to access the emp direct deposit local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.EmpDirectDepositLocalServiceUtil} to access
+	 * the emp direct deposit local service.
 	 */
 }

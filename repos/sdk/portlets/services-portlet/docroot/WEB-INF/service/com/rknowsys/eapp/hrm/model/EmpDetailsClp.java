@@ -83,8 +83,8 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("firstName", getFirstName());
 		attributes.put("lastName", getLastName());
-		attributes.put("title", getTitle());
-		attributes.put("employmentstatus", getEmploymentstatus());
+		attributes.put("titleId", getTitleId());
+		attributes.put("employmentstatusId", getEmploymentstatusId());
 		attributes.put("name", getName());
 		attributes.put("supervisor", getSupervisor());
 
@@ -141,16 +141,16 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 			setLastName(lastName);
 		}
 
-		String title = (String)attributes.get("title");
+		Long titleId = (Long)attributes.get("titleId");
 
-		if (title != null) {
-			setTitle(title);
+		if (titleId != null) {
+			setTitleId(titleId);
 		}
 
-		String employmentstatus = (String)attributes.get("employmentstatus");
+		Long employmentstatusId = (Long)attributes.get("employmentstatusId");
 
-		if (employmentstatus != null) {
-			setEmploymentstatus(employmentstatus);
+		if (employmentstatusId != null) {
+			setEmploymentstatusId(employmentstatusId);
 		}
 
 		String name = (String)attributes.get("name");
@@ -361,21 +361,21 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 	}
 
 	@Override
-	public String getTitle() {
-		return _title;
+	public long getTitleId() {
+		return _titleId;
 	}
 
 	@Override
-	public void setTitle(String title) {
-		_title = title;
+	public void setTitleId(long titleId) {
+		_titleId = titleId;
 
 		if (_empDetailsRemoteModel != null) {
 			try {
 				Class<?> clazz = _empDetailsRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setTitle", String.class);
+				Method method = clazz.getMethod("setTitleId", long.class);
 
-				method.invoke(_empDetailsRemoteModel, title);
+				method.invoke(_empDetailsRemoteModel, titleId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -384,22 +384,22 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 	}
 
 	@Override
-	public String getEmploymentstatus() {
-		return _employmentstatus;
+	public long getEmploymentstatusId() {
+		return _employmentstatusId;
 	}
 
 	@Override
-	public void setEmploymentstatus(String employmentstatus) {
-		_employmentstatus = employmentstatus;
+	public void setEmploymentstatusId(long employmentstatusId) {
+		_employmentstatusId = employmentstatusId;
 
 		if (_empDetailsRemoteModel != null) {
 			try {
 				Class<?> clazz = _empDetailsRemoteModel.getClass();
 
-				Method method = clazz.getMethod("setEmploymentstatus",
-						String.class);
+				Method method = clazz.getMethod("setEmploymentstatusId",
+						long.class);
 
-				method.invoke(_empDetailsRemoteModel, employmentstatus);
+				method.invoke(_empDetailsRemoteModel, employmentstatusId);
 			}
 			catch (Exception e) {
 				throw new UnsupportedOperationException(e);
@@ -530,8 +530,8 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 		clone.setModifiedDate(getModifiedDate());
 		clone.setFirstName(getFirstName());
 		clone.setLastName(getLastName());
-		clone.setTitle(getTitle());
-		clone.setEmploymentstatus(getEmploymentstatus());
+		clone.setTitleId(getTitleId());
+		clone.setEmploymentstatusId(getEmploymentstatusId());
 		clone.setName(getName());
 		clone.setSupervisor(getSupervisor());
 
@@ -604,10 +604,10 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 		sb.append(getFirstName());
 		sb.append(", lastName=");
 		sb.append(getLastName());
-		sb.append(", title=");
-		sb.append(getTitle());
-		sb.append(", employmentstatus=");
-		sb.append(getEmploymentstatus());
+		sb.append(", titleId=");
+		sb.append(getTitleId());
+		sb.append(", employmentstatusId=");
+		sb.append(getEmploymentstatusId());
 		sb.append(", name=");
 		sb.append(getName());
 		sb.append(", supervisor=");
@@ -658,12 +658,12 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 		sb.append(getLastName());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>title</column-name><column-value><![CDATA[");
-		sb.append(getTitle());
+			"<column><column-name>titleId</column-name><column-value><![CDATA[");
+		sb.append(getTitleId());
 		sb.append("]]></column-value></column>");
 		sb.append(
-			"<column><column-name>employmentstatus</column-name><column-value><![CDATA[");
-		sb.append(getEmploymentstatus());
+			"<column><column-name>employmentstatusId</column-name><column-value><![CDATA[");
+		sb.append(getEmploymentstatusId());
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>name</column-name><column-value><![CDATA[");
@@ -688,8 +688,8 @@ public class EmpDetailsClp extends BaseModelImpl<EmpDetails>
 	private Date _modifiedDate;
 	private String _firstName;
 	private String _lastName;
-	private String _title;
-	private String _employmentstatus;
+	private long _titleId;
+	private long _employmentstatusId;
 	private String _name;
 	private String _supervisor;
 	private BaseModel<?> _empDetailsRemoteModel;

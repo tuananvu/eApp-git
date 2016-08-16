@@ -83,37 +83,47 @@
 	long employeeId = (Long) empId.get("empId");
 	String jsp = (String) empId.get("jsp");
 	long fileEntryId=(Long)empId.get("fileId");
-	DynamicQuery empWrkExpDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpWorkExp.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery empWrkExpDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpWorkExp.class, classLoader);
+	//DynamicQuery empWrkExpDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpWorkExp.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	empWrkExpDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpWorkExp> empWrkExpDetails = EmpWorkExpLocalServiceUtil
 			.dynamicQuery(empWrkExpDynamicQuery);
-	DynamicQuery empEducationDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpEducation.class,
-					PortletClassLoaderUtil.getClassLoader());
+	//ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery empEducationDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpEducation.class, classLoader);
+	//DynamicQuery empEducationDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpEducation.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	empEducationDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpEducation> empEducationDetails = EmpEducationLocalServiceUtil
 			.dynamicQuery(empEducationDynamicQuery);
-	DynamicQuery empSkillDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpSkill.class,
-					PortletClassLoaderUtil.getClassLoader());
+	//ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery empSkillDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpSkill.class, classLoader);
+	//DynamicQuery empSkillDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpSkill.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	empSkillDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpSkill> empSkillDetails = EmpSkillLocalServiceUtil
 			.dynamicQuery(empSkillDynamicQuery);
-	DynamicQuery empLanguageDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpLanguage.class,
-					PortletClassLoaderUtil.getClassLoader());
+	//ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery empLanguageDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpLanguage.class, classLoader);
+	//DynamicQuery empLanguageDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpLanguage.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	empLanguageDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpLanguage> empLanguageDetails = EmpLanguageLocalServiceUtil
 			.dynamicQuery(empLanguageDynamicQuery);
-	DynamicQuery empLicenseDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpLicense.class,
-					PortletClassLoaderUtil.getClassLoader());
+	//ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery empLicenseDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpLicense.class, classLoader);
+	//DynamicQuery empLicenseDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpLicense.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	empLicenseDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpLicense> empLicenseDetails = EmpLicenseLocalServiceUtil
@@ -611,22 +621,22 @@ A.ready(function()
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:select name="lan_skill" label="01_skill" inlineLabel="left"
+					<aui:select id="lan_skill" name="lan_skill" label="01_skill" inlineLabel="left"
 						showRequiredLabel="false">
-						<aui:option>Writing</aui:option>
-						<aui:option>Reading</aui:option>
-						<aui:option>Speaking</aui:option>
+						<aui:option value="Writing">Writing</aui:option>
+						<aui:option value="Reading">Reading</aui:option>
+						<aui:option value="Speaking">Speaking</aui:option>
 					</aui:select>
 				</div>
 			</div>
 			<div class="row-fluid">
 				<div class="span8">
-					<aui:select name="lan_fluency" label="01_fluency-level"
+					<aui:select id="lan_fluency" name="lan_fluency" label="01_fluency-level"
 						inlineLabel="left" showRequiredLabel="false">
-						<aui:option>Poor</aui:option>
-						<aui:option>Basic</aui:option>
-						<aui:option>Good</aui:option>
-						<aui:option>Mother Toungue</aui:option>
+						<aui:option value="Poor">Poor</aui:option>
+						<aui:option value="Basic">Basic</aui:option>
+						<aui:option value="Good">Good</aui:option>
+						<aui:option value="Mother Toungue">Mother Toungue</aui:option>
 					</aui:select>
 				</div>
 			</div>

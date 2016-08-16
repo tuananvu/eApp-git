@@ -20,21 +20,28 @@ import com.rknowsys.eapp.hrm.service.base.EmpImmigrationDocumentLocalServiceBase
  * The implementation of the ImmigrationDocument local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.EmpImmigrationDocumentLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.EmpImmigrationDocumentLocalService}
+ * interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.EmpImmigrationDocumentLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.EmpImmigrationDocumentLocalServiceUtil
  */
-public class EmpImmigrationDocumentLocalServiceImpl
-	extends EmpImmigrationDocumentLocalServiceBaseImpl {
+public class EmpImmigrationDocumentLocalServiceImpl extends
+		EmpImmigrationDocumentLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmpImmigrationDocumentLocalServiceUtil} to access the ImmigrationDocument local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.EmpImmigrationDocumentLocalServiceUtil} to
+	 * access the ImmigrationDocument local service.
 	 */
 }

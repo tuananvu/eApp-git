@@ -292,7 +292,8 @@ public class EmpJobLocalServiceWrapper implements EmpJobLocalService,
 	*
 	* @param EmployeeId
 	* @return the emp job
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 27 october 2014 7:39:55 PM
 	*/
 	@Override
@@ -305,7 +306,8 @@ public class EmpJobLocalServiceWrapper implements EmpJobLocalService,
 	*
 	* @param shiftId
 	* @return the empjob list
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 29 october 2014 6:38:55 PM
 	*/
 	@Override

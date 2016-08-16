@@ -28,39 +28,52 @@ import com.rknowsys.eapp.hrm.service.persistence.EmpPersonalDetailsPersistence;
  * The implementation of the EmpPersonalDetails local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalService}
+ * interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.EmpPersonalDetailsLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalServiceUtil
  */
-public class EmpPersonalDetailsLocalServiceImpl
-	extends EmpPersonalDetailsLocalServiceBaseImpl {
+public class EmpPersonalDetailsLocalServiceImpl extends
+		EmpPersonalDetailsLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalServiceUtil} to access the EmpPersonalDetails local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.EmpPersonalDetailsLocalServiceUtil} to
+	 * access the EmpPersonalDetails local service.
 	 */
 	/**
 	 * 
-	 * <p>This method gets EmpPersonaldetails list based on the given workshifId
+	 * <p>
+	 * This method gets EmpPersonaldetails list based on the given workshifId
+	 * 
 	 * @param shiftId
 	 * @return the EmpPersonalDetails list
-	 * @throws SystemException if a system exception occurred
+	 * @throws SystemException
+	 *             if a system exception occurred
 	 * @author Laxminarayana 27 october 2014,7:42:43 PM
 	 */
-	public List<EmpPersonalDetails> getEmployeeDetailsByShiftId(long shiftId){
+	public List<EmpPersonalDetails> getEmployeeDetailsByShiftId(long shiftId) {
 		return EmpPersonalDetailsFinderUtil.getEmployeesByShiftId(shiftId);
-	}	
-	public List<EmpPersonalDetails> findEmpPersonalDetails(long groupId) throws SystemException {		
+	}
+
+	public List<EmpPersonalDetails> findEmpPersonalDetails(long groupId)
+			throws SystemException {
 		return empPersonalDetailsPersistence.findBygroupId(groupId);
 	}
-	
-	public List<EmpPersonalDetails> findEmpPersonalDetails(long groupId, int start, int end) throws SystemException {		
+
+	public List<EmpPersonalDetails> findEmpPersonalDetails(long groupId,
+			int start, int end) throws SystemException {
 		return empPersonalDetailsPersistence.findBygroupId(groupId, start, end);
 	}
 }

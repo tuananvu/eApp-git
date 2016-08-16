@@ -97,4 +97,7 @@
 <%@page import="com.rknowsys.eapp.hrm.model.EmpWorkExp"%>
 <%@page import="com.rknowsys.eapp.hrm.service.EducationLocalServiceUtil"%>
 <%@page import="com.rknowsys.eapp.hrm.model.Education"%>
+
+<%@page import="com.liferay.portal.kernel.bean.PortletBeanLocatorUtil"%>
+<%@page import="com.rknowsys.eapp.hrm.service.ClpSerializer"%>
 <portlet:defineObjects />

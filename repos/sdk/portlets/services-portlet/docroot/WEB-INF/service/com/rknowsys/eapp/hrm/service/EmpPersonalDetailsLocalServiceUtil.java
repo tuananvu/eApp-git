@@ -276,11 +276,13 @@ public class EmpPersonalDetailsLocalServiceUtil {
 	}
 
 	/**
-	* <p>This method gets EmpPersonaldetails list based on the given workshifId
+	* <p>
+	* This method gets EmpPersonaldetails list based on the given workshifId
 	*
 	* @param shiftId
 	* @return the EmpPersonalDetails list
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 27 october 2014,7:42:43 PM
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmpPersonalDetails> getEmployeeDetailsByShiftId(

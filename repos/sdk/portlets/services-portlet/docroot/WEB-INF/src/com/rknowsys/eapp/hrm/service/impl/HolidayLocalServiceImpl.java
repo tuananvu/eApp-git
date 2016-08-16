@@ -55,35 +55,35 @@ public class HolidayLocalServiceImpl extends HolidayLocalServiceBaseImpl {
 		System.out.println(locationIds);
 		List<Holiday> allSearchResults = holidayFinder.getSearchHolidays(
 				fromDate, toDate, nationalityId, locationIds);
-		
-		if (locationIds==null || locationIds.size()==0) {
+
+		if (locationIds == null || locationIds.size() == 0) {
 			System.out.println("no loc ids selected");
 			return allSearchResults;
 		}
 		List<Holiday> locationResults = new ArrayList<Holiday>();
 		for (Long locationId : locationIds) {
 			try {
-				
+
 				locationResults.addAll(HolidayLocalServiceUtil
 						.getLocationHolidaies(locationId));
-				
+
 			} catch (SystemException e) {
 				e.printStackTrace();
 			}
 			System.out.println("locationResults = " + locationResults);
 		}
-		System.out.println("locationResults = "+locationResults );
+		System.out.println("locationResults = " + locationResults);
 		List<Holiday> filteredResults = new ArrayList<Holiday>();
 		for (Holiday result : allSearchResults) {
 			for (Holiday lResult : locationResults) {
 				if (result.getHolidayId() == lResult.getHolidayId()) {
 					filteredResults.add(result);
-					System.out.println("added holiday: "+result);
+					System.out.println("added holiday: " + result);
 					break;
 				}
 			}
 		}
 		return filteredResults;
 	}
-	
+
 }

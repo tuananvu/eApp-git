@@ -103,16 +103,20 @@ A.one('#assignedSubordinateAdd').hide();
 	long employeeId = (Long)empId.get("empId");
 	String jsp=(String)empId.get("jsp");
 	long fileEntryId=(Long)empId.get("fileId");
-	DynamicQuery supervisorDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpSupervisor.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery supervisorDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpSupervisor.class, classLoader);
+	//DynamicQuery supervisorDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpSupervisor.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	supervisorDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpSupervisor> empSupervisorDetails = EmpSupervisorLocalServiceUtil
 			.dynamicQuery(supervisorDynamicQuery);
-	DynamicQuery subordinateDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpSubordinate.class,
-					PortletClassLoaderUtil.getClassLoader());
+	
+	DynamicQuery subordinateDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpSubordinate.class, classLoader);
+	//DynamicQuery subordinateDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpSubordinate.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	supervisorDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpSubordinate> empSubordinateDetails = EmpSubordinateLocalServiceUtil

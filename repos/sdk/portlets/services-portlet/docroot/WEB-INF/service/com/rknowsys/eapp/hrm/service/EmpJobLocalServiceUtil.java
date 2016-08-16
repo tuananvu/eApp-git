@@ -282,7 +282,8 @@ public class EmpJobLocalServiceUtil {
 	*
 	* @param EmployeeId
 	* @return the emp job
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 27 october 2014 7:39:55 PM
 	*/
 	public static com.rknowsys.eapp.hrm.model.EmpJob getEmpJobByEmpId(
@@ -295,7 +296,8 @@ public class EmpJobLocalServiceUtil {
 	*
 	* @param shiftId
 	* @return the empjob list
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 29 october 2014 6:38:55 PM
 	*/
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmpJob> findEmpJobListByShiftId(

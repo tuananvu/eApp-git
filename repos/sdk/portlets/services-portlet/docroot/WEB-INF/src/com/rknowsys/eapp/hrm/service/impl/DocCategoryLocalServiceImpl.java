@@ -20,20 +20,27 @@ import com.rknowsys.eapp.hrm.service.base.DocCategoryLocalServiceBaseImpl;
  * The implementation of the doc category local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.DocCategoryLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.DocCategoryLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.DocCategoryLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.DocCategoryLocalServiceUtil
  */
-public class DocCategoryLocalServiceImpl extends DocCategoryLocalServiceBaseImpl {
+public class DocCategoryLocalServiceImpl extends
+		DocCategoryLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.DocCategoryLocalServiceUtil} to access the doc category local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.DocCategoryLocalServiceUtil} to access the
+	 * doc category local service.
 	 */
 }

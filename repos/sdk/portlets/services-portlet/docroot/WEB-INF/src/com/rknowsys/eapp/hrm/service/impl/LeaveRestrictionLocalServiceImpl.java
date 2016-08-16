@@ -20,24 +20,30 @@ import com.rknowsys.eapp.hrm.service.base.LeaveRestrictionLocalServiceBaseImpl;
  * The implementation of the leave restriction local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.LeaveRestrictionLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.LeaveRestrictionLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
  * @see com.rknowsys.eapp.hrm.service.base.LeaveRestrictionLocalServiceBaseImpl
  * @see com.rknowsys.eapp.hrm.service.LeaveRestrictionLocalServiceUtil
  */
-public class LeaveRestrictionLocalServiceImpl
-	extends LeaveRestrictionLocalServiceBaseImpl {
+public class LeaveRestrictionLocalServiceImpl extends
+		LeaveRestrictionLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.LeaveRestrictionLocalServiceUtil} to access the leave restriction local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.LeaveRestrictionLocalServiceUtil} to access
+	 * the leave restriction local service.
 	 */
-	
+
 	public java.util.List<com.rknowsys.eapp.hrm.model.LeaveRestriction> findByLeaveTypeId(
 			long leaveTypeId)
 			throws com.liferay.portal.kernel.exception.SystemException {

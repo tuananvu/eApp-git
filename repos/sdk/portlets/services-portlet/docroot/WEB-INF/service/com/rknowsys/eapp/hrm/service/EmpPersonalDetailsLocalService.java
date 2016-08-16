@@ -255,11 +255,13 @@ public interface EmpPersonalDetailsLocalService extends BaseLocalService,
 		throws java.lang.Throwable;
 
 	/**
-	* <p>This method gets EmpPersonaldetails list based on the given workshifId
+	* <p>
+	* This method gets EmpPersonaldetails list based on the given workshifId
 	*
 	* @param shiftId
 	* @return the EmpPersonalDetails list
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 27 october 2014,7:42:43 PM
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

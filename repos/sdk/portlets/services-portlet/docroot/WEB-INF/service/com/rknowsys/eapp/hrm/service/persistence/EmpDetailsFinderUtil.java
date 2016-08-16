@@ -30,6 +30,11 @@ public class EmpDetailsFinderUtil {
 			jobtitle, subunit, begin, end);
 	}
 
+	public static java.util.List<com.rknowsys.eapp.hrm.model.EmpDetails> findByAll(
+		long employmentStatusId, int begin, int end) {
+		return getFinder().findByAll(employmentStatusId, begin, end);
+	}
+
 	public static EmpDetailsFinder getFinder() {
 		if (_finder == null) {
 			_finder = (EmpDetailsFinder)PortletBeanLocatorUtil.locate(com.rknowsys.eapp.hrm.service.ClpSerializer.getServletContextName(),

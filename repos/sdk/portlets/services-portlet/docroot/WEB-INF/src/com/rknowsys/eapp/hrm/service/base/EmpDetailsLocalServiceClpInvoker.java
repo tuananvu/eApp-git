@@ -121,6 +121,10 @@ public class EmpDetailsLocalServiceClpInvoker {
 				"java.lang.String", "java.lang.String", "java.lang.String",
 				"int", "int"
 			};
+
+		_methodName239 = "findByAll";
+
+		_methodParameterTypes239 = new String[] { "long", "int", "int" };
 	}
 
 	public Object invokeMethod(String name, String[] parameterTypes,
@@ -234,6 +238,13 @@ public class EmpDetailsLocalServiceClpInvoker {
 				((Integer)arguments[7]).intValue());
 		}
 
+		if (_methodName239.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes239, parameterTypes)) {
+			return EmpDetailsLocalServiceUtil.findByAll(((Long)arguments[0]).longValue(),
+				((Integer)arguments[1]).intValue(),
+				((Integer)arguments[2]).intValue());
+		}
+
 		throw new UnsupportedOperationException();
 	}
 
@@ -275,4 +286,6 @@ public class EmpDetailsLocalServiceClpInvoker {
 	private String[] _methodParameterTypes233;
 	private String _methodName238;
 	private String[] _methodParameterTypes238;
+	private String _methodName239;
+	private String[] _methodParameterTypes239;
 }

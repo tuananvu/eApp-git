@@ -38,8 +38,8 @@ public class EmpDetailsSoap implements Serializable {
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setFirstName(model.getFirstName());
 		soapModel.setLastName(model.getLastName());
-		soapModel.setTitle(model.getTitle());
-		soapModel.setEmploymentstatus(model.getEmploymentstatus());
+		soapModel.setTitleId(model.getTitleId());
+		soapModel.setEmploymentstatusId(model.getEmploymentstatusId());
 		soapModel.setName(model.getName());
 		soapModel.setSupervisor(model.getSupervisor());
 
@@ -158,20 +158,20 @@ public class EmpDetailsSoap implements Serializable {
 		_lastName = lastName;
 	}
 
-	public String getTitle() {
-		return _title;
+	public long getTitleId() {
+		return _titleId;
 	}
 
-	public void setTitle(String title) {
-		_title = title;
+	public void setTitleId(long titleId) {
+		_titleId = titleId;
 	}
 
-	public String getEmploymentstatus() {
-		return _employmentstatus;
+	public long getEmploymentstatusId() {
+		return _employmentstatusId;
 	}
 
-	public void setEmploymentstatus(String employmentstatus) {
-		_employmentstatus = employmentstatus;
+	public void setEmploymentstatusId(long employmentstatusId) {
+		_employmentstatusId = employmentstatusId;
 	}
 
 	public String getName() {
@@ -198,8 +198,8 @@ public class EmpDetailsSoap implements Serializable {
 	private Date _modifiedDate;
 	private String _firstName;
 	private String _lastName;
-	private String _title;
-	private String _employmentstatus;
+	private long _titleId;
+	private long _employmentstatusId;
 	private String _name;
 	private String _supervisor;
 }

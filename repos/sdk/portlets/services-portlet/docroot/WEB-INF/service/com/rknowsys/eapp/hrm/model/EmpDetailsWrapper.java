@@ -57,8 +57,8 @@ public class EmpDetailsWrapper implements EmpDetails, ModelWrapper<EmpDetails> {
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("firstName", getFirstName());
 		attributes.put("lastName", getLastName());
-		attributes.put("title", getTitle());
-		attributes.put("employmentstatus", getEmploymentstatus());
+		attributes.put("titleId", getTitleId());
+		attributes.put("employmentstatusId", getEmploymentstatusId());
 		attributes.put("name", getName());
 		attributes.put("supervisor", getSupervisor());
 
@@ -115,16 +115,16 @@ public class EmpDetailsWrapper implements EmpDetails, ModelWrapper<EmpDetails> {
 			setLastName(lastName);
 		}
 
-		String title = (String)attributes.get("title");
+		Long titleId = (Long)attributes.get("titleId");
 
-		if (title != null) {
-			setTitle(title);
+		if (titleId != null) {
+			setTitleId(titleId);
 		}
 
-		String employmentstatus = (String)attributes.get("employmentstatus");
+		Long employmentstatusId = (Long)attributes.get("employmentstatusId");
 
-		if (employmentstatus != null) {
-			setEmploymentstatus(employmentstatus);
+		if (employmentstatusId != null) {
+			setEmploymentstatusId(employmentstatusId);
 		}
 
 		String name = (String)attributes.get("name");
@@ -343,43 +343,43 @@ public class EmpDetailsWrapper implements EmpDetails, ModelWrapper<EmpDetails> {
 	}
 
 	/**
-	* Returns the title of this emp details.
+	* Returns the title ID of this emp details.
 	*
-	* @return the title of this emp details
+	* @return the title ID of this emp details
 	*/
 	@Override
-	public java.lang.String getTitle() {
-		return _empDetails.getTitle();
+	public long getTitleId() {
+		return _empDetails.getTitleId();
 	}
 
 	/**
-	* Sets the title of this emp details.
+	* Sets the title ID of this emp details.
 	*
-	* @param title the title of this emp details
+	* @param titleId the title ID of this emp details
 	*/
 	@Override
-	public void setTitle(java.lang.String title) {
-		_empDetails.setTitle(title);
+	public void setTitleId(long titleId) {
+		_empDetails.setTitleId(titleId);
 	}
 
 	/**
-	* Returns the employmentstatus of this emp details.
+	* Returns the employmentstatus ID of this emp details.
 	*
-	* @return the employmentstatus of this emp details
+	* @return the employmentstatus ID of this emp details
 	*/
 	@Override
-	public java.lang.String getEmploymentstatus() {
-		return _empDetails.getEmploymentstatus();
+	public long getEmploymentstatusId() {
+		return _empDetails.getEmploymentstatusId();
 	}
 
 	/**
-	* Sets the employmentstatus of this emp details.
+	* Sets the employmentstatus ID of this emp details.
 	*
-	* @param employmentstatus the employmentstatus of this emp details
+	* @param employmentstatusId the employmentstatus ID of this emp details
 	*/
 	@Override
-	public void setEmploymentstatus(java.lang.String employmentstatus) {
-		_empDetails.setEmploymentstatus(employmentstatus);
+	public void setEmploymentstatusId(long employmentstatusId) {
+		_empDetails.setEmploymentstatusId(employmentstatusId);
 	}
 
 	/**

@@ -15,10 +15,14 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 /**
- * The extended model implementation for the TerminationReasons service. Represents a row in the &quot;terminationreasons&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the TerminationReasons service.
+ * Represents a row in the &quot;terminationreasons&quot; database table, with
+ * each column mapped to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.TerminationReasons} interface.
+ * Helper methods and all application logic should be put in this class.
+ * Whenever methods are added, rerun ServiceBuilder to copy their definitions
+ * into the {@link com.rknowsys.eapp.hrm.model.TerminationReasons} interface.
  * </p>
  *
  * @author rknowsys
@@ -26,8 +30,10 @@ package com.rknowsys.eapp.hrm.model.impl;
 public class TerminationReasonsImpl extends TerminationReasonsBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a termination reasons model instance should use the {@link com.rknowsys.eapp.hrm.model.TerminationReasons} interface instead.
+	 * 
+	 * Never reference this class directly. All methods that expect a
+	 * termination reasons model instance should use the {@link
+	 * com.rknowsys.eapp.hrm.model.TerminationReasons} interface instead.
 	 */
 	public TerminationReasonsImpl() {
 	}

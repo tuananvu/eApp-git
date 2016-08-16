@@ -20,10 +20,14 @@ import com.rknowsys.eapp.hrm.service.base.JobTitleLocalServiceBaseImpl;
  * The implementation of the job title local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.JobTitleLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.JobTitleLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
@@ -33,7 +37,9 @@ import com.rknowsys.eapp.hrm.service.base.JobTitleLocalServiceBaseImpl;
 public class JobTitleLocalServiceImpl extends JobTitleLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.JobTitleLocalServiceUtil} to access the job title local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.JobTitleLocalServiceUtil} to access the job
+	 * title local service.
 	 */
 }

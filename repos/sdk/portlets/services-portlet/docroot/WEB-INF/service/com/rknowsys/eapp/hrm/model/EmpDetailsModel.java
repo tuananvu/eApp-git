@@ -191,34 +191,32 @@ public interface EmpDetailsModel extends BaseModel<EmpDetails> {
 	public void setLastName(String lastName);
 
 	/**
-	 * Returns the title of this emp details.
+	 * Returns the title ID of this emp details.
 	 *
-	 * @return the title of this emp details
+	 * @return the title ID of this emp details
 	 */
-	@AutoEscape
-	public String getTitle();
+	public long getTitleId();
 
 	/**
-	 * Sets the title of this emp details.
+	 * Sets the title ID of this emp details.
 	 *
-	 * @param title the title of this emp details
+	 * @param titleId the title ID of this emp details
 	 */
-	public void setTitle(String title);
+	public void setTitleId(long titleId);
 
 	/**
-	 * Returns the employmentstatus of this emp details.
+	 * Returns the employmentstatus ID of this emp details.
 	 *
-	 * @return the employmentstatus of this emp details
+	 * @return the employmentstatus ID of this emp details
 	 */
-	@AutoEscape
-	public String getEmploymentstatus();
+	public long getEmploymentstatusId();
 
 	/**
-	 * Sets the employmentstatus of this emp details.
+	 * Sets the employmentstatus ID of this emp details.
 	 *
-	 * @param employmentstatus the employmentstatus of this emp details
+	 * @param employmentstatusId the employmentstatus ID of this emp details
 	 */
-	public void setEmploymentstatus(String employmentstatus);
+	public void setEmploymentstatusId(long employmentstatusId);
 
 	/**
 	 * Returns the name of this emp details.

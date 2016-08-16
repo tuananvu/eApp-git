@@ -56,10 +56,10 @@ public class EmpDetailsCacheModel implements CacheModel<EmpDetails>,
 		sb.append(firstName);
 		sb.append(", lastName=");
 		sb.append(lastName);
-		sb.append(", title=");
-		sb.append(title);
-		sb.append(", employmentstatus=");
-		sb.append(employmentstatus);
+		sb.append(", titleId=");
+		sb.append(titleId);
+		sb.append(", employmentstatusId=");
+		sb.append(employmentstatusId);
 		sb.append(", name=");
 		sb.append(name);
 		sb.append(", supervisor=");
@@ -113,19 +113,8 @@ public class EmpDetailsCacheModel implements CacheModel<EmpDetails>,
 			empDetailsImpl.setLastName(lastName);
 		}
 
-		if (title == null) {
-			empDetailsImpl.setTitle(StringPool.BLANK);
-		}
-		else {
-			empDetailsImpl.setTitle(title);
-		}
-
-		if (employmentstatus == null) {
-			empDetailsImpl.setEmploymentstatus(StringPool.BLANK);
-		}
-		else {
-			empDetailsImpl.setEmploymentstatus(employmentstatus);
-		}
+		empDetailsImpl.setTitleId(titleId);
+		empDetailsImpl.setEmploymentstatusId(employmentstatusId);
 
 		if (name == null) {
 			empDetailsImpl.setName(StringPool.BLANK);
@@ -156,8 +145,8 @@ public class EmpDetailsCacheModel implements CacheModel<EmpDetails>,
 		modifiedDate = objectInput.readLong();
 		firstName = objectInput.readUTF();
 		lastName = objectInput.readUTF();
-		title = objectInput.readUTF();
-		employmentstatus = objectInput.readUTF();
+		titleId = objectInput.readLong();
+		employmentstatusId = objectInput.readLong();
 		name = objectInput.readUTF();
 		supervisor = objectInput.readUTF();
 	}
@@ -193,19 +182,8 @@ public class EmpDetailsCacheModel implements CacheModel<EmpDetails>,
 			objectOutput.writeUTF(lastName);
 		}
 
-		if (title == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(title);
-		}
-
-		if (employmentstatus == null) {
-			objectOutput.writeUTF(StringPool.BLANK);
-		}
-		else {
-			objectOutput.writeUTF(employmentstatus);
-		}
+		objectOutput.writeLong(titleId);
+		objectOutput.writeLong(employmentstatusId);
 
 		if (name == null) {
 			objectOutput.writeUTF(StringPool.BLANK);
@@ -230,8 +208,8 @@ public class EmpDetailsCacheModel implements CacheModel<EmpDetails>,
 	public long modifiedDate;
 	public String firstName;
 	public String lastName;
-	public String title;
-	public String employmentstatus;
+	public long titleId;
+	public long employmentstatusId;
 	public String name;
 	public String supervisor;
 }

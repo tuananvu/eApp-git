@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+    <sql id="com.rknowsys.eapp.hrm.service.persistence.EmpDetailsFinder.findByAll">
+	SELECT ed.*, pd.*, emp.*
+	FROM empdetails ed
+	INNER JOIN 
+	    emp_personal_details pd ON ed.employeeNo = pd.employeeNo
+	INNER JOIN
+		employee emp ON pd.employeeId = emp.employeeId	
+	WHERE
+	    (?=0 OR ?=-1 OR ed.employmentstatusId = ?)
+	    
+    </sql>
+</custom-sql>

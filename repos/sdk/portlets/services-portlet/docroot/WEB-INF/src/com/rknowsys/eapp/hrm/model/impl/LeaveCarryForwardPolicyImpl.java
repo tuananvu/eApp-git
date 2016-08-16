@@ -15,19 +15,27 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 /**
- * The extended model implementation for the LeaveCarryForwardPolicy service. Represents a row in the &quot;leave_carry_forward_policy&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the LeaveCarryForwardPolicy service.
+ * Represents a row in the &quot;leave_carry_forward_policy&quot; database
+ * table, with each column mapped to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy} interface.
+ * Helper methods and all application logic should be put in this class.
+ * Whenever methods are added, rerun ServiceBuilder to copy their definitions
+ * into the {@link com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy}
+ * interface.
  * </p>
  *
  * @author rknowsys
  */
-public class LeaveCarryForwardPolicyImpl extends LeaveCarryForwardPolicyBaseImpl {
+public class LeaveCarryForwardPolicyImpl extends
+		LeaveCarryForwardPolicyBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a leave carry forward policy model instance should use the {@link com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy} interface instead.
+	 * 
+	 * Never reference this class directly. All methods that expect a leave
+	 * carry forward policy model instance should use the {@link
+	 * com.rknowsys.eapp.hrm.model.LeaveCarryForwardPolicy} interface instead.
 	 */
 	public LeaveCarryForwardPolicyImpl() {
 	}

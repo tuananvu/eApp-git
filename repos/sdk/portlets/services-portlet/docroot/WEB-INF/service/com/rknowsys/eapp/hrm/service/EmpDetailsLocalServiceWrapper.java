@@ -297,6 +297,12 @@ public class EmpDetailsLocalServiceWrapper implements EmpDetailsLocalService,
 			empstatus, supervisorname, jobtitle, subunit, begin, end);
 	}
 
+	@Override
+	public java.util.List findByAll(long employmentStatusId, int begin, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _empDetailsLocalService.findByAll(employmentStatusId, begin, end);
+	}
+
 	/**
 	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
 	 */

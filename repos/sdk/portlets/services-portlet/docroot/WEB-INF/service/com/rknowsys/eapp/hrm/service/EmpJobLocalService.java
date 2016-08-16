@@ -260,7 +260,8 @@ public interface EmpJobLocalService extends BaseLocalService,
 	*
 	* @param EmployeeId
 	* @return the emp job
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 27 october 2014 7:39:55 PM
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -271,7 +272,8 @@ public interface EmpJobLocalService extends BaseLocalService,
 	*
 	* @param shiftId
 	* @return the empjob list
-	* @throws SystemException if a system exception occurred
+	* @throws SystemException
+	if a system exception occurred
 	* @author Laxminarayana 29 october 2014 6:38:55 PM
 	*/
 	public java.util.List<com.rknowsys.eapp.hrm.model.EmpJob> findEmpJobListByShiftId(

@@ -20,10 +20,14 @@ import com.rknowsys.eapp.hrm.service.base.NewsLocalServiceBaseImpl;
  * The implementation of the news local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.NewsLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.NewsLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
@@ -33,7 +37,9 @@ import com.rknowsys.eapp.hrm.service.base.NewsLocalServiceBaseImpl;
 public class NewsLocalServiceImpl extends NewsLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.NewsLocalServiceUtil} to access the news local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.NewsLocalServiceUtil} to access the news
+	 * local service.
 	 */
 }

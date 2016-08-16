@@ -31,9 +31,11 @@ A.ready(function()
 	String jsp=(String)empId.get("jsp");
 	long fileEntryId=(Long)empId.get("fileId");
 	String dependentName, dependentRelation, dependentDOB;
-	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
-			.forClass(EmpDependent.class,
-					PortletClassLoaderUtil.getClassLoader());
+	ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+	DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpDependent.class, classLoader);
+	//DynamicQuery dependentDynamicQuery = DynamicQueryFactoryUtil
+		//	.forClass(EmpDependent.class,
+			//		PortletClassLoaderUtil.getClassLoader());
 	dependentDynamicQuery.add(PropertyFactoryUtil.forName("employeeId")
 			.eq(employeeId));
 	List<EmpDependent> empDependentDetails = EmpDependentLocalServiceUtil

@@ -143,8 +143,8 @@
 			</basic>
 			<basic name="firstName" />
 			<basic name="lastName" />
-			<basic name="title" />
-			<basic name="employmentstatus" />
+			<basic name="titleId" />
+			<basic name="employmentstatusId" />
 			<basic name="name" />
 			<basic name="supervisor" />
 			<transient name="modelAttributes" />

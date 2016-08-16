@@ -1063,8 +1063,8 @@ public void addEmployee(ActionRequest actionRequest,ActionResponse actionRespons
 		empDetails.setFirstName(firstName);
 		empDetails.setLastName(lastName);
 		empDetails.setEmployeeNo(empNo);
-		empDetails.setTitle(jobTitle.toString());
-		empDetails.setEmploymentstatus(empStatus.toString());		
+		empDetails.setTitleId(jobTitle);
+		empDetails.setEmploymentstatusId(empStatus);		
 		empDetails.setUserId(themeDisplay.getUserId());
 		empDetails.setCompanyId(themeDisplay.getCompanyId());
 		empDetails.setCreateDate(date);

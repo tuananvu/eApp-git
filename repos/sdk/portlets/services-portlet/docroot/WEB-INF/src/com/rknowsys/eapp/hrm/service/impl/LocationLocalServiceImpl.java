@@ -24,10 +24,14 @@ import com.rknowsys.eapp.hrm.service.base.LocationLocalServiceBaseImpl;
  * The implementation of the location local service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.service.LocationLocalService} interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * {@link com.rknowsys.eapp.hrm.service.LocationLocalService} interface.
  *
  * <p>
- * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * This is a local service. Methods of this service will not have security
+ * checks based on the propagated JAAS credentials because this service can only
+ * be accessed from within the same VM.
  * </p>
  *
  * @author rknowsys
@@ -37,10 +41,12 @@ import com.rknowsys.eapp.hrm.service.base.LocationLocalServiceBaseImpl;
 public class LocationLocalServiceImpl extends LocationLocalServiceBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this interface directly. Always use {@link com.rknowsys.eapp.hrm.service.LocationLocalServiceUtil} to access the location local service.
+	 * 
+	 * Never reference this interface directly. Always use {@link
+	 * com.rknowsys.eapp.hrm.service.LocationLocalServiceUtil} to access the
+	 * location local service.
 	 */
-	public List<Location> findByNationality(long natId) throws SystemException{
+	public List<Location> findByNationality(long natId) throws SystemException {
 		return locationPersistence.findByNationalityId(natId);
 	}
 }

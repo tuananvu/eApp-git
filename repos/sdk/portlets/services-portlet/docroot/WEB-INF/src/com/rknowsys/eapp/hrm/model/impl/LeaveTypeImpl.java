@@ -15,10 +15,14 @@
 package com.rknowsys.eapp.hrm.model.impl;
 
 /**
- * The extended model implementation for the LeaveType service. Represents a row in the &quot;leave_type&quot; database table, with each column mapped to a property of this class.
+ * The extended model implementation for the LeaveType service. Represents a row
+ * in the &quot;leave_type&quot; database table, with each column mapped to a
+ * property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.rknowsys.eapp.hrm.model.LeaveType} interface.
+ * Helper methods and all application logic should be put in this class.
+ * Whenever methods are added, rerun ServiceBuilder to copy their definitions
+ * into the {@link com.rknowsys.eapp.hrm.model.LeaveType} interface.
  * </p>
  *
  * @author rknowsys
@@ -26,8 +30,10 @@ package com.rknowsys.eapp.hrm.model.impl;
 public class LeaveTypeImpl extends LeaveTypeBaseImpl {
 	/*
 	 * NOTE FOR DEVELOPERS:
-	 *
-	 * Never reference this class directly. All methods that expect a leave type model instance should use the {@link com.rknowsys.eapp.hrm.model.LeaveType} interface instead.
+	 * 
+	 * Never reference this class directly. All methods that expect a leave type
+	 * model instance should use the {@link
+	 * com.rknowsys.eapp.hrm.model.LeaveType} interface instead.
 	 */
 	public LeaveTypeImpl() {
 	}

@@ -6,7 +6,7 @@
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 <%ResultRow rslt=(ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 
-EmpPersonalDetails ed = (EmpPersonalDetails)rslt.getObject();
+EmpPersonalDetails ed = (EmpPersonalDetails)((Object[])rslt.getObject())[1];
 
 String prk=String.valueOf(ed.getEmployeeId());
 %>
