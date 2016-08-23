@@ -260,6 +260,7 @@ public interface EmpDetailsLocalService extends BaseLocalService,
 		java.lang.String jobtitle, java.lang.String subunit, int begin, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
-	public java.util.List findByAll(long employmentStatusId, int begin, int end)
+	public java.util.List findByAll(long employmentStatusId, long titleId,
+		int begin, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 }

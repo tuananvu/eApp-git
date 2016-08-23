@@ -9,6 +9,6 @@
 		employee emp ON pd.employeeId = emp.employeeId	
 	WHERE
 	    (?=0 OR ?=-1 OR ed.employmentstatusId = ?)
-	    
+		AND (?=0 OR ?=-1 OR ed.titleId = ?)    
     </sql>
 </custom-sql>

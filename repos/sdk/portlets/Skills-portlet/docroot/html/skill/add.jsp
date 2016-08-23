@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 <%@ include file="/html/skill/init.jsp"%>
 
 <portlet:actionURL var="saveSkills" name="saveSkill">
@@ -174,8 +175,8 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
             List<Skill> skillList = SkillLocalServiceUtil.getSkills(searchContainer.getStart(), searchContainer.getEnd());
 		OrderByComparator orderByComparator =  CustomComparatorUtil.getSkillsrOrderByComparator(sortByCol, sortByType);
    
-               Collections.sort(skillList,orderByComparator);
-  
+               //Collections.sort(skillList,orderByComparator);
+  				ListUtil.sort(skillList, orderByComparator);
                results = skillList;
                total = SkillLocalServiceUtil.getSkillsCount();
                pageContext.setAttribute("results", results);

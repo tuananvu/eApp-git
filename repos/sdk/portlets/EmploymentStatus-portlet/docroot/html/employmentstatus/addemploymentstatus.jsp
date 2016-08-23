@@ -176,7 +176,7 @@ System.out.println("sortByType == " +sortByType);
             System.out.println("list size == " +employmentstatusList.size());
             OrderByComparator orderByComparator = CustomComparatorUtil.getEmploymentStatusrOrderByComparator(sortByCol, sortByType);         
   
-           Collections.sort(employmentstatusList,orderByComparator);
+           //Collections.sort(employmentstatusList,orderByComparator);
   
           results = employmentstatusList;
           

@@ -31,7 +31,7 @@ public class LanguageAction extends MVCPortlet {
 			try {
 				Language languages = LanguageLocalServiceUtil
 						.createLanguage(CounterLocalServiceUtil.increment());
-				String id = ParamUtil.getString(actionRequest, "LanguageId");
+				String id = ParamUtil.getString(actionRequest, "languageId");
 				String name=ParamUtil.getString(actionRequest, "language_name");
 				System.out.println("id == " + id);
 				if (id == "" || id == null) {
@@ -55,7 +55,7 @@ public class LanguageAction extends MVCPortlet {
 				PortletException, SystemException {
 			ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 			
-				String id = ParamUtil.getString(actionRequest, "LanguageId");
+				String id = ParamUtil.getString(actionRequest, "languageId");
 				String name=ParamUtil.getString(actionRequest, "language_name");
 				System.out.println("id == " + id);
 					Language languages;

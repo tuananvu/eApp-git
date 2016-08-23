@@ -161,7 +161,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
             List<Skill> listOfSkills = SkillLocalServiceUtil.getSkills(searchContainer.getStart(), searchContainer.getEnd());
             OrderByComparator orderByComparator = CustomComparatorUtil.getSkillsrOrderByComparator(sortByCol, sortByType);         
   
-           Collections.sort(listOfSkills,orderByComparator);
+           //Collections.sort(listOfSkills,orderByComparator);
   
           results = listOfSkills;
           

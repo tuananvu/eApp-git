@@ -151,7 +151,7 @@ System.out.println("sortByType == " +sortByType);
             System.out.println("list size == " +jobtitleList.size());
             OrderByComparator orderByComparator = CustomComparatorUtil.getJobtitleOrderByComparator(sortByCol, sortByType);         
   
-           Collections.sort(jobtitleList,orderByComparator);
+           //Collections.sort(jobtitleList,orderByComparator);
   
           results = jobtitleList;
           

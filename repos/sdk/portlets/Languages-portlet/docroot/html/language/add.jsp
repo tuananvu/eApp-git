@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 <%@ include file="/html/language/init.jsp"%>
 
 <portlet:actionURL var="saveLanguages" name="saveLanguage">
@@ -166,8 +167,8 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
             List<Language> languageList = LanguageLocalServiceUtil.getLanguages(searchContainer.getStart(), searchContainer.getEnd());
 		OrderByComparator orderByComparator =  CustomComparatorUtil.getLanguagesOrderByComparator(sortByCol, sortByType);
    
-               Collections.sort(languageList,orderByComparator);
-  
+               //Collections.sort(languageList,orderByComparator);
+               ListUtil.sort(languageList,orderByComparator);
                results = languageList;
                total = LanguageLocalServiceUtil.getLanguagesCount();
                pageContext.setAttribute("results", results);
@@ -177,7 +178,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row className="Language"
-		keyProperty="licenseId" modelVar="licenseId" rowVar="curRow"
+		keyProperty="languageId" modelVar="languageId" rowVar="curRow"
 		escapedModel="<%= true %>">
 		<liferay-ui:search-container-column-text orderable="<%=true %>"
 			name="name" property="languageName"

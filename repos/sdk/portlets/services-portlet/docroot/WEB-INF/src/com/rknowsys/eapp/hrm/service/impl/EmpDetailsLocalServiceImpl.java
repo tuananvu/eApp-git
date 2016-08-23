@@ -57,7 +57,7 @@ public class EmpDetailsLocalServiceImpl extends EmpDetailsLocalServiceBaseImpl {
 				supervisorname, jobtitle, subunit, begin, end);
 	}
 
-	public List findByAll(long employmentStatusId, int begin, int end) throws SystemException {
-		return EmpDetailsFinderUtil.findByAll(employmentStatusId, begin, end);
+	public List findByAll(long employmentStatusId, long titleId, int begin, int end) throws SystemException {
+		return EmpDetailsFinderUtil.findByAll(employmentStatusId, titleId, begin, end);
 	}
 }

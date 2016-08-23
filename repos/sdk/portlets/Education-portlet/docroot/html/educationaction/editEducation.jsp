@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 <%@ include file="/html/educationaction/init.jsp" %>
 <portlet:actionURL var="updateEducations" name="updateEducation">
 </portlet:actionURL>
@@ -148,8 +149,8 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
             List<Education> listOfEducations = EducationLocalServiceUtil.getEducations(searchContainer.getStart(), searchContainer.getEnd());
             OrderByComparator orderByComparator = CustomComparatorUtil.getEducationOrderByComparator(sortByCol, sortByType);         
   
-           Collections.sort(listOfEducations,orderByComparator);
-  
+           //Collections.sort(listOfEducations,orderByComparator);
+           ListUtil.sort(listOfEducations,orderByComparator);
           results = listOfEducations;
           
            

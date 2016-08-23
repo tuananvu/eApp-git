@@ -88,14 +88,14 @@ font: small-caption;
 			<div class="span3">
 				
 				 <aui:select name="jobtitle001" label="01_jobtitle">
-				 <aui:option value="" selected="true">--select--</aui:option>
+				 <aui:option value="-1" selected="true">--select--</aui:option>
                         <%
                         List<JobTitle> jobtitlelist = JobTitleLocalServiceUtil.getJobTitles(-1,-1);
                                     Iterator jobtitle = jobtitlelist.iterator();
                                     while (jobtitle.hasNext()) {
                                         JobTitle jobtitle2 = (JobTitle) jobtitle.next();
                         %>
-                        <aui:option value="<%=jobtitle2.getTitle()%>"><%=jobtitle2.getTitle()%></aui:option>
+                        <aui:option value="<%=jobtitle2.getJobTitleId()%>"><%=jobtitle2.getTitle()%></aui:option>
                         <%
                             }
                         %>
@@ -147,13 +147,14 @@ font: small-caption;
   com.liferay.portal.kernel.dao.search.SearchContainer<Object> searchContainer;
 %>
 
-<liferay-ui:search-container delta="5" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="no-records-available-for-employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
+<liferay-ui:search-container delta="4" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="no-records-available-for-employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
 		<liferay-ui:search-container-results>
 		<%
 		DisplayTerms displayTerms =searchContainer.getDisplayTerms();
 		String empname = ParamUtil.getString(renderRequest, "firstName");
 		String empid = ParamUtil.getString(renderRequest, "employeeId");
 		Long employmentStatusId = ParamUtil.getLong(renderRequest, "employmentstatus");
+		long titleId = ParamUtil.getLong(renderRequest, "jobtitle001");
 		String supervisorname = ParamUtil.getString(renderRequest, "supervisorname");
 		String jobtitle = ParamUtil.getString(renderRequest, "jobtitle");
 		String subunit = ParamUtil.getString(renderRequest, "subunit");
@@ -162,10 +163,10 @@ font: small-caption;
 		//EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(groupId)
 		//ServiceContext serviceContext = ServiceContextFactory.getInstance(EmpPersonalDetails.class.getName(), renderRequest);
 		long groupId = 0;//serviceContext.getScopeGroupId();
-		searchContainer.setResults(EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, searchContainer.getStart(), searchContainer.getEnd()));
-		//searchContainer.setResults(EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(groupId, searchContainer.getStart(), searchContainer.getEnd()));
-		//searchContainer.setResults(EmpDetailsLocalServiceUtil.findEmpDetails(empname, empid, empstatus, supervisorname, jobtitle, subunit, searchContainer.getStart(), searchContainer.getEnd()));
-	     total = results.size(); 
+		results = EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd());
+		//searchContainer.setResults(EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd()));
+		searchContainer.setResults(results);
+	     total = EmpDetailsLocalServiceUtil.getEmpDetailsesCount();
 	    System.out.println("after results....parameters.." + total);
 			
 	  	pageContext.setAttribute("results", results);
@@ -178,8 +179,11 @@ font: small-caption;
 	    <liferay-ui:search-container-column-text orderable="true" name="01_firstName"
 	     value='<%= ((EmpDetails)((Object[])search)[0]).getFirstName()  %>' />
 	    <liferay-ui:search-container-column-text orderable="true" name="01_lastName"
-	     value='<%= ((EmpDetails)((Object[])search)[0]).getLastName()  %>' />	    
-	   	<liferay-ui:search-container-column-text orderable="true" name="01_employeeId"
+	     value='<%= ((EmpDetails)((Object[])search)[0]).getLastName()  %>' />
+	    <liferay-ui:search-container-column-text orderable="true" name="01_middleName"
+	     value='<%= ((EmpPersonalDetails)((Object[])search)[1]).getMiddleName()  %>' />
+	     	 	    
+	   	<liferay-ui:search-container-column-text orderable="true" name="Employee ID"
 	     value='<%= String.valueOf(((EmpPersonalDetails)((Object[])search)[1]).getEmployeeId())  %>' />	    
 	   	<liferay-ui:search-container-column-jsp name="edit"
 		 path="/html/employee/editClick.jsp" />

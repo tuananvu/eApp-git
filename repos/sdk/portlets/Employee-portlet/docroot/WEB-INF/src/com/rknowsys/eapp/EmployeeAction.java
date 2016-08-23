@@ -22,6 +22,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 
 import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.dao.orm.Criterion;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
@@ -67,6 +68,7 @@ import com.rknowsys.eapp.hrm.model.EmpWorkExp;
 import com.rknowsys.eapp.hrm.model.Employee;
 import com.rknowsys.eapp.hrm.model.Location;
 import com.rknowsys.eapp.hrm.model.PayGradeCurrency;
+import com.rknowsys.eapp.hrm.service.ClpSerializer;
 import com.rknowsys.eapp.hrm.service.EmpContactDetailsLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpDependentLocalServiceUtil;
 import com.rknowsys.eapp.hrm.service.EmpDetailsLocalServiceUtil;
@@ -234,9 +236,11 @@ public class EmployeeAction extends MVCPortlet {
 			String otherMail=ParamUtil.getString(actionRequest, "other_email");
 			Long empId = ParamUtil.getLong(actionRequest, "conEmpId");
 			System.out.println(addressStreet1+addressStreet2+empId);
-			DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil
-					.forClass(EmpContactDetails.class,
-							PortletClassLoaderUtil.getClassLoader());
+			ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+			DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil.forClass(EmpContactDetails.class, classLoader);
+			//DynamicQuery contactDetailsDynamicQuery = DynamicQueryFactoryUtil
+			//		.forClass(EmpContactDetails.class,
+			//				PortletClassLoaderUtil.getClassLoader());
 			contactDetailsDynamicQuery.add(PropertyFactoryUtil
 					.forName("employeeId").eq(empId));
 			List<EmpContactDetails> l = null;
@@ -943,8 +947,10 @@ public class EmployeeAction extends MVCPortlet {
 					}
 				String userEnteredText=ParamUtil.getString(resourceRequest, "userEnteredText");
 				 JSONArray usersJSONArray = JSONFactoryUtil.createJSONArray();
-				 DynamicQuery userQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class,
-				 PortletClassLoaderUtil.getClassLoader());
+				 ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+				DynamicQuery userQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class, classLoader);
+				 //DynamicQuery userQuery = DynamicQueryFactoryUtil.forClass(EmpPersonalDetails.class,
+				 //PortletClassLoaderUtil.getClassLoader());
 				 Criterion criterion = RestrictionsFactoryUtil.like("firstName",
 				 StringPool.PERCENT + userEnteredText + StringPool.PERCENT);
 				 userQuery.add(criterion);
@@ -968,9 +974,11 @@ public class EmployeeAction extends MVCPortlet {
 				System.out.println("dependencyDropDowns");
 				String currency=ParamUtil.getString(resourceRequest,"dropDownValue");
 				System.out.println(currency);
-				DynamicQuery currencyDynamicQuery = DynamicQueryFactoryUtil
-						.forClass(PayGradeCurrency.class,
-								PortletClassLoaderUtil.getClassLoader());
+				ClassLoader classLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(), "portletClassLoader");
+				DynamicQuery currencyDynamicQuery = DynamicQueryFactoryUtil.forClass(PayGradeCurrency.class, classLoader);
+				//DynamicQuery currencyDynamicQuery = DynamicQueryFactoryUtil
+					//	.forClass(PayGradeCurrency.class,
+						//		PortletClassLoaderUtil.getClassLoader());
 				currencyDynamicQuery.add(PropertyFactoryUtil
 						.forName("payGradeId").eq(Long.parseLong(currency)));
 				List<PayGradeCurrency> list = null;

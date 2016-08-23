@@ -99,7 +99,7 @@ public class EmpDetailsFinderImpl extends BasePersistenceImpl<EmpDetails>
 		return null;
 	}
 
-	public List<EmpDetails> findByAll(long employmentStatusId, int begin, int end) {
+	public List<EmpDetails> findByAll(long employmentStatusId, long titleId, int begin, int end) {
 
 		Session session = null;
 		try {
@@ -117,7 +117,10 @@ public class EmpDetailsFinderImpl extends BasePersistenceImpl<EmpDetails>
 			qPos.add(employmentStatusId);
 			qPos.add(employmentStatusId);
 			qPos.add(employmentStatusId);
-
+			qPos.add(titleId);
+			qPos.add(titleId);
+			qPos.add(titleId);
+			
 			return (List) QueryUtil.list(q, getDialect(), begin, end);
 		} catch (Exception e) {
 			try {

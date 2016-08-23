@@ -1,3 +1,4 @@
+<%@page import="com.liferay.portal.kernel.util.ListUtil"%>
 <%@ include file="/html/language/init.jsp" %>
 <portlet:actionURL var="updateLanguages" name="updateLanguage">
 </portlet:actionURL>
@@ -149,8 +150,8 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
             List<Language> listOfLanguages = LanguageLocalServiceUtil.getLanguages(searchContainer.getStart(), searchContainer.getEnd());
             OrderByComparator orderByComparator = CustomComparatorUtil.getLanguagesOrderByComparator(sortByCol, sortByType);         
   
-           Collections.sort(listOfLanguages,orderByComparator);
-  
+           //Collections.sort(listOfLanguages,orderByComparator);
+           ListUtil.sort(listOfLanguages,orderByComparator);
           results = listOfLanguages;
           
            
@@ -160,7 +161,7 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
                pageContext.setAttribute("total", total);
  %>
 	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Language" keyProperty="licenseId" modelVar="licenseId"  rowVar="curRow" escapedModel="<%= true %>">
+	<liferay-ui:search-container-row className="Language" keyProperty="languageId" modelVar="languageId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="languageName" orderableProperty="languageName"/>
 		
 		 <liferay-ui:search-container-column-jsp name="Edit"  path="/html/language/editClick.jsp"/>
