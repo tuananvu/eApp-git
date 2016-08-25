@@ -166,19 +166,20 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
 <div>
 <liferay-ui:search-container orderByCol="<%=sortByCol %>"
 	orderByType="<%=sortByType %>"
-	rowChecker="<%= new RowChecker(renderResponse) %>" delta="5"
+	rowChecker="<%= new RowChecker(renderResponse) %>" delta="2"
 	emptyResultsMessage="No records are available for Skills"
 	deltaConfigurable="true" iteratorURL="<%=iteratorURL%>">
 	<liferay-ui:search-container-results>
 
 		<%
-            List<Skill> skillList = SkillLocalServiceUtil.getSkills(searchContainer.getStart(), searchContainer.getEnd());
+            List<Skill> skillList = SkillLocalServiceUtil.getSkills(-1,-1);//(searchContainer.getStart(), searchContainer.getEnd());
 		OrderByComparator orderByComparator =  CustomComparatorUtil.getSkillsrOrderByComparator(sortByCol, sortByType);
-   
-               //Collections.sort(skillList,orderByComparator);
-  				ListUtil.sort(skillList, orderByComparator);
-               results = skillList;
-               total = SkillLocalServiceUtil.getSkillsCount();
+		List<Skill> copyList = ListUtil.copy(skillList);
+               Collections.sort(copyList,orderByComparator);
+  				//ListUtil.sort(skillList, orderByComparator);
+  				
+               results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());// skillList;
+               total = copyList.size(); //SkillLocalServiceUtil.getSkillsCount();//
                pageContext.setAttribute("results", results);
                pageContext.setAttribute("total", total);
 

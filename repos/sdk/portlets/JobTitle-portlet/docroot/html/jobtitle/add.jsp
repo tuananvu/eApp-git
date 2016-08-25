@@ -150,10 +150,10 @@ System.out.println("sortByType == " +sortByType);
             List<JobTitle> jobtitleList = JobTitleLocalServiceUtil.getJobTitles(searchContainer.getStart(), searchContainer.getEnd()); //UserLocalServiceUtil.getUser(-1,-1);
             System.out.println("list size == " +jobtitleList.size());
             OrderByComparator orderByComparator = CustomComparatorUtil.getJobtitleOrderByComparator(sortByCol, sortByType);         
+  			List<JobTitle> copyList = ListUtil.copy(jobtitleList);
+           Collections.sort(copyList,orderByComparator);
   
-           //Collections.sort(jobtitleList,orderByComparator);
-  
-          results = jobtitleList;
+          results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());
           
             System.out.println("results == " +results);
            

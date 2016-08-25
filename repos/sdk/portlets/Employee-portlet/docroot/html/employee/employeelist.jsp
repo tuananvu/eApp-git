@@ -147,7 +147,7 @@ font: small-caption;
   com.liferay.portal.kernel.dao.search.SearchContainer<Object> searchContainer;
 %>
 
-<liferay-ui:search-container delta="4" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="no-records-available-for-employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
+<liferay-ui:search-container delta="10" displayTerms="<%= new DisplayTerms(renderRequest) %>" emptyResultsMessage="no-records-available-for-employee"  deltaConfigurable="true"  iteratorURL="<%=iteratorURL%>">
 		<liferay-ui:search-container-results>
 		<%
 		DisplayTerms displayTerms =searchContainer.getDisplayTerms();
@@ -165,8 +165,8 @@ font: small-caption;
 		long groupId = 0;//serviceContext.getScopeGroupId();
 		results = EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd());
 		//searchContainer.setResults(EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd()));
-		searchContainer.setResults(results);
-	     total = EmpDetailsLocalServiceUtil.getEmpDetailsesCount();
+		//searchContainer.setResults(results);
+	     total = results.size();// EmpDetailsLocalServiceUtil.getEmpDetailsesCount();
 	    System.out.println("after results....parameters.." + total);
 			
 	  	pageContext.setAttribute("results", results);

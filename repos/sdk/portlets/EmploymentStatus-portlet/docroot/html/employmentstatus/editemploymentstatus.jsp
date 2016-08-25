@@ -164,15 +164,16 @@ System.out.println("sortByType == " +sortByType);
             List<EmploymentStatus> employmentstatusList = EmploymentStatusLocalServiceUtil.getEmploymentStatuses(searchContainer.getStart(), searchContainer.getEnd());
             System.out.println("list size == " +employmentstatusList.size());
             OrderByComparator orderByComparator = CustomComparatorUtil.getEmploymentStatusrOrderByComparator(sortByCol, sortByType);         
+  List<EmploymentStatus> copyList = ListUtil.copy(employmentstatusList);
   
-           Collections.sort(employmentstatusList,orderByComparator);
+           Collections.sort(copyList,orderByComparator);
   
-          results = employmentstatusList;
+          results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());//employmentstatusList;
           
             System.out.println("results == " +results);
            
      
-               total = EmploymentStatusLocalServiceUtil.getEmploymentStatusesCount();
+               total = copyList.size();// EmploymentStatusLocalServiceUtil.getEmploymentStatusesCount();
                System.out.println("total == " +total);
                pageContext.setAttribute("results", results);
                pageContext.setAttribute("total", total);
