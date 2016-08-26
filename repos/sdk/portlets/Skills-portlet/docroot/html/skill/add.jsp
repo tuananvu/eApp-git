@@ -3,7 +3,7 @@
 
 <portlet:actionURL var="saveSkills" name="saveSkill">
 </portlet:actionURL>
-<portlet:resourceURL var="deleteSkills" id="deleteSkill"/>
+<portlet:resourceURL var="deleteSkills" id="deleteSkill" />
 <portlet:renderURL var="listview">
 	<portlet:param name="mvcPath" value="/html/skill/add.jsp" />
 </portlet:renderURL>
@@ -11,6 +11,7 @@
 .table-first-header {
 	width: 10%;
 }
+
 .table-last-header {
 	width: 15%;
 }
@@ -104,37 +105,42 @@ AUI().use(
 
 <body>
 	<div id="skillAddDelete" class="span12">
-		<a href="#" id="add">Add</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" id="delete">Delete</a>
+		<a href="#" id="add">Add</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"
+			id="delete">Delete</a>
 
 	</div>
-	<div  id="addSkillForm">
-	<aui:form name="myForm" action="<%=saveSkills.toString()%>" >
-		<aui:input name="skillId" type="hidden" id="skillId" />
-		<div class="span12">
-			<div class="span3">
-				<label>Name</label>
-		</div>
-		<div class="span3">		
-		 <input name="<portlet:namespace/>skill_name" type="text" required = "required">
+	<div id="addSkillForm">
+		<aui:form name="myForm" action="<%=saveSkills.toString()%>">
+			<aui:input name="skillId" type="hidden" id="skillId" />
+			<div class="span12">
+				<div class="span3">
+					<label>Name</label>
+				</div>
+				<div class="span3">
+					<input name="<portlet:namespace/>skill_name" type="text"
+						required="required">
+				</div>
 			</div>
-		</div>
-		<div class="span12">
-			<div class="span3">
-				<label>Description</label>
-		</div>
-		<div class="span3">		
-		 <textarea name="<portlet:namespace/>skill_description" rows="5" cols="5" ></textarea>
+			<div class="span12">
+				<div class="span3">
+					<label>Description</label>
+				</div>
+				<div class="span3">
+					<textarea name="<portlet:namespace/>skill_description" rows="5"
+						cols="5"></textarea>
+				</div>
 			</div>
-		</div>
-		
-		<aui:button type="submit" value="Submit" />
-		<aui:button  type="reset" value="Cancel" id ="cancel"/>
-		
-	</aui:form>
+
+			<aui:button type="submit" value="Submit" />
+			<aui:button type="reset" value="Cancel" id="cancel" />
+
+		</aui:form>
 	</div>
-	
-	 <div><label style="color: white" >.</label></div>
-	
+
+	<div>
+		<label style="color: white">.</label>
+	</div>
+
 </body>
 
 <%
@@ -164,43 +170,42 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
   com.liferay.portal.kernel.dao.search.SearchContainer<Skill> searchContainer;
 %>
 <div>
-<liferay-ui:search-container orderByCol="<%=sortByCol %>"
-	orderByType="<%=sortByType %>"
-	rowChecker="<%= new RowChecker(renderResponse) %>" delta="2"
-	emptyResultsMessage="No records are available for Skills"
-	deltaConfigurable="true" iteratorURL="<%=iteratorURL%>">
-	<liferay-ui:search-container-results>
+	<liferay-ui:search-container orderByCol="<%=sortByCol %>"
+		orderByType="<%=sortByType %>"
+		rowChecker="<%= new RowChecker(renderResponse) %>" delta="2"
+		emptyResultsMessage="No records are available for Skills"
+		deltaConfigurable="true" iteratorURL="<%=iteratorURL%>">
+		<liferay-ui:search-container-results>
 
-		<%
+			<%
             List<Skill> skillList = SkillLocalServiceUtil.getSkills(-1,-1);//(searchContainer.getStart(), searchContainer.getEnd());
-		OrderByComparator orderByComparator =  CustomComparatorUtil.getSkillsrOrderByComparator(sortByCol, sortByType);
-		List<Skill> copyList = ListUtil.copy(skillList);
-               Collections.sort(copyList,orderByComparator);
-  				//ListUtil.sort(skillList, orderByComparator);
-  				
-               results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());// skillList;
-               total = copyList.size(); //SkillLocalServiceUtil.getSkillsCount();//
-               pageContext.setAttribute("results", results);
-               pageContext.setAttribute("total", total);
+			OrderByComparator orderByComparator =  CustomComparatorUtil.getSkillsrOrderByComparator(sortByCol, sortByType);
+			List<Skill> copyList = ListUtil.copy(skillList);
+            Collections.sort(copyList,orderByComparator);
+			//ListUtil.sort(skillList, orderByComparator);
+			
+            results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());// skillList;
+            total = copyList.size(); //SkillLocalServiceUtil.getSkillsCount();//
+            pageContext.setAttribute("results", results);
+            pageContext.setAttribute("total", total);
 
- %>
+ 			%>
 
-	</liferay-ui:search-container-results>
-	<liferay-ui:search-container-row className="Skill"
-		keyProperty="skillId" modelVar="skillId" rowVar="curRow"
-		escapedModel="<%= true %>">
-		<liferay-ui:search-container-column-text orderable="<%=true %>"
-			name="name" property="skillName"
-			orderableProperty="skillName" />
-		<liferay-ui:search-container-column-text orderable="<%=true %>"
-			name="description" property="description"
-			orderableProperty="description" />
-		<liferay-ui:search-container-column-jsp name="Edit"
-			path="/html/skill/editClick.jsp" />
+		</liferay-ui:search-container-results>
+		<liferay-ui:search-container-row className="Skill"
+			keyProperty="skillId" modelVar="skillId" rowVar="curRow"
+			escapedModel="<%= true %>">
+			<liferay-ui:search-container-column-text orderable="<%=true %>"
+				name="name" property="skillName" orderableProperty="skillName" />
+			<liferay-ui:search-container-column-text orderable="<%=true %>"
+				name="description" property="description"
+				orderableProperty="description" />
+			<liferay-ui:search-container-column-jsp name="Edit"
+				path="/html/skill/editClick.jsp" />
 
-	</liferay-ui:search-container-row>
-	<liferay-ui:search-iterator />
+		</liferay-ui:search-container-row>
+		<liferay-ui:search-iterator />
 
-</liferay-ui:search-container>
+	</liferay-ui:search-container>
 </div>
 

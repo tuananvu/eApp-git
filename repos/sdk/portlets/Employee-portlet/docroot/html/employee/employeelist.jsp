@@ -1,3 +1,5 @@
+<%@page import="com.rknowsys.eapp.hrm.model.Skill"%>
+<%@page import="com.rknowsys.eapp.hrm.service.SkillLocalServiceUtil"%>
 <%@page import="com.liferay.portal.service.ServiceContextFactory"%>
 <%@page import="com.liferay.portal.service.ServiceContext"%>
 <%@page import="java.util.Iterator"%>
@@ -82,8 +84,21 @@ font: small-caption;
 		</div>
 		 <div class="row-fluid">
 			<div class="span3">
-				<aui:input name="supervisorname" label="01_sup-name"
-					  id="supervisorname"/>
+				<!--<aui:input name="supervisorname" label="01_sup-name"
+					  id="supervisorname"/>-->
+				<aui:select name="skill" label="Skill">
+				 <aui:option value="-1" selected="true">--select--</aui:option>
+                        <%
+                        List<Skill> skillList = SkillLocalServiceUtil.getSkills(-1,-1);
+                                    Iterator skill = skillList.iterator();
+                                    while (skill.hasNext()) {
+                                        Skill skill2 = (Skill) skill.next();
+                        %>
+                        <aui:option value="<%=skill2.getSkillId()%>"><%=skill2.getSkillName()%></aui:option>
+                        <%
+                            }
+                        %>
+                    </aui:select>
 			</div>
 			<div class="span3">
 				
@@ -155,15 +170,16 @@ font: small-caption;
 		String empid = ParamUtil.getString(renderRequest, "employeeId");
 		Long employmentStatusId = ParamUtil.getLong(renderRequest, "employmentstatus");
 		long titleId = ParamUtil.getLong(renderRequest, "jobtitle001");
-		String supervisorname = ParamUtil.getString(renderRequest, "supervisorname");
-		String jobtitle = ParamUtil.getString(renderRequest, "jobtitle");
+		//String supervisorname = ParamUtil.getString(renderRequest, "supervisorname");
+		long skillId = ParamUtil.getLong(renderRequest,"skill");
+		//String jobtitle = ParamUtil.getString(renderRequest, "jobtitle");
 		String subunit = ParamUtil.getString(renderRequest, "subunit");
-		System.out.println("before results....parameters.." +empname+ ", "+empid+", "+employmentStatusId+", "+supervisorname+", "+jobtitle+", " +subunit);
+		System.out.println("before results....parameters.." +empname+ ", "+empid+", "+employmentStatusId+", "+skillId+", "+titleId+", " +subunit);
 		//long groupId = ser
 		//EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(groupId)
 		//ServiceContext serviceContext = ServiceContextFactory.getInstance(EmpPersonalDetails.class.getName(), renderRequest);
 		long groupId = 0;//serviceContext.getScopeGroupId();
-		results = EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd());
+		results = EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, skillId, searchContainer.getStart(), searchContainer.getEnd());
 		//searchContainer.setResults(EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd()));
 		//searchContainer.setResults(results);
 	     total = results.size();// EmpDetailsLocalServiceUtil.getEmpDetailsesCount();

@@ -299,10 +299,10 @@ public class EmpDetailsLocalServiceWrapper implements EmpDetailsLocalService,
 
 	@Override
 	public java.util.List findByAll(long employmentStatusId, long titleId,
-		int begin, int end)
+		long skillId, int begin, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		return _empDetailsLocalService.findByAll(employmentStatusId, titleId,
-			begin, end);
+			skillId, begin, end);
 	}
 
 	/**

@@ -11,6 +11,7 @@ import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 import com.rknowsys.eapp.hrm.model.impl.EmpDetailsImpl;
 import com.rknowsys.eapp.hrm.model.impl.EmpPersonalDetailsImpl;
+import com.rknowsys.eapp.hrm.model.impl.EmpSkillImpl;
 import com.rknowsys.eapp.hrm.model.impl.EmployeeImpl;
 import com.rknowsys.eapp.hrm.model.EmpDetails;
 
@@ -99,7 +100,7 @@ public class EmpDetailsFinderImpl extends BasePersistenceImpl<EmpDetails>
 		return null;
 	}
 
-	public List<EmpDetails> findByAll(long employmentStatusId, long titleId, int begin, int end) {
+	public List<EmpDetails> findByAll(long employmentStatusId, long titleId, long skillId, int begin, int end) {
 
 		Session session = null;
 		try {
@@ -113,6 +114,7 @@ public class EmpDetailsFinderImpl extends BasePersistenceImpl<EmpDetails>
 			q.addEntity("EmpDetails", EmpDetailsImpl.class);
 			q.addEntity("EmpPersonalDetails", EmpPersonalDetailsImpl.class);
 			q.addEntity("Employee", EmployeeImpl.class);
+			q.addEntity("EmpSkill", EmpSkillImpl.class);
 			QueryPos qPos = QueryPos.getInstance(q);
 			qPos.add(employmentStatusId);
 			qPos.add(employmentStatusId);
@@ -120,7 +122,10 @@ public class EmpDetailsFinderImpl extends BasePersistenceImpl<EmpDetails>
 			qPos.add(titleId);
 			qPos.add(titleId);
 			qPos.add(titleId);
-			
+			qPos.add(skillId);
+			qPos.add(skillId);
+			qPos.add(skillId);
+			qPos.add("%, " + String.valueOf(skillId) + "%");
 			return (List) QueryUtil.list(q, getDialect(), begin, end);
 		} catch (Exception e) {
 			try {

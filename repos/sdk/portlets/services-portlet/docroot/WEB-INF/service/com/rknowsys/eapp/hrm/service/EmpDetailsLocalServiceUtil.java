@@ -286,9 +286,10 @@ public class EmpDetailsLocalServiceUtil {
 	}
 
 	public static java.util.List findByAll(long employmentStatusId,
-		long titleId, int begin, int end)
+		long titleId, long skillId, int begin, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().findByAll(employmentStatusId, titleId, begin, end);
+		return getService()
+				   .findByAll(employmentStatusId, titleId, skillId, begin, end);
 	}
 
 	public static void clearService() {

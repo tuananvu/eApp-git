@@ -162,15 +162,15 @@ portalPrefs.setValue("NAME_SPACE", "sort-by-type", sortByCol);
             List<Skill> listOfSkills = SkillLocalServiceUtil.getSkills(-1,-1);//(searchContainer.getStart(), searchContainer.getEnd());
             OrderByComparator orderByComparator = CustomComparatorUtil.getSkillsrOrderByComparator(sortByCol, sortByType);         
             List<Skill> copyList = ListUtil.copy(listOfSkills);
-           Collections.sort(copyList,orderByComparator);
+           	Collections.sort(copyList,orderByComparator);
            
   			//ListUtil.sort(listOfSkills, orderByComparator);
-          results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());//listOfSkills;
+          	results = ListUtil.subList(copyList, searchContainer.getStart(), searchContainer.getEnd());//listOfSkills;
                
-          		total = copyList.size();//SkillLocalServiceUtil.getSkillsCount();
-               pageContext.setAttribute("results", results);
-               pageContext.setAttribute("total", total);
- %>
+       		total = copyList.size();//SkillLocalServiceUtil.getSkillsCount();
+            pageContext.setAttribute("results", results);
+            pageContext.setAttribute("total", total);
+ 		%>
 	</liferay-ui:search-container-results>
 	<liferay-ui:search-container-row className="Skill" keyProperty="skillId" modelVar="skillId"  rowVar="curRow" escapedModel="<%= true %>">
 	     <liferay-ui:search-container-column-text orderable="<%=true %>" name="name" property="skillName" orderableProperty="skillName"/>

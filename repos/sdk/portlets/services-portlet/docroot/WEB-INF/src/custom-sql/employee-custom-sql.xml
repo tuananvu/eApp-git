@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <custom-sql>
     <sql id="com.rknowsys.eapp.hrm.service.persistence.EmpDetailsFinder.findByAll">
-	SELECT ed.*, pd.*, emp.*
+	SELECT ed.*, pd.*, emp.*, eskill.*
 	FROM empdetails ed
 	INNER JOIN 
 	    emp_personal_details pd ON ed.employeeNo = pd.employeeNo
 	INNER JOIN
 		employee emp ON pd.employeeId = emp.employeeId	
+	LEFT JOIN
+		(SELECT *, group_concat(skillId SEPARATOR ', ') as skillIds
+		FROM emp_skill
+		GROUP BY employeeId)
+		AS eskill ON emp.employeeId = eskill.employeeId
 	WHERE
 	    (?=0 OR ?=-1 OR ed.employmentstatusId = ?)
-		AND (?=0 OR ?=-1 OR ed.titleId = ?)    
+		AND (?=0 OR ?=-1 OR ed.titleId = ?)
+		AND (?=0 OR ?=-1 OR eskill.skillId = ? OR eskill.skillIds like ?)
+		    
     </sql>
 </custom-sql>

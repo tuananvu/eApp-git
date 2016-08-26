@@ -24,5 +24,5 @@ public interface EmpDetailsFinder {
 		java.lang.String jobtitle, java.lang.String subunit, int begin, int end);
 
 	public java.util.List<com.rknowsys.eapp.hrm.model.EmpDetails> findByAll(
-		long employmentStatusId, long titleId, int begin, int end);
+		long employmentStatusId, long titleId, long skillId, int begin, int end);
 }

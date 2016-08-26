@@ -31,8 +31,9 @@ public class EmpDetailsFinderUtil {
 	}
 
 	public static java.util.List<com.rknowsys.eapp.hrm.model.EmpDetails> findByAll(
-		long employmentStatusId, long titleId, int begin, int end) {
-		return getFinder().findByAll(employmentStatusId, titleId, begin, end);
+		long employmentStatusId, long titleId, long skillId, int begin, int end) {
+		return getFinder()
+				   .findByAll(employmentStatusId, titleId, skillId, begin, end);
 	}
 
 	public static EmpDetailsFinder getFinder() {
