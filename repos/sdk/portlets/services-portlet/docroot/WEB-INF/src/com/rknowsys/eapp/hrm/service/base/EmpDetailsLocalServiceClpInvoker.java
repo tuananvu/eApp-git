@@ -125,7 +125,8 @@ public class EmpDetailsLocalServiceClpInvoker {
 		_methodName239 = "findByAll";
 
 		_methodParameterTypes239 = new String[] {
-				"long", "long", "long", "int", "int"
+				"long", "long", "long", "java.lang.String", "java.lang.String",
+				"int", "int"
 			};
 	}
 
@@ -245,8 +246,9 @@ public class EmpDetailsLocalServiceClpInvoker {
 			return EmpDetailsLocalServiceUtil.findByAll(((Long)arguments[0]).longValue(),
 				((Long)arguments[1]).longValue(),
 				((Long)arguments[2]).longValue(),
-				((Integer)arguments[3]).intValue(),
-				((Integer)arguments[4]).intValue());
+				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
+				((Integer)arguments[5]).intValue(),
+				((Integer)arguments[6]).intValue());
 		}
 
 		throw new UnsupportedOperationException();

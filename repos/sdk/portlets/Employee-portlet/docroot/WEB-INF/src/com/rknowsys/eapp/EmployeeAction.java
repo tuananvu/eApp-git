@@ -535,7 +535,7 @@ public class EmployeeAction extends MVCPortlet {
 				 String institute=ParamUtil.getString(actionRequest, "edu_institute");
 				 String splization=ParamUtil.getString(actionRequest, "edu_major");
 				 String year=ParamUtil.getString(actionRequest, "edu_year");
-				 String score=ParamUtil.getString(actionRequest, "edu_score");
+				 //String score=ParamUtil.getString(actionRequest, "edu_score");
 				 Date from=ParamUtil.getDate(actionRequest, "edu_from_date", dateFormat);
 				 Date to=ParamUtil.getDate(actionRequest, "edu_to_date", dateFormat);
 				 EmpEducation education=null;

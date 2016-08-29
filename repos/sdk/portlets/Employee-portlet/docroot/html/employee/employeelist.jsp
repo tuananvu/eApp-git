@@ -166,20 +166,20 @@ font: small-caption;
 		<liferay-ui:search-container-results>
 		<%
 		DisplayTerms displayTerms =searchContainer.getDisplayTerms();
-		String empname = ParamUtil.getString(renderRequest, "firstName");
-		String empid = ParamUtil.getString(renderRequest, "employeeId");
+		String firstName = ParamUtil.getString(renderRequest, "firstName");
+		String empNo = ParamUtil.getString(renderRequest, "employeeNo");
 		Long employmentStatusId = ParamUtil.getLong(renderRequest, "employmentstatus");
 		long titleId = ParamUtil.getLong(renderRequest, "jobtitle001");
 		//String supervisorname = ParamUtil.getString(renderRequest, "supervisorname");
 		long skillId = ParamUtil.getLong(renderRequest,"skill");
 		//String jobtitle = ParamUtil.getString(renderRequest, "jobtitle");
 		String subunit = ParamUtil.getString(renderRequest, "subunit");
-		System.out.println("before results....parameters.." +empname+ ", "+empid+", "+employmentStatusId+", "+skillId+", "+titleId+", " +subunit);
+		System.out.println("before results....parameters.." +firstName+ ", "+empNo+", "+employmentStatusId+", "+skillId+", "+titleId+", " +subunit);
 		//long groupId = ser
 		//EmpPersonalDetailsLocalServiceUtil.findEmpPersonalDetails(groupId)
 		//ServiceContext serviceContext = ServiceContextFactory.getInstance(EmpPersonalDetails.class.getName(), renderRequest);
 		long groupId = 0;//serviceContext.getScopeGroupId();
-		results = EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, skillId, searchContainer.getStart(), searchContainer.getEnd());
+		results = EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, skillId, firstName, empNo, searchContainer.getStart(), searchContainer.getEnd());
 		//searchContainer.setResults(EmpDetailsLocalServiceUtil.findByAll(employmentStatusId, titleId, searchContainer.getStart(), searchContainer.getEnd()));
 		//searchContainer.setResults(results);
 	     total = results.size();// EmpDetailsLocalServiceUtil.getEmpDetailsesCount();

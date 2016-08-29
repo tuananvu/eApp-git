@@ -452,11 +452,11 @@ A.ready(function()
 					</aui:input>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<!-- <div class="row-fluid">
 				<div class="span8">
 					<aui:input name="edu_score" label="01_score" inlineLabel="left"></aui:input>
 				</div>
-			</div>
+			</div>-->
 			<div class="row-fluid">
 				<div class="span8">
 					<aui:input name="edu_from_date" label="01_from" inlineLabel="left"
@@ -504,7 +504,7 @@ A.ready(function()
 				<liferay-ui:search-container-column-text name="01_level" 
 				value='<%= eduValue %>' />
 				<liferay-ui:search-container-column-text name="01_year" property="year"/>
-				<liferay-ui:search-container-column-text name="01_score" />
+				<liferay-ui:search-container-column-text name="Institute" property="institute" />
 			</liferay-ui:search-container-row>
 			<liferay-ui:search-iterator />
 		</liferay-ui:search-container>

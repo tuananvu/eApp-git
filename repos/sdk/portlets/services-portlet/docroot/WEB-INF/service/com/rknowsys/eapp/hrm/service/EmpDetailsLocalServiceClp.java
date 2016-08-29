@@ -126,7 +126,8 @@ public class EmpDetailsLocalServiceClp implements EmpDetailsLocalService {
 		_methodName20 = "findByAll";
 
 		_methodParameterTypes20 = new String[] {
-				"long", "long", "long", "int", "int"
+				"long", "long", "long", "java.lang.String", "java.lang.String",
+				"int", "int"
 			};
 	}
 
@@ -730,7 +731,8 @@ public class EmpDetailsLocalServiceClp implements EmpDetailsLocalService {
 
 	@Override
 	public java.util.List findByAll(long employmentStatusId, long titleId,
-		long skillId, int begin, int end)
+		long skillId, java.lang.String firstName, java.lang.String empNo,
+		int begin, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
@@ -743,6 +745,10 @@ public class EmpDetailsLocalServiceClp implements EmpDetailsLocalService {
 					titleId,
 						
 					skillId,
+						
+					ClpSerializer.translateInput(firstName),
+						
+					ClpSerializer.translateInput(empNo),
 						
 					begin,
 						

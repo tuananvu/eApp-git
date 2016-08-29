@@ -16,6 +16,7 @@
 	    (?=0 OR ?=-1 OR ed.employmentstatusId = ?)
 		AND (?=0 OR ?=-1 OR ed.titleId = ?)
 		AND (?=0 OR ?=-1 OR eskill.skillId = ? OR eskill.skillIds like ?)
-		    
+		AND (?='' OR ed.firstName=?)
+		AND (?='' OR ed.employeeNo=?)
     </sql>
 </custom-sql>
